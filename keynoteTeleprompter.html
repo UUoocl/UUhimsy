@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>TelePrompter</title>
+ 
+    <!-- Icons -->
+    <link rel="shortcut icon" href="teleprompterFavicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="192x192" href="assets/img/apple/icon-192x192.png" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/redmond/jquery-ui.min.css" />
+    <link rel="stylesheet" href="assets/css/style.v122.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+  </head>
+
+  <body id="gui">
+    <a href="https://github.com/manifestinteractive/teleprompter#readme" id="get-help" target="_blank" title="Get Help with TelePrompter" aria-label="Get Help with TelePrompter" data-ga data-category="Nav" data-action="Help" data-label="Get Help">
+      <i class="icon-question-sign"></i>
+    </a>
+
+    <header>
+      <h1><i class="icon icon-bullhorn"></i> <span class="clock">00:00:00</span></h1>
+      <a href="shortcuts://run-shortcut?name=Fetched" id="shortLink">Shortcut Link</a>
+      <nav>
+        
+        <button class="button icon-arrow-left remote" aria-label="Previous Slide" title="Previous Slide" data-ga data-category="Nav" data-action="Control" data-label="PreviousSlide" id="PreviousSlideButton"></button>
+        <button class="button large icon-arrow-right remote" aria-label="Next Slide" title="Next Slide" data-ga data-category="Nav" data-action="Control" data-label="NextSlide" id="NextSlideButton"></button>
+        <div class="colors" role="group" aria-label="Color Pickers">
+          <input type="color" id="text-color" value="#ffffff" aria-label="Text Color">
+          <input type="color" id="background-color" value="#141414" aria-label="Background Color">
+        </div>
+        <div class="sliders">
+          <label class="font_size_label" aria-label="Font Size">
+            Font <span>(60)</span>:&nbsp;
+            <div class="font_size slider"></div>
+          </label><br>
+          <label class="speed_label" aria-label="Page Speed">
+            Speed <span>(35)</span>:&nbsp;
+            <div class="speed slider"></div>
+          </label>
+        </div>
+        <div class="buttons" role="group" aria-label="TelePrompter Controls">
+          <button class="button small icon-eye-close dim-controls" aria-label="Dim While Reading" title="Dim While Reading" data-ga data-category="Nav" data-action="Control" data-label="Dim"></button>
+          <button class="button small icon-undo reset" aria-label="Reset TelePrompter" title="Reset TelePrompter" data-ga data-category="Nav" data-action="Control" data-label="Reset"></button>
+          <button class="button small icon-text-width flip-x" aria-label="Flip Text Horizontally" title="Flip Text Horizontally" data-ga data-category="Nav" data-action="Control" data-label="FlipX"></button>
+          <button class="button small icon-text-height flip-y" aria-label="Flip Text Vertically" title="Flip Text Vertically" data-ga data-category="Nav" data-action="Control" data-label="FlipY"></button>
+          <button class="button icon-play play active" aria-label="Play / Pause" title="Play / Pause TelePrompter" data-ga data-category="Nav" data-action="Control" data-label="Play"></button>
+        </div>
+      </nav>
+    </header>
+    <article>
+      <div class="overlay">
+        <div class="top"></div>
+        <div class="bottom"></div>
+      </div>
+      <pre style="white-space: pre-wrap;">
+        <div class="teleprompter" id="teleprompter" role="textbox" aria-multiline="true" aria-label="TelePrompter Text" contenteditable>
+          Start a Keynote presentation
+        </div>
+      </pre>
+      <i class="icon-play marker" style="display: none"></i>
+    </article>
+    <script src="lib/websocketDetails.js"></script>
+    <script src="lib/obs-ws.js" ></script>
+    <script src="lib/obsConnect.js" ></script>
+    <script>    
+      const obs = new OBSWebSocket();
+      var elemNext = document.getElementById('NextSlideButton');
+      var elemPrevious = document.getElementById('PreviousSlideButton');
+      var commandResult = "";
+      var previousCommandResult="";
+      const tbodyEl = document.querySelector("tbody");
+      const tableEl = document.querySelector("table");    
+      var poseNextControl = "off";
+      var posePreviousControl = "off";
+      var ptzNext = [20,40,50,60,50,40,20];
+      var ptz_slideNum = 0;
+      var lastWord="change slide on this word";
+      wsConnect();
+      
+      async function wsConnect() 
+      {  
+        await connectOBS(obs);
+      }
+
+      // async function load(){
+      //   //let Hks = await obs.call("GetHotkeyList")
+      //   //console.log(Hks)
+      //   //setCommandText('shortcuts list -f ZoomCuts | cat')
+      // }
+
+//Slide Triggers: Mouse, Keyboard, Midi, Gamepad, MediaPipe Pose, Voice, Zoom, PTZ camera
+
+      //Mouse clicked the Next or Previous button
+      elemNext.addEventListener('click', function (e){
+        //setCommandText('shortcuts run "Set USB PTZ position" <<< "0,100|0"')
+        //setCommandText('shortcuts run "Set USB PanTilt position" <<< "0,100|0"')
+        //setCommandText('shortcuts run "Find Displays" | cat')
+        console.log("Next clicked")
+        setCommandText('shortcuts run "Keynote_nextSlide" | cat')
+        //change scene
+        
+      })
+      
+      elemPrevious.addEventListener('click', function (e){
+        setCommandText('shortcuts run "Keynote_previousSlide" | cat')
+        console.log("Previous clicked")
+      })
+      
+      //keyboard listener
+      window.addEventListener("keydown", (event) => {
+          console.log(event)
+          switch (event.code) {
+            //Get Slide details
+            case "F18":
+                if(event.shiftKey){setCommandText('shortcuts run "Keynote_currentSlide" | cat');}
+                break;
+                //Next Slide
+            case "F19":
+              if(event.shiftKey){setCommandText('shortcuts run "Keynote_nextSlide" | cat');}
+              break;
+              //Previous Slide
+            case "F20":
+              if(event.shiftKey){setCommandText('shortcuts run "Keynote_previousSlide" | cat');}
+              break;
+            //Teleprompter Font -
+            case "F14":
+              if(event.shiftKey){TelePrompter.decreaseFont(2)}
+              break;
+            //Teleprompter Font +
+            case "F15":
+              if(event.shiftKey){TelePrompter.increaseFont(2)}
+              break;
+            //Teleprompter Speed -
+            case "F16":
+              if(event.shiftKey){TelePrompter.decreaseSpeed(2)}
+              break;
+            //Teleprompter Speed +
+            case "F17":
+              if(event.shiftKey){TelePrompter.increaseSpeed(2)}
+              break;
+            //Teleprompter play/pause
+            case "F13":
+              if(event.shiftKey){TelePrompter.playPause()}
+              break;
+          }
+        })
+      
+      //Websocket message listener
+      //Get User Media webpage https://uuoocl.github.io/GUM/
+      var ptzPan = 0, ptzTilt = 0, ptzZoom = 0, ptzFocus = 0;
+      var ptzWaiting = false;
+      //PTZ camera 
+      window.addEventListener("ptz-message", function (event) {
+        console.log("ptz event",event)})
+      
+      //mouse-message  
+      window.addEventListener("mouse-message", function (event) {
+        console.log("mouse event",event)})
+          
+      //midi
+      window.addEventListener("midi-message", function (event) {
+        console.log("midi event",event)
+        let midiData = JSON.stringify(JSON.parse(event.detail.midiEvent).data);
+        console.log("midi data", typeof midiData, midiData)
+        console.log(`midiData ${midiData}===[144,107,127]`,midiData ==="[144,107,127]")
+        switch (midiData) {
+          //Get Slide details
+          case "[144,105,127]":
+            setCommandText('shortcuts run "Keynote_currentSlide" | cat');
+            break;
+          //Next Slide
+          case "[176,23,127]":
+          case "[144,107,127]":
+            setCommandText('shortcuts run "Keynote_nextSlide" | cat');
+            break;
+          //Previous Slide
+          case "[176,22,127]":
+          case "[144,106,127]":
+            setCommandText('shortcuts run "Keynote_previousSlide" | cat');
+            break;
+          //Teleprompter Font size
+          case midiData.startsWith("[176,56,") ? midiData : '':
+            let size = JSON.parse(midiData)
+            TelePrompter.setFontSize(((size[2] + 1) / 128) * 200)
+            break;
+          //Teleprompter Speed -
+          case midiData.startsWith("[176,55,") ? midiData : '':
+            let speed = JSON.parse(midiData)
+            TelePrompter.setSpeed((((speed[2] + 1) / 128) * 50))
+            break;
+          //Teleprompter play/pause
+          case "[144,122,127]":
+            TelePrompter.playPause()
+            break;
+          //Camera Pan
+          case midiData.startsWith("[176,48,") ? midiData : '':
+            console.log("volume fader moved")
+            //get fader value 0 - 127
+            let panFader = JSON.parse(midiData)[2]
+            console.log("fader value: ", panFader)
+            //if fader is divisible by 8 then send the camera command 
+            if (panFader % 1 === 0) {
+              //scale fader to camera pan -468000 to +468000. 
+              ptzPan = Math.round(((7370.07874 * panFader) - 468000))
+              //send pan command to camera 0
+              if (!ptzWaiting){
+                ptzWaiting = true
+                setTimeout(() => {
+                  setCommandText(`Applications/Utilities/uvc-util -I 0 -s pan-tilt-abs="{${ptzPan},${ptzTilt}}"`);
+                  ptzWaiting = false
+                }, 300); 
+              }
+            }
+            break;
+          //Camera Tilt
+          case midiData.startsWith("[176,49,") ? midiData : '':
+            let tiltFader = JSON.parse(midiData)[2]
+            console.log("fader value: ", tiltFader)
+            if (tiltFader % 1 === 0) {
+              //scale fader to camera tilt -324000 to +324000. 
+              ptzTilt = Math.round(((5102.362205 * tiltFader) - 324000))
+              if (!ptzWaiting){
+                ptzWaiting = true
+                setTimeout(() => {
+                  setCommandText(`Applications/Utilities/uvc-util -I 0 -s pan-tilt-abs="{${ptzPan},${ptzTilt}}"`);
+                  ptzWaiting = false
+                }, 300); 
+              }
+            }
+            break;
+          //Camera Zoom 
+          case midiData.startsWith("[176,50,") ? midiData : '':
+            let zoomFader = JSON.parse(midiData)[2]
+            console.log("fader value: ", zoomFader)
+            if (zoomFader % 4 === 0) {
+              //scale fader to camera zoom 0 - 100. 
+              ptzZoom = Math.round(((zoomFader + 1) / 128) * 100)
+              console.log("zoom value: ", ptzZoom)
+              //send pan command to camera 0
+              setCommandText(`Applications/Utilities/uvc-util -I 0 -s zoom-abs="${ptzZoom}"`)
+            }
+            break;
+
+          //Camera Focus 
+          case midiData.startsWith("[176,51,") ? midiData : '':
+            let focusFader = JSON.parse(midiData)[2]
+            console.log("fader value: ", focusFader)
+            if (focusFader % 4 === 0) {
+              //scale fader to camera zoom 0 - 100. 
+              ptzFocus = Math.round(((focusFader + 1) / 128) * 100)
+              console.log("focus value: ", ptzFocus)
+              //send pan command to camera 0
+              setCommandText(`Applications/Utilities/uvc-util -I 0 -s auto-focus="false"`)
+              setCommandText(`Applications/Utilities/uvc-util -I 0 -s focus-abs="${ptzFocus}"`)
+            }
+            break;
+          //Auto focus on/off
+          case "[144,103,127]":
+            setCommandText(`Applications/Utilities/uvc-util -I 0 -s auto-focus="true"`)
+            break;
+        }
+      });
+      
+      //gamepad
+      window.addEventListener("gamepad-message", function (event) {
+        let gamepadData = JSON.parse(event.detail.gamepadEvent);
+        //Next slide midi code
+        if (gamepadData.buttons[1].value === 1) {
+          setCommandText('shortcuts run "Keynote_nextSlide" | cat')
+        }
+        //Previous slide midi code
+        if (gamepadData.buttons[3].value === 1) {
+          setCommandText('shortcuts run "Keynote_previousSlide" | cat')
+        }
+      });
+      
+      //mediapipe pose
+      window.addEventListener("pose-landmarks", function (event) {
+        if(event.detail.poseLandmarkerResult[16].y < event.detail.poseLandmarkerResult[0].y && poseNextControl ==='off'){
+          setCommandText('shortcuts run "Keynote_nextSlide" | cat')
+          poseNextControl = 'on';
+        }
+        if(event.detail.poseLandmarkerResult[16].y > event.detail.poseLandmarkerResult[0].y){
+          poseNextControl = "off";
+        }
+        if(event.detail.poseLandmarkerResult[15].y < event.detail.poseLandmarkerResult[0].y && posePreviousControl ==='off'){
+          setCommandText('shortcuts run "Keynote_previousSlide" | cat')
+          posePreviousControl = 'on';
+        }
+        if(event.detail.poseLandmarkerResult[15].y > event.detail.poseLandmarkerResult[0].y){
+          posePreviousControl = "off";
+        }
+      });  
+      
+      
+      //ZoomOSC 
+      //OSC to Websocket https://github.com/UUoocl/OSC_to_OBS_WebSocket  
+      window.addEventListener("zoomOSC-message", function (event) {
+        console.log(event)
+        let zoomMessage = JSON.parse(JSON.parse(JSON.stringify(event.detail.webSocketMessage)))
+        console.log(typeof zoomMessage, zoomMessage)
+        console.log(zoomMessage[0])
+        //Next slide on hand raised
+        if (zoomMessage[0].includes("/handRaised")) {
+          setCommandText('shortcuts run "Keynote_nextSlide" | cat')
+        }
+      });
+      
+      
+      //send command line
+      async function setCommandText(txt) {
+        await obs.call("SetInputSettings", {
+          inputName: 'command',
+          inputSettings: {
+            text: txt,
+          }
+        });
+        await obs.call("TriggerHotkeyByName",{hotkeyName:"RUN_CommandLine",})
+      }
+      
+      //listen for text source updates with Shortcuts results
+      obs.on("InputSettingsChanged", async function (event) {
+        console.log("text changed", event)
+        
+        //Command Line results text source updated
+        if (event.inputName === "command_result" && event.inputSettings.text) {
+          
+          console.log(event)
+          console.log(event.inputSettings.text)
+          commandResult = JSON.parse(event.inputSettings.text);
+          console.log(1)
+          console.log(commandResult)
+          commandResult = JSON.parse(commandResult);
+          console.log(2)
+          console.log(commandResult)
+          console.log("commandResult.slideNumber != previousCommandResult.slideNumber",commandResult.slideNumber != previousCommandResult.slideNumber)
+          
+          //update script when slide number changes
+          if(commandResult.slideNumber != previousCommandResult.slideNumber){
+            previousCommandResult = commandResult;
+            
+            let slideNoteJSON = `Slide ${commandResult.slideNumber}: ${commandResult.slideTitle}
+            ${JSON.parse(JSON.stringify(commandResult.slideNotes))};
+            [END OF SLIDE ${commandResult.slideNumber}]
+            Slide ${commandResult.nextSlideNumber}: ${commandResult.nextSlideTitle}
+            ${JSON.parse(JSON.stringify(commandResult.nextSlideNotes))}`
+            
+            console.log(slideNoteJSON)
+            document.getElementById("teleprompter").innerHTML = slideNoteJSON;
+            
+            //get the last word from the current slide notes
+            lastWord = commandResult.slideNotes.trim().split(' ').pop();
+            console.log(lastWord)
+            
+            if(commandResult.actionName === "keynote_currentSlide"){
+              if (commandResult.slideScene) {
+              obs.call('SetCurrentProgramScene', {sceneName: `${commandResult.slideScene}`}); 
+            }
+            } else {
+                TelePrompter.resetPageScroll();
+                obs.call('SetCurrentProgramScene', {sceneName: `${commandResult.slideScene}`}); 
+            }
+          }
+        }
+
+      //PTZ text source updated
+        if (event.inputName === "PTZ_Camera1_results") {
+          console.log("PTZ Change")
+          const telemetry = JSON.parse(event.inputSettings.text);
+          console.log(telemetry)
+          console.log(typeof telemetry)
+          console.log(ptzNext[0])
+          console.log(ptzNext[ptz_slideNum])
+          if(ptz_slideNum > 3){
+            if(telemetry.pan < ptzNext[ptz_slideNum]){
+              setCommandText('shortcuts run "Keynote_nextSlide" | cat')
+              ptz_slideNum += 1
+            }
+          }
+          else{
+            if(telemetry.pan > ptzNext[ptz_slideNum]){
+              setCommandText('shortcuts run "Keynote_nextSlide" | cat')
+              ptz_slideNum += 1  
+              }  
+            }
+           if(ptz_slideNum > 6){ptz_slideNum = 0}; 
+          }
+
+      //LocalVocal results text source updated 
+        if (event.inputName === "LocalVocal Subtitles") {
+          // console.log("local vocal change", lastWord)
+          // console.log(event.inputSettings.text);
+          // console.log(lastWord)
+
+          if(event.inputSettings.text.includes(lastWord)){
+            setCommandText('shortcuts run "Keynote_nextSlide" | cat')
+          }
+        }
+      })
+
+      //check if a string is JSON
+      function isJson(str) {
+          try {
+            JSON.parse(str);
+          } catch (e) {
+            return false;
+          }
+          return true;
+        }
+      </script>
+    
+    <script src="assets/js/plugins.v122.js"></script>
+    <script src="assets/js/script.v122.js"></script>
+
+    <script>
+      // Initialize App
+      window.onload = function() {
+        TelePrompter.init();
+      };
+    </script>
+  </body>
+</html>
