@@ -100,7 +100,7 @@ for k1,v1 in pairs(SHORTCUT_COMBO) do
 				obs.timer_remove(clear_text)
 				g_source_text = htk_text
 				update_text("" .. htk_text)
-				obs.timer_add(remove_asterisk, ASTERISK_DUR)
+				--obs.timer_add(remove_asterisk, ASTERISK_DUR)
 				obs.timer_add(clear_text, g_stay_seconds * 1000)
 			end
 		end
@@ -108,7 +108,7 @@ for k1,v1 in pairs(SHORTCUT_COMBO) do
 end
 JSON_DATA = JSON_DATA .. "}"
 
-ASTERISK_DUR = 300 -- asterisk signifies 'fresh' hotkey
+--ASTERISK_DUR = 300 -- asterisk signifies 'fresh' hotkey
 
 -- global variables
 g_source_name = ""

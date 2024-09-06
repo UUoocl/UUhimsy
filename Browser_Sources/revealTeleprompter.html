@@ -63,6 +63,9 @@
     <script src="obs_webSocket_details/websocketDetails.js"></script>
     <script src="obs_webSocket_details/obs-ws.js" ></script>
     <script src="obs_webSocket_details/obsConnect.js" ></script>
+    <!-- hotkey config -->
+    <script src="js/hotkeyConfig.js" ></script>
+
     <script>    
       const obs = new OBSWebSocket();
       var elemNext = document.getElementById('NextSlideButton');
@@ -129,14 +132,15 @@
       obs.on("InputSettingsChanged", async function (event) {
             //console.log(event);
           if(event.inputName === "hotkeyText") {
-          console.log(event)
+          console.log("hotkeyText Changed",event)
           switch (event.inputSettings.text) {
             //Get Slide details
-            case "F18":
-                if(event.shiftKey){setCommandText('shortcuts run "Keynote_currentSlide" | cat');}
-                break;
-                //Next Slide
-            case "F19":
+            // case getCurrentSlideNotes:
+            //     if(event.shiftKey){setCommandText('shortcuts run "Keynote_currentSlide" | cat');}
+            //     break;
+            //     //Next Slide
+            case nextSlide_HK:
+              console.log("hotkey variable"  )
             obs.call("CallVendorRequest", {
           vendorName: "obs-browser",
           requestType: "emit_event",
@@ -146,7 +150,7 @@
         });
               break;
               //Previous Slide
-            case "F20":
+            case previousSlide_HK:
             obs.call("CallVendorRequest", {
           vendorName: "obs-browser",
           requestType: "emit_event",
@@ -156,24 +160,24 @@
         });
               break;
             //Teleprompter Font -
-            case "F14":
-              if(event.shiftKey){TelePrompter.decreaseFont(2)}
+            case  prompterFontDecrease_HK:
+              TelePrompter.decreaseFont(2)
               break;
             //Teleprompter Font +
-            case "F15":
-              if(event.shiftKey){TelePrompter.increaseFont(2)}
+            case prompterFontIncrease_HK:
+              TelePrompter.increaseFont(2)
               break;
             //Teleprompter Speed -
-            case "F16":
-              if(event.shiftKey){TelePrompter.decreaseSpeed(2)}
+            case prompterScrollDecrease_HK:
+              TelePrompter.decreaseSpeed(2)
               break;
             //Teleprompter Speed +
-            case "F17":
-              if(event.shiftKey){TelePrompter.increaseSpeed(2)}
+            case prompterScrollIncrease_HK:
+              TelePrompter.increaseSpeed(2)
               break;
             //Teleprompter play/pause
-            case "F13":
-              if(event.shiftKey){TelePrompter.playPause()}
+            case prompterPlayPause_HK:
+              TelePrompter.playPause()
               break;
           }}
         })
