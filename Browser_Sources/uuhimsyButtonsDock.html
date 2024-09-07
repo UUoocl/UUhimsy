@@ -111,8 +111,8 @@
                 font-size: 30px;
                 border-radius: 10px;
                 font-weight: 1;
-                font
 }
+
             </style>
 </head>
 
@@ -137,8 +137,8 @@
         let buttonPadding = 35
 
         function createScreenShareButtons(){    
-            //Create Slide Buttons
-            buttons[i===0?0:i+=1] = createButton(`Screen Share Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue')
+            //Create Screen Share Buttons
+            buttons[i===0?0:i+=1] = createButton(`Screen Share Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{obsGoToScene('Scene Screen Share')})
             buttons[i+=1] = createButton(`Full Screen (${fullScreen_HK})`).position(0, (buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button l').mousePressed(()=>fullScreen())
             buttons[i+=1] = createButton(`Follow Mouse (${followMouse_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>followMouse(mouseCoordinates))
             buttons[i+=1] = createButton(`Follow Mouse and Zoom (${followMouseAndZoom_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>zoomAndFollowMouse(mouseCoordinates))
@@ -149,22 +149,48 @@
          createButton(`Refresh Browsers 🔄 (${refreshOBSbrowsers_HK})`).position(0, windowHeight-60).class('button negative l').mousePressed(()=>refreshOBSbrowsers())
         }
 
-        function createSlideButtons(){    
+        function createSlideButtons(app){    
             //Create Slide Buttons
-            buttons[i===0 ? 0 : i+=1] = createButton(`Slide Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue')
-            buttons[i+=1] = createButton(`Next Slide (${nextSlide_HK})`).position(0, (i===0 ? 0:buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button l').mousePressed(()=>hotkeyUpdate(nextSlide_HK))
-            buttons[i+=1] = createButton(`Previous Slide (${previousSlide_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>hotkeyUpdate(previousSlide_HK))
-            buttons[i+=1] = createButton(`Prompter Text Size`).position(0,buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l outline')
+            buttons[i===0 ? 0 : i+=1] = createButton(`Slide Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{obsGoToScene('Scene Slides')})
+            buttons[i+=1] = createRadio().position(0, (0 ,buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button l').id('appName').mousePressed(()=>{labelUpdate(buttons[i].value())})
+            buttons[i].option('reveal',' Reveal ')
+            if(navigator.platform.includes('Mac')){
+              buttons[i].option('keynote', ' Keynote ')
+              buttons[i].option('ppt',' PowerPoint ')
+            }
+            buttons[i].selected('reveal')
+            labelUpdate('reveal')
+            buttons[i+=1] = createButton(`Next Slide (${nextSlide_HK})`).position(0, (15+buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button l').id('nextSlideButton').mousePressed(()=>hotkeyUpdate(nextSlide_HK))
+            buttons[i+=1] = createButton(`Previous Slide (${prevSlide_HK})`).position(0, (buttonPadding-10)+(buttons[i-1].y+buttons[i-1].height)).class('button l').id('prevSlideButton').mousePressed(()=>hotkeyUpdate(prevSlide_HK))
+            buttons[i+=1] = createButton(`Prompter Text Size`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l outline')
             buttons[i+=1] = createButton(`- (${prompterFontDecrease_HK})`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button left l').mousePressed(()=>hotkeyUpdate(prompterFontDecrease_HK))
             buttons[i+=1] = createButton(`+ (${prompterFontIncrease_HK})`).position(windowWidth/2, buttonPadding+25+(buttons[i-2].y+buttons[i-1].height)).class('button left l').mousePressed(()=>hotkeyUpdate(prompterFontIncrease_HK))
             buttons[i+=1] = createButton(`Prompter ScrollSpeed`).position(0,buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button outline')
             buttons[i+=1] = createButton(`- (${prompterScrollDecrease_HK})`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button left l').mousePressed(()=>hotkeyUpdate(prompterScrollDecrease_HK))
             buttons[i+=1] = createButton(`+ (${prompterScrollIncrease_HK})`).position(windowWidth/2, buttonPadding+25+(buttons[i-2].y+buttons[i-1].height)).class('button left l').mousePressed(()=>hotkeyUpdate(prompterScrollIncrease_HK))
             buttons[i+=1] = createButton(`Play / Pause ⏯️ (${prompterPlayPause_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>hotkeyUpdate(prompterPlayPause_HK))
-        }
+            
+            }
+            
+            
+            function labelUpdate(value){
+                setTimeout(()=>{
+                    selectedSlideApp = document.querySelector('input[name="radioOption"]:checked').value
+                    nextSlide_HK = eval(`${selectedSlideApp}NextSlide_HK`)
+                    prevSlide_HK = eval(`${selectedSlideApp}PreviousSlide_HK`)
+                    document.getElementById('nextSlideButton').innerHTML = `Next Slide (${nextSlide_HK})`
+                    document.getElementById('prevSlideButton').innerHTML = `Previous Slide (${prevSlide_HK})`
+                }, 10);    
+            }
+
+            async function obsGoToScene(scene){
+                await obs.call("SetCurrentProgramScene", {
+                sceneName: scene,
+            });
+            }
 
         async function hotkeyUpdate(txt){
-            console.log("hotkey update")
+            console.log("hotkey update", txt)
             await obs.call("SetInputSettings", {
                 inputName: 'hotkeyText',
                 inputSettings: {

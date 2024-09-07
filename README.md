@@ -47,7 +47,8 @@ To use all the features enabled by UUhimsy, first install the required Apps and 
 The JavaScript libraries used by UUhimsy are included in this repo.  
 [P5js](https://p5js.org/), 
 [cables](https://cables.gl/home), 
-[Revealjs](https://revealjs.com/)
+[Revealjs](https://revealjs.com/),
+[teleprompter](https://github.com/manifestinteractive/teleprompter)
 
 ### Configure OBS
 A starter OBS configuration is included in this repo.  OBS is configured through "Profile" settings and "Collection" settings. Import the Profile and Collection.  
