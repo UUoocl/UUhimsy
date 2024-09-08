@@ -19,7 +19,7 @@
       <i class="icon-question-sign"></i>
     </a>
 
-    <header>
+    <header >
       <h1><i class="icon icon-bullhorn"></i> <span class="clock">00:00:00</span></h1>
       <nav>
         
@@ -55,7 +55,7 @@
       </div>
       <pre style="white-space: pre-wrap;">
         <div class="teleprompter" id="teleprompter" role="textbox" aria-multiline="true" aria-label="TelePrompter Text" contenteditable>
-          Start a Reveal.js presentation
+          Start a presentation
         </div>
       </pre>
       <i class="icon-play marker" style="display: none"></i>
@@ -63,11 +63,12 @@
     <script src="obs_webSocket_details/websocketDetails.js"></script>
     <script src="obs_webSocket_details/obs-ws.js" ></script>
     <script src="obs_webSocket_details/obsConnect.js" ></script>
+    <script src="obs_webSocket_details/startConnection.js"></script>
+
     <!-- hotkey config -->
     <script src="js/hotkeyConfig.js" ></script>
 
     <script>    
-      const obs = new OBSWebSocket();
       var elemNext = document.getElementById('NextSlideButton');
       var elemPrevious = document.getElementById('PreviousSlideButton');
       var commandResult = "";
@@ -79,12 +80,6 @@
       var ptzNext = [20,40,50,60,50,40,20];
       var ptz_slideNum = 0;
       var lastWord="change slide on this word";
-      wsConnect();
-      
-      async function wsConnect() 
-      {  
-        await connectOBS(obs);
-      }
 
       // async function load(){
       //   //let Hks = await obs.call("GetHotkeyList")
@@ -101,9 +96,15 @@
         //setCommandText('shortcuts run "Find Displays" | cat')
         console.log("Next clicked")
 
-        //setCommandText('shortcuts run "Keynote_nextSlide" | cat')
-        
+        if(slideAppName === 'keynote'){
+        setCommandText('shortcuts run "Keynote_nextSlide" | cat')
+        }
+
+        if(slideAppName === 'ppt'){
+        setCommandText('shortcuts run "PowerPoint_nextSlide" | cat')
+        }
         //send next slide to Reveal Slides
+        if(slideAppName === 'reveal'){
         obs.call("CallVendorRequest", {
           vendorName: "obs-browser",
           requestType: "emit_event",
@@ -111,11 +112,21 @@
             event_name: "nextSlide",
           },
         });
+      }
         
       })
       
       elemPrevious.addEventListener('click', function (e){
-        //setCommandText('shortcuts run "Keynote_previousSlide" | cat')
+        if(slideAppName === 'keynote'){
+        setCommandText('shortcuts run "Keynote_previousSlide" | cat')
+        }
+
+        if(slideAppName === 'ppt'){
+        setCommandText('shortcuts run "PowerPoint_previousSlide" | cat')
+        }
+
+        //send next slide to Reveal Slides
+        if(slideAppName === 'reveal'){
         console.log("Previous clicked")
         //send previous slide to Reveal Slides
         obs.call("CallVendorRequest", {
@@ -125,40 +136,65 @@
             event_name: "previousSlide",
           },
         });
+      }
       })
       
-      //keyboard listener
+      //Hotkey Text Source change Listener
       //window.addEventListener("keydown", (event) => {
       obs.on("InputSettingsChanged", async function (event) {
             //console.log(event);
           if(event.inputName === "hotkeyText") {
-          console.log("hotkeyText Changed",event)
+          //console.log("hotkeyText Changed",event)
           switch (event.inputSettings.text) {
-            //Get Slide details
-            // case getCurrentSlideNotes:
-            //     if(event.shiftKey){setCommandText('shortcuts run "Keynote_currentSlide" | cat');}
-            //     break;
-            //     //Next Slide
-            case nextSlide_HK:
-              console.log("hotkey variable"  )
-            obs.call("CallVendorRequest", {
-          vendorName: "obs-browser",
-          requestType: "emit_event",
-          requestData: {
-            event_name: "nextSlide",
-          },
-        });
+                case revealNextSlide_HK:
+                console.log("hotkey variable")
+                obs.call("CallVendorRequest", {
+                  vendorName: "obs-browser",
+                  requestType: "emit_event",
+                  requestData: {
+                    event_name: "nextSlide",
+                  },
+                });
+                break;
+                //Previous Slide
+                case revealPreviousSlide_HK:
+                  obs.call("CallVendorRequest", {
+                    vendorName: "obs-browser",
+                    requestType: "emit_event",
+                    requestData: {
+                      event_name: "previousSlide",
+                    },
+                  });
+                  break;
+
+            //Get current Keynote Slide details
+            case keynoteCurrentSlide_HK:
+              setCommandText('shortcuts run "Keynote_currentSlide" | cat');
               break;
-              //Previous Slide
-            case previousSlide_HK:
-            obs.call("CallVendorRequest", {
-          vendorName: "obs-browser",
-          requestType: "emit_event",
-          requestData: {
-            event_name: "previousSlide",
-          },
-        });
+            //Keynote Next Slide
+            case keynoteNextSlide_HK:
+              setCommandText('shortcuts run "Keynote_nextSlide" | cat');
               break;
+            //Keynote Previous Slide
+            case keynotePreviousSlide_HK:
+              setCommandText('shortcuts run "Keynote_previousSlide" | cat');
+              break;
+
+            //Get current Keynote Slide details
+            // case pptCurrentSlide_HK:
+            //   setCommandText('shortcuts run "Keynote_currentSlide" | cat');
+            //   break;
+            //Keynote Next Slide
+            case pptNextSlide_HK:
+              setCommandText('shortcuts run "PowerPoint_nextSlide" | cat');
+              break;
+            //Keynote Previous Slide
+            case pptPreviousSlide_HK:
+              setCommandText('shortcuts run "PowerPoint_previousSlide" | cat');
+              break;
+
+
+
             //Teleprompter Font -
             case  prompterFontDecrease_HK:
               TelePrompter.decreaseFont(2)
@@ -180,6 +216,70 @@
               TelePrompter.playPause()
               break;
           }}
+        //Command Line results text source updated
+        if (event.inputName === "CommandResultsText" && event.inputSettings.text && slideAppName === 'keynote') {
+          
+          console.log(event)
+          console.log(event.inputSettings.text)
+          commandResult = JSON.parse(event.inputSettings.text);
+          console.log(1)
+          console.log(commandResult)
+          commandResult = JSON.parse(commandResult);
+          console.log(2)
+          console.log(commandResult)
+          console.log("commandResult.slideNumber != previousCommandResult.slideNumber",commandResult.slideNumber != previousCommandResult.slideNumber)
+          
+          //update script when slide number changes
+          if(commandResult.slideNumber != previousCommandResult.slideNumber){
+            previousCommandResult = commandResult;
+            
+            let slideNoteJSON = `Slide ${commandResult.slideNumber}: ${commandResult.slideTitle}
+            ${JSON.parse(JSON.stringify(commandResult.slideNotes))};
+            [END OF SLIDE ${commandResult.slideNumber}]
+            Slide ${commandResult.nextSlideNumber}: ${commandResult.nextSlideTitle}
+            ${JSON.parse(JSON.stringify(commandResult.nextSlideNotes))}`
+            
+            console.log(slideNoteJSON)
+            document.getElementById("teleprompter").innerHTML = slideNoteJSON;
+            
+            //get the last word from the current slide notes
+            lastWord = commandResult.slideNotes.trim().split(' ').pop();
+            console.log(lastWord)
+            
+            if(commandResult.actionName === "keynote_currentSlide"){
+              if (commandResult.slideScene) {
+              obs.call('SetCurrentProgramScene', {sceneName: `${commandResult.slideScene}`}); 
+            }
+            } else {
+                TelePrompter.resetPageScroll();
+                obs.call('SetCurrentProgramScene', {sceneName: `${commandResult.slideScene}`}); 
+            }
+          }
+        }
+
+        if (event.inputName === "CommandResultsText" && event.inputSettings.text && slideAppName === 'ppt') {
+          
+          console.log(event.inputSettings.text)
+          let commandResult = JSON.parse(event.inputSettings.text);
+          console.log(1)
+          console.log(commandResult)
+          //commandResult = JSON.parse(commandResult);
+          //console.log(2)
+          //console.log(commandResult)
+          console.log("commandResult.slidePosition != previousCommandResult.slidePosition",commandResult.slidePosition != previousCommandResult.slidePosition)
+          
+          if(commandResult.slidePosition != previousCommandResult.slidePosition){
+            previousCommandResult = commandResult;
+            
+            let slideNoteJSON = JSON.parse(JSON.stringify(commandResult.slideNotes));
+            console.log(slideNoteJSON)
+            document.getElementById("teleprompter").innerHTML = slideNoteJSON;
+            lastWord = commandResult.slideNotes.trim().split(' ').pop();
+            console.log(lastWord)
+            TelePrompter.resetPageScroll();
+          }
+        }
+
         })
       
 
@@ -187,6 +287,13 @@
       //Get User Media webpage https://uuoocl.github.io/GUM/
       var ptzPan = 0, ptzTilt = 0, ptzZoom = 0, ptzFocus = 0;
       var ptzWaiting = false;
+      //Slide App Changed on the Controls page
+      window.addEventListener("slideAppChanged", function (event) {
+        console.log("slide app change event",event)
+        slideAppName = event.detail.slideAppName
+        console.log("slide app name",slideAppName)
+      })
+
       //PTZ camera 
       window.addEventListener("ptz-message", function (event) {
         console.log("ptz event",event)})
@@ -195,7 +302,7 @@
       window.addEventListener("mouse-message", function (event) {
         console.log("mouse event",event)})
           
-      //midi
+      //midi input
       window.addEventListener("midi-message", function (event) {
         console.log("midi event",event)
         let midiData = JSON.stringify(JSON.parse(event.detail.midiEvent).data);
@@ -344,12 +451,10 @@
         }
       });
       
-      
-      
       //send command line
       async function setCommandText(txt) {
         await obs.call("SetInputSettings", {
-          inputName: 'command',
+          inputName: 'CommandText',
           inputSettings: {
             text: txt,
           }
@@ -361,29 +466,32 @@
       window.addEventListener("slideChangeResult", function (event) {
         console.log(event)
         let revealMessage = JSON.parse(JSON.parse(event.detail.results))
-        console.log(revealMessage, typeof revealMessage)
-        console.log(revealMessage.slideNotes)
-        //console.log(JSON.parse(revealMessage.slideTitle))
-        let slideNoteJSON = `Slide ${revealMessage.slideNumber}: ${revealMessage.slideTitle}
-            ${revealMessage.slideNotes};
-            [END OF SLIDE ${revealMessage.slideNumber}]
-            Slide ${revealMessage.nextSlideNumber}: ${revealMessage.nextSlideTitle}
-            ${revealMessage.nextSlideNotes}`
-            
-            console.log(slideNoteJSON)
-            document.getElementById("teleprompter").innerHTML = slideNoteJSON;
-            
-            //get the last word from the current slide notes
-            lastWord = revealMessage.slideNotes.trim().split(' ').pop();
-            console.log(lastWord)
-            
-            TelePrompter.resetPageScroll();
+        if(revealMessage.app ==="reveal"){
 
-            if(revealMessage.slideScene){
-              obs.call('SetCurrentProgramScene', {sceneName: `${revealMessage.slideScene}`}); 
-            }
-
-
+          console.log(revealMessage, typeof revealMessage)
+          console.log(revealMessage.slideNotes)
+          //console.log(JSON.parse(revealMessage.slideTitle))
+          let slideNoteJSON = `Slide ${revealMessage.slideNumber}: ${revealMessage.slideTitle}
+          ${revealMessage.slideNotes};
+          [END OF SLIDE ${revealMessage.slideNumber}]
+          Slide ${revealMessage.nextSlideNumber}: ${revealMessage.nextSlideTitle}
+          ${revealMessage.nextSlideNotes}`
+          
+          console.log(slideNoteJSON)
+          document.getElementById("teleprompter").innerHTML = slideNoteJSON;
+          
+          //get the last word from the current slide notes
+          lastWord = revealMessage.slideNotes.trim().split(' ').pop();
+          console.log(lastWord)
+          
+          TelePrompter.resetPageScroll();
+          
+          if(revealMessage.slideScene){
+            obs.call('SetCurrentProgramScene', {sceneName: `${revealMessage.slideScene}`}); 
+          }
+        }
+          
+          
       //PTZ text source updated
       if (event.inputName === "PTZ_Camera1_results") {
           console.log("PTZ Change")
@@ -437,6 +545,8 @@
       // Initialize App
       window.onload = function() {
         TelePrompter.init();
+        document.querySelector("Header").remove()
+        document.getElementById("get-help").remove()
       };
     </script>
   </body>

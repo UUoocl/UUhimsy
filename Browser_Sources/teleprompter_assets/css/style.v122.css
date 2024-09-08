@@ -84,7 +84,7 @@ article {
   position: relative;
   height: 100%;
   background-color: #141414;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 article .teleprompter {

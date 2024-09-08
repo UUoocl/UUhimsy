@@ -1,444 +1,82 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+window.addEventListener("nextSlide", function (event) {
+    //console.log("message received: ",event)
+    Reveal.next();
+    changeSlide("reveal_nextSlide")
+})
 
-    <title>Reveal TelePrompter</title>
- 
-    <!-- Styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap">
-    <link rel="stylesheet" href="teleprompter_assets/css/jquery-ui.min.css" />
-    <link rel="stylesheet" href="teleprompter_assets/css/style.v122.css">
-    <link rel="stylesheet" href="teleprompter_assets/css/font-awesome.min.css">
+window.addEventListener("previousSlide", function (event) {
+    //console.log("message received: ",event)
+    Reveal.prev();
+    changeSlide("reveal_previousSlide");
+})
 
-  </head>
+let previousSlideIndex = {"h" : -1, "v" : -1};
 
-  <body id="gui">
-    <a href="https://github.com/manifestinteractive/teleprompter#readme" id="get-help" target="_blank" title="Get Help with TelePrompter" aria-label="Get Help with TelePrompter" data-ga data-category="Nav" data-action="Help" data-label="Get Help">
-      <i class="icon-question-sign"></i>
-    </a>
+function changeSlide(direction){
+    //After changing slides, create an object with the notes for the current slide and the next slide. 
+    //Get current Slide ID and Notes
+    let slideTitle = Reveal.getCurrentSlide().attributes.id ? Reveal.getCurrentSlide().attributes.id.value : ""
+    let slideNotes = Reveal.getSlideNotes()
+    let slideScene = ''
+    //if notes contains '|' split text. 
+    if(slideNotes.includes("|")){
+        slideNotes = slideNotes.split("|")
+        slideScene = slideNotes[0];
+        slideNotes = slideNotes[1];
+    }
 
-    <header>
-      <h1><i class="icon icon-bullhorn"></i> <span class="clock">00:00:00</span></h1>
-      <nav>
-        
-        <button class="button icon-arrow-left remote" aria-label="Previous Slide" title="Previous Slide" data-ga data-category="Nav" data-action="Control" data-label="PreviousSlide" id="PreviousSlideButton"></button>
-        <button class="button large icon-arrow-right remote" aria-label="Next Slide" title="Next Slide" data-ga data-category="Nav" data-action="Control" data-label="NextSlide" id="NextSlideButton"></button>
-        <div class="colors" role="group" aria-label="Color Pickers">
-          <input type="color" id="text-color" value="#ffffff" aria-label="Text Color">
-          <input type="color" id="background-color" value="#141414" aria-label="Background Color">
-        </div>
-        <div class="sliders">
-          <label class="font_size_label" aria-label="Font Size">
-            Font <span>(60)</span>:&nbsp;
-            <div class="font_size slider"></div>
-          </label><br>
-          <label class="speed_label" aria-label="Page Speed">
-            Speed <span>(35)</span>:&nbsp;
-            <div class="speed slider"></div>
-          </label>
-        </div>
-        <div class="buttons" role="group" aria-label="TelePrompter Controls">
-          <button class="button small icon-eye-close dim-controls" aria-label="Dim While Reading" title="Dim While Reading" data-ga data-category="Nav" data-action="Control" data-label="Dim"></button>
-          <button class="button small icon-undo reset" aria-label="Reset TelePrompter" title="Reset TelePrompter" data-ga data-category="Nav" data-action="Control" data-label="Reset"></button>
-          <button class="button small icon-text-width flip-x" aria-label="Flip Text Horizontally" title="Flip Text Horizontally" data-ga data-category="Nav" data-action="Control" data-label="FlipX"></button>
-          <button class="button small icon-text-height flip-y" aria-label="Flip Text Vertically" title="Flip Text Vertically" data-ga data-category="Nav" data-action="Control" data-label="FlipY"></button>
-          <button class="button icon-play play active" aria-label="Play / Pause" title="Play / Pause TelePrompter" data-ga data-category="Nav" data-action="Control" data-label="Play"></button>
-        </div>
-      </nav>
-    </header>
-    <article>
-      <div class="overlay">
-        <div class="top"></div>
-        <div class="bottom"></div>
-      </div>
-      <pre style="white-space: pre-wrap;">
-        <div class="teleprompter" id="teleprompter" role="textbox" aria-multiline="true" aria-label="TelePrompter Text" contenteditable>
-          Start a Reveal.js presentation
-        </div>
-      </pre>
-      <i class="icon-play marker" style="display: none"></i>
-    </article>
-    <script src="obs_webSocket_details/websocketDetails.js"></script>
-    <script src="obs_webSocket_details/obs-ws.js" ></script>
-    <script src="obs_webSocket_details/obsConnect.js" ></script>
-    <!-- hotkey config -->
-    <script src="js/hotkeyConfig.js" ></script>
+    //Get Available Routes
+    let currentIndex = Reveal.getIndices()
+    console.log(JSON.stringify(currentIndex))
+    let availableRoutes = Reveal.availableRoutes();
+    console.log(Reveal.availableRoutes());
+    console.log(availableRoutes);
+    console.log(availableRoutes.down);
+    console.log(availableRoutes.right);
+    //If Down route available, Get Down Slide ID and Notes
+    let nextSlideTitle,nextSlideNotes, nextSlideScene="";
+    if(availableRoutes.down === true){
+        nextSlideTitle = Reveal.getSlide(currentIndex.h,currentIndex.v+1).attributes.id ? Reveal.getSlide(currentIndex.h,currentIndex.v+1).attributes.id.value : "";
+        nextSlideNotes = Reveal.getSlideNotes(Reveal.getSlide(currentIndex.h,currentIndex.v+1))
+    }
+    //else If Right, get Right Slide ID and Notes
+    else if(availableRoutes.right === true){
+        nextSlideTitle = Reveal.getSlide(currentIndex.h+1).attributes.id ? Reveal.getSlide(currentIndex.h+1).attributes.id :""
+        nextSlideNotes = Reveal.getSlideNotes(Reveal.getSlide(currentIndex.h+1))
+    }
+    //else end of slides
+    else{
+        nextSlideTitle = "End of Slides"
+        nextSlideNotes = "End of Slides"
+    }
 
-    <script>    
-      const obs = new OBSWebSocket();
-      var elemNext = document.getElementById('NextSlideButton');
-      var elemPrevious = document.getElementById('PreviousSlideButton');
-      var commandResult = "";
-      var previousCommandResult="";
-      const tbodyEl = document.querySelector("tbody");
-      const tableEl = document.querySelector("table");    
-      var poseNextControl = "off";
-      var posePreviousControl = "off";
-      var ptzNext = [20,40,50,60,50,40,20];
-      var ptz_slideNum = 0;
-      var lastWord="change slide on this word";
-      wsConnect();
-      
-      async function wsConnect() 
-      {  
-        await connectOBS(obs);
-      }
+    if(nextSlideNotes.includes("|")){
+        nextSlideNotes = nextSlideNotes.split("|")
+        nextSlideScene = nextSlideNotes[0];
+        nextSlideNotes = nextSlideNotes[1];
+    }else{nextSlideScene = ""}
+  
+let results = `{"app":"reveal","actionName":"${direction}", "slideNumber": "","slideScene":${JSON.stringify(slideScene)}, "slideNotes": ${JSON.stringify(slideNotes)}, "slideTitle": ${JSON.stringify(slideTitle)},"nextSlideNumber": "","nextSlideScene":${JSON.stringify(nextSlideScene)}, "nextSlideNotes": ${JSON.stringify(nextSlideNotes)}, "nextSlideTitle": ${JSON.stringify(nextSlideTitle)}}`
 
-      // async function load(){
-      //   //let Hks = await obs.call("GetHotkeyList")
-      //   //console.log(Hks)
-      //   //setCommandText('shortcuts list -f ZoomCuts | cat')
-      // }
+results = JSON.stringify(results);
+console.log(results)
+//results = results.replace('“','"').replace('”','"').replace('“','"').replace('”','"')
+//send results to OBS Browser Source
 
-//Slide Triggers: Mouse, Keyboard, Midi, Gamepad, MediaPipe Pose, Voice, Zoom, PTZ camera
+//when slide changes send new notes to teleprompter. 
+console.log("currentIndex.h === previousSlideIndex.h", currentIndex.h , previousSlideIndex.h, currentIndex.h === previousSlideIndex.h)
+console.log("currentIndex.v === previousSlideIndex.v", currentIndex.v , previousSlideIndex.v, currentIndex.v === previousSlideIndex.v)
 
-      //Mouse clicked the Next or Previous button
-      elemNext.addEventListener('click', function (e){
-        //setCommandText('shortcuts run "Set USB PTZ position" <<< "0,100|0"')
-        //setCommandText('shortcuts run "Set USB PanTilt position" <<< "0,100|0"')
-        //setCommandText('shortcuts run "Find Displays" | cat')
-        console.log("Next clicked")
-
-        //setCommandText('shortcuts run "Keynote_nextSlide" | cat')
-        
-        //send next slide to Reveal Slides
-        obs.call("CallVendorRequest", {
-          vendorName: "obs-browser",
-          requestType: "emit_event",
-          requestData: {
-            event_name: "nextSlide",
-          },
-        });
-        
-      })
-      
-      elemPrevious.addEventListener('click', function (e){
-        //setCommandText('shortcuts run "Keynote_previousSlide" | cat')
-        console.log("Previous clicked")
-        //send previous slide to Reveal Slides
-        obs.call("CallVendorRequest", {
-          vendorName: "obs-browser",
-          requestType: "emit_event",
-          requestData: {
-            event_name: "previousSlide",
-          },
-        });
-      })
-      
-      //keyboard listener
-      //window.addEventListener("keydown", (event) => {
-      obs.on("InputSettingsChanged", async function (event) {
-            //console.log(event);
-          if(event.inputName === "hotkeyText") {
-          console.log("hotkeyText Changed",event)
-          switch (event.inputSettings.text) {
-            //Get Slide details
-            // case getCurrentSlideNotes:
-            //     if(event.shiftKey){setCommandText('shortcuts run "Keynote_currentSlide" | cat');}
-            //     break;
-            //     //Next Slide
-            case revealNextSlide_HK:
-              console.log("hotkey variable")
-              obs.call("CallVendorRequest", {
-                vendorName: "obs-browser",
-                requestType: "emit_event",
-                requestData: {
-                  event_name: "nextSlide",
-          },
-        });
-              break;
-              //Previous Slide
-            case revealPreviousSlide_HK:
-              obs.call("CallVendorRequest", {
-                vendorName: "obs-browser",
-                requestType: "emit_event",
-                requestData: {
-                  event_name: "previousSlide",
-                },
-        });
-              break;
-            //Teleprompter Font -
-            case  prompterFontDecrease_HK:
-              TelePrompter.decreaseFont(2)
-              break;
-            //Teleprompter Font +
-            case prompterFontIncrease_HK:
-              TelePrompter.increaseFont(2)
-              break;
-            //Teleprompter Speed -
-            case prompterScrollDecrease_HK:
-              TelePrompter.decreaseSpeed(2)
-              break;
-            //Teleprompter Speed +
-            case prompterScrollIncrease_HK:
-              TelePrompter.increaseSpeed(2)
-              break;
-            //Teleprompter play/pause
-            case prompterPlayPause_HK:
-              TelePrompter.playPause()
-              break;
-          }}
-        })
-      
-
-      //Websocket message listener
-      //Get User Media webpage https://uuoocl.github.io/GUM/
-      var ptzPan = 0, ptzTilt = 0, ptzZoom = 0, ptzFocus = 0;
-      var ptzWaiting = false;
-      //PTZ camera 
-      window.addEventListener("ptz-message", function (event) {
-        console.log("ptz event",event)})
-      
-      //mouse-message  
-      window.addEventListener("mouse-message", function (event) {
-        console.log("mouse event",event)})
-          
-      //midi
-      window.addEventListener("midi-message", function (event) {
-        console.log("midi event",event)
-        let midiData = JSON.stringify(JSON.parse(event.detail.midiEvent).data);
-        console.log("midi data", typeof midiData, midiData)
-        console.log(`midiData ${midiData}===[144,107,127]`,midiData ==="[144,107,127]")
-        switch (midiData) {
-          //Get Slide details
-          case "[144,105,127]":
-            setCommandText('shortcuts run "Keynote_currentSlide" | cat');
-            break;
-          //Next Slide
-          case "[176,23,127]":
-          case "[144,107,127]":
-            setCommandText('shortcuts run "Keynote_nextSlide" | cat');
-            break;
-          //Previous Slide
-          case "[176,22,127]":
-          case "[144,106,127]":
-            setCommandText('shortcuts run "Keynote_previousSlide" | cat');
-            break;
-          //Teleprompter Font size
-          case midiData.startsWith("[176,56,") ? midiData : '':
-            let size = JSON.parse(midiData)
-            TelePrompter.setFontSize(((size[2] + 1) / 128) * 200)
-            break;
-          //Teleprompter Speed -
-          case midiData.startsWith("[176,55,") ? midiData : '':
-            let speed = JSON.parse(midiData)
-            TelePrompter.setSpeed((((speed[2] + 1) / 128) * 50))
-            break;
-          //Teleprompter play/pause
-          case "[144,122,127]":
-            TelePrompter.playPause()
-            break;
-          //Camera Pan
-          case midiData.startsWith("[176,48,") ? midiData : '':
-            console.log("volume fader moved")
-            //get fader value 0 - 127
-            let panFader = JSON.parse(midiData)[2]
-            console.log("fader value: ", panFader)
-            //if fader is divisible by 8 then send the camera command 
-            if (panFader % 1 === 0) {
-              //scale fader to camera pan -468000 to +468000. 
-              ptzPan = Math.round(((7370.07874 * panFader) - 468000))
-              //send pan command to camera 0
-              if (!ptzWaiting){
-                ptzWaiting = true
-                setTimeout(() => {
-                  setCommandText(`Applications/Utilities/uvc-util -I 0 -s pan-tilt-abs="{${ptzPan},${ptzTilt}}"`);
-                  ptzWaiting = false
-                }, 300); 
-              }
-            }
-            break;
-          //Camera Tilt
-          case midiData.startsWith("[176,49,") ? midiData : '':
-            let tiltFader = JSON.parse(midiData)[2]
-            console.log("fader value: ", tiltFader)
-            if (tiltFader % 1 === 0) {
-              //scale fader to camera tilt -324000 to +324000. 
-              ptzTilt = Math.round(((5102.362205 * tiltFader) - 324000))
-              if (!ptzWaiting){
-                ptzWaiting = true
-                setTimeout(() => {
-                  setCommandText(`Applications/Utilities/uvc-util -I 0 -s pan-tilt-abs="{${ptzPan},${ptzTilt}}"`);
-                  ptzWaiting = false
-                }, 300); 
-              }
-            }
-            break;
-          //Camera Zoom 
-          case midiData.startsWith("[176,50,") ? midiData : '':
-            let zoomFader = JSON.parse(midiData)[2]
-            console.log("fader value: ", zoomFader)
-            if (zoomFader % 4 === 0) {
-              //scale fader to camera zoom 0 - 100. 
-              ptzZoom = Math.round(((zoomFader + 1) / 128) * 100)
-              console.log("zoom value: ", ptzZoom)
-              //send pan command to camera 0
-              setCommandText(`Applications/Utilities/uvc-util -I 0 -s zoom-abs="${ptzZoom}"`)
-            }
-            break;
-
-          //Camera Focus 
-          case midiData.startsWith("[176,51,") ? midiData : '':
-            let focusFader = JSON.parse(midiData)[2]
-            console.log("fader value: ", focusFader)
-            if (focusFader % 4 === 0) {
-              //scale fader to camera zoom 0 - 100. 
-              ptzFocus = Math.round(((focusFader + 1) / 128) * 100)
-              console.log("focus value: ", ptzFocus)
-              //send pan command to camera 0
-              setCommandText(`Applications/Utilities/uvc-util -I 0 -s auto-focus="false"`)
-              setCommandText(`Applications/Utilities/uvc-util -I 0 -s focus-abs="${ptzFocus}"`)
-            }
-            break;
-          //Auto focus on/off
-          case "[144,103,127]":
-            setCommandText(`Applications/Utilities/uvc-util -I 0 -s auto-focus="true"`)
-            break;
-        }
-      });
-      
-      //gamepad
-      window.addEventListener("gamepad-message", function (event) {
-        let gamepadData = JSON.parse(event.detail.gamepadEvent);
-        //Next slide midi code
-        if (gamepadData.buttons[1].value === 1) {
-          setCommandText('shortcuts run "Keynote_nextSlide" | cat')
-        }
-        //Previous slide midi code
-        if (gamepadData.buttons[3].value === 1) {
-          setCommandText('shortcuts run "Keynote_previousSlide" | cat')
-        }
-      });
-      
-      //mediapipe pose
-      window.addEventListener("pose-landmarks", function (event) {
-        if(event.detail.poseLandmarkerResult[16].y < event.detail.poseLandmarkerResult[0].y && poseNextControl ==='off'){
-          setCommandText('shortcuts run "Keynote_nextSlide" | cat')
-          poseNextControl = 'on';
-        }
-        if(event.detail.poseLandmarkerResult[16].y > event.detail.poseLandmarkerResult[0].y){
-          poseNextControl = "off";
-        }
-        if(event.detail.poseLandmarkerResult[15].y < event.detail.poseLandmarkerResult[0].y && posePreviousControl ==='off'){
-          setCommandText('shortcuts run "Keynote_previousSlide" | cat')
-          posePreviousControl = 'on';
-        }
-        if(event.detail.poseLandmarkerResult[15].y > event.detail.poseLandmarkerResult[0].y){
-          posePreviousControl = "off";
-        }
-      });  
-      
-      
-      //ZoomOSC 
-      //OSC to Websocket https://github.com/UUoocl/OSC_to_OBS_WebSocket  
-      window.addEventListener("zoomOSC-message", function (event) {
-        console.log(event)
-        let zoomMessage = JSON.parse(JSON.parse(JSON.stringify(event.detail.webSocketMessage)))
-        console.log(typeof zoomMessage, zoomMessage)
-        console.log(zoomMessage[0])
-        //Next slide on hand raised
-        if (zoomMessage[0].includes("/handRaised")) {
-          setCommandText('shortcuts run "Keynote_nextSlide" | cat')
-        }
-      });
-      
-      //send command line
-      async function setCommandText(txt) {
-        await obs.call("SetInputSettings", {
-          inputName: 'command',
-          inputSettings: {
-            text: txt,
-          }
-        });
-        await obs.call("TriggerHotkeyByName",{hotkeyName:"RUN_CommandLine",})
-      }
-      
-      //Reveal slide Changed
-      window.addEventListener("slideChangeResult", function (event) {
-        console.log(event)
-        let revealMessage = JSON.parse(JSON.parse(event.detail.results))
-        if(revealMessage.app ==="reveal"){
-
-          console.log(revealMessage, typeof revealMessage)
-          console.log(revealMessage.slideNotes)
-          //console.log(JSON.parse(revealMessage.slideTitle))
-          let slideNoteJSON = `Slide ${revealMessage.slideNumber}: ${revealMessage.slideTitle}
-          ${revealMessage.slideNotes};
-          [END OF SLIDE ${revealMessage.slideNumber}]
-          Slide ${revealMessage.nextSlideNumber}: ${revealMessage.nextSlideTitle}
-          ${revealMessage.nextSlideNotes}`
-          
-          console.log(slideNoteJSON)
-          document.getElementById("teleprompter").innerHTML = slideNoteJSON;
-          
-          //get the last word from the current slide notes
-          lastWord = revealMessage.slideNotes.trim().split(' ').pop();
-          console.log(lastWord)
-          
-          TelePrompter.resetPageScroll();
-          
-          if(revealMessage.slideScene){
-            obs.call('SetCurrentProgramScene', {sceneName: `${revealMessage.slideScene}`}); 
-          }
-        }
-          
-          
-      //PTZ text source updated
-      if (event.inputName === "PTZ_Camera1_results") {
-          console.log("PTZ Change")
-          const telemetry = JSON.parse(event.inputSettings.text);
-          console.log(telemetry)
-          console.log(typeof telemetry)
-          console.log(ptzNext[0])
-          console.log(ptzNext[ptz_slideNum])
-          if(ptz_slideNum > 3){
-            if(telemetry.pan < ptzNext[ptz_slideNum]){
-              setCommandText('shortcuts run "Keynote_nextSlide" | cat')
-              ptz_slideNum += 1
-            }
-          }
-          else{
-            if(telemetry.pan > ptzNext[ptz_slideNum]){
-              setCommandText('shortcuts run "Keynote_nextSlide" | cat')
-              ptz_slideNum += 1  
-              }  
-            }
-           if(ptz_slideNum > 6){ptz_slideNum = 0}; 
-          }
-
-      //LocalVocal results text source updated 
-        if (event.inputName === "LocalVocal Subtitles") {
-          // console.log("local vocal change", lastWord)
-          // console.log(event.inputSettings.text);
-          // console.log(lastWord)
-
-          if(event.inputSettings.text.includes(lastWord)){
-            setCommandText('shortcuts run "Keynote_nextSlide" | cat')
-          }
-        }
-      })
-
-      //check if a string is JSON
-      function isJson(str) {
-          try {
-            JSON.parse(str);
-          } catch (e) {
-            return false;
-          }
-          return true;
-        }
-      </script>
-    
-    <script src="teleprompter_assets/js/plugins.v122.js"></script>
-    <script src="teleprompter_assets/js/script.v122.js"></script>
-
-    <script>
-      // Initialize App
-      window.onload = function() {
-        TelePrompter.init();
-      };
-    </script>
-  </body>
-</html>
+if(!((currentIndex.h === previousSlideIndex.h) && (currentIndex.v === previousSlideIndex.v))){
+    console.log("Send results")
+    previousSlideIndex = currentIndex;
+obs.call("CallVendorRequest", {
+    vendorName: "obs-browser",
+    requestType: "emit_event",
+    requestData: {
+        event_name: "slideChangeResult",
+        event_data: { results },
+    },
+});
+}
+}

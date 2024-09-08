@@ -117,6 +117,7 @@
 </head>
 
 <body>
+
     <script src="lib/p5.js"></script>
     
     
@@ -162,7 +163,7 @@
             labelUpdate('reveal')
             buttons[i+=1] = createButton(`Next Slide (${nextSlide_HK})`).position(0, (15+buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button l').id('nextSlideButton').mousePressed(()=>hotkeyUpdate(nextSlide_HK))
             buttons[i+=1] = createButton(`Previous Slide (${prevSlide_HK})`).position(0, (buttonPadding-10)+(buttons[i-1].y+buttons[i-1].height)).class('button l').id('prevSlideButton').mousePressed(()=>hotkeyUpdate(prevSlide_HK))
-            buttons[i+=1] = createButton(`Prompter Text Size`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l outline')
+            buttons[i+=1] = createButton(`Prompter Text Size`).position(0, (buttonPadding-10)+(buttons[i-1].y+buttons[i-1].height)).class('button l outline')
             buttons[i+=1] = createButton(`- (${prompterFontDecrease_HK})`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button left l').mousePressed(()=>hotkeyUpdate(prompterFontDecrease_HK))
             buttons[i+=1] = createButton(`+ (${prompterFontIncrease_HK})`).position(windowWidth/2, buttonPadding+25+(buttons[i-2].y+buttons[i-1].height)).class('button left l').mousePressed(()=>hotkeyUpdate(prompterFontIncrease_HK))
             buttons[i+=1] = createButton(`Prompter ScrollSpeed`).position(0,buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button outline')
@@ -172,15 +173,22 @@
             
             }
             
-            
             function labelUpdate(value){
                 setTimeout(()=>{
-                    selectedSlideApp = document.querySelector('input[name="radioOption"]:checked').value
-                    nextSlide_HK = eval(`${selectedSlideApp}NextSlide_HK`)
-                    prevSlide_HK = eval(`${selectedSlideApp}PreviousSlide_HK`)
+                    slideAppName = document.querySelector('input[name="radioOption"]:checked').value
+                    nextSlide_HK = eval(`${slideAppName}NextSlide_HK`)
+                    prevSlide_HK = eval(`${slideAppName}PreviousSlide_HK`)
                     document.getElementById('nextSlideButton').innerHTML = `Next Slide (${nextSlide_HK})`
                     document.getElementById('prevSlideButton').innerHTML = `Previous Slide (${prevSlide_HK})`
-                }, 10);    
+                    obs.call("CallVendorRequest", {
+                        vendorName: "obs-browser",
+                        requestType: "emit_event",
+                        requestData: {
+                            event_name: "slideAppChanged",
+                            event_data: { slideAppName },
+                        },
+                    });
+                }, 500);    
             }
 
             async function obsGoToScene(scene){
