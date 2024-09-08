@@ -36,6 +36,8 @@
 					<p>
 						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> and <a href="https://github.com/hakimel/reveal.js/graphs/contributors">contributors</a></small>
 					</p>
+					<aside class="notes">Notes are sent to the teleprompter. 
+					</aside>
 				</section>
 
 				<section>
@@ -43,6 +45,8 @@
 					<p>
 						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
 					</p>
+					<aside class="notes">Notes can be used to change scenes.  Start the note with the scene name and the a ⎹.  for example SceneName⏐Notes.  Appending a ~ to the scene name will enable ScrollView mode. 
+					</aside>
 				</section>
 
 				<!-- Example of nested vertical slides -->
@@ -55,12 +59,14 @@
 						<a href="#/2/1" class="navigate-down">
 							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow">
 						</a>
-						<aside class="notes">OTS|This is the first slide with notes and a scene layout The scene layout is OTS.  the scene layout options are OTS, OTS-scroll, Side, Side-scroll, Full, and Full-scroll.
+						<aside class="notes">Scene Reveal-OTS|This is the first slide with notes and a scene layout The scene layout is OTS.  the scene layout options are OTS, OTS~, Side and Side~.
 						</aside>
 					</section>
 					<section>
 						<h2>Basement Level 1</h2>
 						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+						<aside class="notes">Scene Reveal-Side|This is the first slide with notes and a scene layout The scene layout is Side.  .
+						</aside>
 					</section>
 					<section>
 						<h2>Basement Level 2</h2>
@@ -69,6 +75,8 @@
 						<a href="#/2">
 							<img class="r-frame" style="background: rgba(255,255,255,0.1); transform: rotate(180deg);" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
 						</a>
+						<aside class="notes">The scene layout is Side.  .
+						</aside>
 					</section>
 				</section>
 
@@ -77,6 +85,7 @@
 					<p>
 						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="https://slides.com" target="_blank">https://slides.com</a>.
 					</p>
+					
 				</section>
 
 				<section data-visibility="hidden">
@@ -146,6 +155,8 @@
 					<p>
 						(NOTE: Use ctrl + click in Linux.)
 					</p>
+					<aside class="notes">Scene Reveal-OTC|The scene layout is OTS
+					</aside>
 				</section>
 
 				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
@@ -468,16 +479,16 @@ Reveal.on( 'customevent', function() {
 			// Also available as an ES module, see:
 			// https://revealjs.com/initialization/
 			Reveal.initialize({
-				controls: true,
-				progress: true,
+				controls: false,
+				progress: false,
 				center: true,
 				hash: true,
-				view: 'scroll',
+				//view: false,
+				//view: 'scroll',
 				//scrollSnap: 'mandatory',
 				//scrollSnap: 'proximity',
-				scrollSnap: false,
-				//scrollProgress: true,
-
+				//scrollSnap: false,
+				//scrollProgress: 'auto',
 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]

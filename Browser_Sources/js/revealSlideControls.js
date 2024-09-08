@@ -20,6 +20,7 @@ function changeSlide(direction){
     let slideScene = ''
     //if notes contains '|' split text. 
     if(slideNotes.includes("|")){
+        
         slideNotes = slideNotes.split("|")
         slideScene = slideNotes[0];
         slideNotes = slideNotes[1];
@@ -27,12 +28,12 @@ function changeSlide(direction){
 
     //Get Available Routes
     let currentIndex = Reveal.getIndices()
-    console.log(JSON.stringify(currentIndex))
+//    console.log(JSON.stringify(currentIndex))
     let availableRoutes = Reveal.availableRoutes();
-    console.log(Reveal.availableRoutes());
-    console.log(availableRoutes);
-    console.log(availableRoutes.down);
-    console.log(availableRoutes.right);
+    // console.log(Reveal.availableRoutes());
+    // console.log(availableRoutes);
+    // console.log(availableRoutes.down);
+    // console.log(availableRoutes.right);
     //If Down route available, Get Down Slide ID and Notes
     let nextSlideTitle,nextSlideNotes, nextSlideScene="";
     if(availableRoutes.down === true){
@@ -59,13 +60,13 @@ function changeSlide(direction){
 let results = `{"app":"reveal","actionName":"${direction}", "slideNumber": "","slideScene":${JSON.stringify(slideScene)}, "slideNotes": ${JSON.stringify(slideNotes)}, "slideTitle": ${JSON.stringify(slideTitle)},"nextSlideNumber": "","nextSlideScene":${JSON.stringify(nextSlideScene)}, "nextSlideNotes": ${JSON.stringify(nextSlideNotes)}, "nextSlideTitle": ${JSON.stringify(nextSlideTitle)}}`
 
 results = JSON.stringify(results);
-console.log(results)
+//console.log(results)
 //results = results.replace('“','"').replace('”','"').replace('“','"').replace('”','"')
 //send results to OBS Browser Source
 
 //when slide changes send new notes to teleprompter. 
-console.log("currentIndex.h === previousSlideIndex.h", currentIndex.h , previousSlideIndex.h, currentIndex.h === previousSlideIndex.h)
-console.log("currentIndex.v === previousSlideIndex.v", currentIndex.v , previousSlideIndex.v, currentIndex.v === previousSlideIndex.v)
+// console.log("currentIndex.h === previousSlideIndex.h", currentIndex.h , previousSlideIndex.h, currentIndex.h === previousSlideIndex.h)
+// console.log("currentIndex.v === previousSlideIndex.v", currentIndex.v , previousSlideIndex.v, currentIndex.v === previousSlideIndex.v)
 
 if(!((currentIndex.h === previousSlideIndex.h) && (currentIndex.v === previousSlideIndex.v))){
     console.log("Send results")
