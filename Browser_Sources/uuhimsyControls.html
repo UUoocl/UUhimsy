@@ -136,7 +136,7 @@
     <script>
         let buttons=[];
         let buttonPadding = 35
-
+        
         function createScreenShareButtons(){    
             //Create Screen Share Buttons
             buttons[i===0?0:i+=1] = createButton(`Screen Share Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{obsGoToScene('Scene Screen Share')})
@@ -170,32 +170,47 @@
             buttons[i+=1] = createButton(`- (${prompterScrollDecrease_HK})`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button left l').mousePressed(()=>hotkeyUpdate(prompterScrollDecrease_HK))
             buttons[i+=1] = createButton(`+ (${prompterScrollIncrease_HK})`).position(windowWidth/2, buttonPadding+25+(buttons[i-2].y+buttons[i-1].height)).class('button left l').mousePressed(()=>hotkeyUpdate(prompterScrollIncrease_HK))
             buttons[i+=1] = createButton(`Play / Pause ⏯️ (${prompterPlayPause_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>hotkeyUpdate(prompterPlayPause_HK))
-            
-            }
-            
-            function labelUpdate(value){
-                setTimeout(()=>{
-                    slideAppName = document.querySelector('input[name="radioOption"]:checked').value
-                    nextSlide_HK = eval(`${slideAppName}NextSlide_HK`)
-                    prevSlide_HK = eval(`${slideAppName}PreviousSlide_HK`)
-                    document.getElementById('nextSlideButton').innerHTML = `Next Slide (${nextSlide_HK})`
-                    document.getElementById('prevSlideButton').innerHTML = `Previous Slide (${prevSlide_HK})`
-                    obs.call("CallVendorRequest", {
-                        vendorName: "obs-browser",
-                        requestType: "emit_event",
-                        requestData: {
-                            event_name: "slideAppChanged",
-                            event_data: { slideAppName },
-                        },
-                    });
-                }, 500);    
             }
 
-            async function obsGoToScene(scene){
-                await obs.call("SetCurrentProgramScene", {
-                sceneName: scene,
+        function getUserMediaButton(){
+            buttons[i===0?0:i+=1] = createButton(`Open Get User Media`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
+                setCommandText(`node ${window.location.pathname.replace('Browser_Sources/uuhimsyControls.html','NodeJS_Apps/simple-server.js').replace('//','/')}`)})
+        }
+
+        //send command line
+        async function setCommandText(txt) {
+            await obs.call("SetInputSettings", {
+                inputName: 'CommandText',
+                inputSettings: {
+                    text: txt,
+                }
             });
-            }
+            await obs.call("TriggerHotkeyByName", { hotkeyName: "RUN_CommandLine", })
+        }
+            
+        function labelUpdate(value){
+            setTimeout(()=>{
+                slideAppName = document.querySelector('input[name="radioOption"]:checked').value
+                nextSlide_HK = eval(`${slideAppName}NextSlide_HK`)
+                prevSlide_HK = eval(`${slideAppName}PreviousSlide_HK`)
+                document.getElementById('nextSlideButton').innerHTML = `Next Slide (${nextSlide_HK})`
+                document.getElementById('prevSlideButton').innerHTML = `Previous Slide (${prevSlide_HK})`
+                obs.call("CallVendorRequest", {
+                    vendorName: "obs-browser",
+                    requestType: "emit_event",
+                    requestData: {
+                        event_name: "slideAppChanged",
+                        event_data: { slideAppName },
+                    },
+                });
+            }, 500);    
+        }
+
+        async function obsGoToScene(scene){
+            await obs.call("SetCurrentProgramScene", {
+            sceneName: scene,
+        });
+        }
 
         async function hotkeyUpdate(txt){
             console.log("hotkey update", txt)
@@ -231,7 +246,9 @@
                 i = 0;
                 createSlideButtons();
                 createScreenShareButtons();
-                createRefreshButton()
+                createRefreshButton();
+                getUserMediaButton();
+                console.log(window.location.pathname.replace('Browser_Sources/uuhimsyControls.html','NodeJS_Apps/simple-server.js').replace('//','/'))
            }
     </script>
 

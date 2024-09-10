@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "a bridge between OSC apps and OBS",
   "main": "main.js",
+  
   "scripts": {
     "test": "test"
   },
