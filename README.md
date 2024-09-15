@@ -36,6 +36,7 @@ To use all the features enabled by UUhimsy, first install the required Apps and 
 |:---|:---|:---|
 |[OBS](https://obsproject.com)|✅|✅
 [Source Dock](https://obsproject.com/forum/resources/source-dock.1317/)|✅|✅
+[Source Clone](https://obsproject.com/forum/resources/source-clone.1632/)|✅|✅
 [Move Transition](https://obsproject.com/forum/resources/move.913/)|✅|✅
 [Advanced Scene Switcher](https://obsproject.com/forum/resources/advanced-scene-switcher.395/)|✅|
 [Advanced Mask](https://obsproject.com/forum/resources/advanced-masks.1856/)|✅|✅
