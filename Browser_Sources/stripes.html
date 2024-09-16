@@ -85,7 +85,7 @@
                 break;
               case 'hotkeyText':
                 console.log(event);
-                if(event.inputSettings.text === ' '){
+                if(event.inputSettings.text === ' ' || event.inputSettings.text === ''){
                   ribbonCountSlider.value(0)
                 }else if(event.inputSettings.text.includes('+')){ 
                   notSoWeird(event.inputSettings.text);

@@ -103,7 +103,7 @@ function setup() {
   inp3check = createCheckbox('', true);inp3check.position(150, 132);
   inp4 = createColorPicker('#ffffff');inp4.position(170, 160);inp4.style('width', '20px');
   inp4check = createCheckbox('', true);inp4check.position(150, 162);
-  inp5 = createColorPicker('#000');inp5.position(170, 190);inp5.style('width', '20px');
+  inp5 = createColorPicker('#000000');inp5.position(170, 190);inp5.style('width', '20px');
   inp5check = createCheckbox('', false);inp5check.position(150, 192);
   
   bkgdColorPicker = createColorPicker('#fff');bkgdColorPicker.position(152, 235);bkgdColorPicker.style('height', '50px');
@@ -399,7 +399,7 @@ function reset() {
 	ribbonCountSlider.value(9); ribbonSpaceXSlider.value(-17); ribbonSpaceYSlider.value(-35); ribbonSizeSlider.value(35); ribbonOffsetSlider.value(0.2);    
 	yWaveSlider.value(95); speedSlider.value(0.01); offsetSlider.value(0.26); slopeSlider.value(1);
   
-  inp1.value('#ff0000');inp2.value('#0000ff');inp3.value('#ffffoo');inp4.value('#ffff00');inp5.value('#000');
+  inp1.value('#ff0000');inp2.value('#0000ff');inp3.value('#ffff00');inp4.value('#ffff00');inp5.value('#000000');
   inp1check.checked(true); inp2check.checked(true); inp3check.checked(true); inp4check.checked(false); inp5check.checked(false);
   
   inpNumber = 3;
@@ -442,7 +442,7 @@ function marquee() {
 	ribbonCountSlider.value(11); ribbonSpaceXSlider.value(43); ribbonSpaceYSlider.value(57); ribbonSizeSlider.value(45); ribbonOffsetSlider.value(0.4);    
 	yWaveSlider.value(41); speedSlider.value(0.025); offsetSlider.value(PI); slopeSlider.value(2);
   
-  inp1.value('#ff0000');inp2.value('#ffffff');inp3.value('#0000ff');inp4.value('#ffff00');inp5.value('#000');
+  inp1.value('#ff0000');inp2.value('#ffffff');inp3.value('#0000ff');inp4.value('#ffff00');inp5.value('#'000000);
   inp1check.checked(true); inp2check.checked(true); inp3check.checked(true); inp4check.checked(true); inp5check.checked(true);
 
   inp.value("gHoEoLdLbOy?e");
@@ -457,7 +457,7 @@ function subway() {
 	ribbonCountSlider.value(20); ribbonSpaceXSlider.value(-10); ribbonSpaceYSlider.value(35); ribbonSizeSlider.value(18); ribbonOffsetSlider.value(2.4);    
 	yWaveSlider.value(60); speedSlider.value(0.02); offsetSlider.value(0.27); slopeSlider.value(4);
 
-  inp1.value('#ff0000');inp2.value('#ffffff');inp3.value('#0000ff');inp4.value('#ffff00');inp5.value('#000');
+  inp1.value('#ff0000');inp2.value('#ffffff');inp3.value('#0000ff');inp4.value('#ffff00');inp5.value('#000000');
   inp1check.checked(true); inp2check.checked(true); inp3check.checked(true); inp4check.checked(true); inp5check.checked(false);
 
   inp.value("Time moves in one direction, memory in another.");
@@ -472,7 +472,7 @@ function simpleWave() {
 	ribbonCountSlider.value(8); ribbonSpaceXSlider.value(0); ribbonSpaceYSlider.value(0); ribbonSizeSlider.value(23); ribbonOffsetSlider.value(0.5);    
 	yWaveSlider.value(100); speedSlider.value(0.01); offsetSlider.value(0.2); slopeSlider.value(1);
 
-  inp1.value('#ff0000');inp2.value('#ffff00');inp3.value('#0000ff');inp4.value('#ffff00');inp5.value('#000');
+  inp1.value('#ff0000');inp2.value('#ffff00');inp3.value('#0000ff');inp4.value('#ffff00');inp5.value('#000000');
   inp1check.checked(true); inp2check.checked(true); inp3check.checked(true); inp4check.checked(false); inp5check.checked(false);
 
   inp.value("STG_v.Stripes*STG_v.Stripes*STG_v.Stripes*");
@@ -502,7 +502,7 @@ function colorSea() {
 	ribbonCountSlider.value(33); ribbonSpaceXSlider.value(5); ribbonSpaceYSlider.value(37); ribbonSizeSlider.value(35); ribbonOffsetSlider.value(3.1);    
 	yWaveSlider.value(45); speedSlider.value(0.03); offsetSlider.value(0.42); slopeSlider.value(1);
 
-  inp1.value('#ff0000');inp2.value('#FFFFFF');inp3.value('#0000ff');inp4.value('#ffff00');inp5.value('#00000');
+  inp1.value('#ff0000');inp2.value('#FFFFFF');inp3.value('#0000ff');inp4.value('#ffff00');inp5.value('#000000');
   inp1check.checked(true); inp2check.checked(true); inp3check.checked(true); inp4check.checked(true); inp5check.checked(true);
 
   inp.value("To be whole is to be part; true voyage is return.");
@@ -517,7 +517,7 @@ function wow() {
 	ribbonCountSlider.value(14); ribbonSpaceXSlider.value(-38); ribbonSpaceYSlider.value(47); ribbonSizeSlider.value(49); ribbonOffsetSlider.value(0);    
 	yWaveSlider.value(100); speedSlider.value(0.05); offsetSlider.value(2.96); slopeSlider.value(1);
 
-  inp1.value('#ff0000');inp2.value('#FFFFFF');inp3.value('#0000ff');inp4.value('#ffff00');inp5.value('#00000');
+  inp1.value('#ff0000');inp2.value('#FFFFFF');inp3.value('#0000ff');inp4.value('#ffff00');inp5.value('#000000');
   inp1check.checked(true); inp2check.checked(true); inp3check.checked(true); inp4check.checked(true); inp5check.checked(true);
 
   inp.value("*W*O*W* *W*O*W* *W*O*W* *W*O*W* *W*O*W* *W*O*W* *W*O*W* *W*O*W* ");
@@ -532,7 +532,7 @@ function stacks() {
 	ribbonCountSlider.value(34); ribbonSpaceXSlider.value(-2); ribbonSpaceYSlider.value(-2); ribbonSizeSlider.value(57); ribbonOffsetSlider.value(0.1);    
 	yWaveSlider.value(34); speedSlider.value(0.06); offsetSlider.value(0.2); slopeSlider.value(1);
 
-  inp1.value('#ff0000');inp2.value('#FFFFFF');inp3.value('#0000ff');inp4.value('#ffff00');inp5.value('#00000');
+  inp1.value('#ff0000');inp2.value('#FFFFFF');inp3.value('#0000ff');inp4.value('#ffff00');inp5.value('#000000');
   inp1check.checked(true); inp2check.checked(true); inp3check.checked(true); inp4check.checked(true); inp5check.checked(true);
 
   inp.value("Stacks on Stacks");
@@ -547,7 +547,7 @@ function notSoWeird(newText) {
 	ribbonCountSlider.value(5); ribbonSpaceXSlider.value(-5); ribbonSpaceYSlider.value(16); ribbonSizeSlider.value(81); ribbonOffsetSlider.value(2.9);    
 	yWaveSlider.value(22); speedSlider.value(0.03); offsetSlider.value(0.31); slopeSlider.value(1);
 
-  inp1.value('#ff0000');inp2.value('#FFFFFF');inp3.value('#0000ff');inp4.value('#ffff00');inp5.value('#00000');
+  inp1.value('#ff0000');inp2.value('#FFFFFF');inp3.value('#0000ff');inp4.value('#ffff00');inp5.value('#000000');
   inp1check.checked(true); inp2check.checked(true); inp3check.checked(true); inp4check.checked(true); inp5check.checked(true);
 
   inp.value(newText);
