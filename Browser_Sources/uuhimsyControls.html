@@ -174,7 +174,52 @@
 
         function getUserMediaButton(){
             buttons[i===0?0:i+=1] = createButton(`Open Get User Media`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
-                setCommandText(`node ${window.location.pathname.replace('Browser_Sources/uuhimsyControls.html','NodeJS_Apps/simple-server.js').replace('//','/')}`)})
+                //setCommandText(`open node ${window.location.pathname.replace('Browser_Sources/uuhimsyControls.html','NodeJS_Apps/simple-server.js').replace('//','/')}`)
+                //send message to Advanced Scene Switcher
+                let PWD =getPWD();
+                obs.call("CallVendorRequest", {
+                    vendorName: "AdvancedSceneSwitcher",
+                    requestType: "AdvancedSceneSwitcherMessage",
+                    requestData: {
+                    message: `{ "requestName" : "getUserMediaButton", "fileName" : "simple-server.js", "pwd" : "${PWD}NodeJS_Apps/" }`,
+                    },
+                });    
+            })
+
+        }
+
+        function startZoomOSCtoWebSocketButton(){
+            buttons[i===0?0:i+=1] = createButton(`Start ZoomOSC to OBS WebSocket`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
+                //setCommandText(`node ${window.location.pathname.replace('Browser_Sources/uuhimsyControls.html','NodeJS_Apps/zoomOSC-to-obsWS.js').replace('//','/')}`)
+            //send message to Advanced Scene Switcher
+            let PWD =getPWD();
+            obs.call("CallVendorRequest", {
+                    vendorName: "AdvancedSceneSwitcher",
+                    requestType: "AdvancedSceneSwitcherMessage",
+                    requestData: {
+                        message: `{ "requestName" : "startZoomOSCtoWebSocketButton", "fileName" : "zoomOSC-to-obsWS.js", "obsWSpw" : "${wssDetails.PW}", "pwd" : "${PWD}NodeJS_Apps/" }`,
+                    },
+                });        
+            })
+        }
+
+        function startUVCtoWebSocketButton(){
+            buttons[i===0?0:i+=1] = createButton(`Start UVC-Util to OBS WebSocket`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
+            //send message to Advanced Scene Switcher
+            let PWD =getPWD();
+            obs.call("CallVendorRequest", {
+                    vendorName: "AdvancedSceneSwitcher",
+                    requestType: "AdvancedSceneSwitcherMessage",
+                    requestData: {
+                        message: `{ "requestName" : "startUVCtoWebSocketButton", "fileName" : "getPTZvalues.js", "obsWSpw" : "${wssDetails.PW}", "pwd" : "${PWD}NodeJS_Apps/" }`,
+                    },
+                });        
+            })
+        }
+
+        function getPWD(){
+            let PWD = window.location.pathname.replace('Browser_Sources/uuhimsyControls.html','').replace('//','/')
+            return PWD;
         }
 
         //send command line
@@ -248,7 +293,10 @@
                 createScreenShareButtons();
                 createRefreshButton();
                 getUserMediaButton();
+                startZoomOSCtoWebSocketButton();
+                startUVCtoWebSocketButton();
                 console.log(window.location.pathname.replace('Browser_Sources/uuhimsyControls.html','NodeJS_Apps/simple-server.js').replace('//','/'))
+                console.log("node ",window.location.pathname.replace('Browser_Sources/uuhimsyControls.html','NodeJS_Apps/zoomOSC-to-obsWS.js').replace('//','/'),`-${wssDetails.PW}`)
            }
     </script>
 

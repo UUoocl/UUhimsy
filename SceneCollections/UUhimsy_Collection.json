@@ -1,6 +1,6 @@
 {
-    "current_scene": "Scene Reveal-Side",
-    "current_program_scene": "Scene Reveal-Side",
+    "current_scene": "Input camera",
+    "current_program_scene": "Input camera",
     "scene_order": [
         {
             "name": "Scene Screen Share"
@@ -48,6 +48,9 @@
             "name": "Input Screen Capture"
         },
         {
+            "name": "in'put MP Pose"
+        },
+        {
             "name": "---------"
         },
         {
@@ -93,14 +96,29 @@
             }
         }
     ],
-    "saved_projectors": [],
+    "saved_projectors": [
+        {
+            "name": "Input camera",
+            "monitor": -1,
+            "type": 1,
+            "geometry": "AdnQywADAAAAAALQAAABtQAABK8AAALeAAAC0AAAAdEAAASvAAAC3gAAAAAAAAAAB4AAAALQAAAB0QAABK8AAALe",
+            "alwaysOnTopOverridden": false
+        },
+        {
+            "name": "Video Capture Device",
+            "monitor": -1,
+            "type": 0,
+            "geometry": "AdnQywADAAAAAAyeAAAE+QAADgEAAAYiAAAMngAABRUAAA4BAAAGIgAAAAEAAAAADXAAAAyeAAAFFQAADgEAAAYi",
+            "alwaysOnTopOverridden": false
+        }
+    ],
     "current_transition": "Cut",
     "transition_duration": 300,
     "preview_locked": false,
     "scaling_enabled": true,
-    "scaling_level": -7,
-    "scaling_off_x": 8.332672119140625,
-    "scaling_off_y": -14.58622932434082,
+    "scaling_level": -5,
+    "scaling_off_x": 10.490216255187988,
+    "scaling_off_y": -18.362977981567383,
     "virtual-camera": {
         "type2": 3
     },
@@ -132,15 +150,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 156
+                            "pos": 279
                         },
                         {
-                            "pos": 200
+                            "pos": 357
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 168
+                            "pos": 325
                         },
                         {
                             "pos": 0
@@ -347,15 +365,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 213
+                            "pos": 281
                         },
                         {
-                            "pos": 479
+                            "pos": 633
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 447
+                            "pos": 601
                         },
                         {
                             "pos": 0
@@ -401,7 +419,7 @@
                     "actions": [
                         {
                             "segmentSettings": {
-                                "collapsed": true,
+                                "collapsed": false,
                                 "useCustomLabel": true,
                                 "customLabel": "Get File Contents"
                             },
@@ -457,7 +475,7 @@
                         },
                         {
                             "segmentSettings": {
-                                "collapsed": true,
+                                "collapsed": false,
                                 "useCustomLabel": true,
                                 "customLabel": "Add WebSocket Script"
                             },
@@ -513,7 +531,7 @@
                         },
                         {
                             "segmentSettings": {
-                                "collapsed": true,
+                                "collapsed": false,
                                 "useCustomLabel": true,
                                 "customLabel": "Save File"
                             },
@@ -522,6 +540,2283 @@
                             "file": "/Users/jonwood/Documents/myGithub/UUhimsy_Slides/Browser_Sources/slides-presentation-templates (1).html",
                             "text": "${html}",
                             "action": 0
+                        }
+                    ],
+                    "elseActions": [],
+                    "inputVariables": []
+                },
+                {
+                    "name": "HotKeys",
+                    "pause": false,
+                    "parallel": false,
+                    "onChange": true,
+                    "skipExecOnStart": false,
+                    "stopActionsIfNotDone": false,
+                    "group": true,
+                    "groupData": {
+                        "collapsed": false,
+                        "size": 2
+                    }
+                },
+                {
+                    "name": "hotkey_NUMPADPLUS",
+                    "pause": false,
+                    "parallel": false,
+                    "onChange": true,
+                    "skipExecOnStart": false,
+                    "stopActionsIfNotDone": false,
+                    "group": false,
+                    "dockSettings": {
+                        "register": false,
+                        "hasRunButton": true,
+                        "hasPauseButton": true,
+                        "hasStatusLabel": false,
+                        "highlightIfConditionsTrue": false,
+                        "runButtonText": "Run",
+                        "pauseButtonText": "Pause",
+                        "unpauseButtonText": "Unpause",
+                        "conditionsTrueStatusText": "Conditions are true.",
+                        "conditionsFalseStatusText": "Conditions are false.",
+                        "dockId": "advss-macro-dock-80eeff54-34bf-495d-ac12-af1520ba5874",
+                        "version": 1
+                    },
+                    "macroActionConditionSplitterPosition": [
+                        {
+                            "pos": 438
+                        },
+                        {
+                            "pos": 436
+                        }
+                    ],
+                    "macroElseActionSplitterPosition": [
+                        {
+                            "pos": 404
+                        },
+                        {
+                            "pos": 0
+                        }
+                    ],
+                    "registerHotkeys": false,
+                    "pauseHotkey": [],
+                    "unpauseHotkey": [],
+                    "togglePauseHotkey": [],
+                    "conditions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "hotkey",
+                            "logic": 0,
+                            "durationModifier": {
+                                "time_constraint": 0,
+                                "seconds": {
+                                    "value": {
+                                        "value": 0.0,
+                                        "type": 0
+                                    },
+                                    "unit": 0,
+                                    "version": 1
+                                }
+                            },
+                            "desc": "Macro trigger hotkey 3",
+                            "keyBind": [
+                                {
+                                    "key": "OBS_KEY_NUMPLUS"
+                                }
+                            ],
+                            "checkPressed": true
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "source",
+                            "enabled": true,
+                            "source": {
+                                "type": 0,
+                                "name": "hotkeyText"
+                            },
+                            "action": 2,
+                            "sourceSettingButton": {
+                                "id": "",
+                                "description": ""
+                            },
+                            "inputMethod": 0,
+                            "sourceSetting": {
+                                "id": "text",
+                                "description": "Text (Text)"
+                            },
+                            "manualSettingValue": "+",
+                            "tempVar": {
+                                "type": 0,
+                                "idx": -1,
+                                "id": ""
+                            },
+                            "settings": "",
+                            "deinterlaceMode": 0,
+                            "deinterlaceOrder": 0
+                        }
+                    ],
+                    "elseActions": [],
+                    "inputVariables": []
+                },
+                {
+                    "name": "hotkey_NUMPADMINUS",
+                    "pause": false,
+                    "parallel": false,
+                    "onChange": true,
+                    "skipExecOnStart": false,
+                    "stopActionsIfNotDone": false,
+                    "group": false,
+                    "dockSettings": {
+                        "register": false,
+                        "hasRunButton": true,
+                        "hasPauseButton": true,
+                        "hasStatusLabel": false,
+                        "highlightIfConditionsTrue": false,
+                        "runButtonText": "Run",
+                        "pauseButtonText": "Pause",
+                        "unpauseButtonText": "Unpause",
+                        "conditionsTrueStatusText": "Conditions are true.",
+                        "conditionsFalseStatusText": "Conditions are false.",
+                        "dockId": "advss-macro-dock-941b0874-5372-4949-a645-d55784fc8c98",
+                        "version": 1
+                    },
+                    "macroActionConditionSplitterPosition": [
+                        {
+                            "pos": 438
+                        },
+                        {
+                            "pos": 436
+                        }
+                    ],
+                    "macroElseActionSplitterPosition": [
+                        {
+                            "pos": 404
+                        },
+                        {
+                            "pos": 0
+                        }
+                    ],
+                    "registerHotkeys": false,
+                    "pauseHotkey": [],
+                    "unpauseHotkey": [],
+                    "togglePauseHotkey": [],
+                    "conditions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "hotkey",
+                            "logic": 0,
+                            "durationModifier": {
+                                "time_constraint": 0,
+                                "seconds": {
+                                    "value": {
+                                        "value": 0.0,
+                                        "type": 0
+                                    },
+                                    "unit": 0,
+                                    "version": 1
+                                }
+                            },
+                            "desc": "Macro trigger hotkey 4",
+                            "keyBind": [
+                                {
+                                    "key": "OBS_KEY_NUMMINUS"
+                                }
+                            ],
+                            "checkPressed": true
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "source",
+                            "enabled": true,
+                            "source": {
+                                "type": 0,
+                                "name": "hotkeyText"
+                            },
+                            "action": 2,
+                            "sourceSettingButton": {
+                                "id": "",
+                                "description": ""
+                            },
+                            "inputMethod": 0,
+                            "sourceSetting": {
+                                "id": "text",
+                                "description": "Text (Text)"
+                            },
+                            "manualSettingValue": "-",
+                            "tempVar": {
+                                "type": 0,
+                                "idx": -1,
+                                "id": ""
+                            },
+                            "settings": "",
+                            "deinterlaceMode": 0,
+                            "deinterlaceOrder": 0
+                        }
+                    ],
+                    "elseActions": [],
+                    "inputVariables": []
+                },
+                {
+                    "name": "Run GUM CMD",
+                    "pause": false,
+                    "parallel": false,
+                    "onChange": false,
+                    "skipExecOnStart": false,
+                    "stopActionsIfNotDone": false,
+                    "group": false,
+                    "dockSettings": {
+                        "register": false,
+                        "hasRunButton": true,
+                        "hasPauseButton": true,
+                        "hasStatusLabel": false,
+                        "highlightIfConditionsTrue": false,
+                        "runButtonText": "Run",
+                        "pauseButtonText": "Pause",
+                        "unpauseButtonText": "Unpause",
+                        "conditionsTrueStatusText": "Conditions are true.",
+                        "conditionsFalseStatusText": "Conditions are false.",
+                        "dockId": "advss-macro-dock-107ba8f8-e387-463c-94ae-af10088a8ab0",
+                        "version": 1
+                    },
+                    "macroActionConditionSplitterPosition": [
+                        {
+                            "pos": 224
+                        },
+                        {
+                            "pos": 690
+                        }
+                    ],
+                    "macroElseActionSplitterPosition": [
+                        {
+                            "pos": 658
+                        },
+                        {
+                            "pos": 0
+                        }
+                    ],
+                    "registerHotkeys": false,
+                    "pauseHotkey": [],
+                    "unpauseHotkey": [],
+                    "togglePauseHotkey": [],
+                    "conditions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "websocket",
+                            "logic": 0,
+                            "durationModifier": {
+                                "time_constraint": 0,
+                                "seconds": {
+                                    "value": {
+                                        "value": 0.0,
+                                        "type": 0
+                                    },
+                                    "unit": 0,
+                                    "version": 1
+                                }
+                            },
+                            "type": 0,
+                            "message": "{ \"requestName\" : \"getUserMediaButton\".*",
+                            "regexConfig": {
+                                "enable": true,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "connection": "Invalid connection selection",
+                            "clearBufferOnMatch": true,
+                            "version": 1
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": true,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "wsMessage",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "",
+                            "numValue": 0.0,
+                            "condition": 16,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 1,
+                                "idx": 0,
+                                "id": "message"
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": true,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "pwd",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "${wsMessage}",
+                            "numValue": 0.0,
+                            "condition": 0,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 0,
+                                "idx": -1,
+                                "id": ""
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": true,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "fileName",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "${wsMessage}",
+                            "numValue": 0.0,
+                            "condition": 0,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 0,
+                                "idx": -1,
+                                "id": ""
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": true,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "pwd",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "pwd",
+                            "numValue": 0.0,
+                            "condition": 15,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 0,
+                                "idx": -1,
+                                "id": ""
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": true,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "fileName",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "fileName",
+                            "numValue": 0.0,
+                            "condition": 15,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 0,
+                                "idx": -1,
+                                "id": ""
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": true,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "run",
+                            "enabled": true,
+                            "processConfig": {
+                                "path": "node",
+                                "workingDirectory": "${pwd}",
+                                "args": [
+                                    {
+                                        "arg": "${fileName}"
+                                    }
+                                ]
+                            },
+                            "duration": {
+                                "value": {
+                                    "value": 1.0,
+                                    "type": 0
+                                },
+                                "unit": 0,
+                                "version": 1
+                            },
+                            "wait": false,
+                            "version": 1
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "macro",
+                            "enabled": true,
+                            "macro": "clear Variables",
+                            "actionIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "action": 3,
+                            "runOptions": {
+                                "logic": 0,
+                                "reevaluateConditionState": false,
+                                "runElseActions": false,
+                                "skipWhenPaused": true,
+                                "setInputs": false,
+                                "inputs": []
+                            }
+                        }
+                    ],
+                    "elseActions": [],
+                    "inputVariables": []
+                },
+                {
+                    "name": "Run OSC to OBSws CMD",
+                    "pause": false,
+                    "parallel": false,
+                    "onChange": false,
+                    "skipExecOnStart": false,
+                    "stopActionsIfNotDone": false,
+                    "group": false,
+                    "dockSettings": {
+                        "register": false,
+                        "hasRunButton": true,
+                        "hasPauseButton": true,
+                        "hasStatusLabel": false,
+                        "highlightIfConditionsTrue": false,
+                        "runButtonText": "Run",
+                        "pauseButtonText": "Pause",
+                        "unpauseButtonText": "Unpause",
+                        "conditionsTrueStatusText": "Conditions are true.",
+                        "conditionsFalseStatusText": "Conditions are false.",
+                        "dockId": "advss-macro-dock-0431a958-672f-4ce1-9920-df5c9434cad2",
+                        "version": 1
+                    },
+                    "macroActionConditionSplitterPosition": [
+                        {
+                            "pos": 316
+                        },
+                        {
+                            "pos": 740
+                        }
+                    ],
+                    "macroElseActionSplitterPosition": [
+                        {
+                            "pos": 708
+                        },
+                        {
+                            "pos": 0
+                        }
+                    ],
+                    "registerHotkeys": false,
+                    "pauseHotkey": [],
+                    "unpauseHotkey": [],
+                    "togglePauseHotkey": [],
+                    "conditions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "websocket",
+                            "logic": 0,
+                            "durationModifier": {
+                                "time_constraint": 0,
+                                "seconds": {
+                                    "value": {
+                                        "value": 0.0,
+                                        "type": 0
+                                    },
+                                    "unit": 0,
+                                    "version": 1
+                                }
+                            },
+                            "type": 0,
+                            "message": "{ \"requestName\" : \"startZoomOSCtoWebSocketButton\".*",
+                            "regexConfig": {
+                                "enable": true,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "connection": "Invalid connection selection",
+                            "clearBufferOnMatch": true,
+                            "version": 1
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "wsMessage",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "",
+                            "numValue": 0.0,
+                            "condition": 16,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 1,
+                                "idx": 0,
+                                "id": "message"
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "pwd",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "${wsMessage}",
+                            "numValue": 0.0,
+                            "condition": 0,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 1,
+                                "idx": 0,
+                                "id": "message"
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "fileName",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "${wsMessage}",
+                            "numValue": 0.0,
+                            "condition": 0,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 1,
+                                "idx": 0,
+                                "id": "message"
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "obsWSpw",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "${wsMessage}",
+                            "numValue": 0.0,
+                            "condition": 0,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 1,
+                                "idx": 0,
+                                "id": "message"
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "pwd",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "pwd",
+                            "numValue": 0.0,
+                            "condition": 15,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 1,
+                                "idx": 0,
+                                "id": "message"
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "fileName",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "fileName",
+                            "numValue": 0.0,
+                            "condition": 15,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 1,
+                                "idx": 0,
+                                "id": "message"
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "obsWSpw",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "obsWSpw",
+                            "numValue": 0.0,
+                            "condition": 15,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 1,
+                                "idx": 0,
+                                "id": "message"
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "run",
+                            "enabled": true,
+                            "processConfig": {
+                                "path": "node",
+                                "workingDirectory": "${pwd}",
+                                "args": [
+                                    {
+                                        "arg": "${fileName}"
+                                    },
+                                    {
+                                        "arg": "${obsWSpw}"
+                                    }
+                                ]
+                            },
+                            "duration": {
+                                "value": {
+                                    "value": 1.0,
+                                    "type": 0
+                                },
+                                "unit": 0,
+                                "version": 1
+                            },
+                            "wait": false,
+                            "version": 1
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "macro",
+                            "enabled": false,
+                            "macro": "clear Variables",
+                            "actionIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "action": 3,
+                            "runOptions": {
+                                "logic": 0,
+                                "reevaluateConditionState": false,
+                                "runElseActions": false,
+                                "skipWhenPaused": true,
+                                "setInputs": false,
+                                "inputs": []
+                            }
+                        }
+                    ],
+                    "elseActions": [],
+                    "inputVariables": []
+                },
+                {
+                    "name": "Run UVC-Util to OBSws CMD",
+                    "pause": false,
+                    "parallel": false,
+                    "onChange": false,
+                    "skipExecOnStart": false,
+                    "stopActionsIfNotDone": false,
+                    "group": false,
+                    "dockSettings": {
+                        "register": false,
+                        "hasRunButton": true,
+                        "hasPauseButton": true,
+                        "hasStatusLabel": false,
+                        "highlightIfConditionsTrue": false,
+                        "runButtonText": "Run",
+                        "pauseButtonText": "Pause",
+                        "unpauseButtonText": "Unpause",
+                        "conditionsTrueStatusText": "Conditions are true.",
+                        "conditionsFalseStatusText": "Conditions are false.",
+                        "dockId": "advss-macro-dock-127450a1-6a8c-4a01-a598-3de1a5302fdd",
+                        "version": 1
+                    },
+                    "macroActionConditionSplitterPosition": [
+                        {
+                            "pos": 304
+                        },
+                        {
+                            "pos": 752
+                        }
+                    ],
+                    "macroElseActionSplitterPosition": [
+                        {
+                            "pos": 720
+                        },
+                        {
+                            "pos": 0
+                        }
+                    ],
+                    "registerHotkeys": false,
+                    "pauseHotkey": [],
+                    "unpauseHotkey": [],
+                    "togglePauseHotkey": [],
+                    "conditions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "websocket",
+                            "logic": 0,
+                            "durationModifier": {
+                                "time_constraint": 0,
+                                "seconds": {
+                                    "value": {
+                                        "value": 0.0,
+                                        "type": 0
+                                    },
+                                    "unit": 0,
+                                    "version": 1
+                                }
+                            },
+                            "type": 0,
+                            "message": "{ \"requestName\" : \"startUVCtoWebSocketButton\".*",
+                            "regexConfig": {
+                                "enable": true,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "connection": "Invalid connection selection",
+                            "clearBufferOnMatch": true,
+                            "version": 1
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "wsMessage",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "",
+                            "numValue": 0.0,
+                            "condition": 16,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 1,
+                                "idx": 0,
+                                "id": "message"
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "pwd",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "${wsMessage}",
+                            "numValue": 0.0,
+                            "condition": 0,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 1,
+                                "idx": 0,
+                                "id": "message"
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "fileName",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "${wsMessage}",
+                            "numValue": 0.0,
+                            "condition": 0,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 1,
+                                "idx": 0,
+                                "id": "message"
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "obsWSpw",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "${wsMessage}",
+                            "numValue": 0.0,
+                            "condition": 0,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 1,
+                                "idx": 0,
+                                "id": "message"
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "pwd",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "pwd",
+                            "numValue": 0.0,
+                            "condition": 15,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 1,
+                                "idx": 0,
+                                "id": "message"
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "fileName",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "fileName",
+                            "numValue": 0.0,
+                            "condition": 15,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 1,
+                                "idx": 0,
+                                "id": "message"
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "obsWSpw",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "obsWSpw",
+                            "numValue": 0.0,
+                            "condition": 15,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 1,
+                                "idx": 0,
+                                "id": "message"
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "run",
+                            "enabled": true,
+                            "processConfig": {
+                                "path": "node",
+                                "workingDirectory": "${pwd}",
+                                "args": [
+                                    {
+                                        "arg": "${fileName}"
+                                    },
+                                    {
+                                        "arg": "${obsWSpw}"
+                                    }
+                                ]
+                            },
+                            "duration": {
+                                "value": {
+                                    "value": 1.0,
+                                    "type": 0
+                                },
+                                "unit": 0,
+                                "version": 1
+                            },
+                            "wait": false,
+                            "version": 1
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "macro",
+                            "enabled": false,
+                            "macro": "clear Variables",
+                            "actionIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "action": 3,
+                            "runOptions": {
+                                "logic": 0,
+                                "reevaluateConditionState": false,
+                                "runElseActions": false,
+                                "skipWhenPaused": true,
+                                "setInputs": false,
+                                "inputs": []
+                            }
+                        }
+                    ],
+                    "elseActions": [],
+                    "inputVariables": []
+                },
+                {
+                    "name": "open projector",
+                    "pause": false,
+                    "parallel": false,
+                    "onChange": true,
+                    "skipExecOnStart": false,
+                    "stopActionsIfNotDone": false,
+                    "group": false,
+                    "dockSettings": {
+                        "register": false,
+                        "hasRunButton": true,
+                        "hasPauseButton": true,
+                        "hasStatusLabel": false,
+                        "highlightIfConditionsTrue": false,
+                        "runButtonText": "Run",
+                        "pauseButtonText": "Pause",
+                        "unpauseButtonText": "Unpause",
+                        "conditionsTrueStatusText": "Conditions are true.",
+                        "conditionsFalseStatusText": "Conditions are false.",
+                        "dockId": "advss-macro-dock-9d954211-e5e1-41c4-a34e-e45a7e4fe0f6",
+                        "version": 1
+                    },
+                    "macroActionConditionSplitterPosition": [
+                        {
+                            "pos": 457
+                        },
+                        {
+                            "pos": 457
+                        }
+                    ],
+                    "macroElseActionSplitterPosition": [
+                        {
+                            "pos": 425
+                        },
+                        {
+                            "pos": 0
+                        }
+                    ],
+                    "registerHotkeys": false,
+                    "pauseHotkey": [],
+                    "unpauseHotkey": [],
+                    "togglePauseHotkey": [],
+                    "conditions": [],
+                    "actions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "projector",
+                            "enabled": true,
+                            "type": 0,
+                            "monitor": -1,
+                            "monitorName": "",
+                            "fullscreen": false,
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "source": {
+                                "type": 0,
+                                "name": "Video Capture Device"
+                            }
+                        }
+                    ],
+                    "elseActions": [],
+                    "inputVariables": []
+                },
+                {
+                    "name": "Present Working Directory",
+                    "pause": false,
+                    "parallel": false,
+                    "onChange": true,
+                    "skipExecOnStart": false,
+                    "stopActionsIfNotDone": false,
+                    "group": false,
+                    "dockSettings": {
+                        "register": false,
+                        "hasRunButton": true,
+                        "hasPauseButton": true,
+                        "hasStatusLabel": false,
+                        "highlightIfConditionsTrue": false,
+                        "runButtonText": "Run",
+                        "pauseButtonText": "Pause",
+                        "unpauseButtonText": "Unpause",
+                        "conditionsTrueStatusText": "Conditions are true.",
+                        "conditionsFalseStatusText": "Conditions are false.",
+                        "dockId": "advss-macro-dock-ebc1de25-d05c-492e-a28c-dad746816aa4",
+                        "version": 1
+                    },
+                    "macroActionConditionSplitterPosition": [
+                        {
+                            "pos": 395
+                        },
+                        {
+                            "pos": 519
+                        }
+                    ],
+                    "macroElseActionSplitterPosition": [
+                        {
+                            "pos": 487
+                        },
+                        {
+                            "pos": 0
+                        }
+                    ],
+                    "registerHotkeys": false,
+                    "pauseHotkey": [],
+                    "unpauseHotkey": [],
+                    "togglePauseHotkey": [],
+                    "conditions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "websocket",
+                            "logic": 0,
+                            "durationModifier": {
+                                "time_constraint": 0,
+                                "seconds": {
+                                    "value": {
+                                        "value": 0.0,
+                                        "type": 0
+                                    },
+                                    "unit": 0,
+                                    "version": 1
+                                }
+                            },
+                            "type": 0,
+                            "message": "setPWD",
+                            "regexConfig": {
+                                "enable": true,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "connection": "Invalid connection selection",
+                            "clearBufferOnMatch": true,
+                            "version": 1
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "wsMessage",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "",
+                            "numValue": 0.0,
+                            "condition": 16,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 1,
+                                "idx": 0,
+                                "id": "message"
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "wsMessage",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "setPWD",
+                            "numValue": 0.0,
+                            "condition": 15,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 1,
+                                "idx": 0,
+                                "id": "message"
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        }
+                    ],
+                    "elseActions": [],
+                    "inputVariables": []
+                },
+                {
+                    "name": "clear Variables",
+                    "pause": false,
+                    "parallel": false,
+                    "onChange": true,
+                    "skipExecOnStart": false,
+                    "stopActionsIfNotDone": false,
+                    "group": false,
+                    "dockSettings": {
+                        "register": false,
+                        "hasRunButton": true,
+                        "hasPauseButton": true,
+                        "hasStatusLabel": false,
+                        "highlightIfConditionsTrue": false,
+                        "runButtonText": "Run",
+                        "pauseButtonText": "Pause",
+                        "unpauseButtonText": "Unpause",
+                        "conditionsTrueStatusText": "Conditions are true.",
+                        "conditionsFalseStatusText": "Conditions are false.",
+                        "dockId": "advss-macro-dock-a3bf96c2-e069-4cd9-8b1a-7130866cf262",
+                        "version": 1
+                    },
+                    "macroActionConditionSplitterPosition": [
+                        {
+                            "pos": 457
+                        },
+                        {
+                            "pos": 457
+                        }
+                    ],
+                    "macroElseActionSplitterPosition": [
+                        {
+                            "pos": 425
+                        },
+                        {
+                            "pos": 0
+                        }
+                    ],
+                    "registerHotkeys": false,
+                    "pauseHotkey": [],
+                    "unpauseHotkey": [],
+                    "togglePauseHotkey": [],
+                    "conditions": [],
+                    "actions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": true,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "fileName",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "",
+                            "numValue": 0.0,
+                            "condition": 0,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 0,
+                                "idx": -1,
+                                "id": ""
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": true,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "Invalid varialbe selection",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "",
+                            "numValue": 0.0,
+                            "condition": 0,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 0,
+                                "idx": -1,
+                                "id": ""
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": true,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "obsWSpw",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "",
+                            "numValue": 0.0,
+                            "condition": 0,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 0,
+                                "idx": -1,
+                                "id": ""
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": true,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "pwd",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "",
+                            "numValue": 0.0,
+                            "condition": 0,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 0,
+                                "idx": -1,
+                                "id": ""
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "wsMessage",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "",
+                            "numValue": 0.0,
+                            "condition": 0,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "HOME",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 0,
+                                "idx": -1,
+                                "id": ""
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
                         }
                     ],
                     "elseActions": [],
@@ -537,6 +2832,27 @@
             "variables": [
                 {
                     "name": "mouse",
+                    "saveAction": 0,
+                    "defaultValue": ""
+                },
+                {
+                    "name": "pwd",
+                    "saveAction": 1,
+                    "value": "/Users/jonwood/Documents/myGithub/UUhimsy_Slides/NodeJS_Apps/",
+                    "defaultValue": ""
+                },
+                {
+                    "name": "wsMessage",
+                    "saveAction": 0,
+                    "defaultValue": ""
+                },
+                {
+                    "name": "obsWSpw",
+                    "saveAction": 0,
+                    "defaultValue": ""
+                },
+                {
+                    "name": "fileName",
                     "saveAction": 0,
                     "defaultValue": ""
                 },
@@ -712,16 +3028,16 @@
                 }
             ],
             "saveWindowGeo": false,
-            "windowPosX": 114,
-            "windowPosY": 26,
-            "windowWidth": 1612,
-            "windowHeight": 936,
+            "windowPosX": 2555,
+            "windowPosY": 180,
+            "windowWidth": 1832,
+            "windowHeight": 1300,
             "macroListMacroEditSplitterPosition": [
                 {
-                    "pos": 227
+                    "pos": 259
                 },
                 {
-                    "pos": 1338
+                    "pos": 1526
                 }
             ],
             "version": "510f83246ea264f56def58187bd9537b7c93b988",
@@ -780,12 +3096,6 @@
                 }
             },
             {
-                "path": "/Users/jonwood/Documents/myGithub/UUhimsy_Slides/Lua_Scripts/showMouseButtons.lua",
-                "settings": {
-                    "source": "mouseButtonText"
-                }
-            },
-            {
                 "path": "/Users/jonwood/Documents/myGithub/UUhimsy_Slides/Lua_Scripts/Run_Command_Hotkey.lua",
                 "settings": {
                     "source_name": "CommandText",
@@ -812,10 +3122,10 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAVQAAAB9AAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAVQAAAB9",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAABRUAAABiAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAABRUAAABi",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
-                    "dockarea": 2,
+                    "dockarea": 8,
                     "floating": false,
                     "zoom": 1.0,
                     "scrollx": 0.5,
@@ -838,10 +3148,10 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAVQAAABCAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAVQAAABC",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAASwAAABiAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAASwAAABi",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
-                    "dockarea": 2,
+                    "dockarea": 8,
                     "floating": false,
                     "zoom": 1.0,
                     "scrollx": 0.5,
@@ -864,10 +3174,10 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAVQAAABVAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAVQAAABV",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAATQAAABiAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAATQAAABi",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
-                    "dockarea": 2,
+                    "dockarea": 8,
                     "floating": false,
                     "zoom": 1.0,
                     "scrollx": 0.5,
@@ -890,7 +3200,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAVQAAAKKAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAVQAAAKK",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAagAAAQKAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAagAAAQK",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 2,
@@ -916,7 +3226,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAABN0AAADWAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAABN0AAADW",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAABBkAAAE1AAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAABBkAAAE1",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 4,
@@ -929,7 +3239,7 @@
                     "source_name": "CommandText",
                     "selected": false,
                     "title": "Command Line",
-                    "hidden": false,
+                    "hidden": true,
                     "preview": true,
                     "volmeter": false,
                     "volcontrols": false,
@@ -942,10 +3252,10 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAVQAAABHAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAVQAAABH",
+                    "geometry": "AdnQywADAAAAAAAAAAAAAAAAAMcAAABjAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAAAAAAMcAAABj",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
-                    "dockarea": 2,
+                    "dockarea": 8,
                     "floating": false,
                     "zoom": 1.0,
                     "scrollx": 0.5,
@@ -972,6 +3282,32 @@
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 2,
+                    "floating": true,
+                    "zoom": 1.0,
+                    "scrollx": 0.5,
+                    "scrolly": 0.5
+                },
+                {
+                    "source_name": "WebSocket Message Test Browser",
+                    "selected": false,
+                    "title": "wsTest",
+                    "hidden": true,
+                    "preview": true,
+                    "volmeter": false,
+                    "volcontrols": false,
+                    "mediacontrols": false,
+                    "showtimedecimals": true,
+                    "showtimedremaining": true,
+                    "switchscene": false,
+                    "showactive": false,
+                    "sceneitems": false,
+                    "properties": false,
+                    "filters": false,
+                    "textinput": false,
+                    "geometry": "AdnQywADAAAAAAAAAAAAAAAAAxUAAAMLAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAAAAAAxUAAAML",
+                    "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
+                    "window": "",
+                    "dockarea": 4,
                     "floating": true,
                     "zoom": 1.0,
                     "scrollx": 0.5,
@@ -1224,7 +3560,7 @@
             "versioned_id": "text_ft2_source_v2",
             "settings": {
                 "custom_width": 100,
-                "text": "{\"actionName\":\"ppt_NextSlide\", \"title\": \"Get organized with the selection pane\", \"slidePosition\": 5, \"sectionID\":2, \"sectionName\":\"Commands, Comments, Teamwork, Selection Pane, Sign In\", \"slideNotes\":\"List 5\\rA king ruled the state in the early days.\\rThe ship was torn apart on the sharp reef.\\rSickness kept him home the third week.\\rThe wide road shimmered in the hot sun.\\rThe lazy cow lay in the cool grass.\\rLift the square stone over the fence.\\rThe rope will bind the seven books at once.\\rHop over the fence and plunge in.\\rThe friendly gang left the drug store.\\rMesh wire keeps chicks inside\", \"nextTitle\": \"Pick up where you left off\", \"nextSlidePosition\": 6, \"nextSectionID\":2, \"nextSectionName\":\"Commands, Comments, Teamwork, Selection Pane, Sign In\", \"nextSlideNotes\":\"List 6\\rThe frosty air passed through the coat.\\rThe crooked maze failed to fool the mouse.\\rAdding fast leads to wrong sums.\\rThe show was a flop from the very start.\\rA saw is a tool used for making boards.\\rThe wagon moved on well oiled wheels.\\rMarch the soldiers past the next hill.\\rA cup of sugar makes sweet fudge.\\rPlace a rosebush near the porch steps.\\rBoth lost their lives in the raging storm\"}",
+                "text": "",
                 "word_wrap": true
             },
             "mixers": 0,
@@ -1251,7 +3587,7 @@
             "id": "text_ft2_source",
             "versioned_id": "text_ft2_source_v2",
             "settings": {
-                "text": "shortcuts run \"PowerPoint_nextSlide\" | cat"
+                "text": "shortcuts run \"Keynote_previousSlide\" | cat"
             },
             "mixers": 0,
             "sync": 0,
@@ -1359,12 +3695,12 @@
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": 0.0,
-                            "y": 0.0
+                            "x": -2.0,
+                            "y": -3.0
                         },
                         "scale": {
-                            "x": 1.0,
-                            "y": 1.0
+                            "x": 0.79660314321517944,
+                            "y": 0.79640716314315796
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -1522,11 +3858,7 @@
             "push-to-talk": false,
             "push-to-talk-delay": 0,
             "hotkeys": {
-                "OBSBasic.SelectScene": [
-                    {
-                        "key": "OBS_KEY_DEAD_GRAVE"
-                    }
-                ],
+                "OBSBasic.SelectScene": [],
                 "libobs.show_scene_item.8": [],
                 "libobs.hide_scene_item.8": [],
                 "libobs.show_scene_item.3": [],
@@ -1548,7 +3880,7 @@
             "id": "text_ft2_source",
             "versioned_id": "text_ft2_source_v2",
             "settings": {
-                "text": "417 150"
+                "text": "397 154"
             },
             "mixers": 0,
             "sync": 0,
@@ -1574,7 +3906,7 @@
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 5,
+                "id_counter": 6,
                 "custom_size": false,
                 "items": [
                     {
@@ -1732,6 +4064,45 @@
                             "duration": 0
                         },
                         "private_settings": {}
+                    },
+                    {
+                        "name": "WebSocket Message Test Browser",
+                        "source_uuid": "34fed27f-b3c2-4633-8e37-4c8e237e8491",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 1010.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 6,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
                     }
                 ]
             },
@@ -1755,7 +4126,9 @@
                 "libobs.show_scene_item.3": [],
                 "libobs.hide_scene_item.3": [],
                 "libobs.show_scene_item.4": [],
-                "libobs.hide_scene_item.4": []
+                "libobs.hide_scene_item.4": [],
+                "libobs.show_scene_item.6": [],
+                "libobs.hide_scene_item.6": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -1823,8 +4196,8 @@
         },
         {
             "prev_ver": 503447555,
-            "name": "Input camera",
-            "uuid": "4b40d3ea-76c2-4898-987d-13bbd3cf5af5",
+            "name": "in'put MP Pose",
+            "uuid": "33d1cdec-403a-4036-93c3-6f5ebb1402be",
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
@@ -1832,18 +4205,18 @@
                 "custom_size": false,
                 "items": [
                     {
-                        "name": "Video Capture Device",
-                        "source_uuid": "11a7e528-9a43-40df-a5bc-8f8277dc1e7a",
+                        "name": "InterfaceDripBrowser",
+                        "source_uuid": "5317b647-2685-484a-a448-9b388665b7dd",
                         "visible": true,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": 0.0,
-                            "y": -368.9998779296875
+                            "x": 258.0,
+                            "y": -6.0
                         },
                         "scale": {
-                            "x": 1.0909091234207153,
-                            "y": 1.0911144018173218
+                            "x": 2.3562500476837158,
+                            "y": 2.355555534362793
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -1887,6 +4260,119 @@
                 "OBSBasic.SelectScene": [],
                 "libobs.show_scene_item.1": [],
                 "libobs.hide_scene_item.1": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "Input camera",
+            "uuid": "4b40d3ea-76c2-4898-987d-13bbd3cf5af5",
+            "id": "scene",
+            "versioned_id": "scene",
+            "settings": {
+                "id_counter": 2,
+                "custom_size": false,
+                "items": [
+                    {
+                        "name": "Video Capture Device",
+                        "source_uuid": "11a7e528-9a43-40df-a5bc-8f8277dc1e7a",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": -368.9998779296875
+                        },
+                        "scale": {
+                            "x": 1.0909091234207153,
+                            "y": 1.0911144018173218
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 1,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Tiny2_PTZ",
+                        "source_uuid": "d4ab00c8-5333-4b48-a89d-ad1bd7ff0e26",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 59.0,
+                            "y": 68.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 2,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    }
+                ]
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "OBSBasic.SelectScene": [],
+                "libobs.show_scene_item.1": [],
+                "libobs.hide_scene_item.1": [],
+                "libobs.show_scene_item.2": [],
+                "libobs.hide_scene_item.2": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -2328,12 +4814,12 @@
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": 0.0,
-                            "y": 0.0
+                            "x": -2.0,
+                            "y": -4.0
                         },
                         "scale": {
-                            "x": 0.5,
-                            "y": 0.5
+                            "x": 1.0015624761581421,
+                            "y": 1.0016666650772095
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -2377,6 +4863,41 @@
                 "OBSBasic.SelectScene": [],
                 "libobs.show_scene_item.1": [],
                 "libobs.hide_scene_item.1": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "InterfaceDripBrowser",
+            "uuid": "5317b647-2685-484a-a448-9b388665b7dd",
+            "id": "browser_source",
+            "versioned_id": "browser_source",
+            "settings": {
+                "is_local_file": true,
+                "local_file": "/Users/jonwood/Documents/myGithub/UUhimsy_Slides/Browser_Sources/Interfaces_p5_code-rlb2-live.html",
+                "width": 640,
+                "height": 480
+            },
+            "mixers": 255,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": [],
+                "ObsBrowser.Refresh": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -2456,7 +4977,7 @@
             "versioned_id": "screen_capture",
             "settings": {
                 "type": 1,
-                "window": 435,
+                "window": 643,
                 "show_cursor": true
             },
             "mixers": 255,
@@ -2517,7 +5038,7 @@
             "versioned_id": "screen_capture",
             "settings": {
                 "type": 1,
-                "window": 8732
+                "window": 649
             },
             "mixers": 255,
             "sync": 0,
@@ -2562,6 +5083,38 @@
             "push-to-talk": false,
             "push-to-talk-delay": 0,
             "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "MP Drip Source Clone",
+            "uuid": "1a4bf060-955d-485f-83e9-b4badb02f369",
+            "id": "source-clone",
+            "versioned_id": "source-clone",
+            "settings": {
+                "clone": "InterfaceDripBrowser",
+                "audio": false
+            },
+            "mixers": 255,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": []
+            },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
@@ -2976,7 +5529,7 @@
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 9,
+                "id_counter": 10,
                 "custom_size": false,
                 "items": [
                     {
@@ -3136,6 +5689,45 @@
                         "private_settings": {}
                     },
                     {
+                        "name": "MP Drip Source Clone",
+                        "source_uuid": "1a4bf060-955d-485f-83e9-b4badb02f369",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": -214.0,
+                            "y": -415.0
+                        },
+                        "scale": {
+                            "x": 3.3312499523162842,
+                            "y": 3.3312499523162842
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 10,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
                         "name": "Source Clone Reveal Slides-OTS",
                         "source_uuid": "0a30c1f0-73e7-46b2-98fc-71cb37dcb3b9",
                         "visible": true,
@@ -3220,8 +5812,8 @@
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": -485.0,
-                            "y": 428.0
+                            "x": -502.0,
+                            "y": 437.0
                         },
                         "scale": {
                             "x": 1.0,
@@ -3314,6 +5906,8 @@
                 "libobs.hide_scene_item.4": [],
                 "libobs.show_scene_item.5": [],
                 "libobs.hide_scene_item.5": [],
+                "libobs.show_scene_item.10": [],
+                "libobs.hide_scene_item.10": [],
                 "libobs.show_scene_item.7": [],
                 "libobs.hide_scene_item.7": [],
                 "libobs.show_scene_item.6": [],
@@ -3720,7 +6314,7 @@
                         "rot": 0.0,
                         "pos": {
                             "x": 0.0,
-                            "y": -7.0
+                            "y": 2.0
                         },
                         "scale": {
                             "x": 1.0,
@@ -4830,7 +7424,7 @@
                     {
                         "name": "Source Clone circle cam",
                         "source_uuid": "ec6d5fb2-1113-4714-8a16-210436773770",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
@@ -5689,7 +8283,7 @@
             "settings": {
                 "is_local_file": true,
                 "local_file": "/Users/jonwood/Documents/myGithub/UUhimsy-ScreenShare_branch/Browser_Sources/stripes.html",
-                "shutdown": true
+                "shutdown": false
             },
             "mixers": 255,
             "sync": 0,
@@ -5751,6 +8345,47 @@
         },
         {
             "prev_ver": 503447555,
+            "name": "Tiny2_PTZ",
+            "uuid": "d4ab00c8-5333-4b48-a89d-ad1bd7ff0e26",
+            "id": "macos-avcapture",
+            "versioned_id": "macos-avcapture",
+            "settings": {
+                "device": "0x11000003564fef8",
+                "device_name": "OBSBOT Tiny 2 StreamCamera",
+                "use_preset": false,
+                "resolution": "{\"width\":1280,\"height\":960}",
+                "video_range": 1,
+                "color_space": 2,
+                "input_format": 5,
+                "frame_rate": {
+                    "numerator": 24000038.0,
+                    "denominator": 1000000.0
+                }
+            },
+            "mixers": 255,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
             "name": "UUhimsyControlsBrowser",
             "uuid": "e7b053a5-8d45-4d38-aa9c-c9b533041d70",
             "id": "browser_source",
@@ -5758,7 +8393,7 @@
             "settings": {
                 "is_local_file": true,
                 "local_file": "/Users/jonwood/Documents/myGithub/UUhimsy_Slides/Browser_Sources/uuhimsyControls.html",
-                "height": 1500
+                "height": 2000
             },
             "mixers": 255,
             "sync": 0,
@@ -5818,6 +8453,40 @@
                 "libobs.unmute": [],
                 "libobs.push-to-mute": [],
                 "libobs.push-to-talk": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "WebSocket Message Test Browser",
+            "uuid": "34fed27f-b3c2-4633-8e37-4c8e237e8491",
+            "id": "browser_source",
+            "versioned_id": "browser_source",
+            "settings": {
+                "is_local_file": true,
+                "local_file": "/Users/jonwood/Documents/myGithub/UUhimsy_Slides/Browser_Sources/webSocketTester.html",
+                "css": "body { background-color: rgba(0, 0, 0, 0); margin: 0px auto; }"
+            },
+            "mixers": 255,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": [],
+                "ObsBrowser.Refresh": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,

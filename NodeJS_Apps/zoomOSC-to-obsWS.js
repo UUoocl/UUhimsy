@@ -5,7 +5,7 @@ const OBSWebSocket = require("obs-websocket-js").default;
 
 var websocketIP = "localhost";
 var websocketPort = "4455";
-var websocketPassword = "q3APlBJmKTmXojSl";
+var websocketPassword = process.argv[2];
 var oscIP = "localhost";
 var oscInPORT = "4466";
 var oscOutPORT = "4477";
