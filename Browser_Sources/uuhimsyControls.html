@@ -170,34 +170,48 @@
             buttons[i+=1] = createButton(`- (${prompterScrollDecrease_HK})`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button left l').mousePressed(()=>hotkeyUpdate(prompterScrollDecrease_HK))
             buttons[i+=1] = createButton(`+ (${prompterScrollIncrease_HK})`).position(windowWidth/2, buttonPadding+25+(buttons[i-2].y+buttons[i-1].height)).class('button left l').mousePressed(()=>hotkeyUpdate(prompterScrollIncrease_HK))
             buttons[i+=1] = createButton(`Play / Pause ⏯️ (${prompterPlayPause_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>hotkeyUpdate(prompterPlayPause_HK))
-            }
-
-        function getUserMediaButton(){
-            buttons[i===0?0:i+=1] = createButton(`Open Get User Media`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
+        }
+        
+        function getUserMedia_Node(){
+            buttons[i===0?0:i+=1] = createButton(`Open Get User Media (Node js)`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
                 //setCommandText(`open node ${window.location.pathname.replace('Browser_Sources/uuhimsyControls.html','NodeJS_Apps/simple-server.js').replace('//','/')}`)
                 //send message to Advanced Scene Switcher
-                let PWD =getPWD();
+                let workingDirectory =getWorkingDirectory();
                 obs.call("CallVendorRequest", {
                     vendorName: "AdvancedSceneSwitcher",
                     requestType: "AdvancedSceneSwitcherMessage",
                     requestData: {
-                    message: `{ "requestName" : "getUserMediaButton", "fileName" : "simple-server.js", "pwd" : "${PWD}NodeJS_Apps/" }`,
+                        message: `{ "requestName" : "run 1 Argument", "run" : "node", "arg1" : "simple-server.js", "workingDir" : "${workingDirectory}NodeJS_Apps/" }`,
                     },
                 });    
             })
-
+            
+        }
+        
+        function getUserMedia_Github(){
+            buttons[i===0?0:i+=1] = createButton(`Open Get User Media (Github page)`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
+            //send message to Advanced Scene Switcher
+            let workingDirectory =getWorkingDirectory();
+            obs.call("CallVendorRequest", {
+                    vendorName: "AdvancedSceneSwitcher",
+                    requestType: "AdvancedSceneSwitcherMessage",
+                    requestData: {
+                        message: `{ "requestName" : "run 1 Argument No Dir", "run" : "/Applications/Google Chrome.app", "arg1" : "https://uuoocl.github.io/GUM/?q=${wssDetails.PW}" }`,
+                    },
+                });        
+            })
         }
 
         function startZoomOSCtoWebSocketButton(){
             buttons[i===0?0:i+=1] = createButton(`Start ZoomOSC to OBS WebSocket`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
                 //setCommandText(`node ${window.location.pathname.replace('Browser_Sources/uuhimsyControls.html','NodeJS_Apps/zoomOSC-to-obsWS.js').replace('//','/')}`)
             //send message to Advanced Scene Switcher
-            let PWD =getPWD();
+            let workingDirectory =getWorkingDirectory();
             obs.call("CallVendorRequest", {
                     vendorName: "AdvancedSceneSwitcher",
                     requestType: "AdvancedSceneSwitcherMessage",
                     requestData: {
-                        message: `{ "requestName" : "startZoomOSCtoWebSocketButton", "fileName" : "zoomOSC-to-obsWS.js", "obsWSpw" : "${wssDetails.PW}", "pwd" : "${PWD}NodeJS_Apps/" }`,
+                        message: `{ "requestName" : "run 2 Arguments", "run" : "node", "arg1" : "zoomOSC-to-obsWS.js", "arg2" : "${wssDetails.PW}", "workingDir" : "${workingDirectory}NodeJS_Apps/" }`,
                     },
                 });        
             })
@@ -206,20 +220,21 @@
         function startUVCtoWebSocketButton(){
             buttons[i===0?0:i+=1] = createButton(`Start UVC-Util to OBS WebSocket`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
             //send message to Advanced Scene Switcher
-            let PWD =getPWD();
+            let workingDirectory =getWorkingDirectory();
             obs.call("CallVendorRequest", {
                     vendorName: "AdvancedSceneSwitcher",
                     requestType: "AdvancedSceneSwitcherMessage",
                     requestData: {
-                        message: `{ "requestName" : "startUVCtoWebSocketButton", "fileName" : "getPTZvalues.js", "obsWSpw" : "${wssDetails.PW}", "pwd" : "${PWD}NodeJS_Apps/" }`,
+                        message: `{ "requestName" : "run 2 Arguments", "run" : "node", "arg1" : "getPTZvalues.js", "arg2" : "${wssDetails.PW}", "workingDir" : "${workingDirectory}NodeJS_Apps/" }`,
                     },
                 });        
             })
         }
+        
 
-        function getPWD(){
-            let PWD = window.location.pathname.replace('Browser_Sources/uuhimsyControls.html','').replace('//','/')
-            return PWD;
+        function getWorkingDirectory(){
+            let workingDirectory = window.location.pathname.replace('Browser_Sources/uuhimsyControls.html','').replace('//','/')
+            return workingDirectory;
         }
 
         //send command line
@@ -292,7 +307,8 @@
                 createSlideButtons();
                 createScreenShareButtons();
                 createRefreshButton();
-                getUserMediaButton();
+                getUserMedia_Node();
+                getUserMedia_Github()
                 startZoomOSCtoWebSocketButton();
                 startUVCtoWebSocketButton();
                 console.log(window.location.pathname.replace('Browser_Sources/uuhimsyControls.html','NodeJS_Apps/simple-server.js').replace('//','/'))

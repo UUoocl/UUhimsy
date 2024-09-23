@@ -6,10 +6,7 @@
     <title>STG _v.stripes</title>
 
     <script src="lib/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.js"></script>
-    <script src="stg_assets/js/CCapture.all.min.js"></script>
-    <script src="stg_assets/js/gif.worker.js"></script>
-
+    
     <link rel="stylesheet" type="text/css" href="stg_assets/css/stripesStyle.css" />
 
     <!-- <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:100,300,300i,400" rel="stylesheet"> -->
@@ -68,41 +65,26 @@
     <script src="obs_webSocket_details/websocketDetails.js"></script>
     <script src="obs_webSocket_details/obs-ws.js"></script>
     <script src="obs_webSocket_details/obsConnect.js"></script>
-    <!-- <script src="lib/SCRIPT_FOR_THIS_Page.js"></script> -->
+    <script src="obs_webSocket_details/startConnection.js"></script>
   
     <script>
-      const obs = new OBSWebSocket();
-      wsConnect();
-      
-      async function wsConnect() 
-        {  
-          await connectOBS(obs);
-        }
-        obs.on("InputSettingsChanged", async function (event) {
-            //console.log(event);
-            switch (event.inputName) {
-              case 'cursor':
-                break;
-              case 'hotkeyText':
-                console.log(event);
-                if(event.inputSettings.text === ' ' || event.inputSettings.text === ''){
-                  ribbonCountSlider.value(0)
-                }else if(event.inputSettings.text.includes('+')){ 
-                  notSoWeird(event.inputSettings.text);
-                }
-                break;
-              default:
-                    break;
+      obs.on("InputSettingsChanged", async function (event) {
+        //console.log(event);
+        switch (event.inputName) {
+          case 'cursor':
+            break;
+          case 'hotkeyText':
+            console.log(event);
+            if (event.inputSettings.text === ' ' || event.inputSettings.text === '') {
+              ribbonCountSlider.value(0)
+            } else if (event.inputSettings.text.includes('+')) {
+              notSoWeird(event.inputSettings.text);
             }
-        })
-        </script>
-    <script>
-  //listen for websocket message
-    //set text
-    //hide after 3 secs
-    //setTimeout(function(){ribbonCountSlider.value(0)},3000)
-  //
-</script>
+            break;
+          default:
+            break;
+        }
+      })
     </script>
     <!-- <script>
         function myFunction() {
