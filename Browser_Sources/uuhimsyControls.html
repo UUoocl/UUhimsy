@@ -130,7 +130,16 @@
     <script src="obs_webSocket_details/websocketDetails.js"></script>
     <script src="obs_webSocket_details/obs-ws.js"></script>
     <script src="obs_webSocket_details/obsConnect.js"></script>
-    <script src="obs_webSocket_details/startConnection.js"></script>
+    <!-- <script src="obs_webSocket_details/startConnection.js"></script> -->
+     <script>
+        const obs = new OBSWebSocket();
+            wsConnect();
+
+            async function wsConnect() {
+                await connectOBS(obs);
+                loadButtons();
+            }
+     </script>
     <script src="js/hotkeyConfig.js"></script>
     
     <script>
@@ -302,18 +311,30 @@
             // }
         })
 
-        function setup() {
-                i = 0;
-                createSlideButtons();
-                createScreenShareButtons();
-                createRefreshButton();
-                getUserMedia_Node();
-                getUserMedia_Github()
-                startZoomOSCtoWebSocketButton();
-                startUVCtoWebSocketButton();
-                console.log(window.location.pathname.replace('Browser_Sources/uuhimsyControls.html','NodeJS_Apps/simple-server.js').replace('//','/'))
-                console.log("node ",window.location.pathname.replace('Browser_Sources/uuhimsyControls.html','NodeJS_Apps/zoomOSC-to-obsWS.js').replace('//','/'),`-${wssDetails.PW}`)
-           }
+        async function loadButtons() {
+          let menuButtons = await obs.call("GetInputSettings", {
+                inputName: "collectionMenu",
+            });
+            menuButtons = split(menuButtons.inputSettings.text,"\n")
+            console.log(menuButtons)
+            menuButtons.forEach(element => {
+                console.log(element)
+                window[element]();
+            });
+            //createSlideButtons();
+            //createScreenShareButtons();
+            //createRefreshButton();
+            //getUserMedia_Node();
+            //getUserMedia_Github()
+            //startZoomOSCtoWebSocketButton();
+            //startUVCtoWebSocketButton();
+            console.log(window.location.pathname.replace('Browser_Sources/uuhimsyControls.html','NodeJS_Apps/simple-server.js').replace('//','/'))
+            console.log("node ",window.location.pathname.replace('Browser_Sources/uuhimsyControls.html','NodeJS_Apps/zoomOSC-to-obsWS.js').replace('//','/'),`-${wssDetails.PW}`)
+        }
+
+        async function setup() {
+            i = 0;
+        }
     </script>
 
     <script id="InputRouter">

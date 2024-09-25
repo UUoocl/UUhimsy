@@ -442,7 +442,7 @@ function marquee() {
 	ribbonCountSlider.value(11); ribbonSpaceXSlider.value(43); ribbonSpaceYSlider.value(57); ribbonSizeSlider.value(45); ribbonOffsetSlider.value(0.4);    
 	yWaveSlider.value(41); speedSlider.value(0.025); offsetSlider.value(PI); slopeSlider.value(2);
   
-  inp1.value('#ff0000');inp2.value('#ffffff');inp3.value('#0000ff');inp4.value('#ffff00');inp5.value('#'000000);
+  inp1.value('#ff0000');inp2.value('#ffffff');inp3.value('#0000ff');inp4.value('#ffff00');inp5.value('#000000');
   inp1check.checked(true); inp2check.checked(true); inp3check.checked(true); inp4check.checked(true); inp5check.checked(true);
 
   inp.value("gHoEoLdLbOy?e");

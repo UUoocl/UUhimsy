@@ -2,6 +2,6 @@ var wssDetails = {
 
     "IP":"localhost",
     "PORT":"4455",
-    "PW":"q3APlBJmKTmXojSl"
+    "PW":"htFty8c1NYBU1aMq"
 
 };
