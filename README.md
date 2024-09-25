@@ -1,5 +1,5 @@
 # UUhimsy
-A guide to making whimsical presentations with OBS.  Combine OBS and Javascript coding to create presentations to entertain and engage your audience.  
+A guide to making whimsical presentations with OBS.  Combine OBS, Javascript and automation tools to create presentations to entertain and engage your audience.  
 
 This repo includes OBS Scene Collections for Screen Sharing and Slide Shows.  
 
