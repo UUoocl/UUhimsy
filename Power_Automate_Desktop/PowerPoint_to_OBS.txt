@@ -1,0 +1,35 @@
++LOOP LoopIndex FROM 0 TO 1 STEP 0
+    MouseAndKeyboard.WaitForShortcutKey.WaitForShortcutKey InputKeys: ['Ctrl+Right', 'Ctrl+Left'] IndexOfShortcutKeyPressed=> IndexOfShortcutKeyPressed
+    SWITCH IndexOfShortcutKeyPressed
+        CASE = 1
+            UIAutomation.ExtractDataFromWindow.ExtractData Control: appmask['Window \'PowerPoint  ...  - PowerPoint\'']['UI Custom \'Slide 1 - Screen Sharing \' 3'] BringToFront: False ExtractedData=> DataFromWindow2
+            MouseAndKeyboard.SendKeys.FocusAndSendKeysByTitleClass Title: $'''PowerPoint Slide Show  -  Screen Sharing - PowerPoint''' Class: $'''''' TextToSend: $'''{Right}''' DelayBetweenKeystrokes: 10 SendTextAsHardwareKeys: False
+            UIAutomation.ExtractDataFromWindow.ExtractData Control: appmask['Window \'PowerPoint  ...  - PowerPoint\'']['UI Custom \'Slide 1 - Screen Sharing \' 4'] BringToFront: False ExtractedData=> DataFromWindow3
+            UIAutomation.ExtractDataFromWindow.ExtractData Control: appmask['Window \'PowerPoint  ...  - PowerPoint\'']['UI Custom \'Slide 1 - Screen Sharing \' 4'] BringToFront: False ExtractedData=> DataFromWindow3
+        CASE = 2
+            UIAutomation.ExtractDataFromWindow.ExtractData Control: appmask['Window \'PowerPoint  ...  - PowerPoint\'']['UI Custom \'Slide 1 - Screen Sharing \' 3'] BringToFront: False ExtractedData=> DataFromWindow2
+            MouseAndKeyboard.SendKeys.FocusAndSendKeysByTitleClass Title: $'''PowerPoint Slide Show  -  Screen Sharing - PowerPoint''' Class: $'''''' TextToSend: $'''{Left}''' DelayBetweenKeystrokes: 10 SendTextAsHardwareKeys: False
+            UIAutomation.ExtractDataFromWindow.ExtractData Control: appmask['Window \'PowerPoint  ...  - PowerPoint\'']['UI Custom \'Slide 1 - Screen Sharing \' 4'] BringToFront: False ExtractedData=> DataFromWindow3
+            UIAutomation.ExtractDataFromWindow.ExtractData Control: appmask['Window \'PowerPoint  ...  - PowerPoint\'']['UI Custom \'Slide 1 - Screen Sharing \' 4'] BringToFront: False ExtractedData=> DataFromWindow3
+    END
+    IF Contains(DataFromWindow3, $'''{NOTES:''', False) THEN
+        Text.CropText.CropTextBetweenFlags Text: DataFromWindow3 FromFlag: $'''{NOTES:''' ToFlag: $'''NOTES:}''' IgnoreCase: False CroppedText=> CroppedText IsFlagFound=> IsFlagFound
+        Text.Trim Text: CroppedText TrimOption: Text.TrimOption.Both TrimmedText=> TrimmedText
+        Text.EscapeForRegularExpression Text: TrimmedText EscapedText=> EscapedText
+    ELSE
+        SET EscapedText TO 0
+    END
+    IF Contains(DataFromWindow3, $'''{SCENE:''', False) THEN
+        Text.CropText.CropTextBetweenFlags Text: DataFromWindow3 FromFlag: $'''{SCENE:''' ToFlag: $'''SCENE:}''' IgnoreCase: False CroppedText=> SCENECroppedText IsFlagFound=> IsFlagFound
+        Text.Trim Text: SCENECroppedText TrimOption: Text.TrimOption.Both TrimmedText=> SCENETrimmedText
+        Text.EscapeForRegularExpression Text: SCENETrimmedText EscapedText=> SCENEEscapedText
+    ELSE
+        SET SCENEEscapedText TO 0
+    END
+    Variables.ConvertJsonToCustomObject Json: $'''{
+slideNotes: \"%TrimmedText%\",
+scene: \"%SCENETrimmedText%\"
+}''' CustomObject=> JsonAsCustomObject
+    Variables.ConvertCustomObjectToJson CustomObject: JsonAsCustomObject Json=> CustomObjectAsJson
+    File.WriteText File: $'''C:\\Users\\Jonat\\OneDrive\\Documents\\PAD_TextWrite.txt''' TextToWrite: CustomObjectAsJson AppendNewLine: False IfFileExists: File.IfFileExists.Overwrite Encoding: File.FileEncoding.UTF8
+END

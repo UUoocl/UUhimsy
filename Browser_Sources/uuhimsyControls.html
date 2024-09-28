@@ -168,6 +168,9 @@
               buttons[i].option('keynote', ' Keynote ')
               buttons[i].option('ppt',' PowerPoint ')
             }
+            if(navigator.platform.includes('Win')){
+              buttons[i].option('pptWin',' PowerPoint ')
+            }
             buttons[i].selected('reveal')
             labelUpdate('reveal')
             buttons[i+=1] = createButton(`Next Slide (${nextSlide_HK})`).position(0, (15+buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button l').id('nextSlideButton').mousePressed(()=>hotkeyUpdate(nextSlide_HK))

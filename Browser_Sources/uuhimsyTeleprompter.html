@@ -103,6 +103,7 @@
         if(slideAppName === 'ppt'){
         setCommandText('shortcuts run "PowerPoint_nextSlide" | cat')
         }
+
         //send next slide to Reveal Slides
         if(slideAppName === 'reveal'){
         obs.call("CallVendorRequest", {
@@ -184,16 +185,36 @@
             // case pptCurrentSlide_HK:
             //   setCommandText('shortcuts run "Keynote_currentSlide" | cat');
             //   break;
-            //Keynote Next Slide
+            //PowerPoint Next Slide
             case pptNextSlide_HK:
               setCommandText('shortcuts run "PowerPoint_nextSlide" | cat');
               break;
-            //Keynote Previous Slide
+            //PowerPoint Previous Slide
             case pptPreviousSlide_HK:
               setCommandText('shortcuts run "PowerPoint_previousSlide" | cat');
               break;
 
+            //PowerPoint Windows Next Slide
+            case pptWinNextSlide_HK:            
+              obs.call("CallVendorRequest", {
+                vendorName: "AdvancedSceneSwitcher",
+                requestType: "AdvancedSceneSwitcherMessage",
+                requestData: {
+                    message: `{ "requestName" : "pptWinNext" }`,
+                },
+              });          
+              break;
 
+            //PowerPoint Windows Previous Slide
+            case pptWinPreviousSlide_HK:
+              obs.call("CallVendorRequest", {
+                vendorName: "AdvancedSceneSwitcher",
+                requestType: "AdvancedSceneSwitcherMessage",
+                requestData: {
+                    message: `{ "requestName" : "pptWinPrevious" }`,
+                },
+              });
+              break;
 
             //Teleprompter Font -
             case  prompterFontDecrease_HK:

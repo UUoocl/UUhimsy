@@ -1,0 +1,65 @@
+{
+    "remapKeys": {
+        "inProcess": [
+            {
+                "originalKeys": "96",
+                "newRemapKeys": "124"
+            },
+            {
+                "originalKeys": "97",
+                "newRemapKeys": "125"
+            },
+            {
+                "originalKeys": "98",
+                "newRemapKeys": "126"
+            },
+            {
+                "originalKeys": "99",
+                "newRemapKeys": "127"
+            },
+            {
+                "originalKeys": "100",
+                "newRemapKeys": "128"
+            },
+            {
+                "originalKeys": "101",
+                "newRemapKeys": "129"
+            },
+            {
+                "originalKeys": "102",
+                "newRemapKeys": "130"
+            },
+            {
+                "originalKeys": "103",
+                "newRemapKeys": "131"
+            },
+            {
+                "originalKeys": "104",
+                "newRemapKeys": "132"
+            },
+            {
+                "originalKeys": "105",
+                "newRemapKeys": "133"
+            },
+            {
+                "originalKeys": "106",
+                "newRemapKeys": "134"
+            },
+            {
+                "originalKeys": "107",
+                "newRemapKeys": "135"
+            }
+        ]
+    },
+    "remapKeysToText": {
+        "inProcess": []
+    },
+    "remapShortcuts": {
+        "global": [],
+        "appSpecific": []
+    },
+    "remapShortcutsToText": {
+        "global": [],
+        "appSpecific": []
+    }
+}
