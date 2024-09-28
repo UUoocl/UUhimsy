@@ -1,6 +1,6 @@
 {
-    "current_scene": "Scene Screen Share",
-    "current_program_scene": "Scene Screen Share",
+    "current_scene": "docks",
+    "current_program_scene": "docks",
     "scene_order": [
         {
             "name": "Scene Screen Share"
@@ -2804,16 +2804,16 @@
                 }
             ],
             "saveWindowGeo": false,
-            "windowPosX": 2354,
-            "windowPosY": 9,
-            "windowWidth": 1495,
-            "windowHeight": 1170,
+            "windowPosX": 0,
+            "windowPosY": 0,
+            "windowWidth": 1920,
+            "windowHeight": 1052,
             "macroListMacroEditSplitterPosition": [
                 {
-                    "pos": 503
+                    "pos": 272
                 },
                 {
-                    "pos": 945
+                    "pos": 1601
                 }
             ],
             "version": "510f83246ea264f56def58187bd9537b7c93b988",
@@ -2904,7 +2904,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAABSgAAAAwAAAAAAAAAAD//////////wAAAAEAAAAADXAAAAAAAAAAGQAABSgAAAAw",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAABAEAAAAwAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAABAEAAAAw",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -2930,7 +2930,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAALwAAAAwAAAAAAAAAAD//////////wAAAAEAAAAADXAAAAAAAAAAGQAAALwAAAAw",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAVMAAAAwAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAVMAAAAw",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -2956,7 +2956,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAATQAAAAwAAAAAAAAAAD//////////wAAAAEAAAAADXAAAAAAAAAAGQAAATQAAAAw",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAiEAAAAwAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAiEAAAAw",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -2982,7 +2982,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAUwAAANLAAAAAAAAAAD//////////wAAAAEAAAAADXAAAAAAAAAAGQAAAUwAAANL",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAQsAAALoAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAQsAAALo",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 2,
@@ -3008,7 +3008,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAAAAAAMcAAABjAAAAAAAAAAD//////////wAAAAEAAAAADXAAAAAAAAAAAAAAAMcAAABj",
+                    "geometry": "AdnQywADAAAAAAAAAAAAAAAAAMcAAABjAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAAAAAAMcAAABj",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 4,
@@ -3034,7 +3034,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAAAAAAMcAAABjAAAAAAAAAAD//////////wAAAAEAAAAADXAAAAAAAAAAAAAAAMcAAABj",
+                    "geometry": "AdnQywADAAAAAAAAAAAAAAAAAMcAAABjAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAAAAAAMcAAABj",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -3333,6 +3333,32 @@
                     "private_settings": {}
                 }
             ]
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "collectionName",
+            "uuid": "a75ac7d8-cc67-45ec-a88a-a422cf4465d2",
+            "id": "text_ft2_source",
+            "versioned_id": "text_ft2_source_v2",
+            "settings": {
+                "text": "ScreenShare"
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
         },
         {
             "prev_ver": 503447555,
@@ -3686,10 +3712,10 @@
                 "libobs.hide_scene_item.3": [],
                 "libobs.show_scene_item.18": [],
                 "libobs.hide_scene_item.18": [],
-                "libobs.show_scene_item.14": [],
-                "libobs.hide_scene_item.14": [],
                 "libobs.show_scene_item.19": [],
-                "libobs.hide_scene_item.19": []
+                "libobs.hide_scene_item.19": [],
+                "libobs.show_scene_item.14": [],
+                "libobs.hide_scene_item.14": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -3703,7 +3729,7 @@
             "id": "text_ft2_source",
             "versioned_id": "text_ft2_source_v2",
             "settings": {
-                "text": "2342 157"
+                "text": "391 155"
             },
             "mixers": 0,
             "sync": 0,
@@ -3730,7 +3756,7 @@
             "versioned_id": "scene",
             "settings": {
                 "custom_size": false,
-                "id_counter": 6,
+                "id_counter": 7,
                 "items": [
                     {
                         "name": "UUhimsyControlsBrowser",
@@ -3926,6 +3952,45 @@
                             "duration": 0
                         },
                         "private_settings": {}
+                    },
+                    {
+                        "name": "collectionName",
+                        "source_uuid": "a75ac7d8-cc67-45ec-a88a-a422cf4465d2",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 84.0,
+                            "y": 670.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 7,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
                     }
                 ]
             },
@@ -3951,7 +4016,9 @@
                 "libobs.show_scene_item.4": [],
                 "libobs.hide_scene_item.4": [],
                 "libobs.show_scene_item.6": [],
-                "libobs.hide_scene_item.6": []
+                "libobs.hide_scene_item.6": [],
+                "libobs.show_scene_item.7": [],
+                "libobs.hide_scene_item.7": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,

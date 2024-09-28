@@ -1,6 +1,6 @@
 {
-    "current_scene": "docks",
-    "current_program_scene": "docks",
+    "current_scene": "Scene Screen Share",
+    "current_program_scene": "Scene Screen Share",
     "scene_order": [
         {
             "name": "Scene Screen Share"
@@ -2904,7 +2904,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAABAEAAAAwAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAABAEAAAAw",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAABAQAAAAwAAAAAAAAAAD//////////wAAAAEAAAAADXAAAAAAAAAAGQAABAQAAAAw",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -2930,7 +2930,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAVMAAAAwAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAVMAAAAw",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAU4AAAAwAAAAAAAAAAD//////////wAAAAEAAAAADXAAAAAAAAAAGQAAAU4AAAAw",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -2956,7 +2956,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAiEAAAAwAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAiEAAAAw",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAiMAAAAwAAAAAAAAAAD//////////wAAAAEAAAAADXAAAAAAAAAAGQAAAiMAAAAw",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -2982,7 +2982,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAQsAAALoAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAQsAAALo",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAakAAAQ8AAAAAAAAAAD//////////wAAAAEAAAAADXAAAAAAAAAAGQAAAakAAAQ8",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 2,
@@ -3008,7 +3008,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAAAAAAMcAAABjAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAAAAAAMcAAABj",
+                    "geometry": "AdnQywADAAAAAAAAAAAAAAAAAMcAAABjAAAAAAAAAAD//////////wAAAAEAAAAADXAAAAAAAAAAAAAAAMcAAABj",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 4,
@@ -3034,7 +3034,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAAAAAAMcAAABjAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAAAAAAMcAAABj",
+                    "geometry": "AdnQywADAAAAAAAAAAAAAAAAAMcAAABjAAAAAAAAAAD//////////wAAAAEAAAAADXAAAAAAAAAAAAAAAMcAAABj",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -3336,12 +3336,12 @@
         },
         {
             "prev_ver": 503447555,
-            "name": "collectionName",
+            "name": "collectionMenu",
             "uuid": "a75ac7d8-cc67-45ec-a88a-a422cf4465d2",
             "id": "text_ft2_source",
             "versioned_id": "text_ft2_source_v2",
             "settings": {
-                "text": "ScreenShare"
+                "text": "createScreenShareButtons\ncreateRefreshButton"
             },
             "mixers": 0,
             "sync": 0,
@@ -3729,7 +3729,7 @@
             "id": "text_ft2_source",
             "versioned_id": "text_ft2_source_v2",
             "settings": {
-                "text": "391 155"
+                "text": "2386 158"
             },
             "mixers": 0,
             "sync": 0,
@@ -3954,18 +3954,18 @@
                         "private_settings": {}
                     },
                     {
-                        "name": "collectionName",
+                        "name": "collectionMenu",
                         "source_uuid": "a75ac7d8-cc67-45ec-a88a-a422cf4465d2",
                         "visible": true,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": 84.0,
-                            "y": 670.0
+                            "x": 28.0,
+                            "y": 864.0
                         },
                         "scale": {
-                            "x": 1.0,
-                            "y": 1.0
+                            "x": 0.21146953105926514,
+                            "y": 0.21149897575378418
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -4422,7 +4422,7 @@
             "settings": {
                 "display_uuid": "47D671FC-76DB-4C75-A6B5-6EF8F9E5D922",
                 "type": 1,
-                "window": 402
+                "window": 1962
             },
             "mixers": 255,
             "sync": 0,
@@ -4780,7 +4780,7 @@
                     {
                         "name": "Source Clone circle cam",
                         "source_uuid": "6ebe754c-3e12-4c7c-9129-fe9c818794d8",
-                        "visible": false,
+                        "visible": true,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {

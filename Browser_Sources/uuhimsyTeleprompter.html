@@ -224,10 +224,10 @@
           commandResult = JSON.parse(event.inputSettings.text);
           console.log(1)
           console.log(commandResult)
-          commandResult = JSON.parse(commandResult);
-          console.log(2)
-          console.log(commandResult)
-          console.log("commandResult.slideNumber != previousCommandResult.slideNumber",commandResult.slideNumber != previousCommandResult.slideNumber)
+          //commandResult = JSON.parse(commandResult);
+          //console.log(2)
+          //console.log(commandResult)
+          //sconsole.log("commandResult.slideNumber != previousCommandResult.slideNumber",commandResult.slideNumber != previousCommandResult.slideNumber)
           
           //update script when slide number changes
           if(commandResult.slideNumber != previousCommandResult.slideNumber){
@@ -263,15 +263,16 @@
           let commandResult = JSON.parse(event.inputSettings.text);
           console.log(1)
           console.log(commandResult)
-          //commandResult = JSON.parse(commandResult);
-          //console.log(2)
-          //console.log(commandResult)
-          console.log("commandResult.slidePosition != previousCommandResult.slidePosition",commandResult.slidePosition != previousCommandResult.slidePosition)
+          // commandResult = JSON.parse(commandResult);
+          // console.log(2)
+          // console.log(commandResult)
+          //console.log("commandResult.slidePosition != previousCommandResult.slidePosition",commandResult.slidePosition != previousCommandResult.slidePosition)
           
           if(commandResult.slidePosition != previousCommandResult.slidePosition){
             previousCommandResult = commandResult;
-            
-            let slideNoteJSON = JSON.parse(JSON.stringify(commandResult.slideNotes));
+            obs.call('SetCurrentProgramScene', {sceneName: `${commandResult.slideScene}`}); 
+            console.log(commandResult.slideNotes)
+            let slideNoteJSON = commandResult.slideNotes;
             console.log(slideNoteJSON)
             document.getElementById("teleprompter").innerHTML = slideNoteJSON;
             lastWord = commandResult.slideNotes.trim().split(' ').pop();
