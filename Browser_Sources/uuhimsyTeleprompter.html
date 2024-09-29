@@ -143,7 +143,7 @@
       //Hotkey Text Source change Listener
       //window.addEventListener("keydown", (event) => {
       obs.on("InputSettingsChanged", async function (event) {
-            //console.log(event);
+            console.log(event);
           if(event.inputName === "hotkeyText") {
           //console.log("hotkeyText Changed",event)
           switch (event.inputSettings.text) {
@@ -237,6 +237,7 @@
               TelePrompter.playPause()
               break;
           }}
+
         //Command Line results text source updated
         if (event.inputName === "CommandResultsText" && event.inputSettings.text && slideAppName === 'keynote') {
           
@@ -279,6 +280,30 @@
         }
 
         if (event.inputName === "CommandResultsText" && event.inputSettings.text && slideAppName === 'ppt') {
+          
+          console.log(event.inputSettings.text)
+          let commandResult = JSON.parse(event.inputSettings.text);
+          console.log(1)
+          console.log(commandResult)
+          // commandResult = JSON.parse(commandResult);
+          // console.log(2)
+          // console.log(commandResult)
+          //console.log("commandResult.slidePosition != previousCommandResult.slidePosition",commandResult.slidePosition != previousCommandResult.slidePosition)
+          
+          if(commandResult.slidePosition != previousCommandResult.slidePosition){
+            previousCommandResult = commandResult;
+            obs.call('SetCurrentProgramScene', {sceneName: `${commandResult.slideScene}`}); 
+            console.log(commandResult.slideNotes)
+            let slideNoteJSON = commandResult.slideNotes;
+            console.log(slideNoteJSON)
+            document.getElementById("teleprompter").innerHTML = slideNoteJSON;
+            lastWord = commandResult.slideNotes.trim().split(' ').pop();
+            console.log(lastWord)
+            TelePrompter.resetPageScroll();
+          }
+        }
+
+        if (event.inputName === "CommandResultsText" && event.inputSettings.text && slideAppName === 'pptWin') {
           
           console.log(event.inputSettings.text)
           let commandResult = JSON.parse(event.inputSettings.text);
