@@ -1,6 +1,6 @@
 {
-    "current_scene": "Scene ExternalSlide-OTS",
-    "current_program_scene": "Scene ExternalSlide-OTS",
+    "current_scene": "Scene Reveal-Side",
+    "current_program_scene": "Scene Reveal-Side",
     "scene_order": [
         {
             "name": "Scene Reveal-OTS"
@@ -527,235 +527,6 @@
                             "file": "/Users/jonwood/Documents/myGithub/UUhimsy_Slides/Browser_Sources/slides-presentation-templates (1).html",
                             "text": "${html}",
                             "action": 0
-                        }
-                    ],
-                    "elseActions": [],
-                    "inputVariables": []
-                },
-                {
-                    "name": "HotKeys",
-                    "pause": false,
-                    "parallel": false,
-                    "onChange": true,
-                    "skipExecOnStart": false,
-                    "stopActionsIfNotDone": false,
-                    "group": true,
-                    "groupData": {
-                        "collapsed": false,
-                        "size": 2
-                    }
-                },
-                {
-                    "name": "hotkey_NUMPADPLUS",
-                    "pause": false,
-                    "parallel": false,
-                    "onChange": true,
-                    "skipExecOnStart": false,
-                    "stopActionsIfNotDone": false,
-                    "group": false,
-                    "dockSettings": {
-                        "register": false,
-                        "hasRunButton": true,
-                        "hasPauseButton": true,
-                        "hasStatusLabel": false,
-                        "highlightIfConditionsTrue": false,
-                        "runButtonText": "Run",
-                        "pauseButtonText": "Pause",
-                        "unpauseButtonText": "Unpause",
-                        "conditionsTrueStatusText": "Conditions are true.",
-                        "conditionsFalseStatusText": "Conditions are false.",
-                        "dockId": "advss-macro-dock-80eeff54-34bf-495d-ac12-af1520ba5874",
-                        "version": 1
-                    },
-                    "macroActionConditionSplitterPosition": [
-                        {
-                            "pos": 438
-                        },
-                        {
-                            "pos": 436
-                        }
-                    ],
-                    "macroElseActionSplitterPosition": [
-                        {
-                            "pos": 404
-                        },
-                        {
-                            "pos": 0
-                        }
-                    ],
-                    "registerHotkeys": false,
-                    "pauseHotkey": [],
-                    "unpauseHotkey": [],
-                    "togglePauseHotkey": [],
-                    "conditions": [
-                        {
-                            "segmentSettings": {
-                                "collapsed": false,
-                                "useCustomLabel": false,
-                                "customLabel": "My label"
-                            },
-                            "id": "hotkey",
-                            "logic": 0,
-                            "durationModifier": {
-                                "time_constraint": 0,
-                                "seconds": {
-                                    "value": {
-                                        "value": 0.0,
-                                        "type": 0
-                                    },
-                                    "unit": 0,
-                                    "version": 1
-                                }
-                            },
-                            "desc": "Macro trigger hotkey 3",
-                            "keyBind": [
-                                {
-                                    "key": "OBS_KEY_NUMPLUS"
-                                }
-                            ],
-                            "checkPressed": true
-                        }
-                    ],
-                    "actions": [
-                        {
-                            "segmentSettings": {
-                                "collapsed": false,
-                                "useCustomLabel": false,
-                                "customLabel": "My label"
-                            },
-                            "id": "source",
-                            "enabled": true,
-                            "source": {
-                                "type": 0,
-                                "name": "hotkeyText"
-                            },
-                            "action": 2,
-                            "sourceSettingButton": {
-                                "id": "",
-                                "description": ""
-                            },
-                            "inputMethod": 0,
-                            "sourceSetting": {
-                                "id": "text",
-                                "description": "Text (Text)"
-                            },
-                            "manualSettingValue": "+",
-                            "tempVar": {
-                                "type": 0,
-                                "idx": -1,
-                                "id": ""
-                            },
-                            "settings": "",
-                            "deinterlaceMode": 0,
-                            "deinterlaceOrder": 0
-                        }
-                    ],
-                    "elseActions": [],
-                    "inputVariables": []
-                },
-                {
-                    "name": "hotkey_NUMPADMINUS",
-                    "pause": false,
-                    "parallel": false,
-                    "onChange": true,
-                    "skipExecOnStart": false,
-                    "stopActionsIfNotDone": false,
-                    "group": false,
-                    "dockSettings": {
-                        "register": false,
-                        "hasRunButton": true,
-                        "hasPauseButton": true,
-                        "hasStatusLabel": false,
-                        "highlightIfConditionsTrue": false,
-                        "runButtonText": "Run",
-                        "pauseButtonText": "Pause",
-                        "unpauseButtonText": "Unpause",
-                        "conditionsTrueStatusText": "Conditions are true.",
-                        "conditionsFalseStatusText": "Conditions are false.",
-                        "dockId": "advss-macro-dock-941b0874-5372-4949-a645-d55784fc8c98",
-                        "version": 1
-                    },
-                    "macroActionConditionSplitterPosition": [
-                        {
-                            "pos": 438
-                        },
-                        {
-                            "pos": 436
-                        }
-                    ],
-                    "macroElseActionSplitterPosition": [
-                        {
-                            "pos": 404
-                        },
-                        {
-                            "pos": 0
-                        }
-                    ],
-                    "registerHotkeys": false,
-                    "pauseHotkey": [],
-                    "unpauseHotkey": [],
-                    "togglePauseHotkey": [],
-                    "conditions": [
-                        {
-                            "segmentSettings": {
-                                "collapsed": false,
-                                "useCustomLabel": false,
-                                "customLabel": "My label"
-                            },
-                            "id": "hotkey",
-                            "logic": 0,
-                            "durationModifier": {
-                                "time_constraint": 0,
-                                "seconds": {
-                                    "value": {
-                                        "value": 0.0,
-                                        "type": 0
-                                    },
-                                    "unit": 0,
-                                    "version": 1
-                                }
-                            },
-                            "desc": "Macro trigger hotkey 4",
-                            "keyBind": [
-                                {
-                                    "key": "OBS_KEY_NUMMINUS"
-                                }
-                            ],
-                            "checkPressed": true
-                        }
-                    ],
-                    "actions": [
-                        {
-                            "segmentSettings": {
-                                "collapsed": false,
-                                "useCustomLabel": false,
-                                "customLabel": "My label"
-                            },
-                            "id": "source",
-                            "enabled": true,
-                            "source": {
-                                "type": 0,
-                                "name": "hotkeyText"
-                            },
-                            "action": 2,
-                            "sourceSettingButton": {
-                                "id": "",
-                                "description": ""
-                            },
-                            "inputMethod": 0,
-                            "sourceSetting": {
-                                "id": "text",
-                                "description": "Text (Text)"
-                            },
-                            "manualSettingValue": "-",
-                            "tempVar": {
-                                "type": 0,
-                                "idx": -1,
-                                "id": ""
-                            },
-                            "settings": "",
-                            "deinterlaceMode": 0,
-                            "deinterlaceOrder": 0
                         }
                     ],
                     "elseActions": [],
@@ -2354,15 +2125,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 490
+                            "pos": 214
                         },
                         {
-                            "pos": 643
+                            "pos": 280
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 611
+                            "pos": 248
                         },
                         {
                             "pos": 0
@@ -2545,15 +2316,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 461
+                            "pos": 247
                         },
                         {
-                            "pos": 461
+                            "pos": 247
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 429
+                            "pos": 215
                         },
                         {
                             "pos": 0
@@ -2873,15 +2644,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 283
+                            "pos": 151
                         },
                         {
-                            "pos": 645
+                            "pos": 343
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 613
+                            "pos": 311
                         },
                         {
                             "pos": 0
@@ -4108,15 +3879,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 415
+                            "pos": 281
                         },
                         {
-                            "pos": 328
+                            "pos": 609
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 296
+                            "pos": 577
                         },
                         {
                             "pos": 0
@@ -4161,7 +3932,7 @@
                     "actions": [
                         {
                             "segmentSettings": {
-                                "collapsed": true,
+                                "collapsed": false,
                                 "useCustomLabel": false,
                                 "customLabel": "My label"
                             },
@@ -4518,15 +4289,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 412
+                            "pos": 494
                         },
                         {
-                            "pos": 331
+                            "pos": 396
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 299
+                            "pos": 364
                         },
                         {
                             "pos": 0
@@ -4629,6 +4400,226 @@
                                 "type": 0
                             },
                             "paddingChar": 48
+                        }
+                    ],
+                    "elseActions": [],
+                    "inputVariables": []
+                },
+                {
+                    "name": "send_PPT_Next_Hotkey",
+                    "pause": false,
+                    "parallel": false,
+                    "onChange": true,
+                    "skipExecOnStart": false,
+                    "stopActionsIfNotDone": false,
+                    "group": false,
+                    "dockSettings": {
+                        "register": false,
+                        "hasRunButton": true,
+                        "hasPauseButton": true,
+                        "hasStatusLabel": false,
+                        "highlightIfConditionsTrue": false,
+                        "runButtonText": "Run",
+                        "pauseButtonText": "Pause",
+                        "unpauseButtonText": "Unpause",
+                        "conditionsTrueStatusText": "Conditions are true.",
+                        "conditionsFalseStatusText": "Conditions are false.",
+                        "dockId": "advss-macro-dock-c56caf97-299a-42f5-b6da-473be9fbf91e",
+                        "version": 1
+                    },
+                    "macroActionConditionSplitterPosition": [
+                        {
+                            "pos": 320
+                        },
+                        {
+                            "pos": 570
+                        }
+                    ],
+                    "macroElseActionSplitterPosition": [
+                        {
+                            "pos": 538
+                        },
+                        {
+                            "pos": 0
+                        }
+                    ],
+                    "registerHotkeys": false,
+                    "pauseHotkey": [],
+                    "unpauseHotkey": [],
+                    "togglePauseHotkey": [],
+                    "conditions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "websocket",
+                            "logic": 0,
+                            "durationModifier": {
+                                "time_constraint": 0,
+                                "seconds": {
+                                    "value": {
+                                        "value": 0.0,
+                                        "type": 0
+                                    },
+                                    "unit": 0,
+                                    "version": 1
+                                }
+                            },
+                            "type": 0,
+                            "message": "{ \"requestName\" : \"pptWinNext\" }",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "connection": "Invalid connection selection",
+                            "clearBufferOnMatch": true,
+                            "version": 1
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "hotkey",
+                            "enabled": true,
+                            "action": 1,
+                            "hotkeyType": 0,
+                            "hotkeyName": "",
+                            "key": 54,
+                            "left_shift": false,
+                            "right_shift": false,
+                            "left_ctrl": true,
+                            "right_ctrl": false,
+                            "left_alt": true,
+                            "right_alt": false,
+                            "left_meta": false,
+                            "right_meta": false,
+                            "duration": {
+                                "value": {
+                                    "value": 0.29999999999999999,
+                                    "type": 0
+                                },
+                                "unit": 0,
+                                "version": 1
+                            },
+                            "onlyOBS": true,
+                            "version": 2
+                        }
+                    ],
+                    "elseActions": [],
+                    "inputVariables": []
+                },
+                {
+                    "name": "send_PPT_Previous_Hotkey",
+                    "pause": false,
+                    "parallel": false,
+                    "onChange": true,
+                    "skipExecOnStart": false,
+                    "stopActionsIfNotDone": false,
+                    "group": false,
+                    "dockSettings": {
+                        "register": false,
+                        "hasRunButton": true,
+                        "hasPauseButton": true,
+                        "hasStatusLabel": false,
+                        "highlightIfConditionsTrue": false,
+                        "runButtonText": "Run",
+                        "pauseButtonText": "Pause",
+                        "unpauseButtonText": "Unpause",
+                        "conditionsTrueStatusText": "Conditions are true.",
+                        "conditionsFalseStatusText": "Conditions are false.",
+                        "dockId": "advss-macro-dock-839461c7-341c-4aec-941a-7dc0f517ea5a",
+                        "version": 1
+                    },
+                    "macroActionConditionSplitterPosition": [
+                        {
+                            "pos": 445
+                        },
+                        {
+                            "pos": 445
+                        }
+                    ],
+                    "macroElseActionSplitterPosition": [
+                        {
+                            "pos": 413
+                        },
+                        {
+                            "pos": 0
+                        }
+                    ],
+                    "registerHotkeys": false,
+                    "pauseHotkey": [],
+                    "unpauseHotkey": [],
+                    "togglePauseHotkey": [],
+                    "conditions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "websocket",
+                            "logic": 0,
+                            "durationModifier": {
+                                "time_constraint": 0,
+                                "seconds": {
+                                    "value": {
+                                        "value": 0.0,
+                                        "type": 0
+                                    },
+                                    "unit": 0,
+                                    "version": 1
+                                }
+                            },
+                            "type": 0,
+                            "message": "{ \"requestName\" : \"pptWinPrevious\" }",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "connection": "Invalid connection selection",
+                            "clearBufferOnMatch": true,
+                            "version": 1
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "hotkey",
+                            "enabled": true,
+                            "action": 1,
+                            "hotkeyType": 0,
+                            "hotkeyName": "",
+                            "key": 55,
+                            "left_shift": false,
+                            "right_shift": false,
+                            "left_ctrl": true,
+                            "right_ctrl": false,
+                            "left_alt": true,
+                            "right_alt": false,
+                            "left_meta": false,
+                            "right_meta": false,
+                            "duration": {
+                                "value": {
+                                    "value": 0.29999999999999999,
+                                    "type": 0
+                                },
+                                "unit": 0,
+                                "version": 1
+                            },
+                            "onlyOBS": true,
+                            "version": 2
                         }
                     ],
                     "elseActions": [],
@@ -4761,7 +4752,7 @@
                 "version": 1
             },
             "enableCooldown": false,
-            "active": false,
+            "active": true,
             "startup_behavior": 0,
             "autoStartEvent": 0,
             "logLevel": 0,
@@ -4860,16 +4851,16 @@
                 }
             ],
             "saveWindowGeo": false,
-            "windowPosX": 2751,
-            "windowPosY": 41,
-            "windowWidth": 1445,
-            "windowHeight": 1161,
+            "windowPosX": 450,
+            "windowPosY": 274,
+            "windowWidth": 1000,
+            "windowHeight": 600,
             "macroListMacroEditSplitterPosition": [
                 {
-                    "pos": 305
+                    "pos": 166
                 },
                 {
-                    "pos": 1093
+                    "pos": 787
                 }
             ],
             "version": "510f83246ea264f56def58187bd9537b7c93b988",
@@ -5263,7 +5254,7 @@
             "settings": {
                 "custom_width": 100,
                 "word_wrap": true,
-                "text": "{\"slideNotes\":\"List 1\\n1. The birch canoe slid on the smooth planks.\\n2. Glue the “sheet” to the dark blue background.\\n3. It's easy to tell the depth of a well.\\n4. These days a chicken leg is a rare dish.\\n5. Rice is often served in round bowls.\\n6. The juice of lemons makes fine punch.\\n7. The box was thrown beside the parked truck.\\n8. The hogs were fed chopped corn and garbage.\\n9. Four hours of steady work faced us.\\n10. A large size in stockings is hard to sell\",\"slideScene\":\"Scene ExternalSlide-OTS\",\"slideNumber\":\"1\",\"nextSlideNumber\":\"2\",\"nextSlideScene\":\"Scene ExternalSlide-Full\",\"nextSlideTitle\":\"NextSlide\",\"slideTitle\":\"Title\",\"nextSlideNotes\":\"List 2\\n1.\\tThe boy was there when the sun rose.\\n2.\\tA rod is used to catch pink salmon.\\n3.\\tThe source of the huge river is the clear spring.\\n4.\\tKick the ball straight and follow through.\\n5.\\tHelp the woman get back to her feet.\\n6.\\tA pot of tea helps to pass the evening.\\n7.\\tSmoky fires lack flame and heat.\\n8.\\tThe soft cushion broke the man's fall.\\n9.\\tThe salt breeze came across from the sea.\\n10.\\tThe girl at the booth sold fifty bonds\",\"actionName\":\"keynote_previousSlide\"}"
+                "text": "{\"slideNotes\":\"List 3\\n1.\\tThe small pup gnawed a hole in the sock.\\n2.\\tThe fish twisted and turned on the bent hook.\\n3.\\tPress the pants and sew a button on the vest.\\n4.\\tThe swan dive was far short of perfect.\\n5.\\tThe beauty of the view stunned the young boy.\\n6.\\tTwo blue fish swam in the tank.\\n7.\\tHer purse was full of useless trash.\\n8.\\tThe colt reared and threw the tall rider.\\n9.\\tIt snowed, rained, and hailed the same morning.\\n10.\\tRead verse out loud for pleasure\",\"slideScene\":\"Scene ExternalSlide-OTS\",\"slideNumber\":\"3\",\"nextSlideNumber\":\"-1\",\"nextSlideScene\":\"\",\"nextSlideTitle\":\"End of Slides\",\"slideTitle\":\"3 rd slide\",\"nextSlideNotes\":\"\\\"End of Slides\\\"\",\"actionName\":\"keynote_nextSlide\"}"
             },
             "mixers": 0,
             "sync": 0,
@@ -5289,7 +5280,7 @@
             "id": "text_ft2_source",
             "versioned_id": "text_ft2_source_v2",
             "settings": {
-                "text": "shortcuts run \"Keynote_previousSlide\" | cat"
+                "text": "shortcuts run \"Keynote_nextSlide\" | cat"
             },
             "mixers": 0,
             "sync": 0,
@@ -5664,7 +5655,7 @@
             "id": "text_ft2_source",
             "versioned_id": "text_ft2_source_v2",
             "settings": {
-                "text": "Alt+F19"
+                "text": " "
             },
             "mixers": 0,
             "sync": 0,
@@ -5881,7 +5872,7 @@
                     {
                         "name": "ppt Screen Capture",
                         "source_uuid": "149a9ae9-d514-4cd3-a001-5d6a0bdad460",
-                        "visible": false,
+                        "visible": true,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
@@ -6612,7 +6603,7 @@
             "id": "text_ft2_source",
             "versioned_id": "text_ft2_source_v2",
             "settings": {
-                "text": "MB1"
+                "text": " "
             },
             "mixers": 0,
             "sync": 0,
