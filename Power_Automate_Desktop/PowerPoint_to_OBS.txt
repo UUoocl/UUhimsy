@@ -1,5 +1,5 @@
-+LOOP LoopIndex FROM 0 TO 1 STEP 0
-    MouseAndKeyboard.WaitForShortcutKey.WaitForShortcutKey InputKeys: ['Ctrl+Right', 'Ctrl+Left'] IndexOfShortcutKeyPressed=> IndexOfShortcutKeyPressed
+LOOP LoopIndex FROM 0 TO 1 STEP 0
+    MouseAndKeyboard.WaitForShortcutKey.WaitForShortcutKey InputKeys: ['Ctrl+Alt+F18', 'Ctrl+Alt+F19'] IndexOfShortcutKeyPressed=> IndexOfShortcutKeyPressed
     SWITCH IndexOfShortcutKeyPressed
         CASE = 1
             UIAutomation.ExtractDataFromWindow.ExtractData Control: appmask['Window \'PowerPoint  ...  - PowerPoint\'']['UI Custom \'Slide 1 - Screen Sharing \' 3'] BringToFront: False ExtractedData=> DataFromWindow2
@@ -26,7 +26,14 @@
     ELSE
         SET SCENEEscapedText TO 0
     END
+    IF StartsWith(DataFromWindow3, $'''Slide ''', False) THEN
+        Text.CropText.CropTextBetweenFlags Text: DataFromWindow3 FromFlag: $'''Slide ''' ToFlag: $''' -''' IgnoreCase: False CroppedText=> SLIDECroppedText IsFlagFound=> IsFlagFound
+        Text.Trim Text: SLIDECroppedText TrimOption: Text.TrimOption.Both TrimmedText=> SLIDETrimmedText
+    ELSE
+        SET SLIDETrimmedText TO 0
+    END
     Variables.ConvertJsonToCustomObject Json: $'''{
+slidePosition: \"%SLIDETrimmedText%\",
 slideNotes: \"%TrimmedText%\",
 scene: \"%SCENETrimmedText%\"
 }''' CustomObject=> JsonAsCustomObject
