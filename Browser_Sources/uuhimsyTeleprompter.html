@@ -193,8 +193,14 @@
             case pptPreviousSlide_HK:
               setCommandText('shortcuts run "PowerPoint_previousSlide" | cat');
               break;
+            
+            //Get UVC PTZ position values
+            case getUVC_PTZ_HK:
+              setCommandText('shortcuts run "PTZ Get position Loop Start File" &');
+              break;
 
             //PowerPoint Windows Next Slide
+            //call Advanced Scene Switcher to send a hotkey to Power Automate.
             case pptWinNextSlide_HK:            
               obs.call("CallVendorRequest", {
                 vendorName: "AdvancedSceneSwitcher",

@@ -204,6 +204,8 @@
             buttons[i===0?0:i+=1] = createButton(`Open Get User Media (Github page)`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
             //send message to Advanced Scene Switcher
             let workingDirectory =getWorkingDirectory();
+            
+            if(navigator.platform.includes('Mac')){
             obs.call("CallVendorRequest", {
                     vendorName: "AdvancedSceneSwitcher",
                     requestType: "AdvancedSceneSwitcherMessage",
@@ -211,6 +213,17 @@
                         message: `{ "requestName" : "run 1 Argument No Dir", "run" : "/Applications/Google Chrome.app", "arg1" : "https://uuoocl.github.io/GUM/?q=${wssDetails.PW}" }`,
                     },
                 });        
+            }
+
+            if(navigator.platform.includes('Win')){
+                obs.call("CallVendorRequest", {
+                    vendorName: "AdvancedSceneSwitcher",
+                    requestType: "AdvancedSceneSwitcherMessage",
+                    requestData: {
+                        message: `{ "requestName" : "run 1 Argument No Dir", "run" : "/Applications/Google Chrome.app", "arg1" : "https://uuoocl.github.io/GUM/?q=${wssDetails.PW}" }`,
+                    },
+                });
+            }
             })
         }
 
@@ -242,7 +255,18 @@
                 });        
             })
         }
-        
+
+        function getPTZValues(){
+            buttons[i===0?0:i+=1] = createButton(`Get PTZ camera position`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
+
+            if(navigator.platform.includes('Mac')){
+                hotkeyUpdate(getUVC_PTZ_HK)        
+            }
+
+            if(navigator.platform.includes('Win')){
+            }
+            })
+        }
 
         function getWorkingDirectory(){
             let workingDirectory = window.location.pathname.replace('Browser_Sources/uuhimsyControls.html','').replace('//','/')

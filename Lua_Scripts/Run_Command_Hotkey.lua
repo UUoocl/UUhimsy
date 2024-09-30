@@ -47,11 +47,17 @@ function run_command()
         obs.obs_source_release(source)
     end
     obs.script_log(obs.LOG_INFO, "Executing command: " .. command)
-    output = os.capture(command)
-    obs.script_log(obs.LOG_INFO, "Output: " .. output)
+
     --return results if the command includes "| cat"
     if string.find(command,"| cat",1,true) then
+        output = os.capture(command)
+        obs.script_log(obs.LOG_INFO, "Output: " .. output)
         set_result_text()
+    end
+
+    --run command and continue
+    if string.find(command," &",1,true) then
+        os.execute(command)
     end
    return
 end

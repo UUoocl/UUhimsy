@@ -542,6 +542,235 @@
                     "inputVariables": []
                 },
                 {
+                    "name": "HotKeys",
+                    "pause": false,
+                    "parallel": false,
+                    "onChange": true,
+                    "skipExecOnStart": false,
+                    "stopActionsIfNotDone": false,
+                    "group": true,
+                    "groupData": {
+                        "collapsed": false,
+                        "size": 2
+                    }
+                },
+                {
+                    "name": "hotkey_NUMPADPLUS",
+                    "pause": false,
+                    "parallel": false,
+                    "onChange": true,
+                    "skipExecOnStart": false,
+                    "stopActionsIfNotDone": false,
+                    "group": false,
+                    "dockSettings": {
+                        "register": false,
+                        "hasRunButton": true,
+                        "hasPauseButton": true,
+                        "hasStatusLabel": false,
+                        "highlightIfConditionsTrue": false,
+                        "runButtonText": "Run",
+                        "pauseButtonText": "Pause",
+                        "unpauseButtonText": "Unpause",
+                        "conditionsTrueStatusText": "Conditions are true.",
+                        "conditionsFalseStatusText": "Conditions are false.",
+                        "dockId": "advss-macro-dock-80eeff54-34bf-495d-ac12-af1520ba5874",
+                        "version": 1
+                    },
+                    "macroActionConditionSplitterPosition": [
+                        {
+                            "pos": 438
+                        },
+                        {
+                            "pos": 436
+                        }
+                    ],
+                    "macroElseActionSplitterPosition": [
+                        {
+                            "pos": 404
+                        },
+                        {
+                            "pos": 0
+                        }
+                    ],
+                    "registerHotkeys": false,
+                    "pauseHotkey": [],
+                    "unpauseHotkey": [],
+                    "togglePauseHotkey": [],
+                    "conditions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "hotkey",
+                            "logic": 0,
+                            "durationModifier": {
+                                "time_constraint": 0,
+                                "seconds": {
+                                    "value": {
+                                        "value": 0.0,
+                                        "type": 0
+                                    },
+                                    "unit": 0,
+                                    "version": 1
+                                }
+                            },
+                            "desc": "Macro trigger hotkey 3",
+                            "keyBind": [
+                                {
+                                    "key": "OBS_KEY_NUMPLUS"
+                                }
+                            ],
+                            "checkPressed": true
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "source",
+                            "enabled": true,
+                            "source": {
+                                "type": 0,
+                                "name": "hotkeyText"
+                            },
+                            "action": 2,
+                            "sourceSettingButton": {
+                                "id": "",
+                                "description": ""
+                            },
+                            "inputMethod": 0,
+                            "sourceSetting": {
+                                "id": "text",
+                                "description": "Text (Text)"
+                            },
+                            "manualSettingValue": "+",
+                            "tempVar": {
+                                "type": 0,
+                                "idx": -1,
+                                "id": ""
+                            },
+                            "settings": "",
+                            "deinterlaceMode": 0,
+                            "deinterlaceOrder": 0
+                        }
+                    ],
+                    "elseActions": [],
+                    "inputVariables": []
+                },
+                {
+                    "name": "hotkey_NUMPADMINUS",
+                    "pause": false,
+                    "parallel": false,
+                    "onChange": true,
+                    "skipExecOnStart": false,
+                    "stopActionsIfNotDone": false,
+                    "group": false,
+                    "dockSettings": {
+                        "register": false,
+                        "hasRunButton": true,
+                        "hasPauseButton": true,
+                        "hasStatusLabel": false,
+                        "highlightIfConditionsTrue": false,
+                        "runButtonText": "Run",
+                        "pauseButtonText": "Pause",
+                        "unpauseButtonText": "Unpause",
+                        "conditionsTrueStatusText": "Conditions are true.",
+                        "conditionsFalseStatusText": "Conditions are false.",
+                        "dockId": "advss-macro-dock-941b0874-5372-4949-a645-d55784fc8c98",
+                        "version": 1
+                    },
+                    "macroActionConditionSplitterPosition": [
+                        {
+                            "pos": 438
+                        },
+                        {
+                            "pos": 436
+                        }
+                    ],
+                    "macroElseActionSplitterPosition": [
+                        {
+                            "pos": 404
+                        },
+                        {
+                            "pos": 0
+                        }
+                    ],
+                    "registerHotkeys": false,
+                    "pauseHotkey": [],
+                    "unpauseHotkey": [],
+                    "togglePauseHotkey": [],
+                    "conditions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "hotkey",
+                            "logic": 0,
+                            "durationModifier": {
+                                "time_constraint": 0,
+                                "seconds": {
+                                    "value": {
+                                        "value": 0.0,
+                                        "type": 0
+                                    },
+                                    "unit": 0,
+                                    "version": 1
+                                }
+                            },
+                            "desc": "Macro trigger hotkey 4",
+                            "keyBind": [
+                                {
+                                    "key": "OBS_KEY_NUMMINUS"
+                                }
+                            ],
+                            "checkPressed": true
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "source",
+                            "enabled": true,
+                            "source": {
+                                "type": 0,
+                                "name": "hotkeyText"
+                            },
+                            "action": 2,
+                            "sourceSettingButton": {
+                                "id": "",
+                                "description": ""
+                            },
+                            "inputMethod": 0,
+                            "sourceSetting": {
+                                "id": "text",
+                                "description": "Text (Text)"
+                            },
+                            "manualSettingValue": "-",
+                            "tempVar": {
+                                "type": 0,
+                                "idx": -1,
+                                "id": ""
+                            },
+                            "settings": "",
+                            "deinterlaceMode": 0,
+                            "deinterlaceOrder": 0
+                        }
+                    ],
+                    "elseActions": [],
+                    "inputVariables": []
+                },
+                {
                     "name": "Run GUM CMD",
                     "pause": true,
                     "parallel": false,
@@ -1500,15 +1729,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 312
+                            "pos": 267
                         },
                         {
-                            "pos": 772
+                            "pos": 661
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 740
+                            "pos": 629
                         },
                         {
                             "pos": 0
@@ -2729,15 +2958,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 309
+                            "pos": 162
                         },
                         {
-                            "pos": 775
+                            "pos": 487
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 743
+                            "pos": 455
                         },
                         {
                             "pos": 0
@@ -3366,15 +3595,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 386
+                            "pos": 162
                         },
                         {
-                            "pos": 698
+                            "pos": 487
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 666
+                            "pos": 455
                         },
                         {
                             "pos": 0
@@ -3811,7 +4040,7 @@
                         },
                         {
                             "segmentSettings": {
-                                "collapsed": true,
+                                "collapsed": false,
                                 "useCustomLabel": false,
                                 "customLabel": "My label"
                             },
@@ -3888,15 +4117,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 361
+                            "pos": 415
                         },
                         {
-                            "pos": 286
+                            "pos": 328
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 254
+                            "pos": 296
                         },
                         {
                             "pos": 0
@@ -4298,15 +4527,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 480
+                            "pos": 349
                         },
                         {
-                            "pos": 384
+                            "pos": 279
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 352
+                            "pos": 247
                         },
                         {
                             "pos": 0
@@ -4408,15 +4637,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 433
+                            "pos": 343
                         },
                         {
-                            "pos": 431
+                            "pos": 341
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 399
+                            "pos": 309
                         },
                         {
                             "pos": 0
@@ -4518,15 +4747,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 236
+                            "pos": 121
                         },
                         {
-                            "pos": 628
+                            "pos": 323
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 596
+                            "pos": 291
                         },
                         {
                             "pos": 0
@@ -4601,228 +4830,6 @@
                             "settings": "",
                             "deinterlaceMode": 0,
                             "deinterlaceOrder": 0
-                        }
-                    ],
-                    "elseActions": [],
-                    "inputVariables": []
-                },
-                {
-                    "name": "ptzValues",
-                    "pause": false,
-                    "parallel": false,
-                    "onChange": true,
-                    "skipExecOnStart": false,
-                    "stopActionsIfNotDone": false,
-                    "group": false,
-                    "dockSettings": {
-                        "register": false,
-                        "hasRunButton": true,
-                        "hasPauseButton": true,
-                        "hasStatusLabel": false,
-                        "highlightIfConditionsTrue": false,
-                        "runButtonText": "Run",
-                        "pauseButtonText": "Pause",
-                        "unpauseButtonText": "Unpause",
-                        "conditionsTrueStatusText": "Conditions are true.",
-                        "conditionsFalseStatusText": "Conditions are false.",
-                        "dockId": "advss-macro-dock-4091e57b-5448-411a-b405-e2280bfdd41c",
-                        "version": 1
-                    },
-                    "macroActionConditionSplitterPosition": [
-                        {
-                            "pos": 392
-                        },
-                        {
-                            "pos": 472
-                        }
-                    ],
-                    "macroElseActionSplitterPosition": [
-                        {
-                            "pos": 440
-                        },
-                        {
-                            "pos": 0
-                        }
-                    ],
-                    "registerHotkeys": false,
-                    "pauseHotkey": [],
-                    "unpauseHotkey": [],
-                    "togglePauseHotkey": [],
-                    "conditions": [
-                        {
-                            "segmentSettings": {
-                                "collapsed": true,
-                                "useCustomLabel": false,
-                                "customLabel": "My label"
-                            },
-                            "id": "file",
-                            "logic": 0,
-                            "durationModifier": {
-                                "time_constraint": 0,
-                                "seconds": {
-                                    "value": {
-                                        "value": 0.0,
-                                        "type": 0
-                                    },
-                                    "unit": 0,
-                                    "version": 1
-                                }
-                            },
-                            "regexConfig": {
-                                "enable": false,
-                                "partial": false,
-                                "options": 0
-                            },
-                            "file": "/Users/jonwood/Library/Mobile Documents/iCloud~is~workflow~my~workflows/Documents/loopControl/ptzValues.txt",
-                            "text": "--enter text--",
-                            "fileType": 0,
-                            "condition": 1,
-                            "useTime": false,
-                            "onlyMatchIfChanged": false
-                        }
-                    ],
-                    "actions": [
-                        {
-                            "segmentSettings": {
-                                "collapsed": false,
-                                "useCustomLabel": false,
-                                "customLabel": "My label"
-                            },
-                            "id": "source",
-                            "enabled": true,
-                            "source": {
-                                "type": 0,
-                                "name": "CommandResultsText"
-                            },
-                            "action": 2,
-                            "sourceSettingButton": {
-                                "id": "",
-                                "description": ""
-                            },
-                            "inputMethod": 1,
-                            "sourceSetting": {
-                                "id": "text",
-                                "description": "Text (Text)"
-                            },
-                            "manualSettingValue": "",
-                            "tempVar": {
-                                "type": 1,
-                                "idx": 0,
-                                "id": "content"
-                            },
-                            "settings": "",
-                            "deinterlaceMode": 0,
-                            "deinterlaceOrder": 0
-                        }
-                    ],
-                    "elseActions": [],
-                    "inputVariables": []
-                },
-                {
-                    "name": "ptzGetValues",
-                    "pause": false,
-                    "parallel": false,
-                    "onChange": true,
-                    "skipExecOnStart": false,
-                    "stopActionsIfNotDone": false,
-                    "group": false,
-                    "dockSettings": {
-                        "register": false,
-                        "hasRunButton": true,
-                        "hasPauseButton": true,
-                        "hasStatusLabel": false,
-                        "highlightIfConditionsTrue": false,
-                        "runButtonText": "Run",
-                        "pauseButtonText": "Pause",
-                        "unpauseButtonText": "Unpause",
-                        "conditionsTrueStatusText": "Conditions are true.",
-                        "conditionsFalseStatusText": "Conditions are false.",
-                        "dockId": "advss-macro-dock-a5bfca6a-1502-42c4-b860-6d8ac79e6760",
-                        "version": 1
-                    },
-                    "macroActionConditionSplitterPosition": [
-                        {
-                            "pos": 432
-                        },
-                        {
-                            "pos": 432
-                        }
-                    ],
-                    "macroElseActionSplitterPosition": [
-                        {
-                            "pos": 400
-                        },
-                        {
-                            "pos": 0
-                        }
-                    ],
-                    "registerHotkeys": false,
-                    "pauseHotkey": [],
-                    "unpauseHotkey": [],
-                    "togglePauseHotkey": [],
-                    "conditions": [
-                        {
-                            "segmentSettings": {
-                                "collapsed": false,
-                                "useCustomLabel": false,
-                                "customLabel": "My label"
-                            },
-                            "id": "websocket",
-                            "logic": 0,
-                            "durationModifier": {
-                                "time_constraint": 0,
-                                "seconds": {
-                                    "value": {
-                                        "value": 0.0,
-                                        "type": 0
-                                    },
-                                    "unit": 0,
-                                    "version": 1
-                                }
-                            },
-                            "type": 0,
-                            "message": "{ \"requestName\" : \"Start PTZ Values",
-                            "regexConfig": {
-                                "enable": false,
-                                "partial": false,
-                                "options": 0
-                            },
-                            "connection": "Invalid connection selection",
-                            "clearBufferOnMatch": true,
-                            "version": 1
-                        }
-                    ],
-                    "actions": [
-                        {
-                            "segmentSettings": {
-                                "collapsed": false,
-                                "useCustomLabel": false,
-                                "customLabel": "My label"
-                            },
-                            "id": "hotkey",
-                            "enabled": true,
-                            "action": 1,
-                            "hotkeyType": 0,
-                            "hotkeyName": "",
-                            "key": 56,
-                            "left_shift": true,
-                            "right_shift": false,
-                            "left_ctrl": true,
-                            "right_ctrl": false,
-                            "left_alt": false,
-                            "right_alt": false,
-                            "left_meta": false,
-                            "right_meta": false,
-                            "duration": {
-                                "value": {
-                                    "value": 0.29999999999999999,
-                                    "type": 0
-                                },
-                                "unit": 0,
-                                "version": 1
-                            },
-                            "onlyOBS": true,
-                            "version": 2
                         }
                     ],
                     "elseActions": [],
@@ -4940,7 +4947,7 @@
             "SendSceneChangeAll": true,
             "SendPreview": true,
             "triggers": [],
-            "interval": 1000,
+            "interval": 33,
             "non_matching_scene": "",
             "switch_if_not_matching": 0,
             "noMatchDelay": {
@@ -5059,16 +5066,16 @@
                 }
             ],
             "saveWindowGeo": false,
-            "windowPosX": 2453,
-            "windowPosY": 98,
-            "windowWidth": 1000,
-            "windowHeight": 877,
+            "windowPosX": 2548,
+            "windowPosY": 158,
+            "windowWidth": 1862,
+            "windowHeight": 688,
             "macroListMacroEditSplitterPosition": [
                 {
-                    "pos": 166
+                    "pos": 264
                 },
                 {
-                    "pos": 787
+                    "pos": 1551
                 }
             ],
             "version": "510f83246ea264f56def58187bd9537b7c93b988",
@@ -5159,7 +5166,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAkwAAAAwAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAkwAAAAw",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAkwAAAAwAAAAAAAAAAD//////////wAAAAEAAAAADXAAAAAAAAAAGQAAAkwAAAAw",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -5185,7 +5192,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAApsAAAAwAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAApsAAAAw",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAApkAAAAwAAAAAAAAAAD//////////wAAAAEAAAAADXAAAAAAAAAAGQAAApkAAAAw",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -5211,7 +5218,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAo4AAAAwAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAo4AAAAw",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAo4AAAAwAAAAAAAAAAD//////////wAAAAEAAAAADXAAAAAAAAAAGQAAAo4AAAAw",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -5237,7 +5244,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAX0AAAPEAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAX0AAAPE",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAasAAAP0AAAAAAAAAAD//////////wAAAAEAAAAADXAAAAAAAAAAGQAAAasAAAP0",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 2,
@@ -5263,7 +5270,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAABPEAAAESAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAABPEAAAES",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAABi0AAAESAAAAAAAAAAD//////////wAAAAEAAAAADXAAAAAAAAAAGQAABi0AAAES",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 4,
@@ -5289,7 +5296,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAAAAAAMcAAABjAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAAAAAAMcAAABj",
+                    "geometry": "AdnQywADAAAAAAAAAAAAAAAAAMcAAABjAAAAAAAAAAD//////////wAAAAEAAAAADXAAAAAAAAAAAAAAAMcAAABj",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -5353,7 +5360,7 @@
             ],
             "windows": [],
             "corner_tl": false,
-            "corner_tr": true,
+            "corner_tr": false,
             "corner_br": false,
             "corner_bl": false
         },
@@ -5596,7 +5603,7 @@
             "id": "text_ft2_source",
             "versioned_id": "text_ft2_source_v2",
             "settings": {
-                "text": "createScreenShareButtons\ncreateSlideButtons\ngetUserMedia_Github\ngetPTZValues\ncreateRefreshButton"
+                "text": "createScreenShareButtons\ncreateSlideButtons\ncreateRefreshButton"
             },
             "mixers": 0,
             "sync": 0,
@@ -5624,7 +5631,7 @@
             "settings": {
                 "custom_width": 100,
                 "word_wrap": true,
-                "text": "{pan:32400,tilt:36000, actionName:\"usbPTZ\",zoom:0}"
+                "text": "{\"sectionName\":\"Welcome\",\"sectionID\":\"1\",\"nextSlidePosition\":\"2\",\"slidePosition\":\"1\",\"nextSectionID\":\"1\",\"slideNotes\":\"List 1\\rThe birch canoe slid on the smooth planks.\\rGlue the sheet to the dark blue background.\\rIt's easy to tell the depth of a “well”.\\rThese days a chicken leg is a rare dish.\\rRice is often served in round bowls.\\rThe juice of lemons makes fine punch.\\rThe box was thrown beside the parked truck.\\rThe hogs were fed chopped corn and garbage.\\rFour hours of steady work faced us.\\rA large size in stockings is hard to sell\",\"title\":\"Welcome to PowerPoint for Mac\",\"nextTitle\":\"Quick access to commands\",\"slideScene\":\"Scene ExternalSlide-Full\",\"actionName\":\"ppt_NextSlide\",\"nextSlideNotes\":\"List 2\\rThe boy was there when the sun rose.\\rA rod is used to catch pink salmon.\\rThe source of the huge river is the clear spring.\\rKick the ball straight and follow through.\\rHelp the woman get back to her feet.\\rA pot of tea helps to pass the evening.\\rSmoky fires lack flame and heat.\\rThe soft cushion broke the man's fall.\\rThe salt breeze came across from the sea.\\rThe girl at the booth sold fifty bonds\",\"nextSectionName\":\"Welcome\",\"nextSlideScene\":\"Scene ExternalSlide-OTS\"}"
             },
             "mixers": 0,
             "sync": 0,
@@ -5650,7 +5657,7 @@
             "id": "text_ft2_source",
             "versioned_id": "text_ft2_source_v2",
             "settings": {
-                "text": "shortcuts run \"Keynote_nextSlide\" | cat"
+                "text": "shortcuts run \"PowerPoint_previousSlide\" | cat"
             },
             "mixers": 0,
             "sync": 0,
@@ -5943,7 +5950,7 @@
             "id": "text_ft2_source",
             "versioned_id": "text_ft2_source_v2",
             "settings": {
-                "text": "425 147"
+                "text": "2336 161"
             },
             "mixers": 0,
             "sync": 0,
@@ -6174,8 +6181,8 @@
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": 16.0,
-                            "y": 829.0
+                            "x": 0.0,
+                            "y": 945.0
                         },
                         "scale": {
                             "x": 0.17367219924926758,
@@ -6306,7 +6313,7 @@
             "versioned_id": "scene",
             "settings": {
                 "custom_size": false,
-                "id_counter": 3,
+                "id_counter": 2,
                 "items": [
                     {
                         "name": "Video Capture Device",
@@ -6354,12 +6361,12 @@
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": 466.0,
-                            "y": -7.0
+                            "x": 59.0,
+                            "y": 68.0
                         },
                         "scale": {
-                            "x": 0.75833332538604736,
-                            "y": 0.75833332538604736
+                            "x": 1.0,
+                            "y": 1.0
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -7680,10 +7687,10 @@
                 "OBSBasic.SelectScene": [],
                 "libobs.show_scene_item.2": [],
                 "libobs.hide_scene_item.2": [],
-                "libobs.show_scene_item.5": [],
-                "libobs.hide_scene_item.5": [],
                 "libobs.show_scene_item.4": [],
-                "libobs.hide_scene_item.4": []
+                "libobs.hide_scene_item.4": [],
+                "libobs.show_scene_item.5": [],
+                "libobs.hide_scene_item.5": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -7781,7 +7788,7 @@
                     {
                         "name": "ppt Source Clone",
                         "source_uuid": "ee4b300a-5819-4f59-8d90-ff9ec44041a1",
-                        "visible": false,
+                        "visible": true,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
@@ -7875,10 +7882,10 @@
                 "libobs.hide_scene_item.2": [],
                 "libobs.show_scene_item.3": [],
                 "libobs.hide_scene_item.3": [],
-                "libobs.show_scene_item.4": [],
-                "libobs.hide_scene_item.4": [],
                 "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": []
+                "libobs.hide_scene_item.1": [],
+                "libobs.show_scene_item.4": [],
+                "libobs.hide_scene_item.4": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -10252,7 +10259,6 @@
             "versioned_id": "source-clone",
             "settings": {
                 "clone": "Input camera",
-                "same_clones": "Source Clone Camera\nSource Clone Camera BG\nSource Clone Camera FG",
                 "audio": false
             },
             "mixers": 255,
@@ -10717,15 +10723,14 @@
                 "color_space": 2,
                 "device_name": "OBSBOT Tiny 2 StreamCamera",
                 "frame_rate": {
-                    "numerator": 24000038.0,
-                    "denominator": 1000000.0
+                    "denominator": 1000000,
+                    "numerator": 24000038
                 },
                 "input_format": 5,
+                "resolution": "{\"width\":1280,\"height\":960}",
                 "video_range": 1,
-                "resolution": "{\"width\":1920,\"height\":1440}",
-                "device": "0x21230003564fef8",
-                "use_preset": false,
-                "preset": "AVCaptureSessionPreset3840x2160"
+                "device": "0x11000003564fef8",
+                "use_preset": false
             },
             "mixers": 255,
             "sync": 0,

@@ -22,4 +22,5 @@
         prompterFontIncrease_HK = 'Cmd+F14',
         prompterScrollDecrease_HK = 'Cmd+F15',
         prompterScrollIncrease_HK = 'Cmd+F16',
-        prompterPlayPause_HK = 'F13'
+        prompterPlayPause_HK = 'F13',
+        getUVC_PTZ_HK = 'Shift+17'
