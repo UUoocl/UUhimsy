@@ -202,6 +202,7 @@
         
         function getUserMedia_Github(){
             buttons[i===0?0:i+=1] = createButton(`Open Get User Media (Github page)`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
+                console.log("get PTZ")
             //send message to Advanced Scene Switcher
             let workingDirectory =getWorkingDirectory();
             
@@ -257,7 +258,7 @@
         }
 
         function getPTZValues(){
-            buttons[i===0?0:i+=1] = createButton(`Get PTZ camera position`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
+            buttons[i===0?0:i+=1] = createButton(`Get PTZ camera position (${getUVC_PTZ_HK})`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
 
             if(navigator.platform.includes('Mac')){
                 hotkeyUpdate(getUVC_PTZ_HK)        
@@ -404,8 +405,9 @@
                         break;
                     }
                     break;
-                    default:
-                        break;
+           
+                default:
+                    break;
                     }
                 })
     </script>
