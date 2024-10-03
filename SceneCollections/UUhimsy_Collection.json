@@ -1,6 +1,6 @@
 {
-    "current_scene": "Scene Screen Share",
-    "current_program_scene": "Scene Screen Share",
+    "current_scene": "Scene Reveal-OTS",
+    "current_program_scene": "Scene Reveal-OTS",
     "scene_order": [
         {
             "name": "Scene Screen Share"
@@ -104,7 +104,7 @@
             "name": "Video Capture Device",
             "monitor": -1,
             "type": 0,
-            "geometry": "AdnQywADAAAAAAm+AAAEUAAAC50AAAV5AAAJvgAABGwAAAudAAAFeQAAAAEAAAAADXAAAAm+AAAEbAAAC50AAAV5",
+            "geometry": "AdnQywADAAAAAALQAAABtQAABK8AAALeAAAC0AAAAdEAAASvAAAC3gAAAAAAAAAAB4AAAALQAAAB0QAABK8AAALe",
             "alwaysOnTopOverridden": false
         }
     ],
@@ -2003,7 +2003,7 @@
                 },
                 {
                     "name": "open projector",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": true,
                     "skipExecOnStart": false,
@@ -2112,7 +2112,7 @@
                 },
                 {
                     "name": "Present Working Directory",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": true,
                     "skipExecOnStart": false,
@@ -2303,7 +2303,7 @@
                 },
                 {
                     "name": "clear Variables",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": true,
                     "skipExecOnStart": false,
@@ -2631,7 +2631,7 @@
                 },
                 {
                     "name": "Open GUM on Github",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": true,
                     "skipExecOnStart": false,
@@ -2707,7 +2707,7 @@
                 },
                 {
                     "name": "Run 2 Arguments",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": false,
                     "skipExecOnStart": false,
@@ -3344,7 +3344,7 @@
                 },
                 {
                     "name": "Run 1 Argument",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": false,
                     "skipExecOnStart": false,
@@ -3366,15 +3366,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 386
+                            "pos": 293
                         },
                         {
-                            "pos": 698
+                            "pos": 530
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 666
+                            "pos": 498
                         },
                         {
                             "pos": 0
@@ -3587,7 +3587,7 @@
                         },
                         {
                             "segmentSettings": {
-                                "collapsed": true,
+                                "collapsed": false,
                                 "useCustomLabel": false,
                                 "customLabel": "My label"
                             },
@@ -3811,7 +3811,7 @@
                         },
                         {
                             "segmentSettings": {
-                                "collapsed": true,
+                                "collapsed": false,
                                 "useCustomLabel": false,
                                 "customLabel": "My label"
                             },
@@ -4276,7 +4276,7 @@
                 },
                 {
                     "name": "send_PPT_Next_Hotkey",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": true,
                     "skipExecOnStart": false,
@@ -4298,15 +4298,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 480
+                            "pos": 198
                         },
                         {
-                            "pos": 384
+                            "pos": 158
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 352
+                            "pos": 126
                         },
                         {
                             "pos": 0
@@ -4386,7 +4386,7 @@
                 },
                 {
                     "name": "send_PPT_Previous_Hotkey",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": true,
                     "skipExecOnStart": false,
@@ -4496,7 +4496,7 @@
                 },
                 {
                     "name": "pptUpdate",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": true,
                     "skipExecOnStart": false,
@@ -4608,7 +4608,7 @@
                 },
                 {
                     "name": "ptzValues",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": true,
                     "skipExecOnStart": false,
@@ -4720,7 +4720,7 @@
                 },
                 {
                     "name": "ptzGetValues",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": true,
                     "skipExecOnStart": false,
@@ -4742,15 +4742,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 432
+                            "pos": 331
                         },
                         {
-                            "pos": 432
+                            "pos": 331
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 400
+                            "pos": 299
                         },
                         {
                             "pos": 0
@@ -4823,6 +4823,197 @@
                             },
                             "onlyOBS": true,
                             "version": 2
+                        }
+                    ],
+                    "elseActions": [],
+                    "inputVariables": []
+                },
+                {
+                    "name": "runOutput",
+                    "pause": true,
+                    "parallel": false,
+                    "onChange": false,
+                    "skipExecOnStart": false,
+                    "stopActionsIfNotDone": false,
+                    "group": false,
+                    "dockSettings": {
+                        "register": false,
+                        "hasRunButton": true,
+                        "hasPauseButton": true,
+                        "hasStatusLabel": false,
+                        "highlightIfConditionsTrue": false,
+                        "runButtonText": "Run",
+                        "pauseButtonText": "Pause",
+                        "unpauseButtonText": "Unpause",
+                        "conditionsTrueStatusText": "Conditions are true.",
+                        "conditionsFalseStatusText": "Conditions are false.",
+                        "dockId": "advss-macro-dock-c73acfab-85b0-4264-9402-1be378d0a4c5",
+                        "version": 1
+                    },
+                    "macroActionConditionSplitterPosition": [
+                        {
+                            "pos": 217
+                        },
+                        {
+                            "pos": 518
+                        }
+                    ],
+                    "macroElseActionSplitterPosition": [
+                        {
+                            "pos": 486
+                        },
+                        {
+                            "pos": 0
+                        }
+                    ],
+                    "registerHotkeys": false,
+                    "pauseHotkey": [],
+                    "unpauseHotkey": [],
+                    "togglePauseHotkey": [],
+                    "conditions": [],
+                    "actions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "run",
+                            "enabled": true,
+                            "processConfig": {
+                                "path": "shortcuts",
+                                "workingDirectory": "",
+                                "args": [
+                                    {
+                                        "arg": "run"
+                                    },
+                                    {
+                                        "arg": "Keynote_nextSlide"
+                                    }
+                                ]
+                            },
+                            "duration": {
+                                "value": {
+                                    "value": 1.0,
+                                    "type": 0
+                                },
+                                "unit": 0,
+                                "version": 1
+                            },
+                            "wait": false,
+                            "version": 1
+                        }
+                    ],
+                    "elseActions": [],
+                    "inputVariables": []
+                },
+                {
+                    "name": "Watch file",
+                    "pause": false,
+                    "parallel": false,
+                    "onChange": true,
+                    "skipExecOnStart": false,
+                    "stopActionsIfNotDone": false,
+                    "group": false,
+                    "dockSettings": {
+                        "register": false,
+                        "hasRunButton": true,
+                        "hasPauseButton": true,
+                        "hasStatusLabel": false,
+                        "highlightIfConditionsTrue": false,
+                        "runButtonText": "Run",
+                        "pauseButtonText": "Pause",
+                        "unpauseButtonText": "Unpause",
+                        "conditionsTrueStatusText": "Conditions are true.",
+                        "conditionsFalseStatusText": "Conditions are false.",
+                        "dockId": "advss-macro-dock-917ff8af-0269-4f4b-9e5c-320d6cb73df1",
+                        "version": 1
+                    },
+                    "macroActionConditionSplitterPosition": [
+                        {
+                            "pos": 246
+                        },
+                        {
+                            "pos": 399
+                        }
+                    ],
+                    "macroElseActionSplitterPosition": [
+                        {
+                            "pos": 367
+                        },
+                        {
+                            "pos": 0
+                        }
+                    ],
+                    "registerHotkeys": false,
+                    "pauseHotkey": [],
+                    "unpauseHotkey": [],
+                    "togglePauseHotkey": [],
+                    "conditions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "file",
+                            "logic": 0,
+                            "durationModifier": {
+                                "time_constraint": 0,
+                                "seconds": {
+                                    "value": {
+                                        "value": 0.0,
+                                        "type": 0
+                                    },
+                                    "unit": 0,
+                                    "version": 1
+                                }
+                            },
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "file": "/Users/jonwood/Documents/myGithub/UUhimsy/KeynoteSlideData.txt",
+                            "text": "--enter text--",
+                            "fileType": 0,
+                            "condition": 1,
+                            "useTime": false,
+                            "onlyMatchIfChanged": false
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "source",
+                            "enabled": true,
+                            "source": {
+                                "type": 0,
+                                "name": "CommandResultsText"
+                            },
+                            "action": 2,
+                            "sourceSettingButton": {
+                                "id": "",
+                                "description": ""
+                            },
+                            "inputMethod": 1,
+                            "sourceSetting": {
+                                "id": "text",
+                                "description": "Text (Text)"
+                            },
+                            "manualSettingValue": "",
+                            "tempVar": {
+                                "type": 1,
+                                "idx": 0,
+                                "id": "content"
+                            },
+                            "settings": "",
+                            "deinterlaceMode": 0,
+                            "deinterlaceOrder": 0
                         }
                     ],
                     "elseActions": [],
@@ -4940,7 +5131,7 @@
             "SendSceneChangeAll": true,
             "SendPreview": true,
             "triggers": [],
-            "interval": 1000,
+            "interval": 33,
             "non_matching_scene": "",
             "switch_if_not_matching": 0,
             "noMatchDelay": {
@@ -5059,16 +5250,16 @@
                 }
             ],
             "saveWindowGeo": false,
-            "windowPosX": 2453,
-            "windowPosY": 98,
-            "windowWidth": 1000,
-            "windowHeight": 877,
+            "windowPosX": 450,
+            "windowPosY": 64,
+            "windowWidth": 1166,
+            "windowHeight": 889,
             "macroListMacroEditSplitterPosition": [
                 {
                     "pos": 166
                 },
                 {
-                    "pos": 787
+                    "pos": 953
                 }
             ],
             "version": "510f83246ea264f56def58187bd9537b7c93b988",
@@ -5121,13 +5312,6 @@
         "pasteTransformHotkey": [],
         "scripts-tool": [
             {
-                "path": "/Users/jonwood/Documents/myGithub/UUhimsy/Lua_Scripts/Run_Command_Hotkey.lua",
-                "settings": {
-                    "source_name": "CommandText",
-                    "result_name": "CommandResultsText"
-                }
-            },
-            {
                 "path": "/Users/jonwood/Documents/myGithub/UUhimsy/Lua_Scripts/showKeys.lua",
                 "settings": {
                     "source": "hotkeyText"
@@ -5137,6 +5321,13 @@
                 "path": "/Users/jonwood/Documents/myGithub/UUhimsy/Lua_Scripts/showMouseButtons.lua",
                 "settings": {
                     "source": "mouseButtonText"
+                }
+            },
+            {
+                "path": "/Users/jonwood/Documents/myGithub/UUhimsy/Lua_Scripts/Run_Command_Hotkey.lua",
+                "settings": {
+                    "source_name": "CommandText",
+                    "result_name": "CommandResultsText"
                 }
             }
         ],
@@ -5159,8 +5350,8 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAkwAAAAwAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAkwAAAAw",
-                    "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAnwAAAAwAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAnwAAAAw",
+                    "split": "AAAA/wAAAAEAAAABAAAAGAD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
                     "floating": false,
@@ -5185,8 +5376,8 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAApsAAAAwAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAApsAAAAw",
-                    "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAATkAAAAwAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAATkAAAAw",
+                    "split": "AAAA/wAAAAEAAAABAAAAGAD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
                     "floating": false,
@@ -5211,8 +5402,8 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAo4AAAAwAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAo4AAAAw",
-                    "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAA8AAAAAwAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAA8AAAAAw",
+                    "split": "AAAA/wAAAAEAAAABAAAAGAD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
                     "floating": false,
@@ -5237,8 +5428,8 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAX0AAAPEAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAX0AAAPE",
-                    "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAa8AAAQ8AAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAa8AAAQ8",
+                    "split": "AAAA/wAAAAEAAAABAAAAGAD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 2,
                     "floating": false,
@@ -5263,8 +5454,8 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAABPEAAAESAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAABPEAAAES",
-                    "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAABFQAAAESAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAABFQAAAES",
+                    "split": "AAAA/wAAAAEAAAABAAAAGAD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 4,
                     "floating": false,
@@ -5277,7 +5468,7 @@
                     "selected": false,
                     "title": "Command Line",
                     "hidden": true,
-                    "preview": true,
+                    "preview": false,
                     "volmeter": false,
                     "volcontrols": false,
                     "mediacontrols": false,
@@ -5290,7 +5481,7 @@
                     "filters": false,
                     "textinput": false,
                     "geometry": "AdnQywADAAAAAAAAAAAAAAAAAMcAAABjAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAAAAAAMcAAABj",
-                    "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
+                    "split": "AAAA/wAAAAEAAAAAAP////8BAAAAAgA=",
                     "window": "",
                     "dockarea": 8,
                     "floating": false,
@@ -5303,7 +5494,7 @@
                     "selected": false,
                     "title": "Command Line Results",
                     "hidden": true,
-                    "preview": true,
+                    "preview": false,
                     "volmeter": false,
                     "volcontrols": false,
                     "mediacontrols": false,
@@ -5316,7 +5507,7 @@
                     "filters": false,
                     "textinput": false,
                     "geometry": "AdnQywADAAAAAAAAAAAAAAAAAMcAAABjAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAAAAAAMcAAABj",
-                    "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
+                    "split": "AAAA/wAAAAEAAAAAAP////8BAAAAAgA=",
                     "window": "",
                     "dockarea": 2,
                     "floating": true,
@@ -5329,7 +5520,7 @@
                     "selected": false,
                     "title": "wsTest",
                     "hidden": true,
-                    "preview": true,
+                    "preview": false,
                     "volmeter": false,
                     "volcontrols": false,
                     "mediacontrols": false,
@@ -5342,7 +5533,7 @@
                     "filters": false,
                     "textinput": false,
                     "geometry": "AdnQywADAAAAAAAAAAAAAAAAAMcAAABjAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAAAAAAMcAAABj",
-                    "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
+                    "split": "AAAA/wAAAAEAAAAAAP////8BAAAAAgA=",
                     "window": "",
                     "dockarea": 4,
                     "floating": true,
@@ -5452,6 +5643,41 @@
             "push-to-talk-delay": 0,
             "hotkeys": {
                 "OBSBasic.SelectScene": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "2dFish_Browser",
+            "uuid": "e8474fe4-1e61-4e0e-ab54-fff1e1a0fff9",
+            "id": "browser_source",
+            "versioned_id": "browser_source",
+            "settings": {
+                "is_local_file": true,
+                "height": 720,
+                "local_file": "/Users/jonwood/Documents/myGithub/UUhimsy/Browser_Sources/2dFish_CABLES.html",
+                "width": 1280
+            },
+            "mixers": 255,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": [],
+                "ObsBrowser.Refresh": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -5624,7 +5850,7 @@
             "settings": {
                 "custom_width": 100,
                 "word_wrap": true,
-                "text": "{pan:32400,tilt:36000, actionName:\"usbPTZ\",zoom:0}"
+                "text": "{\"slideNotes\":\"List 1\\n1. The birch canoe slid on the smooth planks.\\n2. Glue the “sheet” to the dark blue background.\\n3. It's easy to tell the depth of a well.\\n4. These days a chicken leg is a rare dish.\\n5. Rice is often served in round bowls.\\n6. The juice of lemons makes fine punch.\\n7. The box was thrown beside the parked truck.\\n8. The hogs were fed chopped corn and garbage.\\n9. Four hours of steady work faced us.\\n10. A large size in stockings is hard to sell\",\"slideScene\":\"Scene ExternalSlide-OTS\",\"slideNumber\":\"1\",\"nextSlideNumber\":\"2\",\"nextSlideScene\":\"Scene ExternalSlide-Full\",\"nextSlideTitle\":\"NextSlide\",\"slideTitle\":\"Title\",\"nextSlideNotes\":\"List 2\\n1.\\tThe boy was there when the sun rose.\\n2.\\tA rod is used to catch pink salmon.\\n3.\\tThe source of the huge river is the clear spring.\\n4.\\tKick the ball straight and follow through.\\n5.\\tHelp the woman get back to her feet.\\n6.\\tA pot of tea helps to pass the evening.\\n7.\\tSmoky fires lack flame and heat.\\n8.\\tThe soft cushion broke the man's fall.\\n9.\\tThe salt breeze came across from the sea.\\n10.\\tThe girl at the booth sold fifty bonds\",\"actionName\":\"keynote_nextSlide\"}"
             },
             "mixers": 0,
             "sync": 0,
@@ -5650,7 +5876,7 @@
             "id": "text_ft2_source",
             "versioned_id": "text_ft2_source_v2",
             "settings": {
-                "text": "shortcuts run \"Keynote_nextSlide\" | cat"
+                "text": "shortcuts run \"Keynote_nextSlide\" -o \"/Users/jonwood/Documents/myGithub/UUhimsy/\" &"
             },
             "mixers": 0,
             "sync": 0,
@@ -5943,7 +6169,7 @@
             "id": "text_ft2_source",
             "versioned_id": "text_ft2_source_v2",
             "settings": {
-                "text": "425 147"
+                "text": "407 146"
             },
             "mixers": 0,
             "sync": 0,
@@ -5970,7 +6196,7 @@
             "versioned_id": "scene",
             "settings": {
                 "custom_size": false,
-                "id_counter": 7,
+                "id_counter": 8,
                 "items": [
                     {
                         "name": "UUhimsyControlsBrowser",
@@ -6205,6 +6431,45 @@
                             "duration": 0
                         },
                         "private_settings": {}
+                    },
+                    {
+                        "name": "PTZ values",
+                        "source_uuid": "6631b7bf-70d9-4993-8f68-74ca71880b7e",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 46.0,
+                            "y": 708.0
+                        },
+                        "scale": {
+                            "x": 0.2016528993844986,
+                            "y": 0.20205479860305786
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 8,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
                     }
                 ]
             },
@@ -6232,7 +6497,9 @@
                 "libobs.show_scene_item.6": [],
                 "libobs.hide_scene_item.6": [],
                 "libobs.show_scene_item.7": [],
-                "libobs.hide_scene_item.7": []
+                "libobs.hide_scene_item.7": [],
+                "libobs.show_scene_item.8": [],
+                "libobs.hide_scene_item.8": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -6246,7 +6513,7 @@
             "id": "text_ft2_source",
             "versioned_id": "text_ft2_source_v2",
             "settings": {
-                "text": " "
+                "text": "Ctrl+F19"
             },
             "mixers": 0,
             "sync": 0,
@@ -6463,7 +6730,7 @@
                     {
                         "name": "ppt Screen Capture",
                         "source_uuid": "11959568-ccee-4f39-a1ab-e020d45dec6c",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
@@ -6644,7 +6911,7 @@
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 1,
+                "id_counter": 3,
                 "custom_size": false,
                 "items": [
                     {
@@ -6673,7 +6940,46 @@
                         "crop_top": 0,
                         "crop_right": 0,
                         "crop_bottom": 0,
-                        "id": 1,
+                        "id": 2,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "2dFish_Browser",
+                        "source_uuid": "e8474fe4-1e61-4e0e-ab54-fff1e1a0fff9",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": -5.0,
+                            "y": -2.0
+                        },
+                        "scale": {
+                            "x": 1.5078125,
+                            "y": 1.5083333253860474
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 3,
                         "group_item_backup": false,
                         "scale_filter": "disable",
                         "blend_method": "default",
@@ -6701,8 +7007,10 @@
             "push-to-talk-delay": 0,
             "hotkeys": {
                 "OBSBasic.SelectScene": [],
-                "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": []
+                "libobs.show_scene_item.2": [],
+                "libobs.hide_scene_item.2": [],
+                "libobs.show_scene_item.3": [],
+                "libobs.hide_scene_item.3": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -7130,7 +7438,7 @@
             "settings": {
                 "undo_uuid": "9ca6e0ad-ef99-43c5-9355-580fae5d5fbe",
                 "type": 1,
-                "window": 1540
+                "window": 3645
             },
             "mixers": 255,
             "sync": 0,
@@ -7286,7 +7594,7 @@
             "id": "text_ft2_source",
             "versioned_id": "text_ft2_source_v2",
             "settings": {
-                "text": "MB1"
+                "text": " "
             },
             "mixers": 0,
             "sync": 0,
@@ -7396,6 +7704,33 @@
                 "libobs.push-to-mute": [],
                 "libobs.push-to-talk": []
             },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "PTZ values",
+            "uuid": "6631b7bf-70d9-4993-8f68-74ca71880b7e",
+            "id": "text_ft2_source",
+            "versioned_id": "text_ft2_source_v2",
+            "settings": {
+                "from_file": true,
+                "text_file": "/Users/jonwood/Library/Mobile Documents/iCloud~is~workflow~my~workflows/Documents/loopControl/ptzValues.txt"
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
