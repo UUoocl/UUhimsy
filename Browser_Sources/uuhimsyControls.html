@@ -161,7 +161,7 @@
 
         function createSlideButtons(app){    
             //Create Slide Buttons
-            buttons[i===0 ? 0 : i+=1] = createButton(`Slide Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{obsGoToScene('Scene Slides')})
+            buttons[i===0 ? 0 : i+=1] = createButton(`Slide Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{obsGoToScene('Scene ExternalSlide-OTS')})
             buttons[i+=1] = createRadio().position(0, (0 ,buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button l').id('appName').mousePressed(()=>{labelUpdate(buttons[i].value())})
             buttons[i].option('reveal',' Reveal ')
             if(navigator.platform.includes('Mac')){
@@ -202,7 +202,7 @@
         
         function getUserMedia_Github(){
             buttons[i===0?0:i+=1] = createButton(`Open Get User Media (Github page)`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
-                console.log("get PTZ")
+                console.log("open Chrome to GUM Github page")
             //send message to Advanced Scene Switcher
             let workingDirectory =getWorkingDirectory();
             
@@ -211,7 +211,7 @@
                     vendorName: "AdvancedSceneSwitcher",
                     requestType: "AdvancedSceneSwitcherMessage",
                     requestData: {
-                        message: `{ "requestName" : "run 1 Argument No Dir", "run" : "/Applications/Google Chrome.app", "arg1" : "https://uuoocl.github.io/GUM/?q=${wssDetails.PW}" }`,
+                        message: `{ "requestName" : "run 1 Argument No Dir", "run" : "/Applications/Google Chrome.app", "arg1" : "https://uuoocl.github.io/GUM/?pw=${wssDetails.PW}&wd=${workingDirectory}" }`,
                     },
                 });        
             }
@@ -317,10 +317,18 @@
                 text: txt,
                 }
             });
+            setTimeout(async ()=>{
+                await obs.call("SetInputSettings", {
+                inputName: 'hotkeyText',
+                inputSettings: {
+                text: "",
+                }
+            });
+            }, 3000);    
         }
 
         var i;
-        obs.on('CurrentProgramSceneChanged', function(event) {
+        //obs.on('CurrentProgramSceneChanged', function(event) {
             // console.log(event)
             // removeElements();
             // i=0;
@@ -337,7 +345,7 @@
             // if(event.sceneName === "Scene Composite Screen Share"){
             //     createScreenShareButtons();
             // }
-        })
+        //})
 
         async function loadButtons() {
           let menuButtons = await obs.call("GetInputSettings", {
@@ -367,7 +375,7 @@
 
     <script id="InputRouter">
         //listen for mouse move and keypress events
-        //on obs input change
+        //on obs text source settings change
         obs.on("InputSettingsChanged", async function (event) {
             //console.log(event);
             switch (event.inputName) {
@@ -404,11 +412,29 @@
                         fullScreen();
                         break;
                     }
+                    if(event.inputSettings.text === (getUVC_PTZ_HK)){ 
+                        setCommandText(`shortcuts run "PTZ Get position Loop Start GUM" -i "${workingDirectory}" &`);
+                        break;
+                    }
                     break;
            
                 default:
                     break;
                     }
+                })
+
+                //Listen for control related websocket messages
+                //PTZ camera 
+                window.addEventListener("ptz-message", async function (event) {
+                    console.log("ptz event!", event)
+                    let ptzValues = JSON.parse(event.detail.shortcutsResult)
+                    console.log(ptzValues, typeof ptzValues, ptzValues.pan )
+                    await obs.call("SetInputSettings", {
+                        inputName: 'PTZ values',
+                        inputSettings: {
+                            text: `${ptzValues.pan} ${ptzValues.tilt} ${ptzValues.zoom}`,
+                        }
+                    });
                 })
     </script>
 

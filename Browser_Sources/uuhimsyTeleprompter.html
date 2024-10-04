@@ -88,60 +88,66 @@
       // }
 
 //Slide Triggers: Mouse, Keyboard, Midi, Gamepad, MediaPipe Pose, Voice, Zoom, PTZ camera
-
+    //UPDATE: these buttons are hidden.  The slide controls are now in the uuhimsyControls.html"
       //Mouse clicked the Next or Previous button
-      elemNext.addEventListener('click', function (e){
-        //setCommandText('shortcuts run "Set USB PTZ position" <<< "0,100|0"')
-        //setCommandText('shortcuts run "Set USB PanTilt position" <<< "0,100|0"')
-        //setCommandText('shortcuts run "Find Displays" | cat')
-        console.log("Next clicked")
+      // elemNext.addEventListener('click', function (e){
+      //   //setCommandText('shortcuts run "Set USB PTZ position" <<< "0,100|0"')
+      //   //setCommandText('shortcuts run "Set USB PanTilt position" <<< "0,100|0"')
+      //   //setCommandText('shortcuts run "Find Displays" | cat')
+      //   console.log("Next clicked")
 
-        if(slideAppName === 'keynote'){
-        setCommandText(`shortcuts run "Keynote_nextSlide" -o "${workingDirectory}/KeynoteSlideData.txt" &`)
-        //setCommandText('shortcuts run "Keynote_nextSlide" | cat')
-        }
-
-        if(slideAppName === 'ppt'){
-        setCommandText(`shortcuts run "PowerPoint_nextSlide" -o "${workingDirectory}" &`)
-        }
-
-        //send next slide to Reveal Slides
-        if(slideAppName === 'reveal'){
-        obs.call("CallVendorRequest", {
-          vendorName: "obs-browser",
-          requestType: "emit_event",
-          requestData: {
-            event_name: "nextSlide",
-          },
-        });
-      }
+      //   if(slideAppName === 'keynote'){
+      //   //send shortcut output to GUM page and run shortcut in the background  
+      //   setCommandText(`shortcuts run "Keynote_nextSlide_GUM" &`)
         
-      })
+      //   //example send output to a file 
+      //   //setCommandText(`shortcuts run "Keynote_nextSlide" -o "${workingDirectory}/KeynoteSlideData.txt" &`)
+        
+      //   //example return results to lua script standard out 
+      //   //setCommandText('shortcuts run "Keynote_nextSlide" | cat')
+      //   }
+
+      //   if(slideAppName === 'ppt'){
+      //   setCommandText(`shortcuts run "PowerPoint_nextSlide_GUM" &`);
+      //   }
+
+      //   //send next slide to Reveal Slides
+      //   if(slideAppName === 'reveal'){
+      //   obs.call("CallVendorRequest", {
+      //     vendorName: "obs-browser",
+      //     requestType: "emit_event",
+      //     requestData: {
+      //       event_name: "nextSlide",
+      //     },
+      //   });
+      // }
+
+      // })
       
-      elemPrevious.addEventListener('click', function (e){
-        if(slideAppName === 'keynote'){
-        setCommandText(`shortcuts run "Keynote_previousSlide" -o "${workingDirectory}" &`)
-        //setCommandText('shortcuts run "Keynote_previousSlide" | cat')
-        }
+      // elemPrevious.addEventListener('click', function (e){
+      //   if(slideAppName === 'keynote'){
+      //   setCommandText(`shortcuts run "Keynote_previousSlide_GUM" &`)
+      //   //setCommandText('shortcuts run "Keynote_previousSlide" | cat')
+      //   }
 
-        if(slideAppName === 'ppt'){
-        setCommandText(`shortcuts run "PowerPoint_previousSlide" -o "${workingDirectory}" &`)
-        //setCommandText('shortcuts run "PowerPoint_previousSlide" | cat')
-        }
+      //   if(slideAppName === 'ppt'){
+      //   setCommandText(`shortcuts run "PowerPoint_previousSlide_GUM" &`);
+      //   //setCommandText('shortcuts run "PowerPoint_previousSlide" | cat')
+      //   }
 
-        //send next slide to Reveal Slides
-        if(slideAppName === 'reveal'){
-        console.log("Previous clicked")
-        //send previous slide to Reveal Slides
-        obs.call("CallVendorRequest", {
-          vendorName: "obs-browser",
-          requestType: "emit_event",
-          requestData: {
-            event_name: "previousSlide",
-          },
-        });
-      }
-      })
+      //   //send next slide to Reveal Slides
+      //   if(slideAppName === 'reveal'){
+      //   console.log("Previous clicked")
+      //   //send previous slide to Reveal Slides
+      //   obs.call("CallVendorRequest", {
+      //     vendorName: "obs-browser",
+      //     requestType: "emit_event",
+      //     requestData: {
+      //       event_name: "previousSlide",
+      //     },
+      //   });
+      // }
+      // })
       
       //Hotkey Text Source change Listener
       //window.addEventListener("keydown", (event) => {
@@ -173,16 +179,16 @@
 
             //Get current Keynote Slide details
             case keynoteCurrentSlide_HK:
-            setCommandText(`shortcuts run "Keynote_nextSlide" -o "${workingDirectory}/KeynoteSlideData.txt" &`)
+            setCommandText(`shortcuts run "Keynote_nextSlide_GUM" &`)
               //setCommandText('shortcuts run "Keynote_currentSlide" | cat');
               break;
             //Keynote Next Slide
             case keynoteNextSlide_HK:
-            setCommandText(`shortcuts run "Keynote_nextSlide" -o "${workingDirectory}/KeynoteSlideData.txt" &`)
+            setCommandText(`shortcuts run "Keynote_nextSlide_GUM" &`)
               break;
             //Keynote Previous Slide
             case keynotePreviousSlide_HK:
-              setCommandText(`shortcuts run "Keynote_previousSlide" -o "${workingDirectory}" &`);
+              setCommandText(`shortcuts run "Keynote_previousSlide_GUM" &`);
               break;
 
             //Get current Keynote Slide details
@@ -191,19 +197,13 @@
             //   break;
             //PowerPoint Next Slide
             case pptNextSlide_HK:
-              setCommandText(`shortcuts run "PowerPoint_nextSlide" -o "${workingDirectory}" &`);
+              setCommandText(`shortcuts run "PowerPoint_nextSlide_GUM" &`);
               break;
             //PowerPoint Previous Slide
             case pptPreviousSlide_HK:
-              setCommandText(`shortcuts run "PowerPoint_previousSlide" -o "${workingDirectory}" &`);
+              setCommandText(`shortcuts run "PowerPoint_previousSlide_GUM" &`);
               break;
             
-            //Get UVC PTZ position values
-            case getUVC_PTZ_HK:
-              //setCommandText(`shortcuts run "PTZ Get position Loop Start File" -o "${workingDirectory}" &`);
-              setCommandText(`shortcuts run "PTZ Get position Loop Start GUM" &`);
-              break;
-
             //PowerPoint Windows Next Slide
             //call Advanced Scene Switcher to send a hotkey to Power Automate.
             case pptWinNextSlide_HK:            
@@ -251,8 +251,8 @@
 
         //Command Line results text source updated
         if (event.inputName === "CommandResultsText" && event.inputSettings.text && slideAppName === 'keynote') {
-          
           console.log(event)
+          
           console.log(event.inputSettings.text)
           commandResult = JSON.parse(event.inputSettings.text);
           console.log(1)
@@ -260,7 +260,7 @@
           //commandResult = JSON.parse(commandResult);
           //console.log(2)
           //console.log(commandResult)
-          //sconsole.log("commandResult.slideNumber != previousCommandResult.slideNumber",commandResult.slideNumber != previousCommandResult.slideNumber)
+          //console.log("commandResult.slideNumber != previousCommandResult.slideNumber",commandResult.slideNumber != previousCommandResult.slideNumber)
           
           //update script when slide number changes
           if(commandResult.slideNumber != previousCommandResult.slideNumber){
@@ -352,8 +352,10 @@
       })
 
       //PTZ camera 
-      window.addEventListener("ptz-message", function (event) {
-        console.log("ptz event",event)})
+      window.addEventListener("ptz-message", async function (event) {
+        console.log("ptz event!",event)
+        
+      })
       
       //mouse-message  
       window.addEventListener("mouse-message", function (event) {
@@ -368,17 +370,17 @@
         switch (midiData) {
           //Get Slide details
           case "[144,105,127]":
-            setCommandText(`shortcuts run "Keynote_currentSlide" -o "${workingDirectory}" &`);
+            setCommandText(`shortcuts run "Keynote_currentSlide_GUM" &`)
             break;
           //Next Slide
           case "[176,23,127]":
           case "[144,107,127]":
-            setCommandText(`shortcuts run "Keynote_nextSlide" -o "${workingDirectory}" &`);
+            setCommandText(`shortcuts run "Keynote_nextSlide_GUM" &`)
             break;
           //Previous Slide
           case "[176,22,127]":
           case "[144,106,127]":
-            setCommandText(`shortcuts run "Keynote_previousSlide" -o "${workingDirectory}" &`);
+            setCommandText(`shortcuts run "Keynote_previousSlide_GUM" &`)
             break;
           //Teleprompter Font size
           case midiData.startsWith("[176,56,") ? midiData : '':
@@ -468,25 +470,25 @@
         let gamepadData = JSON.parse(event.detail.gamepadEvent);
         //Next slide midi code
         if (gamepadData.buttons[1].value === 1) {
-          setCommandText(`shortcuts run "Keynote_nextSlide" -o "${workingDirectory}" &`)
+          setCommandText(`shortcuts run "Keynote_nextSlide_GUM" &`)
         }
         //Previous slide midi code
         if (gamepadData.buttons[3].value === 1) {
-          setCommandText(`shortcuts run "Keynote_previousSlide" -o "${workingDirectory}" &`)
+          setCommandText(`shortcuts run "Keynote_previousSlide_GUM" &`)
         }
       });
       
       //mediapipe pose
       window.addEventListener("pose-landmarks", function (event) {
         if(event.detail.poseLandmarkerResult[16].y < event.detail.poseLandmarkerResult[0].y && poseNextControl ==='off'){
-          setCommandText(`shortcuts run "Keynote_nextSlide" -o "${workingDirectory}" &`)
+          setCommandText(`shortcuts run "Keynote_nextSlide_GUM" &`)
           poseNextControl = 'on';
         }
         if(event.detail.poseLandmarkerResult[16].y > event.detail.poseLandmarkerResult[0].y){
           poseNextControl = "off";
         }
         if(event.detail.poseLandmarkerResult[15].y < event.detail.poseLandmarkerResult[0].y && posePreviousControl ==='off'){
-          setCommandText(`shortcuts run "Keynote_previousSlide" -o "${workingDirectory}" &`)
+          setCommandText(`shortcuts run "Keynote_previousSlide_GUM" &`)
           posePreviousControl = 'on';
         }
         if(event.detail.poseLandmarkerResult[15].y > event.detail.poseLandmarkerResult[0].y){
@@ -504,7 +506,7 @@
         console.log(zoomMessage[0])
         //Next slide on hand raised
         if (zoomMessage[0].includes("/handRaised")) {
-          setCommandText(`shortcuts run "Keynote_nextSlide" -o "${workingDirectory}" &`)
+          setCommandText(`shortcuts run "Keynote_nextSlide_GUM" &`)
         }
       });
       
@@ -559,13 +561,13 @@
           console.log(ptzNext[ptz_slideNum])
           if(ptz_slideNum > 3){
             if(telemetry.pan < ptzNext[ptz_slideNum]){
-              setCommandText('shortcuts run "Keynote_nextSlide" | cat')
+              setCommandText(`shortcuts run "Keynote_nextSlide_GUM" &`)
               ptz_slideNum += 1
             }
           }
           else{
             if(telemetry.pan > ptzNext[ptz_slideNum]){
-              setCommandText('shortcuts run "Keynote_nextSlide" | cat')
+              setCommandText(`shortcuts run "Keynote_nextSlide_GUM" &`)
               ptz_slideNum += 1  
               }  
             }
@@ -579,7 +581,7 @@
           // console.log(lastWord)
 
           if(event.inputSettings.text.includes(lastWord)){
-            setCommandText(`shortcuts run "Keynote_nextSlide" -o "${workingDirectory}" &`)
+            setCommandText(`shortcuts run "Keynote_nextSlide_GUM" &`)
           }
         }
       })
