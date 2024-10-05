@@ -32,7 +32,7 @@ var TelePrompter = (function() {
   /* Default App Settings */
   var defaultConfig = {
     backgroundColor: '#000000',
-    dimControls: true,
+    dimControls: false,
     flipX: false,
     flipY: false,
     fontSize: 60,
