@@ -1,6 +1,6 @@
 {
-    "current_scene": "Scene ExternalSlide-OTS",
-    "current_program_scene": "Scene ExternalSlide-OTS",
+    "current_scene": "Scene Screen Share",
+    "current_program_scene": "Scene Screen Share",
     "scene_order": [
         {
             "name": "Scene Screen Share"
@@ -99,15 +99,7 @@
             }
         }
     ],
-    "saved_projectors": [
-        {
-            "name": "Video Capture Device",
-            "monitor": -1,
-            "type": 0,
-            "geometry": "AdnQywADAAAAAALQAAABtQAABK8AAALeAAAC0AAAAdEAAASvAAAC3gAAAAAAAAAAB4AAAALQAAAB0QAABK8AAALe",
-            "alwaysOnTopOverridden": false
-        }
-    ],
+    "saved_projectors": [],
     "current_transition": "Cut",
     "transition_duration": 300,
     "preview_locked": false,
@@ -146,15 +138,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 279
+                            "pos": 494
                         },
                         {
-                            "pos": 357
+                            "pos": 633
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 325
+                            "pos": 601
                         },
                         {
                             "pos": 0
@@ -288,7 +280,8 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": ""
+                                "id": "",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -327,7 +320,8 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": ""
+                                "id": "",
+                                "version": 1
                             },
                             "settings": "",
                             "deinterlaceMode": 0,
@@ -456,7 +450,8 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": ""
+                                "id": "",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -512,7 +507,8 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": ""
+                                "id": "",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -659,7 +655,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -715,7 +712,8 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": ""
+                                "id": "",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -771,7 +769,8 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": ""
+                                "id": "",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -827,7 +826,8 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": ""
+                                "id": "",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -883,7 +883,8 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": ""
+                                "id": "",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -1069,7 +1070,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -1125,7 +1127,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -1181,7 +1184,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -1237,7 +1241,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -1293,7 +1298,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -1349,7 +1355,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -1405,7 +1412,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -1594,7 +1602,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -1650,7 +1659,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -1706,7 +1716,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -1762,7 +1773,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -1818,7 +1830,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -1874,7 +1887,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -1930,7 +1944,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -2228,7 +2243,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -2284,7 +2300,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -2388,7 +2405,8 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": ""
+                                "id": "",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -2444,7 +2462,8 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": ""
+                                "id": "",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -2500,7 +2519,8 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": ""
+                                "id": "",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -2556,7 +2576,8 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": ""
+                                "id": "",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -2612,7 +2633,8 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": ""
+                                "id": "",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -2823,7 +2845,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -2879,7 +2902,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -2935,7 +2959,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -2991,7 +3016,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -3047,7 +3073,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -3103,7 +3130,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -3159,7 +3187,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -3215,7 +3244,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -3271,7 +3301,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -3460,7 +3491,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -3516,7 +3548,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -3572,7 +3605,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -3628,7 +3662,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -3684,7 +3719,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -3740,7 +3776,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -3796,7 +3833,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -3866,7 +3904,7 @@
                 },
                 {
                     "name": "Run 1 Argument no working directory",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": false,
                     "skipExecOnStart": false,
@@ -3888,15 +3926,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 361
+                            "pos": 394
                         },
                         {
-                            "pos": 286
+                            "pos": 312
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 254
+                            "pos": 280
                         },
                         {
                             "pos": 0
@@ -3982,7 +4020,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -4038,7 +4077,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -4094,7 +4134,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -4150,7 +4191,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -4206,7 +4248,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message"
+                                "id": "message",
+                                "version": 1
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -4276,7 +4319,7 @@
                 },
                 {
                     "name": "send_PPT_Next_Hotkey",
-                    "pause": true,
+                    "pause": false,
                     "parallel": false,
                     "onChange": true,
                     "skipExecOnStart": false,
@@ -4298,15 +4341,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 198
+                            "pos": 393
                         },
                         {
-                            "pos": 158
+                            "pos": 313
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 126
+                            "pos": 281
                         },
                         {
                             "pos": 0
@@ -4386,7 +4429,7 @@
                 },
                 {
                     "name": "send_PPT_Previous_Hotkey",
-                    "pause": true,
+                    "pause": false,
                     "parallel": false,
                     "onChange": true,
                     "skipExecOnStart": false,
@@ -4408,15 +4451,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 433
+                            "pos": 354
                         },
                         {
-                            "pos": 431
+                            "pos": 352
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 399
+                            "pos": 320
                         },
                         {
                             "pos": 0
@@ -4596,7 +4639,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "content"
+                                "id": "content",
+                                "version": 1
                             },
                             "settings": "",
                             "deinterlaceMode": 0,
@@ -4708,7 +4752,8 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "content"
+                                "id": "content",
+                                "version": 1
                             },
                             "settings": "",
                             "deinterlaceMode": 0,
@@ -4852,15 +4897,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 217
+                            "pos": 333
                         },
                         {
-                            "pos": 518
+                            "pos": 794
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 486
+                            "pos": 762
                         },
                         {
                             "pos": 0
@@ -4931,15 +4976,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 246
+                            "pos": 190
                         },
                         {
-                            "pos": 399
+                            "pos": 309
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 367
+                            "pos": 277
                         },
                         {
                             "pos": 0
@@ -5009,11 +5054,710 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "content"
+                                "id": "content",
+                                "version": 1
                             },
                             "settings": "",
                             "deinterlaceMode": 0,
                             "deinterlaceOrder": 0
+                        }
+                    ],
+                    "elseActions": [],
+                    "inputVariables": []
+                },
+                {
+                    "name": "PTZ values changed",
+                    "pause": false,
+                    "parallel": false,
+                    "onChange": false,
+                    "skipExecOnStart": false,
+                    "stopActionsIfNotDone": false,
+                    "group": false,
+                    "dockSettings": {
+                        "register": false,
+                        "hasRunButton": true,
+                        "hasPauseButton": true,
+                        "hasStatusLabel": false,
+                        "highlightIfConditionsTrue": false,
+                        "runButtonText": "Run",
+                        "pauseButtonText": "Pause",
+                        "unpauseButtonText": "Unpause",
+                        "conditionsTrueStatusText": "Conditions are true.",
+                        "conditionsFalseStatusText": "Conditions are false.",
+                        "dockId": "advss-macro-dock-c78fa759-aed9-43aa-980b-e93f02835743",
+                        "version": 1
+                    },
+                    "macroActionConditionSplitterPosition": [
+                        {
+                            "pos": 244
+                        },
+                        {
+                            "pos": 883
+                        }
+                    ],
+                    "macroElseActionSplitterPosition": [
+                        {
+                            "pos": 851
+                        },
+                        {
+                            "pos": 0
+                        }
+                    ],
+                    "registerHotkeys": false,
+                    "pauseHotkey": [],
+                    "unpauseHotkey": [],
+                    "togglePauseHotkey": [],
+                    "conditions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "logic": 1,
+                            "durationModifier": {
+                                "time_constraint": 0,
+                                "seconds": {
+                                    "value": {
+                                        "value": 0.0,
+                                        "type": 0
+                                    },
+                                    "unit": 0,
+                                    "version": 1
+                                }
+                            },
+                            "variableName": "curPan",
+                            "variable2Name": "prevPan",
+                            "strValue": "${prevPan}",
+                            "numValue": 0.0,
+                            "condition": 0,
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            }
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "prevPan",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "${curPan}",
+                            "numValue": 0.0,
+                            "condition": 0,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "USERPROFILE",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 0,
+                                "idx": -1,
+                                "id": "setting",
+                                "version": 1
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "prevTilt",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "${curTilt}",
+                            "numValue": 0.0,
+                            "condition": 0,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "USERPROFILE",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 0,
+                                "idx": -1,
+                                "id": "setting",
+                                "version": 1
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "prevZoom",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "${curZoom}",
+                            "numValue": 0.0,
+                            "condition": 0,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "USERPROFILE",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 0,
+                                "idx": -1,
+                                "id": "setting",
+                                "version": 1
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "source",
+                            "enabled": true,
+                            "source": {
+                                "type": 0,
+                                "name": "PTZ values"
+                            },
+                            "action": 2,
+                            "sourceSettingButton": {
+                                "id": "",
+                                "description": ""
+                            },
+                            "inputMethod": 0,
+                            "sourceSetting": {
+                                "id": "text",
+                                "description": "Text (Text)"
+                            },
+                            "manualSettingValue": "${curPan}  ${curTilt} ${curZoom}",
+                            "tempVar": {
+                                "type": 0,
+                                "idx": -1,
+                                "id": "",
+                                "version": 1
+                            },
+                            "settings": "",
+                            "deinterlaceMode": 0,
+                            "deinterlaceOrder": 0
+                        }
+                    ],
+                    "elseActions": [],
+                    "inputVariables": []
+                },
+                {
+                    "name": "Get PTZ values",
+                    "pause": false,
+                    "parallel": false,
+                    "onChange": true,
+                    "skipExecOnStart": false,
+                    "stopActionsIfNotDone": false,
+                    "group": false,
+                    "dockSettings": {
+                        "register": false,
+                        "hasRunButton": true,
+                        "hasPauseButton": true,
+                        "hasStatusLabel": false,
+                        "highlightIfConditionsTrue": false,
+                        "runButtonText": "Run",
+                        "pauseButtonText": "Pause",
+                        "unpauseButtonText": "Unpause",
+                        "conditionsTrueStatusText": "Conditions are true.",
+                        "conditionsFalseStatusText": "Conditions are false.",
+                        "dockId": "advss-macro-dock-ec0cb50e-6bc4-4630-ba46-4ac308a1d981",
+                        "version": 1
+                    },
+                    "macroActionConditionSplitterPosition": [
+                        {
+                            "pos": 466
+                        },
+                        {
+                            "pos": 661
+                        }
+                    ],
+                    "macroElseActionSplitterPosition": [
+                        {
+                            "pos": 629
+                        },
+                        {
+                            "pos": 0
+                        }
+                    ],
+                    "registerHotkeys": false,
+                    "pauseHotkey": [],
+                    "unpauseHotkey": [],
+                    "togglePauseHotkey": [],
+                    "conditions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "timer",
+                            "logic": 0,
+                            "durationModifier": {
+                                "time_constraint": 0,
+                                "seconds": {
+                                    "value": {
+                                        "value": 0.0,
+                                        "type": 0
+                                    },
+                                    "unit": 0,
+                                    "version": 1
+                                }
+                            },
+                            "type": 0,
+                            "duration": {
+                                "value": {
+                                    "value": 1.0,
+                                    "type": 0
+                                },
+                                "unit": 0,
+                                "version": 1
+                            },
+                            "duration2": {
+                                "value": {
+                                    "value": 0.0,
+                                    "type": 0
+                                },
+                                "unit": 0,
+                                "version": 1
+                            },
+                            "remaining": 1.0,
+                            "saveRemaining": false,
+                            "paused": false,
+                            "oneshot": false,
+                            "version": 1
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "filter",
+                            "logic": 100,
+                            "durationModifier": {
+                                "time_constraint": 0,
+                                "seconds": {
+                                    "value": {
+                                        "value": 0.0,
+                                        "type": 0
+                                    },
+                                    "unit": 0,
+                                    "version": 1
+                                }
+                            },
+                            "source": {
+                                "type": 0,
+                                "name": "Tiny 2 windows"
+                            },
+                            "filter": {
+                                "type": 0,
+                                "name": "Move Video Capture Device"
+                            },
+                            "condition": 4,
+                            "settings": ".*",
+                            "regexConfig": {
+                                "enable": true,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "sourceSetting": {
+                                "id": "camera_control_0",
+                                "description": "[Pan] Pan (Int)"
+                            }
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "filter",
+                            "logic": 100,
+                            "durationModifier": {
+                                "time_constraint": 0,
+                                "seconds": {
+                                    "value": {
+                                        "value": 0.0,
+                                        "type": 0
+                                    },
+                                    "unit": 0,
+                                    "version": 1
+                                }
+                            },
+                            "source": {
+                                "type": 0,
+                                "name": "Tiny 2 windows"
+                            },
+                            "filter": {
+                                "type": 0,
+                                "name": "Move Video Capture Device"
+                            },
+                            "condition": 4,
+                            "settings": ".*",
+                            "regexConfig": {
+                                "enable": true,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "sourceSetting": {
+                                "id": "camera_control_1",
+                                "description": "[Tilt] Tilt (Int)"
+                            }
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "filter",
+                            "logic": 100,
+                            "durationModifier": {
+                                "time_constraint": 0,
+                                "seconds": {
+                                    "value": {
+                                        "value": 0.0,
+                                        "type": 0
+                                    },
+                                    "unit": 0,
+                                    "version": 1
+                                }
+                            },
+                            "source": {
+                                "type": 0,
+                                "name": "Tiny 2 windows"
+                            },
+                            "filter": {
+                                "type": 0,
+                                "name": "Move Video Capture Device"
+                            },
+                            "condition": 4,
+                            "settings": ".*",
+                            "regexConfig": {
+                                "enable": true,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "sourceSetting": {
+                                "id": "camera_control_3",
+                                "description": "[Zoom] Zoom (Int)"
+                            }
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "filter",
+                            "enabled": true,
+                            "source": {
+                                "type": 0,
+                                "name": "Tiny 2 windows"
+                            },
+                            "filter": {
+                                "type": 0,
+                                "name": "Move Video Capture Device"
+                            },
+                            "action": 4,
+                            "inputMethod": 0,
+                            "sourceSetting": {
+                                "id": "device",
+                                "description": "Device (List)"
+                            },
+                            "manualSettingValue": "",
+                            "tempVar": {
+                                "type": 0,
+                                "idx": -1,
+                                "id": "",
+                                "version": 1
+                            },
+                            "settings": "",
+                            "sourceSettingButton": {
+                                "id": "value_get",
+                                "description": "Get Value"
+                            },
+                            "version": 1
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "curPan",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "",
+                            "numValue": 0.0,
+                            "condition": 16,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "USERPROFILE",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 1,
+                                "idx": 1,
+                                "id": "setting",
+                                "version": 1
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "curTilt",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "",
+                            "numValue": 0.0,
+                            "condition": 16,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "USERPROFILE",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 1,
+                                "idx": 2,
+                                "id": "setting",
+                                "version": 1
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "curZoom",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "",
+                            "numValue": 0.0,
+                            "condition": 16,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "USERPROFILE",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 1,
+                                "idx": 3,
+                                "id": "setting",
+                                "version": 1
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
                         }
                     ],
                     "elseActions": [],
@@ -5080,6 +5824,36 @@
                 },
                 {
                     "name": "var",
+                    "saveAction": 0,
+                    "defaultValue": ""
+                },
+                {
+                    "name": "curPan",
+                    "saveAction": 0,
+                    "defaultValue": ""
+                },
+                {
+                    "name": "prevPan",
+                    "saveAction": 0,
+                    "defaultValue": ""
+                },
+                {
+                    "name": "prevTilt",
+                    "saveAction": 0,
+                    "defaultValue": ""
+                },
+                {
+                    "name": "prevZoom",
+                    "saveAction": 0,
+                    "defaultValue": ""
+                },
+                {
+                    "name": "curTilt",
+                    "saveAction": 0,
+                    "defaultValue": ""
+                },
+                {
+                    "name": "curZoom",
                     "saveAction": 0,
                     "defaultValue": ""
                 }
@@ -5237,10 +6011,10 @@
                     "sceneTriggerTab": 17
                 },
                 {
-                    "twitchConnectionTab": 18
+                    "websocketConnectionTab": 18
                 },
                 {
-                    "websocketConnectionTab": 19
+                    "twitchConnectionTab": 19
                 },
                 {
                     "variableTab": 20
@@ -5251,20 +6025,20 @@
             ],
             "saveWindowGeo": false,
             "windowPosX": 450,
-            "windowPosY": 64,
-            "windowWidth": 1166,
-            "windowHeight": 889,
+            "windowPosY": 211,
+            "windowWidth": 1000,
+            "windowHeight": 700,
             "macroListMacroEditSplitterPosition": [
                 {
-                    "pos": 166
+                    "pos": 280
                 },
                 {
-                    "pos": 953
+                    "pos": 693
                 }
             ],
-            "version": "510f83246ea264f56def58187bd9537b7c93b988",
-            "twitchConnections": [],
+            "version": "b561a20ddeca3e3e922ec1bf427ff811c2bf18f1",
             "websocketConnections": [],
+            "twitchConnections": [],
             "actionQueues": []
         },
         "auto-scene-switcher": {
@@ -5282,19 +6056,19 @@
         "copyTransformHotkey": [],
         "downstream_keyers": [
             {
-                "name": "DSK 1",
-                "transition": "",
-                "transition_duration": 300,
-                "show_transition": "",
-                "show_transition_duration": 300,
+                "disable_tie_hotkey": [],
+                "enable_tie_hotkey": [],
+                "exclude_scenes": [],
                 "hide_transition": "",
                 "hide_transition_duration": 300,
-                "scenes": [],
-                "scene": "",
+                "name": "DSK 1",
                 "null_hotkey": [],
-                "enable_tie_hotkey": [],
-                "disable_tie_hotkey": [],
-                "exclude_scenes": []
+                "scene": "",
+                "scenes": [],
+                "show_transition": "",
+                "show_transition_duration": 300,
+                "transition": "",
+                "transition_duration": 300
             }
         ],
         "downstream_keyers_channel": 7,
@@ -5320,12 +6094,12 @@
             {
                 "path": "/Users/jonwood/Documents/myGithub/UUhimsy/Lua_Scripts/Run_Command_Hotkey.lua",
                 "settings": {
-                    "source_name": "CommandText",
-                    "result_name": "CommandResultsText"
+                    "result_name": "CommandResultsText",
+                    "source_name": "CommandText"
                 }
             },
             {
-                "path": "/Users/jonwood/Documents/myGithub/UUhimsy/Lua_Scripts/showKeys.lua",
+                "path": "C:/Users/Jonat/OneDrive/Documents/GitHub/UUhimsy/Lua_Scripts/showKeys.lua",
                 "settings": {
                     "source": "hotkeyText"
                 }
@@ -5350,7 +6124,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAa4AAABVAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAa4AAABV",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAAnoAAAAxAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAAnoAAAAx",
                     "split": "AAAA/wAAAAEAAAABAAAAGAD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -5363,7 +6137,7 @@
                     "source_name": "hotkeyText",
                     "selected": false,
                     "title": "Key Press",
-                    "hidden": false,
+                    "hidden": true,
                     "preview": true,
                     "volmeter": false,
                     "volcontrols": false,
@@ -5376,7 +6150,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAQgAAABVAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAQgAAABV",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAAMcAAABjAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAAMcAAABj",
                     "split": "AAAA/wAAAAEAAAABAAAAGAD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -5402,7 +6176,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAhUAAABVAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAhUAAABV",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAAx0AAAAxAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAAx0AAAAx",
                     "split": "AAAA/wAAAAEAAAABAAAAGAD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -5428,7 +6202,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAa8AAAQXAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAa8AAAQX",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAAXcAAAOwAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAAXcAAAOw",
                     "split": "AAAA/wAAAAEAAAABAAAAGAD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 2,
@@ -5454,7 +6228,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAABFQAAAESAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAABFQAAAES",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAA8UAAAEfAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAA8UAAAEf",
                     "split": "AAAA/wAAAAEAAAABAAAAGAD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 4,
@@ -5480,7 +6254,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAAAAAAMcAAABjAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAAAAAAMcAAABj",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAAMcAAABjAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAAMcAAABj",
                     "split": "AAAA/wAAAAEAAAAAAP////8BAAAAAgA=",
                     "window": "",
                     "dockarea": 8,
@@ -5558,7 +6332,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAqUAAABVAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAqUAAABV",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAAd4AAAAxAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAAd4AAAAx",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -5575,9 +6349,15 @@
             "corner_bl": false
         },
         "transition-table": {
-            "transitions": [],
+            "disable_hotkey": [],
             "enable_hotkey": [],
-            "disable_hotkey": []
+            "transitions": []
+        },
+        "captions": {
+            "source": "",
+            "enabled": false,
+            "lang_id": 1033,
+            "provider": "mssapi"
         }
     },
     "resolution": {
@@ -5683,9 +6463,9 @@
             "versioned_id": "browser_source",
             "settings": {
                 "is_local_file": true,
-                "local_file": "/Users/jonwood/Documents/myGithub/UUhimsy/Browser_Sources/2dFish_CABLES.html",
-                "width": 1280,
-                "height": 720
+                "local_file": "C:/Users/Jonat/OneDrive/Documents/GitHub/UUhimsy/Browser_Sources/2dFish_CABLES.html",
+                "width": 640,
+                "height": 360
             },
             "mixers": 255,
             "sync": 0,
@@ -5718,7 +6498,7 @@
             "versioned_id": "browser_source",
             "settings": {
                 "is_local_file": true,
-                "local_file": "/Users/jonwood/Documents/myGithub/UUhimsy/Browser_Sources/mouse_Highlight_CABLES.html",
+                "local_file": "C:/Users/Jonat/OneDrive/Documents/GitHub/UUhimsy/Browser_Sources/mouse_Highlight_CABLES.html",
                 "width": 1280,
                 "height": 720,
                 "fps_custom": true,
@@ -5845,8 +6625,8 @@
             "prev_ver": 503447555,
             "name": "collectionMenu",
             "uuid": "a75ac7d8-cc67-45ec-a88a-a422cf4465d2",
-            "id": "text_ft2_source",
-            "versioned_id": "text_ft2_source_v2",
+            "id": "text_gdiplus",
+            "versioned_id": "text_gdiplus_v3",
             "settings": {
                 "text": "createScreenShareButtons\ncreateSlideButtons\ngetUserMedia_Github\ngetPTZValues\ncreateRefreshButton"
             },
@@ -5871,12 +6651,12 @@
             "prev_ver": 503447555,
             "name": "CommandResultsText",
             "uuid": "c175bf76-eaf4-4339-8678-1e82f1b39893",
-            "id": "text_ft2_source",
-            "versioned_id": "text_ft2_source_v2",
+            "id": "text_gdiplus",
+            "versioned_id": "text_gdiplus_v3",
             "settings": {
                 "custom_width": 100,
-                "word_wrap": true,
-                "text": "{\"slideNotes\":\"List 1\\n1. The birch canoe slid on the smooth planks.\\n2. Glue the “sheet” to the dark blue background.\\n3. It's easy to tell the depth of a well.\\n4. These days a chicken leg is a rare dish.\\n5. Rice is often served in round bowls.\\n6. The juice of lemons makes fine punch.\\n7. The box was thrown beside the parked truck.\\n8. The hogs were fed chopped corn and garbage.\\n9. Four hours of steady work faced us.\\n10. A large size in stockings is hard to sell\",\"actionName\":\"keynote_nextSlide\",\"slideNumber\":\"1\",\"nextSlideNumber\":\"2\",\"nextSlideScene\":\"Scene ExternalSlide-Full\",\"nextSlideTitle\":\"NextSlide\",\"slideTitle\":\"Title\",\"nextSlideNotes\":\"List 2\\n1.\\tThe boy was there when the sun rose.\\n2.\\tA rod is used to catch pink salmon.\\n3.\\tThe source of the huge river is the clear spring.\\n4.\\tKick the ball straight and follow through.\\n5.\\tHelp the woman get back to her feet.\\n6.\\tA pot of tea helps to pass the evening.\\n7.\\tSmoky fires lack flame and heat.\\n8.\\tThe soft cushion broke the man's fall.\\n9.\\tThe salt breeze came across from the sea.\\n10.\\tThe girl at the booth sold fifty bonds\",\"slideScene\":\"Scene ExternalSlide-OTS\"}"
+                "text": "{\"slideNotes\":\"List 1\\n1. The birch canoe slid on the smooth planks.\\n2. Glue the “sheet” to the dark blue background.\\n3. It's easy to tell the depth of a well.\\n4. These days a chicken leg is a rare dish.\\n5. Rice is often served in round bowls.\\n6. The juice of lemons makes fine punch.\\n7. The box was thrown beside the parked truck.\\n8. The hogs were fed chopped corn and garbage.\\n9. Four hours of steady work faced us.\\n10. A large size in stockings is hard to sell\",\"actionName\":\"keynote_nextSlide\",\"slideNumber\":\"1\",\"nextSlideNumber\":\"2\",\"nextSlideScene\":\"Scene ExternalSlide-Full\",\"nextSlideTitle\":\"NextSlide\",\"slideTitle\":\"Title\",\"nextSlideNotes\":\"List 2\\n1.\\tThe boy was there when the sun rose.\\n2.\\tA rod is used to catch pink salmon.\\n3.\\tThe source of the huge river is the clear spring.\\n4.\\tKick the ball straight and follow through.\\n5.\\tHelp the woman get back to her feet.\\n6.\\tA pot of tea helps to pass the evening.\\n7.\\tSmoky fires lack flame and heat.\\n8.\\tThe soft cushion broke the man's fall.\\n9.\\tThe salt breeze came across from the sea.\\n10.\\tThe girl at the booth sold fifty bonds\",\"slideScene\":\"Scene ExternalSlide-OTS\"}",
+                "word_wrap": true
             },
             "mixers": 0,
             "sync": 0,
@@ -5899,10 +6679,10 @@
             "prev_ver": 503447555,
             "name": "CommandText",
             "uuid": "047f3679-d343-4465-bd8b-d2ad6f38faf0",
-            "id": "text_ft2_source",
-            "versioned_id": "text_ft2_source_v2",
+            "id": "text_gdiplus",
+            "versioned_id": "text_gdiplus_v3",
             "settings": {
-                "text": "shortcuts run \"Keynote_nextSlide_GUM\" &"
+                "text": "shortcuts run \"PowerPoint_previousSlide_GUM\" &"
             },
             "mixers": 0,
             "sync": 0,
@@ -6192,10 +6972,10 @@
             "prev_ver": 503447555,
             "name": "cursor",
             "uuid": "dd547924-361c-468f-98f8-54a8d2583fc5",
-            "id": "text_ft2_source",
-            "versioned_id": "text_ft2_source_v2",
+            "id": "text_gdiplus",
+            "versioned_id": "text_gdiplus_v3",
             "settings": {
-                "text": "402 154"
+                "text": "357 207"
             },
             "mixers": 0,
             "sync": 0,
@@ -6536,8 +7316,8 @@
             "prev_ver": 503447555,
             "name": "hotkeyText",
             "uuid": "eb2d1239-651c-4f5d-94bf-701b3562fd98",
-            "id": "text_ft2_source",
-            "versioned_id": "text_ft2_source_v2",
+            "id": "text_gdiplus",
+            "versioned_id": "text_gdiplus_v3",
             "settings": {
                 "text": ""
             },
@@ -6599,7 +7379,7 @@
             "versioned_id": "scene",
             "settings": {
                 "custom_size": false,
-                "id_counter": 3,
+                "id_counter": 4,
                 "items": [
                     {
                         "name": "Video Capture Device",
@@ -6678,6 +7458,45 @@
                             "duration": 0
                         },
                         "private_settings": {}
+                    },
+                    {
+                        "name": "Tiny 2 windows",
+                        "source_uuid": "6d7ea343-dabf-4cd1-aa3b-04a89913fa46",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": -360.0
+                        },
+                        "scale": {
+                            "x": 1.5,
+                            "y": 1.5
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 4,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
                     }
                 ]
             },
@@ -6697,7 +7516,9 @@
                 "libobs.show_scene_item.1": [],
                 "libobs.hide_scene_item.1": [],
                 "libobs.show_scene_item.2": [],
-                "libobs.hide_scene_item.2": []
+                "libobs.hide_scene_item.2": [],
+                "libobs.show_scene_item.4": [],
+                "libobs.hide_scene_item.4": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -6712,7 +7533,7 @@
             "versioned_id": "scene",
             "settings": {
                 "custom_size": false,
-                "id_counter": 2,
+                "id_counter": 3,
                 "items": [
                     {
                         "name": "Keynote Screen Capture ",
@@ -6791,6 +7612,45 @@
                             "duration": 0
                         },
                         "private_settings": {}
+                    },
+                    {
+                        "name": "ppt Windows Capture",
+                        "source_uuid": "427b631f-d863-46df-8140-07271ccf0ccc",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 0.91998082399368286,
+                            "y": 0.92016130685806274
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 3,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
                     }
                 ]
             },
@@ -6810,7 +7670,9 @@
                 "libobs.show_scene_item.1": [],
                 "libobs.hide_scene_item.1": [],
                 "libobs.show_scene_item.2": [],
-                "libobs.hide_scene_item.2": []
+                "libobs.hide_scene_item.2": [],
+                "libobs.show_scene_item.3": [],
+                "libobs.hide_scene_item.3": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -6937,8 +7799,8 @@
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 3,
                 "custom_size": false,
+                "id_counter": 3,
                 "items": [
                     {
                         "name": "BrowserMouseOverlay",
@@ -6990,8 +7852,8 @@
                             "y": -2.0
                         },
                         "scale": {
-                            "x": 1.5078125,
-                            "y": 1.5083333253860474
+                            "x": 3.0062499046325684,
+                            "y": 3.0055556297302246
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -7428,7 +8290,7 @@
             "versioned_id": "browser_source",
             "settings": {
                 "is_local_file": true,
-                "local_file": "/Users/jonwood/Documents/myGithub/UUhimsy/Browser_Sources/Interfaces_p5_code-rlb2-live.html",
+                "local_file": "C:/Users/Jonat/OneDrive/Documents/GitHub/UUhimsy/Browser_Sources/Interfaces_p5_code-rlb2-live.html",
                 "width": 640,
                 "height": 480
             },
@@ -7462,8 +8324,8 @@
             "id": "screen_capture",
             "versioned_id": "screen_capture",
             "settings": {
-                "undo_uuid": "9ca6e0ad-ef99-43c5-9355-580fae5d5fbe",
                 "type": 1,
+                "undo_uuid": "9ca6e0ad-ef99-43c5-9355-580fae5d5fbe",
                 "window": 433
             },
             "mixers": 255,
@@ -7479,9 +8341,9 @@
             "push-to-talk-delay": 0,
             "hotkeys": {
                 "libobs.mute": [],
-                "libobs.unmute": [],
                 "libobs.push-to-mute": [],
-                "libobs.push-to-talk": []
+                "libobs.push-to-talk": [],
+                "libobs.unmute": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -7527,9 +8389,9 @@
             "id": "screen_capture",
             "versioned_id": "screen_capture",
             "settings": {
+                "show_cursor": true,
                 "type": 1,
-                "window": 287,
-                "show_cursor": true
+                "window": 287
             },
             "mixers": 255,
             "sync": 0,
@@ -7544,9 +8406,9 @@
             "push-to-talk-delay": 0,
             "hotkeys": {
                 "libobs.mute": [],
-                "libobs.unmute": [],
                 "libobs.push-to-mute": [],
-                "libobs.push-to-talk": []
+                "libobs.push-to-talk": [],
+                "libobs.unmute": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -7604,9 +8466,9 @@
             "push-to-talk-delay": 0,
             "hotkeys": {
                 "libobs.mute": [],
-                "libobs.unmute": [],
                 "libobs.push-to-mute": [],
-                "libobs.push-to-talk": []
+                "libobs.push-to-talk": [],
+                "libobs.unmute": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -7617,8 +8479,8 @@
             "prev_ver": 503447555,
             "name": "mouseButtonText",
             "uuid": "b4cb5e85-07f4-4440-82ff-0acadb3a8ee2",
-            "id": "text_ft2_source",
-            "versioned_id": "text_ft2_source_v2",
+            "id": "text_gdiplus",
+            "versioned_id": "text_gdiplus_v3",
             "settings": {
                 "text": "Cmd+MB1"
             },
@@ -7694,9 +8556,9 @@
             "push-to-talk-delay": 0,
             "hotkeys": {
                 "libobs.mute": [],
-                "libobs.unmute": [],
                 "libobs.push-to-mute": [],
-                "libobs.push-to-talk": []
+                "libobs.push-to-talk": [],
+                "libobs.unmute": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -7737,14 +8599,78 @@
         },
         {
             "prev_ver": 503447555,
+            "name": "ppt Windows Capture",
+            "uuid": "427b631f-d863-46df-8140-07271ccf0ccc",
+            "id": "window_capture",
+            "versioned_id": "window_capture",
+            "settings": {
+                "window": "PowerPoint Slide Show  -  Screen Sharing - PowerPoint:PPTFrameClass:POWERPNT.EXE",
+                "cursor": false,
+                "client_area": true
+            },
+            "mixers": 255,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "ppt Windows Source Clone",
+            "uuid": "771add31-4a8d-4542-892f-79a270a7468e",
+            "id": "source-clone",
+            "versioned_id": "source-clone",
+            "settings": {
+                "clone": "ppt Windows Capture"
+            },
+            "mixers": 255,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
             "name": "PTZ values",
             "uuid": "6631b7bf-70d9-4993-8f68-74ca71880b7e",
-            "id": "text_ft2_source",
-            "versioned_id": "text_ft2_source_v2",
+            "id": "text_gdiplus",
+            "versioned_id": "text_gdiplus_v3",
             "settings": {
                 "from_file": false,
-                "text_file": "/Users/jonwood/Library/Mobile Documents/iCloud~is~workflow~my~workflows/Documents/loopControl/ptzValues.txt",
-                "text": "493200 -302400 0"
+                "text": "91  22 0",
+                "text_file": "/Users/jonwood/Library/Mobile Documents/iCloud~is~workflow~my~workflows/Documents/loopControl/ptzValues.txt"
             },
             "mixers": 0,
             "sync": 0,
@@ -7771,7 +8697,7 @@
             "versioned_id": "browser_source",
             "settings": {
                 "is_local_file": true,
-                "local_file": "/Users/jonwood/Documents/myGithub/UUhimsy/Browser_Sources/revealSlidesDemo.html",
+                "local_file": "C:/Users/Jonat/OneDrive/Documents/GitHub/UUhimsy/Browser_Sources/revealSlidesDemo.html",
                 "width": 800,
                 "height": 600,
                 "shutdown": false
@@ -8060,7 +8986,7 @@
             "versioned_id": "scene",
             "settings": {
                 "custom_size": false,
-                "id_counter": 5,
+                "id_counter": 6,
                 "items": [
                     {
                         "name": "Source Clone Camera BG",
@@ -8217,6 +9143,45 @@
                             "duration": 0
                         },
                         "private_settings": {}
+                    },
+                    {
+                        "name": "ppt Windows Source Clone",
+                        "source_uuid": "771add31-4a8d-4542-892f-79a270a7468e",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 46.0,
+                            "y": 53.367118835449219
+                        },
+                        "scale": {
+                            "x": 0.43651172518730164,
+                            "y": 0.43629032373428345
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 30,
+                        "id": 6,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
                     }
                 ]
             },
@@ -8240,7 +9205,9 @@
                 "libobs.show_scene_item.4": [],
                 "libobs.hide_scene_item.4": [],
                 "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": []
+                "libobs.hide_scene_item.1": [],
+                "libobs.show_scene_item.6": [],
+                "libobs.hide_scene_item.6": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -10228,7 +11195,7 @@
             "versioned_id": "browser_source",
             "settings": {
                 "is_local_file": true,
-                "local_file": "/Users/jonwood/Documents/myGithub/UUhimsy/Browser_Sources/revealSlidesDemo.html",
+                "local_file": "C:/Users/Jonat/OneDrive/Documents/GitHub/UUhimsy/Browser_Sources/revealSlidesDemo.html",
                 "height": 1080
             },
             "mixers": 255,
@@ -11056,7 +12023,7 @@
             "versioned_id": "browser_source",
             "settings": {
                 "is_local_file": true,
-                "local_file": "/Users/jonwood/Documents/myGithub/UUhimsy/Browser_Sources/stg_key_overlay_stripes.html",
+                "local_file": "C:/Users/Jonat/OneDrive/Documents/GitHub/UUhimsy/Browser_Sources/stg_key_overlay_stripes.html",
                 "shutdown": false
             },
             "mixers": 255,
@@ -11091,7 +12058,7 @@
             "settings": {
                 "is_local_file": true,
                 "undo_uuid": "a1a5cd70-8846-465d-bc64-3f917afaa6ba",
-                "local_file": "/Users/jonwood/Documents/myGithub/UUhimsy/Browser_Sources/uuhimsyTeleprompter.html",
+                "local_file": "C:/Users/Jonat/OneDrive/Documents/GitHub/UUhimsy/Browser_Sources/uuhimsyTeleprompter.html",
                 "width": 1200
             },
             "mixers": 255,
@@ -11119,23 +12086,17 @@
         },
         {
             "prev_ver": 503447555,
-            "name": "Tiny2_PTZ",
-            "uuid": "d4ab00c8-5333-4b48-a89d-ad1bd7ff0e26",
-            "id": "macos-avcapture",
-            "versioned_id": "macos-avcapture",
+            "name": "Tiny 2 windows",
+            "uuid": "6d7ea343-dabf-4cd1-aa3b-04a89913fa46",
+            "id": "dshow_input",
+            "versioned_id": "dshow_input",
             "settings": {
-                "color_space": 2,
-                "device_name": "OBSBOT Tiny 2 StreamCamera",
-                "frame_rate": {
-                    "numerator": 24000038.0,
-                    "denominator": 1000000.0
-                },
-                "input_format": 5,
-                "video_range": 1,
-                "resolution": "{\"width\":1920,\"height\":1440}",
-                "device": "0x21230003564fef8",
-                "use_preset": false,
-                "preset": "AVCaptureSessionPreset3840x2160"
+                "video_device_id": "OBSBOT Tiny 2 StreamCamera:\\\\?\\usb#22vid_3564&pid_fef8&mi_00#228&2e96610f&0&0000#22{65e8773d-8f56-11d0-a3b9-00a0c9223196}\\global",
+                "last_video_device_id": "OBSBOT Tiny 2 StreamCamera:\\\\?\\usb#22vid_3564&pid_fef8&mi_00#228&2e96610f&0&0000#22{65e8773d-8f56-11d0-a3b9-00a0c9223196}\\global",
+                "resolution": "1280x960",
+                "last_resolution": "1280x960",
+                "res_type": 1,
+                "color_space": "709"
             },
             "mixers": 255,
             "sync": 0,
@@ -11152,7 +12113,107 @@
                 "libobs.mute": [],
                 "libobs.unmute": [],
                 "libobs.push-to-mute": [],
-                "libobs.push-to-talk": []
+                "libobs.push-to-talk": [],
+                "Move Video Capture Device": [],
+                "Move Video Capture Device Hold": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {},
+            "filters": [
+                {
+                    "prev_ver": 503447555,
+                    "name": "Move Video Capture Device",
+                    "uuid": "ed2caeaf-90cc-4b4f-bc8f-b5089d485db2",
+                    "id": "move_directshow_filter",
+                    "versioned_id": "move_directshow_filter",
+                    "settings": {
+                        "device": "OBSBOT Tiny 2 StreamCamera:\\\\?\\usb#22vid_3564&pid_fef8&mi_00#228&2e96610f&0&0000#22{65e8773d-8f56-11d0-a3b9-00a0c9223196}\\global",
+                        "setting_name": "camera_control_0",
+                        "easing_function_match": 1,
+                        "setting_int": 91,
+                        "camera_control_0": 91,
+                        "camera_control_1": 22,
+                        "camera_control_2": 0,
+                        "camera_control_3": 0,
+                        "camera_control_4": -5,
+                        "camera_control_6": 57,
+                        "camera_control_9": 91,
+                        "camera_control_10": 0,
+                        "camera_control_11": 0,
+                        "camera_control_13": 245,
+                        "camera_control_14": 0,
+                        "camera_control_18": 0,
+                        "camera_control_19": 0,
+                        "video_proc_amp_0": 50,
+                        "video_proc_amp_1": 50,
+                        "video_proc_amp_2": 50,
+                        "video_proc_amp_3": 50,
+                        "video_proc_amp_4": 50,
+                        "video_proc_amp_7": 4900,
+                        "video_proc_amp_8": 9,
+                        "video_proc_amp_9": 9,
+                        "video_proc_amp_10": 0,
+                        "video_proc_amp_11": 100,
+                        "video_proc_amp_13": 0,
+                        "move_value_type": 1
+                    },
+                    "mixers": 0,
+                    "sync": 0,
+                    "flags": 0,
+                    "volume": 1.0,
+                    "balance": 0.5,
+                    "enabled": false,
+                    "muted": false,
+                    "push-to-mute": false,
+                    "push-to-mute-delay": 0,
+                    "push-to-talk": false,
+                    "push-to-talk-delay": 0,
+                    "hotkeys": {},
+                    "deinterlace_mode": 0,
+                    "deinterlace_field_order": 0,
+                    "monitoring_type": 0,
+                    "private_settings": {}
+                }
+            ]
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "Tiny2_PTZ",
+            "uuid": "d4ab00c8-5333-4b48-a89d-ad1bd7ff0e26",
+            "id": "macos-avcapture",
+            "versioned_id": "macos-avcapture",
+            "settings": {
+                "color_space": 2,
+                "device": "0x21230003564fef8",
+                "device_name": "OBSBOT Tiny 2 StreamCamera",
+                "frame_rate": {
+                    "denominator": 1000000,
+                    "numerator": 24000038
+                },
+                "input_format": 5,
+                "preset": "AVCaptureSessionPreset3840x2160",
+                "resolution": "{\"width\":1920,\"height\":1440}",
+                "use_preset": false,
+                "video_range": 1
+            },
+            "mixers": 255,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": [],
+                "libobs.unmute": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -11167,7 +12228,7 @@
             "versioned_id": "browser_source",
             "settings": {
                 "is_local_file": true,
-                "local_file": "/Users/jonwood/Documents/myGithub/UUhimsy/Browser_Sources/uuhimsyControls.html",
+                "local_file": "C:/Users/Jonat/OneDrive/Documents/GitHub/UUhimsy/Browser_Sources/uuhimsyControls.html",
                 "height": 2000
             },
             "mixers": 255,
@@ -11201,6 +12262,7 @@
             "versioned_id": "macos-avcapture",
             "settings": {
                 "color_space": 2,
+                "device": "47B4B64B-7067-4B9C-AD2B-AE273A71F4B5",
                 "device_name": "FaceTime HD Camera",
                 "frame_rate": {
                     "denominator": 1,
@@ -11208,9 +12270,8 @@
                 },
                 "input_format": 2,
                 "resolution": "{\"width\":1760,\"height\":1328}",
-                "video_range": 1,
-                "device": "47B4B64B-7067-4B9C-AD2B-AE273A71F4B5",
-                "use_preset": false
+                "use_preset": false,
+                "video_range": 1
             },
             "mixers": 255,
             "sync": 0,
@@ -11225,9 +12286,9 @@
             "push-to-talk-delay": 0,
             "hotkeys": {
                 "libobs.mute": [],
-                "libobs.unmute": [],
                 "libobs.push-to-mute": [],
-                "libobs.push-to-talk": []
+                "libobs.push-to-talk": [],
+                "libobs.unmute": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -11242,7 +12303,7 @@
             "versioned_id": "browser_source",
             "settings": {
                 "is_local_file": true,
-                "local_file": "/Users/jonwood/Documents/myGithub/UUhimsy/Browser_Sources/webSocketTester.html",
+                "local_file": "C:/Users/Jonat/OneDrive/Documents/GitHub/UUhimsy/Browser_Sources/webSocketTester.html",
                 "css": "body { background-color: rgba(0, 0, 0, 0); margin: 0px auto; }"
             },
             "mixers": 255,
