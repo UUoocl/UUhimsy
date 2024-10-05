@@ -61,4 +61,7 @@ A starter OBS configuration is included in this repo.  OBS is configured through
 ### Zoom in on mouse
 ## Slides 
 ### Use Reveal.js Slides to control OBS
+## Windows
+PowerToys Keymanager file location "%USERPROFILE%\AppData\Local\Microsoft\PowerToys\Keyboard Manager\default.json"
+replace the default.json file's content with the key mapping file in this repo. 
 
