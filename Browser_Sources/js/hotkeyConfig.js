@@ -12,6 +12,8 @@
         pptWinCurrentSlide_HK,
         pptWinNextSlide_HK = 'Ctrl+Alt+F18', 
         pptWinPreviousSlide_HK = 'Ctrl+Alt+F19',
+        pptScriptLabNextSlide_HK = 'Ctrl+Alt+F16', 
+        pptScriptLabPreviousSlide_HK = 'Ctrl+Alt+F17',
         revealCurrentSlide_HK,
         revealNextSlide_HK = 'Ctrl+F18', 
         revealPreviousSlide_HK = 'Ctrl+F19',
@@ -25,3 +27,6 @@
         prompterPlayPause_HK = 'F13',
         getUVC_PTZ_HK = 'Shift+17',
         workingDirectory = `${window.location.pathname.split('/UUhimsy/')[0].replace('//','/')}/UUhimsy/`
+        //openGUMgithub_HK = 'Ctrl+F20'
+
+        

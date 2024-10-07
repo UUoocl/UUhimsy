@@ -1,0 +1,225 @@
+$("#get-slide-metadata").on("click", currentSlide);
+$("#previous-slide").on("click", goToPreviousSlideByIndex);
+$("#next-slide").on("click", goToNextSlideByIndex);
+
+async function getSlideMetadata(direction) {
+  //console.log(getActiveFileView());
+  await Office.context.document.getSelectedDataAsync(Office.CoercionType.SlideRange, async function(asyncResult) {
+    if (asyncResult.status === Office.AsyncResultStatus.Failed) {
+      console.error(asyncResult.error.message);
+    } else {
+      console.log(JSON.stringify(asyncResult.value, null, 4));
+      let result = asyncResult.value;
+      result = result.slides[0].index;
+      if (direction === "next") {
+        goToNextSlide(result);
+      }
+      if (direction === "previous") {
+        result = result - 2;
+        goToPreviousSlide(result);
+      }
+      if(direction === "current"){ 
+        result = result - 1;
+        getNotesForOBS(result)
+        };
+    }
+  });
+}
+
+async function currentSlide() {
+  getSlideMetadata("current");
+}
+async function goToNextSlideByIndex() {
+  getSlideMetadata("next");
+}
+
+async function goToPreviousSlideByIndex() {
+  getSlideMetadata("previous");
+}
+
+function goToNextSlide(slideIndex) {
+  const goToNext = Office.Index.Next;
+  Office.context.document.goToByIdAsync(goToNext, Office.GoToType.Slide, function(asyncResult) {
+    if (asyncResult.status == "failed") {
+      console.log("Action failed with error: " + asyncResult.error.message);
+    } else {
+      console.log("Navigation successful", slideIndex);
+
+      //getSlideMetadata();
+      getNotesForOBS(slideIndex);
+    }
+  });
+}
+
+async function goToPreviousSlide(slideIndex) {
+  const goToPrevious = Office.Index.Previous;
+  Office.context.document.goToByIdAsync(goToPrevious, Office.GoToType.Index, function(asyncResult) {
+    if (asyncResult.status == "failed") {
+      console.log("Action failed with error: " + asyncResult.error.message);
+    } else {
+      console.log("Navigation successful", slideIndex);
+      getNotesForOBS(slideIndex);
+      //getSlideMetadata();
+    }
+  });
+}
+
+//general Office.initialize function. Fires on load of the add-in.
+Office.initialize = function() {
+  //var Globals = { activeViewHandler: 0, firstSlideId: 0 };
+
+  //console.log(getActiveFileView())
+  //Gets whether the current view is edit or read.
+  const currentView = getActiveFileView();
+
+  //register for the active view changed handler
+  registerActiveViewChanged();
+
+  //render the content based off of the currentView
+  //....
+};
+
+function getActiveFileView() {
+  Office.context.document.getActiveViewAsync(function(asyncResult) {
+    if (asyncResult.status == "failed") {
+      console.log("Action failed with error: " + asyncResult.error.message);
+    } else {
+      console.log(asyncResult.value);
+    }
+  });
+}
+
+function registerActiveViewChanged() {
+  Globals.activeViewHandler = function(args) {
+    console.log(JSON.stringify(args));
+  };
+
+  Office.context.document.addHandlerAsync(Office.EventType.ActiveViewChanged, Globals.activeViewHandler, function(
+    asyncResult
+  ) {
+    if (asyncResult.status == "failed") {
+      console.log("Action failed with error: " + asyncResult.error.message);
+    } else {
+      console.log(asyncResult.status);
+    }
+  });
+}
+
+// get the Notes and OBS scene from the current slide.
+async function getNotesForOBS(slideIndex) {
+  var obsObject = {};
+  await PowerPoint.run(async (context) => {
+    // Get every shape in the current slide.
+    const shapes: PowerPoint.ShapeCollection = context.presentation.slides.getItemAt(slideIndex).shapes;
+    //load all the shape properties
+    shapes.load("items");
+    await context.sync();
+
+    // find the shapes with data for OBS
+    shapes.items.forEach(async (shape) => {
+      if (shape.name === "obsScene") {
+        console.log(shape.id, shape.name);
+        const sceneTextRange: PowerPoint.TextRange = shape.textFrame.textRange;
+        sceneTextRange.load("text");
+        await context.sync();
+        console.log("got scene", sceneTextRange.text);
+      }
+
+      if (shape.name === "slideNotes") {
+        console.log(shape.id, shape.name);
+        const notesTextRange: PowerPoint.TextRange = shape.textFrame.textRange;
+        notesTextRange.load("text");
+        await context.sync();
+        console.log("got notes", notesTextRange.text);
+      }
+    });
+  });
+}
+
+// async function getSelectedTextRange() {
+//   //   // Gets the selected text range and prints data about the range on the task pane.
+//   let result = "";
+//   result = await PowerPoint.run(async (context) => {
+//     const textRange: PowerPoint.TextRange = context.presentation.getSelectedTextRange();
+//     try {
+//       await context.sync();
+//     } catch (error) {
+//       console.warn("You must select only one range of text for this action to work.");
+//       return;
+//     }
+//     textRange.load("text");
+//     await context.sync();
+//     return textRange.text;
+//   });
+//   return result;
+// }
+
+// async function getSelectedShapes() {
+//   // Gets the shapes you selected on the slide and displays their IDs on the task pane.
+//   await PowerPoint.run(async (context) => {
+//     let finalTable = "";
+//     const shapes: PowerPoint.ShapeScopedCollection = context.presentation.getSelectedShapes();
+//     const shapeCount = shapes.getCount();
+//     await context.sync();
+//     finalTable += "<br>getSelectedShapes.getCount returned:<b>" + shapeCount.value + "</b><br>";
+//     finalTable +=
+//       "<br><table border=1 cellpadding=3 cellspacing=0><tr><td bgcolor=#3333EE><font color=white>Index</font></td><td bgcolor=#3333EE><font color=white>Id</font></td></tr>";
+//     shapes.load("items");
+//     await context.sync();
+//     shapes.items.map((shape, index) => {
+//       finalTable += "<tr><td>" + index + "</td><td>" + shape.id + "</td></tr>";
+//     });
+//     finalTable += "</table>";
+//     $("#outputSpan").empty();
+//     $("#outputSpan").append(finalTable);
+//   });
+// }
+
+// async function setSelectedShapes(shapeID) {
+//   // Selects the first two shapes on slide 1.
+//   await PowerPoint.run(async (context) => {
+//     context.presentation.load("slides");
+//     await context.sync();
+//     const slide1 = context.presentation.getSelectedSlides().getItemAt(0);
+//     slide1.load("shapes");
+//     await context.sync();
+//     const shapes: PowerPoint.ShapeCollection = slide1.shapes;
+//     const shape1: PowerPoint.Shape = shapes.getItemAt(0);
+//     const shape2: PowerPoint.Shape = shapes.getItemAt(1);
+//     shape1.load("id");
+//     shape2.load("id");
+//     await context.sync();
+//     slide1.setSelectedShapes([shape1.id, shape2.id]);
+//     await context.sync();
+//   });
+// }
+
+// async function getShapeText() {
+//   // Gets the hyperlinks found in the first selected slide.
+//   await PowerPoint.run(async (context) => {
+//     const slide: PowerPoint.Slide = context.presentation.getSelectedSlides().getItemAt(0);
+//     const hyperlinks: PowerPoint.HyperlinkCollection = slide.hyperlinks.load("address,screenTip");
+//     const hyperlinksCount = hyperlinks.getCount();
+//     await context.sync();
+
+//     console.log(`${hyperlinksCount.value} hyperlinks found in first selected slide:`);
+//     for (let link of hyperlinks.items) {
+//       console.log(`Address: "${link.address}" (Screen tip: "${link.screenTip}")`);
+//     }
+//   });
+// }
+
+// async function deleteSlides() {
+//   // Deletes the selected slides.
+//   await PowerPoint.run(async (context) => {
+//     context.presentation.load("slides");
+//     await context.sync();
+//     const slides: PowerPoint.SlideScopedCollection = context.presentation.getSelectedSlides();
+//     const slideCount = slides.getCount();
+//     slides.load("items");
+//     await context.sync();
+//     slides.items.map((slide) => {
+//       slide.delete();
+//     });
+//   });
+// }

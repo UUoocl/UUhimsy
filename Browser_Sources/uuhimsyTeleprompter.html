@@ -176,6 +176,26 @@
                     },
                   });
                   break;
+                case pptScriptLabNextSlide_HK:
+                console.log("hotkey variable")
+                obs.call("CallVendorRequest", {
+                  vendorName: "obs-browser",
+                  requestType: "emit_event",
+                  requestData: {
+                    event_name: "pptScriptLab_NextSlide",
+                  },
+                });
+                break;
+                //Previous Slide
+                case pptScriptLabPreviousSlide_HK:
+                  obs.call("CallVendorRequest", {
+                    vendorName: "obs-browser",
+                    requestType: "emit_event",
+                    requestData: {
+                      event_name: "pptScriptLab_PreviousSlide",
+                    },
+                  });
+                  break;
 
             //Get current Keynote Slide details
             case keynoteCurrentSlide_HK:
@@ -206,26 +226,27 @@
             
             //PowerPoint Windows Next Slide
             //call Advanced Scene Switcher to send a hotkey to Power Automate.
-            case pptWinNextSlide_HK:            
-              obs.call("CallVendorRequest", {
-                vendorName: "AdvancedSceneSwitcher",
-                requestType: "AdvancedSceneSwitcherMessage",
-                requestData: {
-                    message: `{ "requestName" : "pptWinNext" }`,
-                },
-              });          
-              break;
+            //UPDATE: the control page will handle triggering Advanced Scene Switcher. 
+            // case pptWinNextSlide_HK:            
+            //   obs.call("CallVendorRequest", {
+            //     vendorName: "AdvancedSceneSwitcher",
+            //     requestType: "AdvancedSceneSwitcherMessage",
+            //     requestData: {
+            //         message: `{ "requestName" : "pptWinNext" }`,
+            //     },
+            //   });          
+            //   break;
 
-            //PowerPoint Windows Previous Slide
-            case pptWinPreviousSlide_HK:
-              obs.call("CallVendorRequest", {
-                vendorName: "AdvancedSceneSwitcher",
-                requestType: "AdvancedSceneSwitcherMessage",
-                requestData: {
-                    message: `{ "requestName" : "pptWinPrevious" }`,
-                },
-              });
-              break;
+            // //PowerPoint Windows Previous Slide
+            // case pptWinPreviousSlide_HK:
+            //   obs.call("CallVendorRequest", {
+            //     vendorName: "AdvancedSceneSwitcher",
+            //     requestType: "AdvancedSceneSwitcherMessage",
+            //     requestData: {
+            //         message: `{ "requestName" : "pptWinPrevious" }`,
+            //     },
+            //   });
+            //   break;
 
             //Teleprompter Font -
             case  prompterFontDecrease_HK:
@@ -254,16 +275,11 @@
           
           console.log(event.inputSettings.text)
           let commandResult = JSON.parse(event.inputSettings.text);
-          console.log(1)
           console.log(commandResult)
-          // commandResult = JSON.parse(commandResult);
-          // console.log(2)
-          // console.log(commandResult)
-          //console.log("commandResult.slidePosition != previousCommandResult.slidePosition",commandResult.slidePosition != previousCommandResult.slidePosition)
-          
+
           if(commandResult.slidePosition != previousCommandResult.slidePosition){
             previousCommandResult = commandResult;
-            obs.call('SetCurrentProgramScene', {sceneName: `${commandResult.slideScene}`}); 
+            obs.call('SetCurrentProgramScene', {sceneName: `${commandResult.scene}`}); 
             console.log(commandResult.slideNotes)
             let slideNoteJSON = commandResult.slideNotes;
             console.log(slideNoteJSON)

@@ -166,15 +166,43 @@
             buttons[i].option('reveal',' Reveal ')
             if(navigator.platform.includes('Mac')){
               buttons[i].option('keynote', ' Keynote ')
-              buttons[i].option('ppt',' PowerPoint ')
+              buttons[i].option('ppt',' PowerPoint Shortcuts')
+              buttons[i].option('pptScriptLab',' PowerPoint ScriptLab')
             }
             if(navigator.platform.includes('Win')){
-              buttons[i].option('pptWin',' PowerPoint ')
+              buttons[i].option('pptWin',' PowerPoint PAD')
+              buttons[i].option('pptScriptLab',' PowerPoint ScriptLab')
             }
             buttons[i].selected('reveal')
             labelUpdate('reveal')
-            buttons[i+=1] = createButton(`Next Slide (${nextSlide_HK})`).position(0, (15+buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button l').id('nextSlideButton').mousePressed(()=>hotkeyUpdate(nextSlide_HK))
-            buttons[i+=1] = createButton(`Previous Slide (${prevSlide_HK})`).position(0, (buttonPadding-10)+(buttons[i-1].y+buttons[i-1].height)).class('button l').id('prevSlideButton').mousePressed(()=>hotkeyUpdate(prevSlide_HK))
+            
+            buttons[i+=1] = createButton(`Next Slide (${nextSlide_HK})`).position(0, (15+buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button l').id('nextSlideButton').mousePressed(()=>{
+                //If PowerPoint for Windows, then trigger Advance Scene Switcher
+                // //Windows Power Automate Desktop PowerPoint trigger
+                // if(navigator.platform.includes('Win') && slideAppName === "pptWin"){
+                //     obs.call("CallVendorRequest", {
+                //         vendorName: "AdvancedSceneSwitcher",
+                //         requestType: "AdvancedSceneSwitcherMessage",
+                //         requestData: {
+                //             message: `{ "requestName" : "pptWinNext" }`,
+                //         },
+                //     });    
+                // }
+                hotkeyUpdate(nextSlide_HK)
+            })
+            buttons[i+=1] = createButton(`Previous Slide (${prevSlide_HK})`).position(0, (buttonPadding-10)+(buttons[i-1].y+buttons[i-1].height)).class('button l').id('prevSlideButton').mousePressed(()=>{
+                // //Windows Power Automate Desktop PowerPoint trigger
+                // if(navigator.platform.includes('Win') && slideAppName === "pptWin"){
+                //     obs.call("CallVendorRequest", {
+                //         vendorName: "AdvancedSceneSwitcher",
+                //         requestType: "AdvancedSceneSwitcherMessage",
+                //         requestData: {
+                //             message: `{ "requestName" : "pptWinPrevious" }`,
+                //         },
+                //     });
+                // }
+                hotkeyUpdate(prevSlide_HK)
+            })
             buttons[i+=1] = createButton(`Prompter Text Size`).position(0, (buttonPadding-10)+(buttons[i-1].y+buttons[i-1].height)).class('button l outline')
             buttons[i+=1] = createButton(`- (${prompterFontDecrease_HK})`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button left l').mousePressed(()=>hotkeyUpdate(prompterFontDecrease_HK))
             buttons[i+=1] = createButton(`+ (${prompterFontIncrease_HK})`).position(windowWidth/2, buttonPadding+25+(buttons[i-2].y+buttons[i-1].height)).class('button left l').mousePressed(()=>hotkeyUpdate(prompterFontIncrease_HK))
@@ -201,7 +229,7 @@
         }
         
         function getUserMedia_Github(){
-            buttons[i===0?0:i+=1] = createButton(`Open Get User Media (Github page)`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
+            buttons[i===0?0:i+=1] = createButton(`Open Get User Media Github page`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
                 console.log("open Chrome to GUM Github page")
             //send message to Advanced Scene Switcher
             let workingDirectory =getWorkingDirectory();
@@ -221,7 +249,7 @@
                     vendorName: "AdvancedSceneSwitcher",
                     requestType: "AdvancedSceneSwitcherMessage",
                     requestData: {
-                        message: `{ "requestName" : "run 1 Argument No Dir", "run" : "/Applications/Google Chrome.app", "arg1" : "https://uuoocl.github.io/GUM/?q=${wssDetails.PW}" }`,
+                        message: `{ "requestName" : "open_GUM_github" }`,
                     },
                 });
             }
