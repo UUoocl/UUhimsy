@@ -1,3 +1,5 @@
+//a Node app to convert ZoomOSC messages to WebSockets 
+
 console.log("hello node");
 
 var { Client, Server, Message } = require("node-osc");

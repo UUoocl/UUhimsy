@@ -1,3 +1,4 @@
+//a simple web server to run GUM locally
 
 var path = require('path');
 var http = require('http');
