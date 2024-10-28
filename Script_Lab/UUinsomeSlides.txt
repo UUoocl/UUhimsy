@@ -11,15 +11,11 @@ script:
   content: >
     // A script to control Open Broadcast Studio (OBS) with PowerPoint Slides
 
-    // Add a Textbox to each slide and enter an OBS scene name.
+    // Shapes are used to tag instructions to a slide. 
 
-    // Name the text box "obsScene"
+    // Use the User Interface to add tags. 
 
-    //
-
-    // The OBS scene will change when the slide changes.
-
-    //
+    //           
 
     // NOTE: this script only works in 'window slide show mode'
 

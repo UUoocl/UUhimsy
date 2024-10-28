@@ -1,6 +1,6 @@
 {
-    "current_scene": "Slide Controls",
-    "current_program_scene": "Slide Controls",
+    "current_scene": "Camera",
+    "current_program_scene": "Camera",
     "scene_order": [
         {
             "name": "scene|||Over the Shoulder"
@@ -21,7 +21,7 @@
             "name": "scene|||Full Screen Slide"
         },
         {
-            "name": "Scene Screen Share"
+            "name": "scene||| Screen Share"
         },
         {
             "name": "Scene Reveal-OTS"
@@ -1353,54 +1353,9 @@
                     "defaultValue": ""
                 },
                 {
-                    "name": "pwd",
-                    "saveAction": 1,
-                    "value": "{name: \"test\"}",
-                    "defaultValue": ""
-                },
-                {
-                    "name": "wsMessage",
-                    "saveAction": 0,
-                    "defaultValue": ""
-                },
-                {
                     "name": "obsWSpw",
-                    "saveAction": 0,
-                    "defaultValue": ""
-                },
-                {
-                    "name": "fileName",
-                    "saveAction": 0,
-                    "defaultValue": ""
-                },
-                {
-                    "name": "html",
-                    "saveAction": 0,
-                    "defaultValue": ""
-                },
-                {
-                    "name": "run",
-                    "saveAction": 0,
-                    "defaultValue": ""
-                },
-                {
-                    "name": "workingDir",
-                    "saveAction": 0,
-                    "defaultValue": ""
-                },
-                {
-                    "name": "arg1",
-                    "saveAction": 0,
-                    "defaultValue": ""
-                },
-                {
-                    "name": "arg2",
-                    "saveAction": 0,
-                    "defaultValue": ""
-                },
-                {
-                    "name": "var",
-                    "saveAction": 0,
+                    "saveAction": 1,
+                    "value": "opRN5R63jVGHVh7Y",
                     "defaultValue": ""
                 },
                 {
@@ -1585,16 +1540,16 @@
                 }
             ],
             "saveWindowGeo": false,
-            "windowPosX": 450,
-            "windowPosY": 211,
-            "windowWidth": 1000,
-            "windowHeight": 600,
+            "windowPosX": 2113,
+            "windowPosY": 352,
+            "windowWidth": 1330,
+            "windowHeight": 799,
             "macroListMacroEditSplitterPosition": [
                 {
-                    "pos": 144
+                    "pos": 179
                 },
                 {
-                    "pos": 829
+                    "pos": 1124
                 }
             ],
             "version": "0ee6feb529930e0bc6458bd8b58ec983ea9d3d9b",
@@ -1678,7 +1633,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAAkEAAAAxAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAAkEAAAAx",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAAgUAAAAxAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAAgUAAAAx",
                     "split": "AAAA/wAAAAEAAAABAAAAGAD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -1704,7 +1659,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAAG4AAAAxAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAAG4AAAAx",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAAGQAAAAxAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAAGQAAAAx",
                     "split": "AAAA/wAAAAEAAAABAAAAGAD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -1730,7 +1685,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAAMwAAAAxAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAAMwAAAAx",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAALkAAAAxAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAALkAAAAx",
                     "split": "AAAA/wAAAAEAAAABAAAAGAD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -1756,7 +1711,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAAXYAAAPCAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAAXYAAAPC",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAAacAAAPCAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAAacAAAPC",
                     "split": "AAAA/wAAAAEAAAABAAAAGAD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 2,
@@ -1782,7 +1737,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAApQAAAD7AAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAApQAAAD7",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAAh0AAAD7AAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAAh0AAAD7",
                     "split": "AAAA/wAAAAEAAAABAAAAGAD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 4,
@@ -1886,7 +1841,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAAV0AAAAxAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAAV0AAAAx",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAATgAAAAxAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAATgAAAAx",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -1912,7 +1867,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAAacAAAUOAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAAacAAAUO",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAAacAAAPCAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAAacAAAPC",
                     "split": "AAAA/wAAAAEAAAABAAAATAD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 2,
@@ -1938,7 +1893,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAAk4AAAD7AAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAAk4AAAD7",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGgAAAkcAAAD7AAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGgAAAkcAAAD7",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 4,
@@ -2279,7 +2234,7 @@
                     {
                         "name": "Close Up",
                         "source_uuid": "b877eb46-e758-454c-80ef-c3141a1d1b5a",
-                        "visible": false,
+                        "visible": true,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
@@ -2416,7 +2371,7 @@
                     {
                         "name": "Wide",
                         "source_uuid": "6851ffdd-74e7-46b7-ad70-79a395c4c5a2",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
@@ -2931,7 +2886,7 @@
             "id": "text_gdiplus",
             "versioned_id": "text_gdiplus_v3",
             "settings": {
-                "text": "299 208"
+                "text": "308 200"
             },
             "mixers": 0,
             "sync": 0,
@@ -7092,7 +7047,7 @@
         },
         {
             "prev_ver": 503447555,
-            "name": "Scene Screen Share",
+            "name": "scene||| Screen Share",
             "uuid": "140d8571-c96c-4d30-bfbc-1ec449fad3ca",
             "id": "scene",
             "versioned_id": "scene",
@@ -7259,7 +7214,7 @@
                     {
                         "name": "Source Clone 2D fish",
                         "source_uuid": "43a7198a-c4c7-444e-bb1f-82604cd67e98",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
@@ -8780,14 +8735,14 @@
                 "extents": true,
                 "vertical": false,
                 "chatlog": false,
+                "text": "Enter Notes",
                 "font": {
-                    "size": 40
+                    "size": 47
                 },
                 "extents_wrap": true,
                 "extents_cx": 300,
                 "extents_cy": 8000,
-                "antialiasing": true,
-                "text": ", Make eye contact with your audience to create a sense of intimacy and involvement\nWeave relatable stories into your presentation using narratives that make your message memorable and impactful\nEncourage questions and provide thoughtful responses to enhance audience participation\nUse live polls or surveys to gather audience opinions, promoting engagement and making sure the audience feel involved\npromoting engagement and making sure the audience feel involved"
+                "antialiasing": true
             },
             "mixers": 0,
             "sync": 0,
@@ -8813,7 +8768,7 @@
                     "id": "scroll_filter",
                     "versioned_id": "scroll_filter",
                     "settings": {
-                        "speed_y": 22,
+                        "speed_y": 31,
                         "limit_cx": true,
                         "speed_x": 0.0,
                         "limit_cy": false,
@@ -9897,7 +9852,7 @@
                     {
                         "name": "Open Get User Media Page",
                         "source_uuid": "d7324be4-aba5-4811-96aa-d2c4641e1e75",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
