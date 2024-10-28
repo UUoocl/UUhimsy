@@ -267,37 +267,52 @@
             }
             
             buttons[i+=1] = createButton(`Next Slide (${nextSlide_HK})`).position(0, (15+buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button l').id('nextSlideButton').mousePressed(async()=>{
-                const sceneItemId = await obs.call("GetSceneItemId",{
-                    sceneName:"Slide Controls",
-                    sourceName: "NextSlide",
-                })
-                
-                await obs.call("SetSceneItemEnabled", {
-                    sceneName: "Slide Controls",
-                    sceneItemId: Number(sceneItemId.sceneItemId),
-                    sceneItemEnabled: true
-                });
+                enableSource("Slide Controls", "NextSlide")
             })
             buttons[i+=1] = createButton(`Previous Slide (${previousSlide_HK})`).position(0, (buttonPadding-10)+(buttons[i-1].y+buttons[i-1].height)).class('button l').id('prevSlideButton').mousePressed(async()=>{
-                const sceneItemId = await obs.call("GetSceneItemId",{
-                    sceneName:"Slide Controls",
-                    sourceName: "PreviousSlide",
+                enableSource("Slide Controls", "PreviousSlide")
+            })
+            buttons[i+=1] = createButton(`Prompter Text Size`).position(0, (buttonPadding-10)+(buttons[i-1].y+buttons[i-1].height)).class('button l outline')
+            buttons[i+=1] = createButton(`- (${prompterFontDecrease_HK})`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
+            {
+                hotkeyUpdate(prompterFontDecrease_HK)
+                enableSource("Slide Controls", "Text Smaller")
+            })
+            buttons[i+=1] = createButton(`+ (${prompterFontIncrease_HK})`).position(windowWidth/2, buttonPadding+25+(buttons[i-2].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
+            {
+                hotkeyUpdate(prompterFontIncrease_HK)
+                enableSource("Slide Controls", "Text Bigger")
+            })
+            buttons[i+=1] = createButton(`Prompter ScrollSpeed`).position(0,buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button outline')
+            buttons[i+=1] = createButton(`- (${prompterScrollDecrease_HK})`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
+            {
+                hotkeyUpdate(prompterScrollDecrease_HK);
+                enableSource("Slide Controls", "Scroll Slower");
+            })
+            buttons[i+=1] = createButton(`+ (${prompterScrollIncrease_HK})`).position(windowWidth/2, buttonPadding+25+(buttons[i-2].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
+            {
+                hotkeyUpdate(prompterScrollIncrease_HK)
+                enableSource("Slide Controls", "Scroll Faster")
+            })
+            buttons[i+=1] = createButton(`Play / Pause ⏯️ (${prompterPlayPause_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>{
+                hotkeyUpdate(prompterPlayPause_HK)
+                enableSource("Slide Controls", "Play-Pause")
+            })
+        }
+
+        async function enableSource(sceneName, sourceName) {
+            //Get the 'Next Slide' button Scene Item Id number
+            const sceneItemId = await obs.call("GetSceneItemId",{
+                    sceneName: sceneName,
+                    sourceName: sourceName,
                 })
-                
+            //Set the 'Next Slide' Source to Enabled    
                 await obs.call("SetSceneItemEnabled", {
-                    sceneName: "Slide Controls",
+                    sceneName: sceneName,
                     sceneItemId: Number(sceneItemId.sceneItemId),
                     sceneItemEnabled: true
                 });
-            })
-            buttons[i+=1] = createButton(`Prompter Text Size`).position(0, (buttonPadding-10)+(buttons[i-1].y+buttons[i-1].height)).class('button l outline')
-            buttons[i+=1] = createButton(`- (${prompterFontDecrease_HK})`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button left l').mousePressed(()=>hotkeyUpdate(prompterFontDecrease_HK))
-            buttons[i+=1] = createButton(`+ (${prompterFontIncrease_HK})`).position(windowWidth/2, buttonPadding+25+(buttons[i-2].y+buttons[i-1].height)).class('button left l').mousePressed(()=>hotkeyUpdate(prompterFontIncrease_HK))
-            buttons[i+=1] = createButton(`Prompter ScrollSpeed`).position(0,buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button outline')
-            buttons[i+=1] = createButton(`- (${prompterScrollDecrease_HK})`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button left l').mousePressed(()=>hotkeyUpdate(prompterScrollDecrease_HK))
-            buttons[i+=1] = createButton(`+ (${prompterScrollIncrease_HK})`).position(windowWidth/2, buttonPadding+25+(buttons[i-2].y+buttons[i-1].height)).class('button left l').mousePressed(()=>hotkeyUpdate(prompterScrollIncrease_HK))
-            buttons[i+=1] = createButton(`Play / Pause ⏯️ (${prompterPlayPause_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>hotkeyUpdate(prompterPlayPause_HK))
-        }
+            }
         
         function getUserMedia_Node(){
             buttons[i===0?0:i+=1] = createButton(`Open Get User Media (Node js)`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
