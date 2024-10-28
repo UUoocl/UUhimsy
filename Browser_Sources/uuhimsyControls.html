@@ -117,8 +117,8 @@
 </head>
 
 <body>
-
-    <script src="lib/p5.js"></script>
+    <div id="buttons"></div>
+    <script src="lib/p5.js" id="P5_library"></script>
     
     
     <!-- <button id="fullScreen" class="button grey xxl" type="button" onclick="fullScreen()">Full Screen</button><br>
@@ -127,28 +127,126 @@
     
     <button id="refreshBrowsers" class="button grey xxl" type="button" onclick="refreshOBSbrowsers()">Refresh All Browser Sources</button><br>
      -->
-    <script src="obs_webSocket_details/websocketDetails.js"></script>
-    <script src="obs_webSocket_details/obs-ws.js"></script>
-    <script src="obs_webSocket_details/obsConnect.js"></script>
+    <script src="obs_webSocket_details/websocketDetails.js" id="obsWebsocketDetails"></script>
+    <script src="obs_webSocket_details/obs-ws.js" id="obsWebsocketLibrary"></script>
+    <script src="obs_webSocket_details/obsConnect.js" id="obsWebsocketConnect"></script>
     <!-- <script src="obs_webSocket_details/startConnection.js"></script> -->
-     <script>
+     <script id="uuhimsyControl_init">
         const obs = new OBSWebSocket();
             wsConnect();
 
             async function wsConnect() {
-                await connectOBS(obs);
-                loadButtons();
+                await connectOBS(obs)
+                .then(async() => { await getScenes()})
+                .then(async() => {loadButtons();});
+                
+                //Initialize uuhimsy controls after connecting to websocket server
+                //getSceneList();
+                //getTeleprompterSize();
+                //getTeleprompterSpeed();
+                //getSlideControlSceneItems();
             }
+        
+        var slideControlSources = new Object();
+        var collection = new Object
+        
+        async function getScenes() {
+                //create collection object
+                collection.scenes = []
+
+                //get scenes from OBS
+                const sceneList = await obs.call("GetSceneList");
+
+                //update scene object
+                for (let i = 0; i < sceneList.scenes.length; i++) {
+                    //for the sources in each scene
+                    let sources = await obs.call("GetSceneItemList", { sceneName: sceneList.scenes[i].sceneName })
+                    let sourceArray = []
+                    //get just the source name
+                    sources.sceneItems.forEach(source => {
+                        sourceArray.push(source)
+                    })
+
+                    //put the scene name and source names in an object
+                    const sceneAndSources = new Object()
+                    sceneAndSources.sceneName = sceneList.scenes[i].sceneName
+                    sceneAndSources.sources = sourceArray
+
+                    //add the scene name and sources to the collection object
+                    collection.scenes.push(sceneAndSources)
+                }
+                console.log(collection)
+            }
+
+
+
+        async function getSlideControlSceneItems() {
+            slideControlSources = await obs.call("GetSceneItemList", { sceneName: "Slide Controls" });
+        }       
+
+        function getSceneItemName(itemID) {
+            for (let i = 0; i < slideControlSources.sceneItems.length; i++) {
+                if (slideControlSources.sceneItems[i].sceneItemId == itemID) {
+                return slideControlSources.sceneItems[i];
+                }
+            }
+        }
+
+        async function getTeleprompterSize() {
+                teleprompterSize = await obs.call("GetInputSettings", {
+                    inputName: "Slide Notes Text"
+                });
+                teleprompterSize = teleprompterSize.inputSettings.font.size;
+                document.getElementById("sizeValue").value = teleprompterSize;
+            }
+
+            async function getTeleprompterSpeed() {
+                teleprompterSpeed = await obs.call("GetSourceFilter", {
+                    sourceName: "Slide Notes Text",
+                    filterName: "Scroll"
+                });
+                teleprompterSpeed = teleprompterSpeed.filterSettings.speed_y;
+                document.getElementById("speedValue").value = teleprompterSpeed;
+            }
+
+        async function getSceneList() {
+                let sceneTable = "";
+                sceneTable +=
+                    "<table border=1 cellpadding=3 cellspacing=0><tr><td bgcolor=#3333EE><font color=white>Enter</font></td><td bgcolor=#3333EE><font color=white>Exit</font></td></tr>";
+                const sceneList = await obs.call("GetSceneList");
+                sceneList.scenes.forEach((scene, index) => {
+                    // find scenes starting with "Scene"
+                    if (scene.sceneName.startsWith("scene|||")) {
+                        //document.getElementById("sceneList").innerHTML =
+                        //document.getElementById("sceneList").innerHTML + `<li class="ms-Button">${scene.sceneName}</li>`;
+                        const sceneName = scene.sceneName.split("|||");
+                        sceneTable +=
+                            "<tr><td>" +
+                            `<li class="ms-Button" data-left = -355 data-top = 35 data-type= "scene" data-event = "\\\\\\" data-height = 25 data-width = 340 data-color = "9CD3D9" data-transparency = 0 id="scene\\\\\\ ${sceneName[1]}" onclick=addTagToSlide(this)>${sceneName[1]}</li>` +
+                            "</td><td>" +
+                            `<li class="ms-Button" data-left = -355 data-top = 305 data-type= "scene" data-event = "///" data-height = 25 data-width = 340 data-color = "FFA99B" data-transparency = 0.01 id="scene/// ${sceneName[1]}" onclick=addTagToSlide(this)>${sceneName[1]}</li>` +
+                            "</td></tr>";
+                    }
+                    if (scene.sceneName === "Camera") {
+                        getCameraList();
+                    }
+                });
+                //addListItemClickListener();
+                sceneTable += "</table>";
+                document.getElementById("sceneList").innerHTML = sceneTable;
+            }
+
      </script>
-    <script src="js/hotkeyConfig.js"></script>
+
+    <script src="js/hotkeyConfig.js" id="uuhimsy_hotkey_config"></script>
     
-    <script>
+    <script id="createButtons">
         let buttons=[];
         let buttonPadding = 35
         
         function createScreenShareButtons(){    
             //Create Screen Share Buttons
-            buttons[i===0?0:i+=1] = createButton(`Screen Share Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{obsGoToScene('Scene Screen Share')})
+            buttons[i===0?0:i+=1] = createButton(`Screen Share Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue uuhimsy').mousePressed(()=>{obsGoToScene('Scene Screen Share')})
             buttons[i+=1] = createButton(`Full Screen (${fullScreen_HK})`).position(0, (buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button l').mousePressed(()=>fullScreen())
             buttons[i+=1] = createButton(`Follow Mouse (${followMouse_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>followMouse(mouseCoordinates))
             buttons[i+=1] = createButton(`Follow Mouse and Zoom (${followMouseAndZoom_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>zoomAndFollowMouse(mouseCoordinates))
@@ -161,47 +259,36 @@
 
         function createSlideButtons(app){    
             //Create Slide Buttons
-            buttons[i===0 ? 0 : i+=1] = createButton(`Slide Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{obsGoToScene('Scene ExternalSlide-OTS')})
-            buttons[i+=1] = createRadio().position(0, (0 ,buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button l').id('appName').mousePressed(()=>{labelUpdate(buttons[i].value())})
-            buttons[i].option('reveal',' Reveal ')
             if(navigator.platform.includes('Mac')){
-              buttons[i].option('keynote', ' Keynote ')
-              buttons[i].option('ppt',' PowerPoint Shortcuts')
-              buttons[i].option('pptScriptLab',' PowerPoint ScriptLab')
+                buttons[i===0 ? 0 : i+=1] = createButton(`PowerPoint or Keynote Slide Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{obsGoToScene('Scene ExternalSlide-OTS')})
             }
             if(navigator.platform.includes('Win')){
-              buttons[i].option('pptWin',' PowerPoint PAD')
-              buttons[i].option('pptScriptLab',' PowerPoint ScriptLab')
+                buttons[i===0 ? 0 : i+=1] = createButton(`PowerPoint Slide Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{obsGoToScene('Scene ExternalSlide-OTS')})
             }
-            buttons[i].selected('reveal')
-            labelUpdate('reveal')
             
-            buttons[i+=1] = createButton(`Next Slide (${nextSlide_HK})`).position(0, (15+buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button l').id('nextSlideButton').mousePressed(()=>{
-                //If PowerPoint for Windows, then trigger Advance Scene Switcher
-                // //Windows Power Automate Desktop PowerPoint trigger
-                // if(navigator.platform.includes('Win') && slideAppName === "pptWin"){
-                //     obs.call("CallVendorRequest", {
-                //         vendorName: "AdvancedSceneSwitcher",
-                //         requestType: "AdvancedSceneSwitcherMessage",
-                //         requestData: {
-                //             message: `{ "requestName" : "pptWinNext" }`,
-                //         },
-                //     });    
-                // }
-                hotkeyUpdate(nextSlide_HK)
+            buttons[i+=1] = createButton(`Next Slide (${nextSlide_HK})`).position(0, (15+buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button l').id('nextSlideButton').mousePressed(async()=>{
+                const sceneItemId = await obs.call("GetSceneItemId",{
+                    sceneName:"Slide Controls",
+                    sourceName: "NextSlide",
+                })
+                
+                await obs.call("SetSceneItemEnabled", {
+                    sceneName: "Slide Controls",
+                    sceneItemId: Number(sceneItemId.sceneItemId),
+                    sceneItemEnabled: true
+                });
             })
-            buttons[i+=1] = createButton(`Previous Slide (${prevSlide_HK})`).position(0, (buttonPadding-10)+(buttons[i-1].y+buttons[i-1].height)).class('button l').id('prevSlideButton').mousePressed(()=>{
-                // //Windows Power Automate Desktop PowerPoint trigger
-                // if(navigator.platform.includes('Win') && slideAppName === "pptWin"){
-                //     obs.call("CallVendorRequest", {
-                //         vendorName: "AdvancedSceneSwitcher",
-                //         requestType: "AdvancedSceneSwitcherMessage",
-                //         requestData: {
-                //             message: `{ "requestName" : "pptWinPrevious" }`,
-                //         },
-                //     });
-                // }
-                hotkeyUpdate(prevSlide_HK)
+            buttons[i+=1] = createButton(`Previous Slide (${previousSlide_HK})`).position(0, (buttonPadding-10)+(buttons[i-1].y+buttons[i-1].height)).class('button l').id('prevSlideButton').mousePressed(async()=>{
+                const sceneItemId = await obs.call("GetSceneItemId",{
+                    sceneName:"Slide Controls",
+                    sourceName: "PreviousSlide",
+                })
+                
+                await obs.call("SetSceneItemEnabled", {
+                    sceneName: "Slide Controls",
+                    sceneItemId: Number(sceneItemId.sceneItemId),
+                    sceneItemEnabled: true
+                });
             })
             buttons[i+=1] = createButton(`Prompter Text Size`).position(0, (buttonPadding-10)+(buttons[i-1].y+buttons[i-1].height)).class('button l outline')
             buttons[i+=1] = createButton(`- (${prompterFontDecrease_HK})`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button left l').mousePressed(()=>hotkeyUpdate(prompterFontDecrease_HK))
@@ -375,16 +462,40 @@
             // }
         //})
 
+        function getCollectionScenebyName(arr,query){
+            return arr.filter((scene) => scene.sceneName.includes(query))
+        }
+
         async function loadButtons() {
-          let menuButtons = await obs.call("GetInputSettings", {
-                inputName: "collectionMenu",
-            });
-            menuButtons = split(menuButtons.inputSettings.text,"\n")
+        //Buttons are bound to the MenuButtons Scene's sources
+        console.log(collection)
+        let objMenuButtons 
+        objMenuButtons = getCollectionScenebyName(collection.scenes, "UUhimsy Menu Buttons")
+
+        
+        console.log(objMenuButtons)
+        console.log(objMenuButtons[0].sources)
+        // let menuButtons = await obs.call("GetInputSettings", {
+        //     inputName: "collectionMenu",
+        // });
+        //menuButtons = split(menuButtons.inputSettings.text,"\n")
+
+        let menuButtons = objMenuButtons[0].sources
             console.log(menuButtons)
-            menuButtons.forEach(element => {
-                console.log(element)
-                window[element]();
-            });
+            console.log(menuButtons.length)
+            for(button = menuButtons.length-1; button > -1; button--){
+                console.log("get button",button)
+                if(menuButtons[button].sceneItemEnabled === true){
+                    await obs.call("GetInputSettings",{inputName: menuButtons[button].sourceName,})
+                    .then( (result) => {console.log("result",result); window[`${result.inputSettings.text}`]()})
+                }
+            }
+            // menuButtons.forEach(async element => {
+            //     console.log(element)
+            //     console.log(element.sourceName)
+            //     await obs.call("GetInputSettings",{inputName: element.sourceName,})
+            //     .then( (result) => {console.log("result",result); window[`${result.inputSettings.text}`]()})
+            // });
             //createSlideButtons();
             //createScreenShareButtons();
             //createRefreshButton();
@@ -399,6 +510,23 @@
         async function setup() {
             i = 0;
         }
+
+        function removeElementsByClass(className) {
+            const elements = document.getElementsByClassName(className);
+            while (elements.length > 0) {
+                elements[0].parentNode.removeChild(elements[0]);
+            }
+        }
+
+        obs.on("SceneItemEnableStateChanged", async function(event) {
+            if (event.sceneName === "UUhimsy Menu Buttons") {
+                i=0
+                removeElementsByClass("button")
+                await getScenes()
+                loadButtons();
+            }
+        })
+
     </script>
 
     <script id="InputRouter">

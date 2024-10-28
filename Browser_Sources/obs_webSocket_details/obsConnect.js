@@ -12,13 +12,13 @@ async function connectOBS(obs) {
       rpcVersion: 1
     });
     console.log(`Connected to server ${obsWebSocketVersion} (using RPC ${negotiatedRpcVersion})`)
-    //document.title = "connection set";
+    console.log(`ws://${websocketIP}:${websocketPort}`)
+    return obs;
+    
   } catch (error) {
     console.error('Failed to connect', error.code, error.message);
   }
   obs.on('error', err => {
     console.error('Socket error:', err)
   })
-  console.log(`ws://${websocketIP}:${websocketPort}`)
-  return obs;
 }
