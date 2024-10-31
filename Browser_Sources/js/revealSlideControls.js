@@ -46,8 +46,8 @@ obs.on("SceneItemEnableStateChanged", async function(event) {
 
 var currentSlideAttributes, currentfragment, currentEvent;
 
+//Set Reveal Slide Data Attribute test
 function setCurrentSlideAttribute(event, key, value){
-
     currentEvent.currentSlide.dataset[key] = value
 }
 
