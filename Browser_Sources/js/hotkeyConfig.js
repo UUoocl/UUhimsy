@@ -2,7 +2,9 @@
         var fullScreen_HK = 'F14', 
         followMouse_HK = 'F15',
         followMouseAndZoom_HK = 'F16',
-        refreshOBSbrowsers_HK = 'F17'
+        refreshOBSbrowsers_HK = 'F17',
+        toggleMouse_HK = 'Shift+F13',
+        toggleHotkey_HK = 'Shift+F14'
         
         //Screen Slide hotkeys
         var slideAppName, nextSlide_HK, prevSlide_HK, 

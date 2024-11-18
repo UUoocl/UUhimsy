@@ -130,6 +130,7 @@
     <script src="obs_webSocket_details/websocketDetails.js" id="obsWebsocketDetails"></script>
     <script src="obs_webSocket_details/obs-ws.js" id="obsWebsocketLibrary"></script>
     <script src="obs_webSocket_details/obsConnect.js" id="obsWebsocketConnect"></script>
+    <script src="js/hotkeyConfig.js" id="uuhimsy_hotkey_config"></script>
     <!-- <script src="obs_webSocket_details/startConnection.js"></script> -->
      <script id="uuhimsyControl_init">
         const obs = new OBSWebSocket();
@@ -175,7 +176,7 @@
                     //add the scene name and sources to the collection object
                     collection.scenes.push(sceneAndSources)
                 }
-                console.log(collection)
+                console.log("get Scenes done",collection)
             }
 
 
@@ -184,61 +185,24 @@
             slideControlSources = await obs.call("GetSceneItemList", { sceneName: "Slide Controls" });
         }       
 
-        function getSceneItemName(itemID) {
-            for (let i = 0; i < slideControlSources.sceneItems.length; i++) {
-                if (slideControlSources.sceneItems[i].sceneItemId == itemID) {
-                return slideControlSources.sceneItems[i];
-                }
-            }
+        async function getTeleprompterSize() {
+            teleprompterSize = await obs.call("GetInputSettings", {
+                inputName: "Slide Notes Text"
+            });
+            teleprompterSize = teleprompterSize.inputSettings.font.size;
+            document.getElementById("sizeValue").value = teleprompterSize;
         }
 
-        async function getTeleprompterSize() {
-                teleprompterSize = await obs.call("GetInputSettings", {
-                    inputName: "Slide Notes Text"
-                });
-                teleprompterSize = teleprompterSize.inputSettings.font.size;
-                document.getElementById("sizeValue").value = teleprompterSize;
-            }
-
-            async function getTeleprompterSpeed() {
-                teleprompterSpeed = await obs.call("GetSourceFilter", {
-                    sourceName: "Slide Notes Text",
-                    filterName: "Scroll"
-                });
-                teleprompterSpeed = teleprompterSpeed.filterSettings.speed_y;
-                document.getElementById("speedValue").value = teleprompterSpeed;
-            }
-
-        async function getSceneList() {
-                let sceneTable = "";
-                sceneTable +=
-                    "<table border=1 cellpadding=3 cellspacing=0><tr><td bgcolor=#3333EE><font color=white>Enter</font></td><td bgcolor=#3333EE><font color=white>Exit</font></td></tr>";
-                const sceneList = await obs.call("GetSceneList");
-                sceneList.scenes.forEach((scene, index) => {
-                    // find scenes starting with "Scene"
-                    if (scene.sceneName.startsWith("scene|||")) {
-                        //document.getElementById("sceneList").innerHTML =
-                        //document.getElementById("sceneList").innerHTML + `<li class="ms-Button">${scene.sceneName}</li>`;
-                        const sceneName = scene.sceneName.split("|||");
-                        sceneTable +=
-                            "<tr><td>" +
-                            `<li class="ms-Button" data-left = -355 data-top = 35 data-type= "scene" data-event = "\\\\\\" data-height = 25 data-width = 340 data-color = "9CD3D9" data-transparency = 0 id="scene\\\\\\ ${sceneName[1]}" onclick=addTagToSlide(this)>${sceneName[1]}</li>` +
-                            "</td><td>" +
-                            `<li class="ms-Button" data-left = -355 data-top = 305 data-type= "scene" data-event = "///" data-height = 25 data-width = 340 data-color = "FFA99B" data-transparency = 0.01 id="scene/// ${sceneName[1]}" onclick=addTagToSlide(this)>${sceneName[1]}</li>` +
-                            "</td></tr>";
-                    }
-                    if (scene.sceneName === "Camera") {
-                        getCameraList();
-                    }
-                });
-                //addListItemClickListener();
-                sceneTable += "</table>";
-                document.getElementById("sceneList").innerHTML = sceneTable;
-            }
-
+        async function getTeleprompterSpeed() {
+            teleprompterSpeed = await obs.call("GetSourceFilter", {
+                sourceName: "Slide Notes Text",
+                filterName: "Scroll"
+            });
+            teleprompterSpeed = teleprompterSpeed.filterSettings.speed_y;
+            document.getElementById("speedValue").value = teleprompterSpeed;
+        }
      </script>
 
-    <script src="js/hotkeyConfig.js" id="uuhimsy_hotkey_config"></script>
     
     <script id="createButtons">
         let buttons=[];
@@ -246,15 +210,17 @@
         
         function createScreenShareButtons(){    
             //Create Screen Share Buttons
-            buttons[i===0?0:i+=1] = createButton(`Screen Share Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue uuhimsy').mousePressed(()=>{obsGoToScene('Scene Screen Share')})
+            buttons[i===0?0:i+=1] = createButton(`Screen Share Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue uuhimsy').mousePressed(()=>{obsGoToScene('scene||| Screen Share')})
             buttons[i+=1] = createButton(`Full Screen (${fullScreen_HK})`).position(0, (buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button l').mousePressed(()=>fullScreen())
             buttons[i+=1] = createButton(`Follow Mouse (${followMouse_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>followMouse(mouseCoordinates))
             buttons[i+=1] = createButton(`Follow Mouse and Zoom (${followMouseAndZoom_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>zoomAndFollowMouse(mouseCoordinates))
+            buttons[i+=1] = createButton(`Mouse Overlay Toggle (${toggleMouse_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>toggleSource('Comp SceneMouse','BrowserMouseOverlay'))
+            buttons[i+=1] = createButton(`Hotkey Overlay Toggle (${toggleHotkey_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>toggleSource('scene||| Screen Share','Input Hotkeys'))
         }
         
         function createRefreshButton(){    
-         createButton(`clear hotkey text`).position(0, windowHeight-120).class('button negative l').mousePressed(()=>hotkeyUpdate(" "))
-         createButton(`Refresh Browsers 🔄 (${refreshOBSbrowsers_HK})`).position(0, windowHeight-60).class('button negative l').mousePressed(()=>refreshOBSbrowsers())
+            buttons[i===0?0:i+=1] = createButton(`clear hotkey text`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button negative l').mousePressed(()=>{hotkeyUpdate(" ")})
+            buttons[i+=1] = createButton(`Refresh Browsers 🔄 (${refreshOBSbrowsers_HK})`).position(0, (buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button negative l').mousePressed(()=>()=>refreshOBSbrowsers())
         }
 
         function createSlideButtons(app){    
@@ -299,20 +265,87 @@
                 enableSource("Slide Controls", "Play-Pause")
             })
         }
+        async function createTagSlideButtons(){    
+            //Create Tag Slide Buttons
+            buttons[i===0 ? 0 : i+=1] = createButton(`Reveal Slide Tags`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue uuhimsy').mousePressed(()=>{console.log("New Buttons")})
+            
+            //buttons[i===0?0:i+=1] = createButton(`Screen Share Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue uuhimsy').mousePressed(()=>{obsGoToScene('scene||| Screen Share')})
+            const sceneList = await obs.call("GetSceneList");
+            buttons[i+=1] = createButton(`Scene Tags`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button outline')
+            buttons[i+=1] = createButton(`Entrance`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button outline left')
+            buttons[i+=1] = createButton(`Exit`).position(windowWidth/2, buttonPadding+25+(buttons[i-2].y+buttons[i-1].height)).class('button outline left')
+            sceneList.scenes.forEach(async(scene, index) => {
+                // find scenes starting with "Scene"
+                if (scene.sceneName.startsWith("scene|||")) {
+                    //document.getElementById("sceneList").innerHTML =
+                    //document.getElementById("sceneList").innerHTML + `<li class="ms-Button">${scene.sceneName}</li>`;
+                    const sceneName = scene.sceneName.split("|||");
+                    buttons[i+=1] = createButton(sceneName[1]).position(0, buttonPadding+5+(buttons[i-1].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
+                    {
+                        console.log("cool stuff")
+                    })
+                    buttons[i+=1] = createButton(sceneName[1]).position(windowWidth/2, buttonPadding+5+(buttons[i-2].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
+                    {
+                        console.log("cool stuff")
+                    })
+                }
+            });
+            await getCameraList();
+    }
+    
+    async function getCameraList() {
+            buttons[i+=1] = createButton(`Camera Tags`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button outline')
+            buttons[i+=1] = createButton(`Entrance`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button outline left')
+            buttons[i+=1] = createButton(`Exit`).position(windowWidth/2, buttonPadding+25+(buttons[i-2].y+buttons[i-1].height)).class('button outline left')
+            let cameraSources = await obs.call("GetSceneItemList", { sceneName: "Camera" });
+            cameraSources.sceneItems.forEach((source, index) => {
+                console.log(source)
+                buttons[i+=1] = createButton(source.sourceName).position(0, buttonPadding+5+(buttons[i-1].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
+                {
+                    console.log("cool stuff")
+                })
+                buttons[i+=1] = createButton(source.sourceName).position(windowWidth/2, buttonPadding+5+(buttons[i-2].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
+                {
+                    console.log("cool stuff")
+                })
+            });
+        }
 
         async function enableSource(sceneName, sourceName) {
-            //Get the 'Next Slide' button Scene Item Id number
+        //Get the Scene Item Id number
             const sceneItemId = await obs.call("GetSceneItemId",{
-                    sceneName: sceneName,
-                    sourceName: sourceName,
-                })
+                sceneName: sceneName,
+                sourceName: sourceName,
+            })
+        //Set the 'Next Slide' Source to Enabled    
+            await obs.call("SetSceneItemEnabled", {
+                sceneName: sceneName,
+                sceneItemId: Number(sceneItemId.sceneItemId),
+                sceneItemEnabled: true
+            });
+        }
+
+        async function toggleSource(sceneName, sourceName) {   
+            //Get the Scene Item Id number
+            const sceneItemId = await obs.call("GetSceneItemId",{
+                sceneName: sceneName,
+                sourceName: sourceName,
+            })
+            console.log(sceneItemId)
+            //Get the Scene Item Enabled status true or false
+            const sceneItemEnabled = await obs.call("GetSceneItemEnabled",{
+                sceneName: sceneName,
+                sceneItemId: sceneItemId.sceneItemId,
+            })
+            console.log(sceneItemEnabled)
             //Set the 'Next Slide' Source to Enabled    
-                await obs.call("SetSceneItemEnabled", {
-                    sceneName: sceneName,
-                    sceneItemId: Number(sceneItemId.sceneItemId),
-                    sceneItemEnabled: true
-                });
-            }
+            await obs.call("SetSceneItemEnabled", {
+                sceneName: sceneName,
+                sceneItemId: Number(sceneItemId.sceneItemId),
+                sceneItemEnabled: !(sceneItemEnabled.sceneItemEnabled)
+            });
+        }
+        
         
         function getUserMedia_Node(){
             buttons[i===0?0:i+=1] = createButton(`Open Get User Media (Node js)`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
@@ -327,7 +360,6 @@
                     },
                 });    
             })
-            
         }
         
         function getUserMedia_Github(){
@@ -483,7 +515,7 @@
 
         async function loadButtons() {
         //Buttons are bound to the MenuButtons Scene's sources
-        console.log(collection)
+        console.log("load buttons started",collection)
         let objMenuButtons 
         objMenuButtons = getCollectionScenebyName(collection.scenes, "UUhimsy Menu Buttons")
 
@@ -502,7 +534,7 @@
                 console.log("get button",button)
                 if(menuButtons[button].sceneItemEnabled === true){
                     await obs.call("GetInputSettings",{inputName: menuButtons[button].sourceName,})
-                    .then( (result) => {console.log("result",result); window[`${result.inputSettings.text}`]()})
+                    .then( async (result) => {console.log("result",result); await window[`${result.inputSettings.text}`]()})
                 }
             }
             // menuButtons.forEach(async element => {
@@ -545,7 +577,6 @@
     </script>
 
     <script id="InputRouter">
-        //listen for mouse move and keypress events
         //on obs text source settings change
         obs.on("InputSettingsChanged", async function (event) {
             //console.log(event);
@@ -587,6 +618,14 @@
                         setCommandText(`shortcuts run "PTZ Get position Loop Start GUM" -i "${workingDirectory}" &`);
                         break;
                     }
+                    if(event.inputSettings.text === (toggleMouse_HK)){ 
+                        toggleSource('Comp SceneMouse','BrowserMouseOverlay')
+                        break;
+                    }
+                    if(event.inputSettings.text === (toggleHotkey_HK)){ 
+                        toggleSource('scene||| Screen Share','Input Hotkeys')
+                        break;
+                    }
                     break;
            
                 default:
@@ -610,49 +649,47 @@
     </script>
 
     <script id="ScreenShareFunctions">
-                    //full screen
-                
-                function fullScreen() {
-                    viewMode = 'fullScreen';
-                    obs.call('SetSourceFilterSettings', {
-                        'sourceName': `Source Clone FG`,
-                        'filterName': "Move Value",
-                        'filterSettings': {
-                            // "move_value_type": 1,
-                            // "rectangle_corner_radius": 0.0,
-                    // "shape_center_x": 960.0,
-                    // "shape_center_y": 540.0,
-                    // "shape_rotation": 0.0,
-                    // "rectangle_width": 1920.0,
-                    // "rectangle_height": 1080.0,
-                    // "source_zoom": 100.0          
-
-                    "circle_radius": 1100,
-                    "duration": 300,
-                    "filter": "Advanced Mask",
-                    "mask_gradient_position": 960,
-                    "mask_source_filter_multiplier": 1,
-                    "move_value_type": 1,
-                    "position_scale": 100,
-                    "position_x": 960,
-                    "position_y": 540,
-                    "rectangle_corner_radius": 0,
-                    "rectangle_corner_type": 1,
-                    "rectangle_height": 1080,
-                    "rectangle_width": 1920,
-                    "scale_type": 1,
-                    "setting_float": 938,
-                    "setting_float_max": 930,
-                    "setting_float_min": 930,
-                    "setting_name": "shape_center_x",
-                    "shape_center_x": 960,
-                    "shape_center_y": 540,
-                    "shape_feather_type": 1,
-                    "shape_relative": true,
-                    "shape_rotation": 0,
-                    "source_zoom": 100,
-                    "value_type": 0
-
+        //full screen
+        
+        function fullScreen() {
+            viewMode = 'fullScreen';
+            obs.call('SetSourceFilterSettings', {
+                'sourceName': `Source Clone FG`,
+                'filterName': "Move Value",
+                'filterSettings': {
+                // "move_value_type": 1,
+                // "rectangle_corner_radius": 0.0,
+                // "shape_center_x": 960.0,
+                // "shape_center_y": 540.0,
+                // "shape_rotation": 0.0,
+                // "rectangle_width": 1920.0,
+                // "rectangle_height": 1080.0,
+                // "source_zoom": 100.0          
+                "circle_radius": 1100,
+                "duration": 300,
+                "filter": "Advanced Mask",
+                "mask_gradient_position": 960,
+                "mask_source_filter_multiplier": 1,
+                "move_value_type": 1,
+                "position_scale": 100,
+                "position_x": 960,
+                "position_y": 540,
+                "rectangle_corner_radius": 0,
+                "rectangle_corner_type": 1,
+                "rectangle_height": 1080,
+                "rectangle_width": 1920,
+                "scale_type": 1,
+                "setting_float": 938,
+                "setting_float_max": 930,
+                "setting_float_min": 930,
+                "setting_name": "shape_center_x",
+                "shape_center_x": 960,
+                "shape_center_y": 540,
+                "shape_feather_type": 1,
+                "shape_relative": true,
+                "shape_rotation": 0,
+                "source_zoom": 100,
+                "value_type": 0
                 },
                 overlay: true
             })
