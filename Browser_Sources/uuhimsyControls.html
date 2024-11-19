@@ -282,11 +282,21 @@
                     const sceneName = scene.sceneName.split("|||");
                     buttons[i+=1] = createButton(sceneName[1]).position(0, buttonPadding+5+(buttons[i-1].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
                     {
-                        console.log("cool stuff")
+                        await obs.call("SetInputSettings", {
+                            inputName: 'SceneTag',
+                            inputSettings: {
+                                text: `sceneEntrance|${sceneName[1].trim()}`,
+                            }
+                        });
                     })
                     buttons[i+=1] = createButton(sceneName[1]).position(windowWidth/2, buttonPadding+5+(buttons[i-2].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
-                    {
-                        console.log("cool stuff")
+                    {   
+                        await obs.call("SetInputSettings", {
+                            inputName: 'SceneTag',
+                            inputSettings: {
+                                text: `sceneExit|${sceneName[1].trim()}`,
+                            }
+                        });
                     })
                 }
             });
@@ -302,11 +312,22 @@
                 console.log(source)
                 buttons[i+=1] = createButton(source.sourceName).position(0, buttonPadding+5+(buttons[i-1].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
                 {
-                    console.log("cool stuff")
+                    console.log(source)
+                    await obs.call("SetInputSettings", {
+                            inputName: 'CameraTag',
+                            inputSettings: {
+                                text: `cameraEntrance|${source.sourceName.trim()}`,
+                            }
+                        });
                 })
                 buttons[i+=1] = createButton(source.sourceName).position(windowWidth/2, buttonPadding+5+(buttons[i-2].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
                 {
-                    console.log("cool stuff")
+                    await obs.call("SetInputSettings", {
+                            inputName: 'CameraTag',
+                            inputSettings: {
+                                text: `cameraExit|${source.sourceName.trim()}`,
+                            }
+                        });
                 })
             });
         }

@@ -1,6 +1,6 @@
 {
-    "current_scene": "scene|||Full Screen Slide UL",
-    "current_program_scene": "scene|||Full Screen Slide UL",
+    "current_scene": "UUhimsy Menu Buttons",
+    "current_program_scene": "UUhimsy Menu Buttons",
     "scene_order": [
         {
             "name": "scene|||Over the Shoulder"
@@ -21,13 +21,13 @@
             "name": "scene|||Full Screen Slide"
         },
         {
-            "name": "scene||| Screen Share"
+            "name": "scene|||Screen Share"
         },
         {
-            "name": "scene|||  Reveal-OTS"
+            "name": "scene|||Reveal-OTS"
         },
         {
-            "name": "scene||| Reveal-Side"
+            "name": "scene|||Reveal-Side"
         },
         {
             "name": "Scene Reveal-Side-Scroll"
@@ -88,6 +88,9 @@
         },
         {
             "name": "UUhimsy Menu Buttons"
+        },
+        {
+            "name": "addTag"
         }
     ],
     "name": "UUhimsy_macOS_Collection",
@@ -276,14 +279,22 @@
             }
         }
     ],
-    "saved_projectors": [],
+    "saved_projectors": [
+        {
+            "name": "Slide Notes",
+            "monitor": -1,
+            "type": 1,
+            "geometry": "AdnQywADAAAAAALQAAABeQAABK8AAAKiAAAC0AAAAZUAAASvAAACogAAAAAAAAAAB4AAAALQAAABlQAABK8AAAKi",
+            "alwaysOnTopOverridden": false
+        }
+    ],
     "current_transition": "Cut",
     "transition_duration": 300,
     "preview_locked": false,
     "scaling_enabled": true,
-    "scaling_level": -8,
-    "scaling_off_x": 7.4265031814575195,
-    "scaling_off_y": -12.999992370605469,
+    "scaling_level": -7,
+    "scaling_off_x": 8.3326730728149414,
+    "scaling_off_y": -14.586228370666504,
     "virtual-camera": {
         "type2": 3
     },
@@ -326,15 +337,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 439
+                            "pos": 324
                         },
                         {
-                            "pos": 563
+                            "pos": 292
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 531
+                            "pos": 260
                         },
                         {
                             "pos": 0
@@ -530,6 +541,96 @@
                             "deinterlaceOrder": 0
                         }
                     ],
+                    "elseActions": [],
+                    "inputVariables": []
+                },
+                {
+                    "name": "Run ShortCut",
+                    "group": false,
+                    "pauseSaveBehavior": 0,
+                    "pause": false,
+                    "parallel": false,
+                    "onChange": true,
+                    "skipExecOnStart": false,
+                    "stopActionsIfNotDone": false,
+                    "useShortCircuitEvaluation": false,
+                    "useCustomConditionCheckInterval": true,
+                    "customConditionCheckInterval": {
+                        "value": {
+                            "value": 1.0,
+                            "type": 0
+                        },
+                        "unit": 0,
+                        "version": 1
+                    },
+                    "dockSettings": {
+                        "register": false,
+                        "hasRunButton": true,
+                        "hasPauseButton": true,
+                        "hasStatusLabel": false,
+                        "highlightIfConditionsTrue": false,
+                        "runButtonText": "Run",
+                        "pauseButtonText": "Pause",
+                        "unpauseButtonText": "Unpause",
+                        "conditionsTrueStatusText": "Conditions are true.",
+                        "conditionsFalseStatusText": "Conditions are false.",
+                        "dockId": "advss-macro-dock-3480b001-24cf-4fc7-af07-01e5af2709af",
+                        "version": 1
+                    },
+                    "macroActionConditionSplitterPosition": [
+                        {
+                            "pos": 216
+                        },
+                        {
+                            "pos": 291
+                        }
+                    ],
+                    "macroElseActionSplitterPosition": [
+                        {
+                            "pos": 259
+                        },
+                        {
+                            "pos": 0
+                        }
+                    ],
+                    "registerHotkeys": false,
+                    "pauseHotkey": [],
+                    "unpauseHotkey": [],
+                    "togglePauseHotkey": [],
+                    "conditions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "scene_visibility",
+                            "logic": 0,
+                            "durationModifier": {
+                                "time_constraint": 0,
+                                "seconds": {
+                                    "value": {
+                                        "value": 0.0,
+                                        "type": 0
+                                    },
+                                    "unit": 0,
+                                    "version": 1
+                                }
+                            },
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": "UUhimsy Menu Buttons"
+                            },
+                            "sceneItemSelection": {
+                                "type": 0,
+                                "idxType": 0,
+                                "idx": 0,
+                                "item": "Open Get User Media Page"
+                            },
+                            "condition": 0
+                        }
+                    ],
+                    "actions": [],
                     "elseActions": [],
                     "inputVariables": []
                 }
@@ -736,10 +837,10 @@
                 }
             ],
             "saveWindowGeo": false,
-            "windowPosX": 450,
-            "windowPosY": 274,
+            "windowPosX": 635,
+            "windowPosY": 47,
             "windowWidth": 1000,
-            "windowHeight": 600,
+            "windowHeight": 751,
             "macroListMacroEditSplitterPosition": [
                 {
                     "pos": 166
@@ -835,7 +936,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAasAAABVAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAasAAABV",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAfgAAABVAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAfgAAABV",
                     "split": "AAAA/wAAAAEAAAABAAAAGAD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -861,7 +962,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAOEAAABVAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAOEAAABV",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAVkAAABVAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAVkAAABV",
                     "split": "AAAA/wAAAAEAAAABAAAAGAD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -887,7 +988,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAMUAAABVAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAMUAAABV",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAdAAAABVAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAdAAAABV",
                     "split": "AAAA/wAAAAEAAAABAAAAGAD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -991,7 +1092,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAANwAAABVAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAANwAAABV",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAk8AAABVAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAk8AAABV",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 8,
@@ -1004,7 +1105,7 @@
                     "source_name": "UUhimsy Menu Buttons",
                     "selected": false,
                     "title": "Menu  Buttons",
-                    "hidden": false,
+                    "hidden": true,
                     "preview": false,
                     "volmeter": false,
                     "volcontrols": false,
@@ -1017,11 +1118,11 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAAAAAAbIAAAD7AAAAAAAAAAD//////////wAAAAEAAAAADXAAAAAAAAAAAAAAAbIAAAD7",
+                    "geometry": "AdnQywADAAAAAAAAAAAAAAAAAMcAAABjAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAAAAAAMcAAABj",
                     "split": "AAAA/wAAAAEAAAABAAAAcgD/////AQAAAAIA",
                     "window": "",
-                    "dockarea": 2,
-                    "floating": true,
+                    "dockarea": 4,
+                    "floating": false,
                     "zoom": 1.0,
                     "scrollx": 0.5,
                     "scrolly": 0.5
@@ -1030,7 +1131,7 @@
                     "source_name": "Slide Notes",
                     "selected": false,
                     "title": "Slide Notes",
-                    "hidden": false,
+                    "hidden": true,
                     "preview": true,
                     "volmeter": false,
                     "volcontrols": false,
@@ -1043,7 +1144,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAh8AAAE1AAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAh8AAAE1",
+                    "geometry": "AdnQywADAAAAAAAAAAAAAAAAAMcAAABjAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAAAAAAMcAAABj",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 4,
@@ -1056,7 +1157,7 @@
                     "source_name": "Slide Controls",
                     "selected": false,
                     "title": "Slide Controls",
-                    "hidden": false,
+                    "hidden": true,
                     "preview": false,
                     "volmeter": false,
                     "volcontrols": false,
@@ -1069,11 +1170,11 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAAAAAATcAAAEcAAAAAAAAAAD//////////wAAAAEAAAAADXAAAAAAAAAAAAAAATcAAAEc",
+                    "geometry": "AdnQywADAAAAAAAAAAAAAAAAAMcAAABjAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAAAAAAMcAAABj",
                     "split": "AAAA/wAAAAEAAAABAAAATAD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 4,
-                    "floating": true,
+                    "floating": false,
                     "zoom": 1.0,
                     "scrollx": 0.5,
                     "scrolly": 0.5
@@ -1082,7 +1183,7 @@
                     "source_name": "TeleprompterBrowser",
                     "selected": false,
                     "title": "Teleprompter Browser",
-                    "hidden": false,
+                    "hidden": true,
                     "preview": true,
                     "volmeter": false,
                     "volcontrols": false,
@@ -1095,7 +1196,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAhgAAAE1AAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAhgAAAE1",
+                    "geometry": "AdnQywADAAAAAAAAAAAAAAAAAMcAAABjAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAAAAAAMcAAABj",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 4,
@@ -1121,7 +1222,7 @@
                     "properties": false,
                     "filters": false,
                     "textinput": false,
-                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAbIAAARxAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAbIAAARx",
+                    "geometry": "AdnQywADAAAAAAAAAAAAGQAAAWkAAAOfAAAAAAAAAAD//////////wAAAAAAAAAAB4AAAAAAAAAAGQAAAWkAAAOf",
                     "split": "AAAA/wAAAAEAAAABAAAAHgD/////AQAAAAIA",
                     "window": "",
                     "dockarea": 2,
@@ -1132,10 +1233,10 @@
                 }
             ],
             "windows": [],
-            "corner_tl": true,
-            "corner_tr": true,
-            "corner_br": true,
-            "corner_bl": true
+            "corner_tl": false,
+            "corner_tr": false,
+            "corner_br": false,
+            "corner_bl": false
         },
         "transition-table": {
             "transitions": [],
@@ -1267,6 +1368,119 @@
                 "libobs.push-to-mute": [],
                 "libobs.push-to-talk": [],
                 "ObsBrowser.Refresh": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "addTag",
+            "uuid": "850b4a5c-ac70-420e-b748-79e955c76212",
+            "id": "scene",
+            "versioned_id": "scene",
+            "settings": {
+                "id_counter": 3,
+                "custom_size": false,
+                "items": [
+                    {
+                        "name": "SceneTag",
+                        "source_uuid": "e9c51619-8175-457c-bc06-ed3f2349a0ea",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 1,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 2,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "CameraTag",
+                        "source_uuid": "e4ebf80d-e89e-46f2-862e-c61c85c4e76e",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 3,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    }
+                ]
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "OBSBasic.SelectScene": [],
+                "libobs.show_scene_item.2": [],
+                "libobs.hide_scene_item.2": [],
+                "libobs.show_scene_item.3": [],
+                "libobs.hide_scene_item.3": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -1421,8 +1635,8 @@
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": -801.0,
-                            "y": -855.0
+                            "x": -1048.0,
+                            "y": -534.0
                         },
                         "scale": {
                             "x": 2.94140625,
@@ -1456,12 +1670,12 @@
                     {
                         "name": "Close Up",
                         "source_uuid": "b877eb46-e758-454c-80ef-c3141a1d1b5a",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": -801.0,
-                            "y": -855.0
+                            "x": -1048.0,
+                            "y": -534.0
                         },
                         "scale": {
                             "x": 1.9609375,
@@ -1509,8 +1723,8 @@
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": -516.0,
-                            "y": -514.99993896484375
+                            "x": -480.0,
+                            "y": -97.99993896484375
                         },
                         "scale": {
                             "x": 2.2156250476837158,
@@ -1548,8 +1762,8 @@
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": -516.0,
-                            "y": -514.99993896484375
+                            "x": -480.0,
+                            "y": -97.99993896484375
                         },
                         "scale": {
                             "x": 1.4770833253860474,
@@ -1593,7 +1807,7 @@
                     {
                         "name": "Wide",
                         "source_uuid": "6851ffdd-74e7-46b7-ad70-79a395c4c5a2",
-                        "visible": false,
+                        "visible": true,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
@@ -1652,12 +1866,12 @@
                             "y": 1.0
                         },
                         "align": 5,
-                        "bounds_type": 0,
+                        "bounds_type": 1,
                         "bounds_align": 0,
                         "bounds_crop": false,
                         "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
+                            "x": 1920.0,
+                            "y": 1080.0
                         },
                         "crop_left": 0,
                         "crop_top": 0,
@@ -1708,6 +1922,32 @@
                 "libobs.show_scene_item.10": [],
                 "libobs.hide_scene_item.10": []
             },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "CameraTag",
+            "uuid": "e4ebf80d-e89e-46f2-862e-c61c85c4e76e",
+            "id": "text_ft2_source",
+            "versioned_id": "text_ft2_source_v2",
+            "settings": {
+                "text": "cameraEntrance|Wide"
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
@@ -1886,8 +2126,8 @@
                             "y": -3.0
                         },
                         "scale": {
-                            "x": 0.79660314321517944,
-                            "y": 0.79640716314315796
+                            "x": 1.0094339847564697,
+                            "y": 1.0093632936477661
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -1995,7 +2235,7 @@
                     {
                         "name": "win Screen Capture",
                         "source_uuid": "cc682ba3-6cc6-4ec6-aa12-8f5b172f58e5",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
@@ -2038,7 +2278,7 @@
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": -2.0,
+                            "x": 0.0,
                             "y": 0.0
                         },
                         "scale": {
@@ -2108,7 +2348,7 @@
             "id": "text_ft2_source",
             "versioned_id": "text_ft2_source_v2",
             "settings": {
-                "text": "442 147"
+                "text": "434 149"
             },
             "mixers": 0,
             "sync": 0,
@@ -2548,12 +2788,12 @@
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": 13.0,
-                            "y": -355.9998779296875
+                            "x": -2.0,
+                            "y": 0.0
                         },
                         "scale": {
-                            "x": 1.0909091234207153,
-                            "y": 1.0911144018173218
+                            "x": 1.0020833015441895,
+                            "y": 1.0018517971038818
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -2583,7 +2823,7 @@
                     {
                         "name": "Tiny2_PTZ",
                         "source_uuid": "d4ab00c8-5333-4b48-a89d-ad1bd7ff0e26",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
@@ -2622,7 +2862,7 @@
                     {
                         "name": "Tiny 2 windows",
                         "source_uuid": "6d7ea343-dabf-4cd1-aa3b-04a89913fa46",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
@@ -3004,7 +3244,7 @@
                     {
                         "name": "2dFish_Browser",
                         "source_uuid": "e8474fe4-1e61-4e0e-ab54-fff1e1a0fff9",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
@@ -3591,7 +3831,7 @@
             "versioned_id": "screen_capture",
             "settings": {
                 "type": 1,
-                "window": 287,
+                "window": 855,
                 "show_cursor": true
             },
             "mixers": 255,
@@ -3652,7 +3892,7 @@
             "versioned_id": "screen_capture",
             "settings": {
                 "type": 1,
-                "window": 287
+                "window": 855
             },
             "mixers": 255,
             "sync": 0,
@@ -5178,13 +5418,1209 @@
         },
         {
             "prev_ver": 503447555,
-            "name": "scene|||  Reveal-OTS",
+            "name": "SceneTag",
+            "uuid": "e9c51619-8175-457c-bc06-ed3f2349a0ea",
+            "id": "text_ft2_source",
+            "versioned_id": "text_ft2_source_v2",
+            "settings": {
+                "text": "sceneExit|Full Screen Slide LR"
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "scene|||Full Screen Slide",
+            "uuid": "812ed50c-07ed-44ee-ab0b-cade2a85f24f",
+            "id": "scene",
+            "versioned_id": "scene",
+            "settings": {
+                "custom_size": false,
+                "id_counter": 4,
+                "items": [
+                    {
+                        "name": "PPT Window Capture",
+                        "source_uuid": "2ad07728-5981-4c22-9870-a6c7054f71f2",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": -34.0001220703125,
+                            "y": -126.0
+                        },
+                        "scale": {
+                            "x": 1.045751690864563,
+                            "y": 1.0453736782073975
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 42,
+                        "id": 1,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Camera",
+                        "source_uuid": "94967fdf-6632-4e64-8f97-362033ce946f",
+                        "visible": false,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 133.0,
+                            "y": 689.0
+                        },
+                        "scale": {
+                            "x": 0.24687500298023224,
+                            "y": 0.24722221493721008
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 2,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Source Clone Reveal Slides-OTS",
+                        "source_uuid": "0a30c1f0-73e7-46b2-98fc-71cb37dcb3b9",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 237.0,
+                            "y": -1.0
+                        },
+                        "scale": {
+                            "x": 1.8087500333786011,
+                            "y": 1.8083332777023315
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 3,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Source Clone Reveal Slides-Side",
+                        "source_uuid": "2497c4f7-a59a-44fb-8908-8d09aa553625",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": -904.0,
+                            "y": 5.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 4,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    }
+                ]
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "OBSBasic.SelectScene": [],
+                "libobs.show_scene_item.1": [],
+                "libobs.hide_scene_item.1": [],
+                "libobs.show_scene_item.2": [],
+                "libobs.hide_scene_item.2": [],
+                "libobs.show_scene_item.3": [],
+                "libobs.hide_scene_item.3": [],
+                "libobs.show_scene_item.4": [],
+                "libobs.hide_scene_item.4": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "scene|||Full Screen Slide LL",
+            "uuid": "e964ed13-e5c3-42e6-81cb-7507796a2729",
+            "id": "scene",
+            "versioned_id": "scene",
+            "settings": {
+                "custom_size": false,
+                "id_counter": 4,
+                "items": [
+                    {
+                        "name": "PPT Window Capture",
+                        "source_uuid": "2ad07728-5981-4c22-9870-a6c7054f71f2",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": -0.0001220703125,
+                            "y": -77.0
+                        },
+                        "scale": {
+                            "x": 1.045751690864563,
+                            "y": 1.0453736782073975
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 42,
+                        "id": 1,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Camera",
+                        "source_uuid": "94967fdf-6632-4e64-8f97-362033ce946f",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 133.0,
+                            "y": 689.0
+                        },
+                        "scale": {
+                            "x": 0.24687500298023224,
+                            "y": 0.24722221493721008
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 2,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Source Clone Reveal Slides-OTS",
+                        "source_uuid": "0a30c1f0-73e7-46b2-98fc-71cb37dcb3b9",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 253.0,
+                            "y": -5.0
+                        },
+                        "scale": {
+                            "x": 1.8087500333786011,
+                            "y": 1.8083332777023315
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 3,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Source Clone Reveal Slides-Side",
+                        "source_uuid": "2497c4f7-a59a-44fb-8908-8d09aa553625",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": -886.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 4,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    }
+                ]
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "OBSBasic.SelectScene": [],
+                "libobs.show_scene_item.1": [],
+                "libobs.hide_scene_item.1": [],
+                "libobs.show_scene_item.2": [],
+                "libobs.hide_scene_item.2": [],
+                "libobs.show_scene_item.3": [],
+                "libobs.hide_scene_item.3": [],
+                "libobs.show_scene_item.4": [],
+                "libobs.hide_scene_item.4": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "scene|||Full Screen Slide LR",
+            "uuid": "75c16937-63d5-4985-8c1d-1aedcebc2458",
+            "id": "scene",
+            "versioned_id": "scene",
+            "settings": {
+                "custom_size": false,
+                "id_counter": 4,
+                "items": [
+                    {
+                        "name": "PPT Window Capture",
+                        "source_uuid": "2ad07728-5981-4c22-9870-a6c7054f71f2",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": -0.0001220703125,
+                            "y": -77.0
+                        },
+                        "scale": {
+                            "x": 1.045751690864563,
+                            "y": 1.0453736782073975
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 42,
+                        "id": 1,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Camera",
+                        "source_uuid": "94967fdf-6632-4e64-8f97-362033ce946f",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 1334.0,
+                            "y": 739.0
+                        },
+                        "scale": {
+                            "x": 0.24687500298023224,
+                            "y": 0.24722221493721008
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 2,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Source Clone Reveal Slides-Side",
+                        "source_uuid": "2497c4f7-a59a-44fb-8908-8d09aa553625",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": -896.0,
+                            "y": 11.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 3,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Source Clone Reveal Slides-OTS",
+                        "source_uuid": "0a30c1f0-73e7-46b2-98fc-71cb37dcb3b9",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 253.0,
+                            "y": -5.0
+                        },
+                        "scale": {
+                            "x": 1.8087500333786011,
+                            "y": 1.8083332777023315
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 4,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    }
+                ]
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "OBSBasic.SelectScene": [],
+                "libobs.show_scene_item.1": [],
+                "libobs.hide_scene_item.1": [],
+                "libobs.show_scene_item.2": [],
+                "libobs.hide_scene_item.2": [],
+                "libobs.show_scene_item.3": [],
+                "libobs.hide_scene_item.3": [],
+                "libobs.show_scene_item.4": [],
+                "libobs.hide_scene_item.4": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "scene|||Full Screen Slide UL",
+            "uuid": "4d20726d-6012-4ee1-87ab-942f46f6aa5e",
+            "id": "scene",
+            "versioned_id": "scene",
+            "settings": {
+                "custom_size": false,
+                "id_counter": 4,
+                "items": [
+                    {
+                        "name": "PPT Window Capture",
+                        "source_uuid": "2ad07728-5981-4c22-9870-a6c7054f71f2",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": -0.0001220703125,
+                            "y": -77.0
+                        },
+                        "scale": {
+                            "x": 1.045751690864563,
+                            "y": 1.0453736782073975
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 42,
+                        "id": 1,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Camera",
+                        "source_uuid": "94967fdf-6632-4e64-8f97-362033ce946f",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 91.0,
+                            "y": 55.0
+                        },
+                        "scale": {
+                            "x": 0.24687500298023224,
+                            "y": 0.24722221493721008
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 2,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Source Clone Reveal Slides-Side",
+                        "source_uuid": "2497c4f7-a59a-44fb-8908-8d09aa553625",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": -931.0,
+                            "y": 6.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 3,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Source Clone Reveal Slides-OTS",
+                        "source_uuid": "0a30c1f0-73e7-46b2-98fc-71cb37dcb3b9",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 253.0,
+                            "y": -5.0
+                        },
+                        "scale": {
+                            "x": 1.8087500333786011,
+                            "y": 1.8083332777023315
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 4,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    }
+                ]
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "OBSBasic.SelectScene": [],
+                "libobs.show_scene_item.1": [],
+                "libobs.hide_scene_item.1": [],
+                "libobs.show_scene_item.2": [],
+                "libobs.hide_scene_item.2": [],
+                "libobs.show_scene_item.3": [],
+                "libobs.hide_scene_item.3": [],
+                "libobs.show_scene_item.4": [],
+                "libobs.hide_scene_item.4": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "scene|||Full Screen Slide UR",
+            "uuid": "d9505044-dc67-4430-9425-c6fa7c207440",
+            "id": "scene",
+            "versioned_id": "scene",
+            "settings": {
+                "custom_size": false,
+                "id_counter": 4,
+                "items": [
+                    {
+                        "name": "PPT Window Capture",
+                        "source_uuid": "2ad07728-5981-4c22-9870-a6c7054f71f2",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": -0.0001220703125,
+                            "y": -77.0
+                        },
+                        "scale": {
+                            "x": 1.045751690864563,
+                            "y": 1.0453736782073975
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 42,
+                        "id": 1,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Camera",
+                        "source_uuid": "94967fdf-6632-4e64-8f97-362033ce946f",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 1354.0,
+                            "y": 52.0
+                        },
+                        "scale": {
+                            "x": 0.24687500298023224,
+                            "y": 0.24722221493721008
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 2,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Source Clone Reveal Slides-Side",
+                        "source_uuid": "2497c4f7-a59a-44fb-8908-8d09aa553625",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": -873.0,
+                            "y": -4.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 3,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Source Clone Reveal Slides-OTS",
+                        "source_uuid": "0a30c1f0-73e7-46b2-98fc-71cb37dcb3b9",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 253.0,
+                            "y": -5.0
+                        },
+                        "scale": {
+                            "x": 1.8087500333786011,
+                            "y": 1.8083332777023315
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 4,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    }
+                ]
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "OBSBasic.SelectScene": [],
+                "libobs.show_scene_item.1": [],
+                "libobs.hide_scene_item.1": [],
+                "libobs.show_scene_item.2": [],
+                "libobs.hide_scene_item.2": [],
+                "libobs.show_scene_item.3": [],
+                "libobs.hide_scene_item.3": [],
+                "libobs.show_scene_item.4": [],
+                "libobs.hide_scene_item.4": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "scene|||Over the Shoulder",
+            "uuid": "67862399-6c4e-4c56-965c-c02a74334b20",
+            "id": "scene",
+            "versioned_id": "scene",
+            "settings": {
+                "custom_size": false,
+                "id_counter": 5,
+                "items": [
+                    {
+                        "name": "Camera",
+                        "source_uuid": "94967fdf-6632-4e64-8f97-362033ce946f",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 3,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "PPT Window Capture",
+                        "source_uuid": "2ad07728-5981-4c22-9870-a6c7054f71f2",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 101.0,
+                            "y": 117.0
+                        },
+                        "scale": {
+                            "x": 0.41128149628639221,
+                            "y": 0.41083744168281555
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 45,
+                        "crop_top": 0,
+                        "crop_right": 49,
+                        "crop_bottom": 42,
+                        "id": 1,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Source Clone Reveal Slides-Side",
+                        "source_uuid": "2497c4f7-a59a-44fb-8908-8d09aa553625",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": -869.0,
+                            "y": 3.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 4,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Source Clone Reveal Slides-OTS",
+                        "source_uuid": "0a30c1f0-73e7-46b2-98fc-71cb37dcb3b9",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 65.0,
+                            "y": 71.0
+                        },
+                        "scale": {
+                            "x": 0.91500002145767212,
+                            "y": 0.91500002145767212
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 5,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    }
+                ]
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "OBSBasic.SelectScene": [],
+                "libobs.show_scene_item.3": [],
+                "libobs.hide_scene_item.3": [],
+                "libobs.show_scene_item.1": [],
+                "libobs.hide_scene_item.1": [],
+                "libobs.show_scene_item.4": [],
+                "libobs.hide_scene_item.4": [],
+                "libobs.show_scene_item.5": [],
+                "libobs.hide_scene_item.5": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "scene|||Reveal-OTS",
             "uuid": "5a516dfb-b0fd-4016-bb39-1f92ea9514c8",
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
                 "custom_size": false,
-                "id_counter": 10,
+                "id_counter": 11,
                 "items": [
                     {
                         "name": "Source Clone BG",
@@ -5369,6 +6805,45 @@
                         "crop_right": 0,
                         "crop_bottom": 0,
                         "id": 10,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Source Clone Reveal Slides-Side",
+                        "source_uuid": "2497c4f7-a59a-44fb-8908-8d09aa553625",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": -851.0,
+                            "y": 7.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 11,
                         "group_item_backup": false,
                         "scale_filter": "disable",
                         "blend_method": "default",
@@ -5575,7 +7050,9 @@
                 "Move Source Side": [],
                 "Move Source Side Hold": [],
                 "Move Source Full": [],
-                "Move Source Full Hold": []
+                "Move Source Full Hold": [],
+                "libobs.show_scene_item.11": [],
+                "libobs.hide_scene_item.11": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -5757,13 +7234,13 @@
         },
         {
             "prev_ver": 503447555,
-            "name": "scene||| Reveal-Side",
+            "name": "scene|||Reveal-Side",
             "uuid": "9d63cce4-4339-4191-a124-9bce2a646833",
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
                 "custom_size": false,
-                "id_counter": 9,
+                "id_counter": 10,
                 "items": [
                     {
                         "name": "Source Clone BG",
@@ -5961,6 +7438,45 @@
                         "private_settings": {}
                     },
                     {
+                        "name": "Source Clone Reveal Slides-OTS",
+                        "source_uuid": "0a30c1f0-73e7-46b2-98fc-71cb37dcb3b9",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": -1024.0,
+                            "y": 91.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 10,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
                         "name": "Source Clone Camera FG",
                         "source_uuid": "7dba26d9-ed18-4e8f-8015-e09de7f133b8",
                         "visible": true,
@@ -6113,7 +7629,9 @@
                 "Move Source Side": [],
                 "Move Source Side Hold": [],
                 "Move Source Full": [],
-                "Move Source Full Hold": []
+                "Move Source Full Hold": [],
+                "libobs.show_scene_item.10": [],
+                "libobs.hide_scene_item.10": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -6295,13 +7813,13 @@
         },
         {
             "prev_ver": 503447555,
-            "name": "scene||| Screen Share",
+            "name": "scene|||Screen Share",
             "uuid": "140d8571-c96c-4d30-bfbc-1ec449fad3ca",
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
                 "custom_size": false,
-                "id_counter": 13,
+                "id_counter": 17,
                 "items": [
                     {
                         "name": "Source Clone BG",
@@ -6538,6 +8056,84 @@
                         "private_settings": {}
                     },
                     {
+                        "name": "Source Clone circle cam",
+                        "source_uuid": "ec6d5fb2-1113-4714-8a16-210436773770",
+                        "visible": false,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 1395.0,
+                            "y": 642.0
+                        },
+                        "scale": {
+                            "x": 0.31302082538604736,
+                            "y": 0.31296294927597046
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 12,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Source Clone FG",
+                        "source_uuid": "eaa73865-4d9b-440e-b71c-3819cf2a62ae",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 2,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 15,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
                         "name": "Input Hotkeys",
                         "source_uuid": "2a0f0fac-2778-477c-8e38-a1df59578073",
                         "visible": true,
@@ -6577,18 +8173,18 @@
                         "private_settings": {}
                     },
                     {
-                        "name": "Source Clone circle cam",
-                        "source_uuid": "ec6d5fb2-1113-4714-8a16-210436773770",
-                        "visible": false,
+                        "name": "Source Clone Reveal Slides-OTS",
+                        "source_uuid": "0a30c1f0-73e7-46b2-98fc-71cb37dcb3b9",
+                        "visible": true,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": 1395.0,
-                            "y": 642.0
+                            "x": -910.0,
+                            "y": 53.0
                         },
                         "scale": {
-                            "x": 0.31302082538604736,
-                            "y": 0.31296294927597046
+                            "x": 1.0,
+                            "y": 1.0
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -6602,7 +8198,46 @@
                         "crop_top": 0,
                         "crop_right": 0,
                         "crop_bottom": 0,
-                        "id": 12,
+                        "id": 16,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Source Clone Reveal Slides-Side",
+                        "source_uuid": "2497c4f7-a59a-44fb-8908-8d09aa553625",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": -971.0,
+                            "y": -25.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 17,
                         "group_item_backup": false,
                         "scale_filter": "disable",
                         "blend_method": "default",
@@ -6642,688 +8277,16 @@
                 "libobs.hide_scene_item.13": [],
                 "libobs.show_scene_item.8": [],
                 "libobs.hide_scene_item.8": [],
+                "libobs.show_scene_item.12": [],
+                "libobs.hide_scene_item.12": [],
+                "libobs.show_scene_item.15": [],
+                "libobs.hide_scene_item.15": [],
                 "libobs.show_scene_item.5": [],
                 "libobs.hide_scene_item.5": [],
-                "libobs.show_scene_item.12": [],
-                "libobs.hide_scene_item.12": []
-            },
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 503447555,
-            "name": "scene|||Full Screen Slide",
-            "uuid": "812ed50c-07ed-44ee-ab0b-cade2a85f24f",
-            "id": "scene",
-            "versioned_id": "scene",
-            "settings": {
-                "custom_size": false,
-                "id_counter": 2,
-                "items": [
-                    {
-                        "name": "PPT Window Capture",
-                        "source_uuid": "2ad07728-5981-4c22-9870-a6c7054f71f2",
-                        "visible": true,
-                        "locked": false,
-                        "rot": 0.0,
-                        "pos": {
-                            "x": -34.0001220703125,
-                            "y": -126.0
-                        },
-                        "scale": {
-                            "x": 1.045751690864563,
-                            "y": 1.0453736782073975
-                        },
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 42,
-                        "id": 1,
-                        "group_item_backup": false,
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
-                    },
-                    {
-                        "name": "Camera",
-                        "source_uuid": "94967fdf-6632-4e64-8f97-362033ce946f",
-                        "visible": false,
-                        "locked": false,
-                        "rot": 0.0,
-                        "pos": {
-                            "x": 133.0,
-                            "y": 689.0
-                        },
-                        "scale": {
-                            "x": 0.24687500298023224,
-                            "y": 0.24722221493721008
-                        },
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 0,
-                        "id": 2,
-                        "group_item_backup": false,
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
-                    }
-                ]
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {
-                "OBSBasic.SelectScene": [],
-                "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": [],
-                "libobs.show_scene_item.2": [],
-                "libobs.hide_scene_item.2": []
-            },
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 503447555,
-            "name": "scene|||Full Screen Slide LL",
-            "uuid": "e964ed13-e5c3-42e6-81cb-7507796a2729",
-            "id": "scene",
-            "versioned_id": "scene",
-            "settings": {
-                "custom_size": false,
-                "id_counter": 2,
-                "items": [
-                    {
-                        "name": "PPT Window Capture",
-                        "source_uuid": "2ad07728-5981-4c22-9870-a6c7054f71f2",
-                        "visible": true,
-                        "locked": false,
-                        "rot": 0.0,
-                        "pos": {
-                            "x": -0.0001220703125,
-                            "y": -77.0
-                        },
-                        "scale": {
-                            "x": 1.045751690864563,
-                            "y": 1.0453736782073975
-                        },
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 42,
-                        "id": 1,
-                        "group_item_backup": false,
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
-                    },
-                    {
-                        "name": "Camera",
-                        "source_uuid": "94967fdf-6632-4e64-8f97-362033ce946f",
-                        "visible": true,
-                        "locked": false,
-                        "rot": 0.0,
-                        "pos": {
-                            "x": 133.0,
-                            "y": 689.0
-                        },
-                        "scale": {
-                            "x": 0.24687500298023224,
-                            "y": 0.24722221493721008
-                        },
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 0,
-                        "id": 2,
-                        "group_item_backup": false,
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
-                    }
-                ]
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {
-                "OBSBasic.SelectScene": [],
-                "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": [],
-                "libobs.show_scene_item.2": [],
-                "libobs.hide_scene_item.2": []
-            },
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 503447555,
-            "name": "scene|||Full Screen Slide LR",
-            "uuid": "75c16937-63d5-4985-8c1d-1aedcebc2458",
-            "id": "scene",
-            "versioned_id": "scene",
-            "settings": {
-                "custom_size": false,
-                "id_counter": 2,
-                "items": [
-                    {
-                        "name": "PPT Window Capture",
-                        "source_uuid": "2ad07728-5981-4c22-9870-a6c7054f71f2",
-                        "visible": true,
-                        "locked": false,
-                        "rot": 0.0,
-                        "pos": {
-                            "x": -0.0001220703125,
-                            "y": -77.0
-                        },
-                        "scale": {
-                            "x": 1.045751690864563,
-                            "y": 1.0453736782073975
-                        },
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 42,
-                        "id": 1,
-                        "group_item_backup": false,
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
-                    },
-                    {
-                        "name": "Camera",
-                        "source_uuid": "94967fdf-6632-4e64-8f97-362033ce946f",
-                        "visible": true,
-                        "locked": false,
-                        "rot": 0.0,
-                        "pos": {
-                            "x": 1334.0,
-                            "y": 739.0
-                        },
-                        "scale": {
-                            "x": 0.24687500298023224,
-                            "y": 0.24722221493721008
-                        },
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 0,
-                        "id": 2,
-                        "group_item_backup": false,
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
-                    }
-                ]
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {
-                "OBSBasic.SelectScene": [],
-                "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": [],
-                "libobs.show_scene_item.2": [],
-                "libobs.hide_scene_item.2": []
-            },
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 503447555,
-            "name": "scene|||Full Screen Slide UL",
-            "uuid": "4d20726d-6012-4ee1-87ab-942f46f6aa5e",
-            "id": "scene",
-            "versioned_id": "scene",
-            "settings": {
-                "custom_size": false,
-                "id_counter": 2,
-                "items": [
-                    {
-                        "name": "PPT Window Capture",
-                        "source_uuid": "2ad07728-5981-4c22-9870-a6c7054f71f2",
-                        "visible": true,
-                        "locked": false,
-                        "rot": 0.0,
-                        "pos": {
-                            "x": -0.0001220703125,
-                            "y": -77.0
-                        },
-                        "scale": {
-                            "x": 1.045751690864563,
-                            "y": 1.0453736782073975
-                        },
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 42,
-                        "id": 1,
-                        "group_item_backup": false,
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
-                    },
-                    {
-                        "name": "Camera",
-                        "source_uuid": "94967fdf-6632-4e64-8f97-362033ce946f",
-                        "visible": true,
-                        "locked": false,
-                        "rot": 0.0,
-                        "pos": {
-                            "x": 91.0,
-                            "y": 55.0
-                        },
-                        "scale": {
-                            "x": 0.24687500298023224,
-                            "y": 0.24722221493721008
-                        },
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 0,
-                        "id": 2,
-                        "group_item_backup": false,
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
-                    }
-                ]
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {
-                "OBSBasic.SelectScene": [],
-                "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": [],
-                "libobs.show_scene_item.2": [],
-                "libobs.hide_scene_item.2": []
-            },
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 503447555,
-            "name": "scene|||Full Screen Slide UR",
-            "uuid": "d9505044-dc67-4430-9425-c6fa7c207440",
-            "id": "scene",
-            "versioned_id": "scene",
-            "settings": {
-                "custom_size": false,
-                "id_counter": 2,
-                "items": [
-                    {
-                        "name": "PPT Window Capture",
-                        "source_uuid": "2ad07728-5981-4c22-9870-a6c7054f71f2",
-                        "visible": true,
-                        "locked": false,
-                        "rot": 0.0,
-                        "pos": {
-                            "x": -0.0001220703125,
-                            "y": -77.0
-                        },
-                        "scale": {
-                            "x": 1.045751690864563,
-                            "y": 1.0453736782073975
-                        },
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 42,
-                        "id": 1,
-                        "group_item_backup": false,
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
-                    },
-                    {
-                        "name": "Camera",
-                        "source_uuid": "94967fdf-6632-4e64-8f97-362033ce946f",
-                        "visible": true,
-                        "locked": false,
-                        "rot": 0.0,
-                        "pos": {
-                            "x": 1354.0,
-                            "y": 52.0
-                        },
-                        "scale": {
-                            "x": 0.24687500298023224,
-                            "y": 0.24722221493721008
-                        },
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 0,
-                        "id": 2,
-                        "group_item_backup": false,
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
-                    }
-                ]
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {
-                "OBSBasic.SelectScene": [],
-                "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": [],
-                "libobs.show_scene_item.2": [],
-                "libobs.hide_scene_item.2": []
-            },
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 503447555,
-            "name": "scene|||Over the Shoulder",
-            "uuid": "67862399-6c4e-4c56-965c-c02a74334b20",
-            "id": "scene",
-            "versioned_id": "scene",
-            "settings": {
-                "custom_size": false,
-                "id_counter": 3,
-                "items": [
-                    {
-                        "name": "Camera",
-                        "source_uuid": "94967fdf-6632-4e64-8f97-362033ce946f",
-                        "visible": true,
-                        "locked": false,
-                        "rot": 0.0,
-                        "pos": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "scale": {
-                            "x": 1.0,
-                            "y": 1.0
-                        },
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 0,
-                        "id": 3,
-                        "group_item_backup": false,
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
-                    },
-                    {
-                        "name": "PPT Window Capture",
-                        "source_uuid": "2ad07728-5981-4c22-9870-a6c7054f71f2",
-                        "visible": true,
-                        "locked": false,
-                        "rot": 0.0,
-                        "pos": {
-                            "x": 101.0,
-                            "y": 117.0
-                        },
-                        "scale": {
-                            "x": 0.41128149628639221,
-                            "y": 0.41083744168281555
-                        },
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "crop_left": 45,
-                        "crop_top": 0,
-                        "crop_right": 49,
-                        "crop_bottom": 42,
-                        "id": 1,
-                        "group_item_backup": false,
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
-                    }
-                ]
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {
-                "OBSBasic.SelectScene": [],
-                "libobs.show_scene_item.3": [],
-                "libobs.hide_scene_item.3": [],
-                "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": []
+                "libobs.show_scene_item.16": [],
+                "libobs.hide_scene_item.16": [],
+                "libobs.show_scene_item.17": [],
+                "libobs.hide_scene_item.17": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -7571,7 +8534,7 @@
             "versioned_id": "scene",
             "settings": {
                 "custom_size": false,
-                "id_counter": 9,
+                "id_counter": 10,
                 "items": [
                     {
                         "name": "NextSlide",
@@ -7615,7 +8578,7 @@
                     {
                         "name": "PreviousSlide",
                         "source_uuid": "cb85d7e2-a379-4220-bf00-1239a267a180",
-                        "visible": false,
+                        "visible": true,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
@@ -7910,12 +8873,12 @@
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": 48.0001220703125,
-                            "y": 0.0
+                            "x": -3.0,
+                            "y": 4.0
                         },
                         "scale": {
-                            "x": 6.2399997711181641,
-                            "y": 6.2399997711181641
+                            "x": 6.4066667556762695,
+                            "y": 6.4058442115783691
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -7977,12 +8940,15 @@
                 "extents_cx": 300,
                 "extents_cy": 8000,
                 "extents_wrap": true,
-                "text": "Enter Notes",
                 "vertical": false,
+                "custom_width": 300,
                 "font": {
-                    "size": 47
+                    "face": "Arial",
+                    "size": 50
                 },
-                "antialiasing": true
+                "antialiasing": true,
+                "word_wrap": true,
+                "text": ""
             },
             "mixers": 0,
             "sync": 0,
@@ -8011,7 +8977,7 @@
                         "limit_cx": true,
                         "limit_cy": false,
                         "speed_x": 0,
-                        "speed_y": 31,
+                        "speed_y": 15,
                         "cx": 300,
                         "cy": 100,
                         "loop": false
@@ -9125,45 +10091,6 @@
                         "private_settings": {}
                     },
                     {
-                        "name": "Slide Buttons",
-                        "source_uuid": "6b3af8ed-47b4-4ce4-9911-33d85360e8be",
-                        "visible": true,
-                        "locked": false,
-                        "rot": 0.0,
-                        "pos": {
-                            "x": 0.0,
-                            "y": 135.0
-                        },
-                        "scale": {
-                            "x": 0.42908903956413269,
-                            "y": 0.42992424964904785
-                        },
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 0,
-                        "id": 2,
-                        "group_item_backup": false,
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
-                    },
-                    {
                         "name": "Screen Share Buttons",
                         "source_uuid": "bf0d6e88-58fd-4866-bf24-dd579946ca7e",
                         "visible": true,
@@ -9203,9 +10130,48 @@
                         "private_settings": {}
                     },
                     {
+                        "name": "Slide Buttons",
+                        "source_uuid": "6b3af8ed-47b4-4ce4-9911-33d85360e8be",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 135.0
+                        },
+                        "scale": {
+                            "x": 0.42908903956413269,
+                            "y": 0.42992424964904785
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 2,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
                         "name": "Reveal Slide Tags",
                         "source_uuid": "12f5c8f3-2cf6-4c57-a3e3-6aac05c5c3cd",
-                        "visible": false,
+                        "visible": true,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
@@ -9314,17 +10280,12 @@
             "id": "macos-avcapture",
             "versioned_id": "macos-avcapture",
             "settings": {
-                "color_space": 2,
-                "device_name": "FaceTime HD Camera",
-                "frame_rate": {
-                    "denominator": 1,
-                    "numerator": 30
-                },
-                "input_format": 2,
-                "resolution": "{\"width\":1760,\"height\":1328}",
+                "device_name": "Insta360 Link",
+                "resolution": "{\"width\":1920,\"height\":1080}",
                 "video_range": 1,
-                "device": "47B4B64B-7067-4B9C-AD2B-AE273A71F4B5",
-                "use_preset": false
+                "device": "0x1000002e1a4c01",
+                "use_preset": true,
+                "preset": "AVCaptureSessionPreset1920x1080"
             },
             "mixers": 255,
             "sync": 0,
@@ -9394,8 +10355,8 @@
                 "res_type": 1,
                 "resolution": "1280x720",
                 "video_device_id": "HP Wide Vision HD Camera:\\\\?\\usb#22vid_04f2&pid_b627&mi_00#226&3a511a87&0&0000#22{65e8773d-8f56-11d0-a3b9-00a0c9223196}\\global",
-                "device": "47B4B64B-7067-4B9C-AD2B-AE273A71F4B5",
-                "device_name": "FaceTime HD Camera",
+                "device": "0x1000002e1a4c01",
+                "device_name": "Insta360 Link",
                 "preset": "AVCaptureSessionPreset1280x720"
             },
             "mixers": 255,
