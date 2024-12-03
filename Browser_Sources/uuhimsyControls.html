@@ -3,7 +3,7 @@
     
     <head>
         <meta charset="UTF-8" />
-        <title>Display Control</title>
+        <title>UUhimsy Menu Controls</title>
         <style>
             .button.l{
                 padding: 10px 14px;
@@ -656,17 +656,18 @@
 
                 //Listen for control related websocket messages
                 //PTZ camera 
-                window.addEventListener("ptz-message", async function (event) {
-                    console.log("ptz event!", event)
-                    let ptzValues = JSON.parse(event.detail.shortcutsResult)
-                    console.log(ptzValues, typeof ptzValues, ptzValues.pan )
-                    await obs.call("SetInputSettings", {
-                        inputName: 'PTZ values',
-                        inputSettings: {
-                            text: `${ptzValues.pan} ${ptzValues.tilt} ${ptzValues.zoom}`,
-                        }
-                    });
-                })
+                // window.addEventListener("ptz-message", async function (event) {
+                //     console.log("ptz event!", event)
+                //     let ptzValues = event.detail.ptzMessage
+                //     ptzValues = JSON.parse(ptzValues)
+                //     console.log(ptzValues, typeof ptzValues, ptzValues.pan )
+                //     await obs.call("SetInputSettings", {
+                //         inputName: 'PTZ values',
+                //         inputSettings: {
+                //             text: `${ptzValues.pan} ${ptzValues.tilt} ${ptzValues.zoom}`,
+                //         }
+                //     });
+                // })
     </script>
 
     <script id="ScreenShareFunctions">

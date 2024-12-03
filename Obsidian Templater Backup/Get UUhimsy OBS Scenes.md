@@ -1,3 +1,15 @@
+<%*_
+
+// OBS websocket connection variables
+var wssDetails = {
+"IP":"localhost",
+"PORT":"4455",
+"PW":"vtEFlZtq418ne9Ig"
+};
+
+// Templater code continues after the OBS Websocket Library 
+
+// OBS Websocket js library 
 var OBSWebSocket = (function () {
 
   function _defineProperties(target, props) {
@@ -3024,3 +3036,106 @@ var OBSWebSocket = (function () {
   return OBSWebSocket;
 
 })();
+
+//
+//CALL OBS
+//
+async function connectOBS(obs) {
+const websocketIP = wssDetails.IP
+const websocketPort = wssDetails.PORT
+
+websocketPassword = wssDetails.PW
+
+//connect to OBS web socket server
+try {
+const {
+obsWebSocketVersion,
+negotiatedRpcVersion
+} = await obs.connect(`ws://${websocketIP}:${websocketPort}`, websocketPassword, {
+
+rpcVersion: 1
+
+});
+
+console.log(`Connected to server ${obsWebSocketVersion} (using RPC ${negotiatedRpcVersion})`)
+
+console.log(`ws://${websocketIP}:${websocketPort}`)
+
+return obs;
+
+} catch (error) {
+console.error('Failed to connect', error.code, error.message);
+}
+
+obs.on('error', err => {
+console.error('Socket error:', err)
+
+})
+
+}
+
+
+//Start function calls
+const obs = new OBSWebSocket();
+wsConnect();
+
+async function wsConnect()
+{
+await connectOBS(obs);
+await createSceneTemplateNotes();
+await createCameraTemplateNotes();
+setTimeout(() => obs.disconnect(), 3000);
+}
+
+async function createSceneTemplateNotes() {
+const sceneList = await obs.call("GetSceneList");
+sceneList.scenes.forEach(async (scene, index) => {
+// find scenes starting with "Scene"
+if (scene.sceneName.startsWith("scene|||")) {
+const sceneName = scene.sceneName.split("|||");
+
+let fileName = `Entrance Scene - ${sceneName[1]}`;
+
+let existing = tp.file.find_tfile(`_templates/${fileName}`);
+
+if (!existing) {
+await tp.file.create_new(
+`<!-- slide data-scene-entrance="${sceneName[1]}" --> `,
+`_templates/${fileName}`);
+}
+
+fileName = `Exit Scene - ${sceneName[1]}`;
+existing = tp.file.find_tfile(`_templates/${fileName}`);
+
+if (!existing) {
+await tp.file.create_new(
+`<!-- slide data-scene-exit="${sceneName[1]}" --> `,
+`_templates/${fileName}`);
+}
+}
+});
+}
+
+async function createCameraTemplateNotes() {
+let cameraSources = await obs.call("GetSceneItemList", { sceneName: "Camera" });
+
+cameraSources.sceneItems.forEach(async(source, index) => {
+
+let fileName = `Entrance Camera - ${source.sourceName}`;
+let existing = tp.file.find_tfile(`_templates/${fileName}`);
+
+if (!existing) {
+await tp.file.create_new(
+`<!-- slide data-camera-entrance="${source.sourceName}" --> `, `_templates/${fileName}`);
+}
+
+fileName = `Exit Camera - ${source.sourceName}`;
+existing = tp.file.find_tfile(`_templates/${fileName}`);
+
+if (!existing) {
+await tp.file.create_new(`<!-- slide data-camera-exit="${source.sourceName}" --> `, `_templates/${fileName}`);
+}
+});
+}
+
+_%>

@@ -97,6 +97,7 @@ function setCurrentSlideAttribute(event, key, value){
     currentEvent.currentSlide.dataset[key] = value
 }
 
+//Reveal Slide transition started https://revealjs.com/events/#slide-changed
 Reveal.on('slidechanged', async (event) => {
   //get on exit attributes
     console.log(event)
@@ -104,10 +105,33 @@ Reveal.on('slidechanged', async (event) => {
     currentEvent = event
     currentSlideAttributes = {...event.previousSlide.dataset};
     if(currentSlideAttributes.hasOwnProperty("sceneExit")){
-        console.log("exit found")
+        console.log("exit scene found")
       obs.call('SetCurrentProgramScene', {sceneName: `scene|||${currentSlideAttributes.sceneExit}`})
     }
-    //setCurrentSlideAttribute(event,"candy","cane")
+
+    //Enable Source in Camera Scene 
+    if(currentSlideAttributes.hasOwnProperty("cameraExit")){
+      console.log("exit camera found")
+      let cameraSources = await obs.call("GetSceneItemList", { sceneName: "Camera" });
+      cameraSources.sceneItems.forEach(async (source) => {
+        if (source.sourceName === currentSlideAttributes.cameraExit ) {
+          await obs.call("SetSceneItemEnabled", {
+            sceneName: "Camera",
+            sceneItemId: source.sceneItemId,
+            sceneItemEnabled: true
+          });
+        } 
+        if (source.sourceName !== currentSlideAttributes.cameraExit){
+          await obs.call("SetSceneItemEnabled", {
+            sceneName: "Camera",
+            sceneItemId: source.sceneItemId,
+            sceneItemEnabled: false
+          });
+        }
+      });
+    }
+
+    //setCurrentSlideAttribute(event,"key","value")
     //console.log(currentSlideAttributes)
     
     //for (let [key, value] of Object.entries(currentSlideAttributes)) {
@@ -115,6 +139,7 @@ Reveal.on('slidechanged', async (event) => {
        //     console.log(`Key found ${key}, with value ${value}`);
         //}
    // }
+
     let slideNotes = Reveal.getSlideNotes()
     console.log(slideNotes)
     console.log(typeof slideNotes)
@@ -150,7 +175,42 @@ Reveal.on('slidechanged', async (event) => {
       }, 1000)
     );
   })
+
+  //Reveal Slide Transition ended https://revealjs.com/events/#slide-transition-end
+  Reveal.on('slidetransitionend', async (event) => {
+    //get on exit attributes
+      console.log(event)
+      // const dataAttr = JSON.parse(JSON.stringify(event.previousSlide.dataset));
+      currentEvent = event
+      currentSlideAttributes = {...event.previousSlide.dataset};
+      if(currentSlideAttributes.hasOwnProperty("sceneEntrance")){
+          console.log("exit scene found")
+        obs.call('SetCurrentProgramScene', {sceneName: `scene|||${currentSlideAttributes.sceneExit}`})
+      }
   
+      //Enable Source in Camera Scene 
+      if(currentSlideAttributes.hasOwnProperty("cameraEntrance")){
+        console.log("exit camera found")
+        let cameraSources = await obs.call("GetSceneItemList", { sceneName: "Camera" });
+        cameraSources.sceneItems.forEach(async (source) => {
+          if (source.sourceName === currentSlideAttributes.cameraExit ) {
+            await obs.call("SetSceneItemEnabled", {
+              sceneName: "Camera",
+              sceneItemId: source.sceneItemId,
+              sceneItemEnabled: true
+            });
+          } 
+          if (source.sourceName !== currentSlideAttributes.cameraExit){
+            await obs.call("SetSceneItemEnabled", {
+              sceneName: "Camera",
+              sceneItemId: source.sceneItemId,
+              sceneItemEnabled: false
+            });
+          }
+        });
+      }
+  })
+
   async function getTeleprompterSpeed() {
     teleprompterSpeed = await obs.call("GetSourceFilter", {
       sourceName: "Slide Notes Text",
