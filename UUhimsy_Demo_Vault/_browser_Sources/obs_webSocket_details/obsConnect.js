@@ -1,7 +1,7 @@
 async function connectOBS(obs) {
    const websocketIP = wssDetails.IP
     const websocketPort = wssDetails.PORT
-    websocketPassword = wssDetails.PW
+    const websocketPassword = wssDetails.PW
 
   //connect to OBS web socket server
   try {
