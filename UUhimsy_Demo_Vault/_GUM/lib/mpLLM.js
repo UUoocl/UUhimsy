@@ -17,9 +17,9 @@
 
 llmIsRunning = true;
 
-import {FilesetResolver, LlmInference} from '../mediapipe_tasks/tasks-genai/genai_bundle.mjs';
+import {FilesetResolver, LlmInference} from '/_GUM/mediapipe_tasks/tasks-genai/genai_bundle.mjs';
 
-const modelFileName = 'mediapipe_models/gemma-2b-it-gpu-int4.bin'; /* Update the file name */
+const modelFileName = '/_GUM/mediapipe_models/gemma-2b-it-gpu-int4.bin'; /* Update the file name */
 
 /**
  * Display newly generated partial results to the output text box.
@@ -46,7 +46,7 @@ let llmInference;
 async function runDemo() {
   console.log('Gemma started')
   const genaiFileset = await FilesetResolver.forGenAiTasks(
-    'mediapipe_tasks/tasks-genai/wasm');
+    '/_GUM/mediapipe_tasks/tasks-genai/wasm');
     
     submit.onclick = () => {
       gemmaOutput.textContent = '';

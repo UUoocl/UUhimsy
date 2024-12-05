@@ -8,7 +8,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-import { ImageSegmenter, FilesetResolver } from "../mediapipe_tasks/tasks-vision/vision_bundle.mjs";
+import { ImageSegmenter, FilesetResolver } from "/_GUM/mediapipe_tasks/tasks-vision/vision_bundle.mjs";
 // Get DOM elements
 const video = document.getElementById("videoStream");
 const canvasElement = document.getElementById("segmentationCanvas");
@@ -28,10 +28,10 @@ const legendColors = [
     [0, 0, 0, 255]//black
 ];
 const createImageSegmenter = async () => {
-    const vision = await FilesetResolver.forVisionTasks("mediapipe_tasks/tasks-vision/wasm");
+    const vision = await FilesetResolver.forVisionTasks("/_GUM/mediapipe_tasks/tasks-vision/wasm");
     imageSegmenter = await ImageSegmenter.createFromOptions(vision, {
         baseOptions: {
-            modelAssetPath: "mediapipe_models/selfie_segmenter.tflite",
+            modelAssetPath: "/_GUM/mediapipe_models/selfie_segmenter.tflite",
             
             delegate: "GPU"
         },

@@ -12,17 +12,17 @@ const text = [];
 import {
   TextClassifier,
   FilesetResolver,
-} from "../mediapipe_tasks/tasks-text/text_bundle.mjs";
+} from "/_GUM/mediapipe_tasks/tasks-text/text_bundle.mjs";
 
 let textClassifier;
 // Create the TextClassifier object upon page load
 const createTextClassifier = async () => {
   const text = await FilesetResolver.forTextTasks(
-    "mediapipe_tasks/tasks-text/wasm/"
+    "/_GUM/mediapipe_tasks/tasks-text/wasm/"
   );
   textClassifier = await TextClassifier.createFromOptions(text, {
     baseOptions: {
-      modelAssetPath: `mediapipe_models/bert_classifier.tflite`,
+      modelAssetPath: `/_GUM/mediapipe_models/bert_classifier.tflite`,
       delegate: "GPU",
     },
     maxResults: 5,

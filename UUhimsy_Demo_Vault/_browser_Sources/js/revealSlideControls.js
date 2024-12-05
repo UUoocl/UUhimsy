@@ -51,8 +51,8 @@ obs.on("SceneItemEnableStateChanged", async function (event) {
   }
 });
 
-//Add slide data tag from OBS to Reveal
-//Adding tags in Obsidian is a better approach.  
+// #region Add slide data tag from OBS to Reveal
+//--update: Adding tags in Obsidian is a better approach.  
 //delete this function 
 obs.on("InputSettingsChanged", async function(event){
   let tags = ["SceneTag", "CameraTag"];
@@ -105,6 +105,7 @@ obs.on("InputSettingsChanged", async function(event){
 function setCurrentSlideAttribute(event, key, value){
     currentEvent.currentSlide.dataset[key] = value
 }
+// #endregion
 
 //Reveal Slide transition started https://revealjs.com/events/#slide-changed
 Reveal.on('slidechanged', async (event) => {
@@ -141,6 +142,7 @@ Reveal.on('slidechanged', async (event) => {
       });
     }
 
+    //Call Apple ShortCut
     if(currentSlideAttributes.hasOwnProperty("shortcutExit")){
       console.log("exit shortcut found", event)
       const shortcutName = JSON.stringify(currentSlideAttributes.shortcutExit)
@@ -162,7 +164,8 @@ Reveal.on('slidechanged', async (event) => {
         //}
    // }
 
-    let slideNotes = Reveal.getSlideNotes()
+    let slideNotes = await Reveal.getSlideNotes()
+    //let slideNotes = "Reveal.getSlideNotes()"
     console.log(slideNotes)
     console.log(typeof slideNotes)
     console.log(slideNotes.length)
@@ -170,7 +173,7 @@ Reveal.on('slidechanged', async (event) => {
     await obs.call("SetInputSettings", {
       inputName: "Slide Notes Text",
       inputSettings: {
-        text: slideNotes
+        text: slideNotes.replace(/<[^>]*>/g, '')
       }
     });
 

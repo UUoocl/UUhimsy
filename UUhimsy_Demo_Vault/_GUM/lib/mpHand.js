@@ -27,7 +27,7 @@ import {
   HandLandmarker,
   FilesetResolver,
   DrawingUtils,
-} from "../mediapipe_tasks/tasks-vision/vision_bundle.mjs";
+} from "/_GUM/mediapipe_tasks/tasks-vision/vision_bundle.mjs";
 //console.log("listening for rtc-connected-",rtcID )
 //console.log("Module started");
 
@@ -35,11 +35,11 @@ var handLandmarker = undefined;
 
 async function createHandLandmarker() {
   const vision = await FilesetResolver.forVisionTasks(
-    "mediapipe_tasks/tasks-vision/wasm"
+    "/_GUM/mediapipe_tasks/tasks-vision/wasm"
   );
   handLandmarker = await HandLandmarker.createFromOptions(vision, {
     baseOptions: {
-      modelAssetPath: `mediapipe_models/hand_landmarker.task`,
+      modelAssetPath: `/_GUM/mediapipe_models/hand_landmarker.task`,
       delegate: "GPU",
     },
     runningMode: "VIDEO",
