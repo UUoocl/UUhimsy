@@ -25,7 +25,7 @@ bg: transparent
 <!-- slide data-scene-exit="Reveal-OTS" --> 
 
  <!-- slide data-camera-exit="Wide" --> 
-NOTES: Hello 
+NOTE: Hello 
 World!
 extra 
 text-654654
@@ -39,7 +39,12 @@ test test test
 
 reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
 
-notes: more notes
+<aside class="notes">
+    Shhh, these are your private notes 📝
+  </aside>
+
+
+note: more notes
 
 <!-- slide data-scene-exit="Reveal-OTS" --> 
 

@@ -179,31 +179,11 @@
                 console.log("get Scenes done",collection)
             }
 
-
-
         async function getSlideControlSceneItems() {
             slideControlSources = await obs.call("GetSceneItemList", { sceneName: "Slide Controls" });
         }       
-
-        async function getTeleprompterSize() {
-            teleprompterSize = await obs.call("GetInputSettings", {
-                inputName: "Slide Notes Text"
-            });
-            teleprompterSize = teleprompterSize.inputSettings.font.size;
-            document.getElementById("sizeValue").value = teleprompterSize;
-        }
-
-        async function getTeleprompterSpeed() {
-            teleprompterSpeed = await obs.call("GetSourceFilter", {
-                sourceName: "Slide Notes Text",
-                filterName: "Scroll"
-            });
-            teleprompterSpeed = teleprompterSpeed.filterSettings.speed_y;
-            document.getElementById("speedValue").value = teleprompterSpeed;
-        }
      </script>
 
-    
     <script id="createButtons">
         let buttons=[];
         let buttonPadding = 35
@@ -233,36 +213,37 @@
             }
             
             buttons[i+=1] = createButton(`Next Slide (${nextSlide_HK})`).position(0, (15+buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button l').id('nextSlideButton').mousePressed(async()=>{
-                enableSource("Slide Controls", "NextSlide")
+                //enableSource("Slide Controls", "NextSlide");
+                sendButtonCustomEvent("nextSlide");
             })
             buttons[i+=1] = createButton(`Previous Slide (${previousSlide_HK})`).position(0, (buttonPadding-10)+(buttons[i-1].y+buttons[i-1].height)).class('button l').id('prevSlideButton').mousePressed(async()=>{
-                enableSource("Slide Controls", "PreviousSlide")
+               sendButtonCustomEvent("previousSlide")
             })
             buttons[i+=1] = createButton(`Prompter Text Size`).position(0, (buttonPadding-10)+(buttons[i-1].y+buttons[i-1].height)).class('button l outline')
             buttons[i+=1] = createButton(`- (${prompterFontDecrease_HK})`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
             {
-                hotkeyUpdate(prompterFontDecrease_HK)
-                enableSource("Slide Controls", "Text Smaller")
+                //hotkeyUpdate(prompterFontDecrease_HK)
+                changeTeleprompterTextSize(-1)
             })
             buttons[i+=1] = createButton(`+ (${prompterFontIncrease_HK})`).position(windowWidth/2, buttonPadding+25+(buttons[i-2].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
             {
-                hotkeyUpdate(prompterFontIncrease_HK)
-                enableSource("Slide Controls", "Text Bigger")
+                //hotkeyUpdate(prompterFontIncrease_HK)
+                changeTeleprompterTextSize(1)
             })
             buttons[i+=1] = createButton(`Prompter ScrollSpeed`).position(0,buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button outline')
             buttons[i+=1] = createButton(`- (${prompterScrollDecrease_HK})`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
             {
-                hotkeyUpdate(prompterScrollDecrease_HK);
-                enableSource("Slide Controls", "Scroll Slower");
+                //hotkeyUpdate(prompterScrollDecrease_HK);
+                changeTeleprompterScrollSpeed(-1)
             })
             buttons[i+=1] = createButton(`+ (${prompterScrollIncrease_HK})`).position(windowWidth/2, buttonPadding+25+(buttons[i-2].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
             {
-                hotkeyUpdate(prompterScrollIncrease_HK)
-                enableSource("Slide Controls", "Scroll Faster")
+                //hotkeyUpdate(prompterScrollIncrease_HK)
+                changeTeleprompterScrollSpeed(1)
             })
             buttons[i+=1] = createButton(`Play / Pause ⏯️ (${prompterPlayPause_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>{
-                hotkeyUpdate(prompterPlayPause_HK)
-                enableSource("Slide Controls", "Play-Pause")
+                //hotkeyUpdate(prompterPlayPause_HK)
+                pauseTeleprompterScroll()
             })
         }
         async function createTagSlideButtons(){    
@@ -330,6 +311,15 @@
                         });
                 })
             });
+        }
+
+        async function sendButtonCustomEvent(eventName, eventData) {
+            let data = eventData
+            obs.call("BroadcastCustomEvent", {
+            eventData: {
+              event_name: eventName,
+            },
+          });
         }
 
         async function enableSource(sceneName, sourceName) {
@@ -654,19 +644,20 @@
                     }
                 })
 
-                //Listen for control related websocket messages
-                //PTZ camera 
-                window.addEventListener("ptz-message", async function (event) {
-                    console.log("ptz event!", event)
-                    let ptzValues = JSON.parse(event.detail.shortcutsResult)
-                    console.log(ptzValues, typeof ptzValues, ptzValues.pan )
-                    await obs.call("SetInputSettings", {
-                        inputName: 'PTZ values',
-                        inputSettings: {
-                            text: `${ptzValues.pan} ${ptzValues.tilt} ${ptzValues.zoom}`,
-                        }
-                    });
-                })
+                // //Listen for control related websocket messages
+                // //PTZ camera 
+                // window.addEventListener("ptz-message", async function (event) {
+                //     console.log("ptz event!", event)
+                //     let ptzValues = JSON.parse(event.detail.shortcutsResult)
+                //     console.log(ptzValues, typeof ptzValues, ptzValues.pan )
+                //     await obs.call("SetInputSettings", {
+                //         inputName: 'PTZ values',
+                //         inputSettings: {
+                //             text: `${ptzValues.pan} ${ptzValues.tilt} ${ptzValues.zoom}`,
+                //         }
+                //     });
+                // })
+
     </script>
 
     <script id="ScreenShareFunctions">
@@ -927,7 +918,7 @@
 }
 
 
-//Future Functions
+// #region Future Functions
 function moveMouse(coordinates){}
 
 // Change the shape around the mouse
@@ -943,6 +934,7 @@ function setZoom(){
     // zoom increase
         // zoom decrease
         }  
+// #endregion
     </script>
     
     <script id="ShareScreenVariables">
@@ -991,6 +983,76 @@ function setZoom(){
         console.log('browser refresh complete')
         }
 
+    </script>
+
+    <script id="teleprompterSettings">
+        
+        async function getTeleprompterSize() {
+            teleprompterSize = await obs.call("GetInputSettings", {
+                inputName: "Slide Notes Text"
+            });
+            return teleprompterSize.inputSettings.font.size;
+            //document.getElementById("sizeValue").value = teleprompterSize;
+        }
+        
+        async function getTeleprompterSpeed() {
+            const teleprompterSpeed = await obs.call("GetSourceFilter", {
+                sourceName: "Slide Notes Text",
+                filterName: "Scroll"
+            });
+            return teleprompterSpeed.filterSettings.speed_y;
+            //document.getElementById("speedValue").value = teleprompterSpeed;
+        }
+        
+        async function changeTeleprompterScrollSpeed(change){
+            const teleprompterSpeed = await getTeleprompterSpeed();
+            console.log("speed", teleprompterSpeed)
+            await obs.call("SetSourceFilterSettings", {
+                sourceName: "Slide Notes Text",
+                filterName: "Scroll",
+                filterSettings: {
+                    speed_y: teleprompterSpeed + change
+                }
+            });
+            console.log("speed", teleprompterSpeed)
+        }
+
+        async function changeTeleprompterTextSize(change) {   
+            const teleprompterSize = await getTeleprompterSize()
+            await obs.call("SetInputSettings", {
+                inputName: "Slide Notes Text",
+                inputSettings: {
+                font: {
+                    size: teleprompterSize + change
+                }
+            }
+            })
+        }
+
+        let pausedTeleprompterSpeed
+        async function pauseTeleprompterScroll() {
+            const currentSpeed = await getTeleprompterSpeed();
+            if(currentSpeed > 1 ){
+                //Pause
+                pausedTeleprompterSpeed = await getTeleprompterSpeed();
+                await obs.call("SetSourceFilterSettings", {
+                sourceName: "Slide Notes Text",
+                filterName: "Scroll",
+                filterSettings: {
+                    speed_y: .001
+                }
+            });
+        } else {
+                //Play
+                await obs.call("SetSourceFilterSettings", {
+                sourceName: "Slide Notes Text",
+                filterName: "Scroll",
+                filterSettings: {
+                    speed_y: pausedTeleprompterSpeed
+                }
+            });
+            }
+        }
     </script>
 </body>
 

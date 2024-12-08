@@ -1,151 +1,122 @@
 var currentSlideAttributes, 
   currentfragment, 
   currentEvent, 
-  teleprompterSpeed,
   comparisonOp,
   targetValue;
+  
+  //create an array of all the Custom Event Functions
+  const customEventFunctions = getCustomFunctionNames("Event");
+  const customSlideAttributeFunctions = getCustomFunctionNames("SlideAttribute");
 
-//Controls triggered by OBS sources enabled status 
-obs.on("SceneItemEnableStateChanged", async function (event) {
-  //if slide control source changed
-  if (event.sceneItemEnabled === true && event.sceneName === "Slide Controls") {
-    //get source name
-    const sceneItem = await obs.call("GetSceneItemSource", {
-      sceneName: "Slide Controls",
-      sceneItemId: event.sceneItemId,
-    });
-
-    console.log("change", sceneItem);
-    const control = sceneItem.sourceName;
-
-    //if next
-    switch (control) {
-      case "NextSlide":
-        Reveal.next();
-        break;
-      case "PreviousSlide":
-        Reveal.prev();
-        break;
-      case "Play-Pause":
-        //  togglePlayPause();
-        break;
-      case "Text Smaller":
-        //  changeTeleprompterSize({ data: { change: -1 } });
-        break;
-      case "Text Bigger":
-        //  changeTeleprompterSize({ data: { change: 1 } });
-        break;
-      case "Scroll Slower":
-        //  changeTeleprompterSpeed({ data: { change: -1 } });
-        break;
-      case "Scroll Faster":
-        //  changeTeleprompterSpeed({ data: { change: 1 } });
-        break;
+  function getCustomFunctionNames(type){
+    const functionNames = [];
+    for (const property in window) {
+      if (typeof window[property] === 'function' && property.startsWith(`custom${type}`)) {
+        functionNames.push(property);
+      }
     }
-
-    await obs.call("SetSceneItemEnabled", {
-      sceneName: "Slide Controls",
-      sceneItemId: event.sceneItemId,
-      sceneItemEnabled: false,
-    });
+    return functionNames;
   }
-});
-
-// #region Add slide data tag from OBS to Reveal
-//--update: Adding tags in Obsidian is a better approach.  
-//delete this function 
-obs.on("InputSettingsChanged", async function(event){
-  let tags = ["SceneTag", "CameraTag"];
-  if(tags.includes(event.inputName)){
-    console.table(event.inputSettings.text)
-    //split tag 
-    tag = event.inputSettings.text.split("|")
-    //let currentSlide = document.querySelector(".present")
-    //add tag to slide attributes
-    let currentSlide = document.getElementsByClassName("present")[0]
-    console.log(currentSlide.dataset);
-    currentSlide.dataset[`${tag[0]}`] = tag[1];
-    console.log(currentSlide.dataset[`${tag[0]}`])
-    console.log(tag[0])
-    console.log(tag[0].startsWith('scene'))
-    //change to selected tag scene 
-    switch(tag[0].slice(0,8)){
-      case ('sceneEnt'):
-        console.log("switch 1 true", tag[1])
-      obs.call('SetCurrentProgramScene', {sceneName: `scene|||${tag[1]}`})
-      break;
-      case ('cameraEn'):
-        console.log("switch 2 true", tag[1])
-        //obs.call("SetCurrentProgramScene", { sceneName: `scene|||${tag[1]}` });
-        let cameraSources = await obs.call("GetSceneItemList", {
-          sceneName: "Camera",
-        });
-        cameraSources.sceneItems.forEach(async (source) => {
-          if (source.sourceName === tag[1]) {
-            await obs.call("SetSceneItemEnabled", {
-              sceneName: "Camera",
-              sceneItemId: source.sceneItemId,
-              sceneItemEnabled: true,
-            });
-          }
-          if (source.sourceName !== tag[1]) {
-            await obs.call("SetSceneItemEnabled", {
-              sceneName: "Camera",
-              sceneItemId: source.sceneItemId,
-              sceneItemEnabled: false,
-            });
-          }
-        });
-      break;
+    
+  console.log(customEventFunctions); 
+  console.log(customSlideAttributeFunctions); 
+  
+  //If the CustomEvent is in the customEvent array, then run the matching function
+  obs.on("CustomEvent", async function (event) {
+    console.log("CustomEvent Received",event)
+    if (customEventFunctions.includes(`customEvent_${event.event_name}`)) {
+      //console.log("CustomEvent found")
+      window[`customEvent_${event.event_name}`]();
     }
-  }
-});
+  });
 
-//Set Reveal Slide Data Attribute test
-function setCurrentSlideAttribute(event, key, value){
-    currentEvent.currentSlide.dataset[key] = value
+function customEvent_nextSlide(){
+  Reveal.next();
 }
-// #endregion
+
+function customEvent_previousSlide(){
+  Reveal.prev();
+}
+
+//Reveal Slide events Slide change started or Ended, Fragment shown or hidden
 
 //Reveal Slide transition started https://revealjs.com/events/#slide-changed
 Reveal.on('slidechanged', async (event) => {
   //get on exit attributes
     console.log(event)
-    // const dataAttr = JSON.parse(JSON.stringify(event.previousSlide.dataset));
-    currentEvent = event
-    currentSlideAttributes = {...event.previousSlide.dataset};
+    slideAttributeFunctions(event, "Exit")
+    sendNotes()
+    
+})
 
-    if(currentSlideAttributes.hasOwnProperty("sceneExit")){
-        console.log("exit scene found")
-      obs.call('SetCurrentProgramScene', {sceneName: `scene|||${currentSlideAttributes.sceneExit}`})
-    }
+  //Reveal Slide Transition ended https://revealjs.com/events/#slide-transition-end
+Reveal.on('slidetransitionend', async (event) => {
+  //get on exit attributes
+    console.log(event)
+    slideAttributeFunctions(event, "Entrance")
+})
 
-    //Enable Source in Camera Scene 
-    if(currentSlideAttributes.hasOwnProperty("cameraExit")){
-      console.log("exit camera found")
-      let cameraSources = await obs.call("GetSceneItemList", { sceneName: "Camera" });
-      cameraSources.sceneItems.forEach(async (source) => {
-        if (source.sourceName === currentSlideAttributes.cameraExit ) {
-          await obs.call("SetSceneItemEnabled", {
-            sceneName: "Camera",
-            sceneItemId: source.sceneItemId,
-            sceneItemEnabled: true
-          });
-        } 
-        if (source.sourceName !== currentSlideAttributes.cameraExit){
-          await obs.call("SetSceneItemEnabled", {
-            sceneName: "Camera",
-            sceneItemId: source.sceneItemId,
-            sceneItemEnabled: false
-          });
-        }
-      });
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//create fragment attribute actions
+Reveal.on('fragmentshown', (event) => {
+  console.log(event)
+  // const dataAttr = JSON.parse(JSON.stringify(event.previousSlide.dataset));
+  event.fragment.dataset.fun = "coding"
+  const dataAttr = {...event.fragment.dataset};
+  console.log(dataAttr)
+  
+  for (let [key, value] of Object.entries(dataAttr)) {
+      if(key){
+          console.log(`Key found ${key}, with value ${value}`);
+      }
+  }
+})
+
+//Loop through each slide attribute and run any matches
+function slideAttributeFunctions(slideEvent, eventType){
+    currentSlideAttributes = {...slideEvent.previousSlide.dataset};
+    //console.log(currentSlideAttributes, typeof currentSlideAttributes)
+    for (const [attribute, value] of Object.entries(currentSlideAttributes)){
+      //console.log("attribute",attribute, value)
+      const attr = attribute.replace(eventType,"")
+      if(customSlideAttributeFunctions.includes(`customSlideAttribute_${attr}`)){
+        window[`customSlideAttribute_${attr}`](value);
+      }
     }
+  }
+
+  //Switch to Scene
+  function customSlideAttribute_scene(scene){
+    console.log(`scene found ${scene}`)
+    obs.call('SetCurrentProgramScene', {sceneName: `scene|||${scene}`})
+  }
+  
+  //Enable Source in Camera Scene 
+  async function customSlideAttribute_camera(cameraView){
+    console.log(`camera found ${cameraView}`)
+    let cameraSources = await obs.call("GetSceneItemList", { sceneName: "Camera" });
+    cameraSources.sceneItems.forEach(async (source) => {
+    if (source.sourceName === cameraView ) {
+      await obs.call("SetSceneItemEnabled", {
+          sceneName: "Camera",
+          sceneItemId: source.sceneItemId,
+          sceneItemEnabled: true
+        });
+      } 
+    if (source.sourceName !== cameraView){
+      await obs.call("SetSceneItemEnabled", {
+          sceneName: "Camera",
+          sceneItemId: source.sceneItemId,
+          sceneItemEnabled: false
+        });
+      }
+    });
+  }
 
     //Call Apple ShortCut
-    if(currentSlideAttributes.hasOwnProperty("shortcutExit")){
-      console.log("exit shortcut found", event)
-      const shortcutName = JSON.stringify(currentSlideAttributes.shortcutExit)
+   function customSlideAttribute_shortcutExit(shortCut){
+      console.log("exit shortcut found", shortCut)
+      const shortcutName = JSON.stringify(shortCut)
       console.log(shortcutName)
       obs.call("BroadcastCustomEvent", {
         eventData: {
@@ -153,6 +124,29 @@ Reveal.on('slidechanged', async (event) => {
           shortcut_name: shortcutName,
         },
       });
+  }
+
+  //use PTZ value to change slide
+  async function customSlideAttribute_ptzListen(){
+    console.log("starting PTZ value")
+    listenForPTZ = true;
+    comparisonOp = currentSlideAttributes.ptzListen.substr(0,1)
+    targetValue = currentSlideAttributes.ptzListen.substr(1)
+    window.addEventListener('ptz-message', ptzTrigger);
+      
+    async function ptzTrigger(event) {
+      console.log("ptz event!",event) 
+      ptzObj = JSON.parse(event.detail.ptzMessage)
+      if(comparisonOp === "<" && ptzObj.pan < targetValue){
+        Reveal.next();
+        window.removeEventListener('ptz-message', ptzTrigger);
+      }
+      console.log(`if ${ptzObj.pan} ${comparisonOp} ${targetValue}`)
+      if(comparisonOp === ">" && ptzObj.pan > targetValue){
+        Reveal.next();
+        window.removeEventListener('ptz-message', ptzTrigger);
+    }
+  }
   }
 
     //setCurrentSlideAttribute(event,"key","value")
@@ -164,12 +158,15 @@ Reveal.on('slidechanged', async (event) => {
         //}
    // }
 
+   async function sendNotes(){
     let slideNotes = await Reveal.getSlideNotes()
     //let slideNotes = "Reveal.getSlideNotes()"
-    console.log(slideNotes)
+    console.log("New Notes function",slideNotes)
     console.log(typeof slideNotes)
+    console.log(slideNotes)
     console.log(slideNotes.length)
 
+    //send notes to text source teleprompter
     await obs.call("SetInputSettings", {
       inputName: "Slide Notes Text",
       inputSettings: {
@@ -177,11 +174,23 @@ Reveal.on('slidechanged', async (event) => {
       }
     });
 
-    //await getTeleprompterSpeed() 
+    //send notes to browser teleprompter
+    obs.call("CallVendorRequest", {
+        vendorName: "obs-browser",
+        requestType: "emit_event",
+        requestData: {
+            event_name: "slideChangeResult",
+            event_data: { notes: `${JSON.stringify(slideNotes)}`},
+        },
+    });
+
+    //get scroll speed 
     
-    //Reset the teleprompter
-    await obs
-    .call("SetSourceFilterSettings", {
+    const teleprompterSpeed = await getTeleprompterSpeed()
+    
+    console.log("speed", teleprompterSpeed)
+    //Reset the text source teleprompter
+    await obs.call("SetSourceFilterSettings", {
       sourceName: "Slide Notes Text",
       filterName: "Scroll",
       filterSettings: {
@@ -194,155 +203,154 @@ Reveal.on('slidechanged', async (event) => {
           sourceName: "Slide Notes Text",
           filterName: "Scroll",
           filterSettings: {
-            speed_y: 15 //teleprompterSpeed
+            speed_y: teleprompterSpeed
           }
         });
       }, 1000)
     );
-  })
-
-  //Reveal Slide Transition ended https://revealjs.com/events/#slide-transition-end
-  Reveal.on('slidetransitionend', async (event) => {
-    //get on exit attributes
-      console.log(event)
-      // const dataAttr = JSON.parse(JSON.stringify(event.previousSlide.dataset));
-      currentEvent = event
-      currentSlideAttributes = {...event.currentSlide.dataset};
-      if(currentSlideAttributes.hasOwnProperty("sceneEntrance")){
-          console.log("exit scene found")
-        obs.call('SetCurrentProgramScene', {sceneName: `scene|||${currentSlideAttributes.sceneExit}`})
-      }
-
-    //use PTZ value to change slide
-    if(currentSlideAttributes.hasOwnProperty("ptzListen")){
-      console.log("starting for PTZ value")
-      listenForPTZ = true;
-      comparisonOp = currentSlideAttributes.ptzListen.substr(0,1)
-      targetValue = currentSlideAttributes.ptzListen.substr(1)
-      window.addEventListener('ptz-message', ptzTrigger);
-        
-      async function ptzTrigger(event) {
-        console.log("ptz event!",event) 
-        ptzObj = JSON.parse(event.detail.ptzMessage)
-        if(comparisonOp === "<" && ptzObj.pan < targetValue){
-          Reveal.next();
-          window.removeEventListener('ptz-message', ptzTrigger);
-        }
-        console.log(`if ${ptzObj.pan} ${comparisonOp} ${targetValue}`)
-        if(comparisonOp === ">" && ptzObj.pan > targetValue){
-          Reveal.next();
-          window.removeEventListener('ptz-message', ptzTrigger);
-        }
-      }
-    }
-  
-      //Enable Source in Camera Scene 
-      if(currentSlideAttributes.hasOwnProperty("cameraEntrance")){
-        console.log("exit camera found")
-        let cameraSources = await obs.call("GetSceneItemList", { sceneName: "Camera" });
-        cameraSources.sceneItems.forEach(async (source) => {
-          if (source.sourceName === currentSlideAttributes.cameraExit ) {
-            await obs.call("SetSceneItemEnabled", {
-              sceneName: "Camera",
-              sceneItemId: source.sceneItemId,
-              sceneItemEnabled: true
-            });
-          } 
-          if (source.sourceName !== currentSlideAttributes.cameraExit){
-            await obs.call("SetSceneItemEnabled", {
-              sceneName: "Camera",
-              sceneItemId: source.sceneItemId,
-              sceneItemEnabled: false
-            });
-          }
-        });
-      }
-  })
-
-  async function getTeleprompterSpeed() {
-    teleprompterSpeed = await obs.call("GetSourceFilter", {
-      sourceName: "Slide Notes Text",
-      filterName: "Scroll"
-    });
-    teleprompterSpeed = teleprompterSpeed.filterSettings.speed_y;
-    //document.getElementById("speedValue").value = teleprompterSpeed;
   }
 
-Reveal.on('fragmentshown', (event) => {
-    console.log(event)
-    // const dataAttr = JSON.parse(JSON.stringify(event.previousSlide.dataset));
-    event.fragment.dataset.fun = "coding"
-    const dataAttr = {...event.fragment.dataset};
-    console.log(dataAttr)
-    
-    for (let [key, value] of Object.entries(dataAttr)) {
-        if(key){
-            console.log(`Key found ${key}, with value ${value}`);
+  async function getTeleprompterSpeed() {
+    let speed = await obs.call("GetSourceFilter", {
+        sourceName: "Slide Notes Text",
+        filterName: "Scroll"
+    });
+    console.log("speed",speed)
+    return speed.filterSettings.speed_y;
+    //document.getElementById("speedValue").value = teleprompterSpeed;
+}
+
+  //midi input
+  window.addEventListener("midi-message", function (event) {
+    console.log("midi event",event)
+    let midiData = JSON.stringify(JSON.parse(event.detail.midiEvent).data);
+    console.log("midi data", typeof midiData, midiData)
+    console.log(`midiData ${midiData}===[144,107,127]`,midiData ==="[144,107,127]")
+    switch (midiData) {
+      //Get Slide details
+      // case "[144,105,127]":
+      //   setCommandText(`shortcuts run "Keynote_currentSlide_GUM" &`)
+      //   break;
+      //Next Slide
+      case "[176,23,127]":
+      case "[144,107,127]":
+        Reveal.next();
+        break;
+      //Previous Slide
+      case "[176,22,127]":
+      case "[144,106,127]":
+        Reveal.prev();
+        break;
+
+      //Camera Pan
+      case midiData.startsWith("[176,48,") ? midiData : '':
+        console.log("volume fader moved")
+        //get fader value 0 - 127
+        let panFader = JSON.parse(midiData)[2]
+        console.log("fader value: ", panFader)
+        //if fader is divisible by 8 then send the camera command 
+        if (panFader % 1 === 0) {
+          //scale fader to camera pan -468000 to +468000. 
+          ptzPan = Math.round(((7370.07874 * panFader) - 468000))
+          //send pan command to camera 0
+          if (!ptzWaiting){
+            ptzWaiting = true
+            setTimeout(() => {
+////////////send the command to the obsidian whimsy script
+              setCommandText(`Applications/Utilities/uvc-util -I 0 -s pan-tilt-abs="{${ptzPan},${ptzTilt}}"`);
+              ptzWaiting = false
+            }, 300); 
+          }
         }
+        break;
+      //Camera Tilt
+      case midiData.startsWith("[176,49,") ? midiData : '':
+        let tiltFader = JSON.parse(midiData)[2]
+        console.log("fader value: ", tiltFader)
+        if (tiltFader % 1 === 0) {
+          //scale fader to camera tilt -324000 to +324000. 
+          ptzTilt = Math.round(((5102.362205 * tiltFader) - 324000))
+          if (!ptzWaiting){
+            ptzWaiting = true
+            setTimeout(() => {
+              setCommandText(`Applications/Utilities/uvc-util -I 0 -s pan-tilt-abs="{${ptzPan},${ptzTilt}}"`);
+              ptzWaiting = false
+            }, 300); 
+          }
+        }
+        break;
+      //Camera Zoom 
+      case midiData.startsWith("[176,50,") ? midiData : '':
+        let zoomFader = JSON.parse(midiData)[2]
+        console.log("fader value: ", zoomFader)
+        if (zoomFader % 4 === 0) {
+          //scale fader to camera zoom 0 - 100. 
+          ptzZoom = Math.round(((zoomFader + 1) / 128) * 100)
+          console.log("zoom value: ", ptzZoom)
+          //send pan command to camera 0
+          setCommandText(`Applications/Utilities/uvc-util -I 0 -s zoom-abs="${ptzZoom}"`)
+        }
+        break;
+      //Camera Focus 
+      case midiData.startsWith("[176,51,") ? midiData : '':
+        let focusFader = JSON.parse(midiData)[2]
+        console.log("fader value: ", focusFader)
+        if (focusFader % 4 === 0) {
+          //scale fader to camera zoom 0 - 100. 
+          ptzFocus = Math.round(((focusFader + 1) / 128) * 100)
+          console.log("focus value: ", ptzFocus)
+          //send pan command to camera 0
+          setCommandText(`Applications/Utilities/uvc-util -I 0 -s auto-focus="false"`)
+          setCommandText(`Applications/Utilities/uvc-util -I 0 -s focus-abs="${ptzFocus}"`)
+        }
+        break;
+      //Auto focus on/off
+      case "[144,103,127]":
+        setCommandText(`Applications/Utilities/uvc-util -I 0 -s auto-focus="true"`)
+        break;
     }
-})
+  });
 
-//     let slideTitle = Reveal.getCurrentSlide().attributes.id ? Reveal.getCurrentSlide().attributes.id.value : ""
-//     let slideScene = ''
-//     //if notes contains '|' split text. 
-//     if(slideNotes.includes("|")){
-        
-//         slideNotes = slideNotes.split("|")
-//         slideScene = slideNotes[0];
-//         slideNotes = slideNotes[1];
-//     }
-
-//     //Get Available Routes
-//     let currentIndex = Reveal.getIndices()
-// //    console.log(JSON.stringify(currentIndex))
-//     let availableRoutes = Reveal.availableRoutes();
-//     // console.log(Reveal.availableRoutes());
-//     // console.log(availableRoutes);
-//     // console.log(availableRoutes.down);
-//     // console.log(availableRoutes.right);
-//     //If Down route available, Get Down Slide ID and Notes
-//     let nextSlideTitle,nextSlideNotes, nextSlideScene="";
-//     if(availableRoutes.down === true){
-//         nextSlideTitle = Reveal.getSlide(currentIndex.h,currentIndex.v+1).attributes.id ? Reveal.getSlide(currentIndex.h,currentIndex.v+1).attributes.id.value : "";
-//         nextSlideNotes = Reveal.getSlideNotes(Reveal.getSlide(currentIndex.h,currentIndex.v+1))
-//     }
-//     //else If Right, get Right Slide ID and Notes
-//     else if(availableRoutes.right === true){
-//         nextSlideTitle = Reveal.getSlide(currentIndex.h+1).attributes.id ? Reveal.getSlide(currentIndex.h+1).attributes.id :""
-//         nextSlideNotes = Reveal.getSlideNotes(Reveal.getSlide(currentIndex.h+1))
-//     }
-//     //else end of slides
-//     else{
-//         nextSlideTitle = "End of Slides"
-//         nextSlideNotes = "End of Slides"
-//     }
-
-//     if(nextSlideNotes.includes("|")){
-//         nextSlideNotes = nextSlideNotes.split("|")
-//         nextSlideScene = nextSlideNotes[0];
-//         nextSlideNotes = nextSlideNotes[1];
-//     }else{nextSlideScene = ""}
-  
-// let results = `{"app":"reveal","actionName":"${direction}", "slideNumber": "","slideScene":${JSON.stringify(slideScene)}, "slideNotes": ${JSON.stringify(slideNotes)}, "slideTitle": ${JSON.stringify(slideTitle)},"nextSlideNumber": "","nextSlideScene":${JSON.stringify(nextSlideScene)}, "nextSlideNotes": ${JSON.stringify(nextSlideNotes)}, "nextSlideTitle": ${JSON.stringify(nextSlideTitle)}}`
-
-// results = JSON.stringify(results);
-// //console.log(results)
-// //results = results.replace('“','"').replace('”','"').replace('“','"').replace('”','"')
-// //send results to OBS Browser Source
-
-// //when slide changes send new notes to teleprompter. 
-// // console.log("currentIndex.h === previousSlideIndex.h", currentIndex.h , previousSlideIndex.h, currentIndex.h === previousSlideIndex.h)
-// // console.log("currentIndex.v === previousSlideIndex.v", currentIndex.v , previousSlideIndex.v, currentIndex.v === previousSlideIndex.v)
-
-// if(!((currentIndex.h === previousSlideIndex.h) && (currentIndex.v === previousSlideIndex.v))){
-//     console.log("Send results")
-//     previousSlideIndex = currentIndex;
-// obs.call("CallVendorRequest", {
-//     vendorName: "obs-browser",
-//     requestType: "emit_event",
-//     requestData: {
-//         event_name: "slideChangeResult",
-//         event_data: { results },
-//     },
-// });
-// }
+      //gamepad
+      window.addEventListener("gamepad-message", function (event) {
+        let gamepadData = JSON.parse(event.detail.gamepadEvent);
+        //Next slide code
+        if (gamepadData.buttons[1].value === 1) {
+          Reveal.next()
+        }
+        //Previous slide code
+        if (gamepadData.buttons[3].value === 1) {
+          Reveal.prev()
+        }
+      });
+      
+      //mediapipe pose
+      window.addEventListener("pose-landmarks", function (event) {
+        if(event.detail.poseLandmarkerResult[16].y < event.detail.poseLandmarkerResult[0].y && poseNextControl ==='off'){
+          Reveal.next()
+          poseNextControl = 'on';
+        }
+        if(event.detail.poseLandmarkerResult[16].y > event.detail.poseLandmarkerResult[0].y){
+          poseNextControl = "off";
+        }
+        if(event.detail.poseLandmarkerResult[15].y < event.detail.poseLandmarkerResult[0].y && posePreviousControl ==='off'){
+          Reveal.prev()
+          posePreviousControl = 'on';
+        }
+        if(event.detail.poseLandmarkerResult[15].y > event.detail.poseLandmarkerResult[0].y){
+          posePreviousControl = "off";
+        }
+      });  
+      
+      //ZoomOSC 
+      //OSC to Websocket https://github.com/UUoocl/OSC_to_OBS_WebSocket  
+      window.addEventListener("zoomOSC-message", function (event) {
+        console.log(event)
+        let zoomMessage = JSON.parse(JSON.parse(JSON.stringify(event.detail.webSocketMessage)))
+        console.log(typeof zoomMessage, zoomMessage)
+        console.log(zoomMessage[0])
+        //Next slide on hand raised
+        if (zoomMessage[0].includes("/handRaised")) {
+          Reveal.next()
+        }
+      });
