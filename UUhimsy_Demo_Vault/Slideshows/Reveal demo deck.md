@@ -215,7 +215,8 @@ Add the <code>r-fit-text</code> class to auto-size text
 ## Fragments
 Hit the next arrow...
 	<p class="fragment">... to step through ...</p>
-	<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
+	<p><span class="fragment" data-custom-tag="customvalue">... a</span> <span class="fragment">fragmented
+	 <!-- .fragment data-camera-exit="Wide" --> </span> <span class="fragment">slide.</span></p>
 
 note: This slide has fragments which are also stepped through in the notes window.
 

@@ -7,7 +7,7 @@
     <title>Reveal TelePrompter</title>
  
     <!-- Styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"> -->
     <link rel="stylesheet" href="teleprompter_assets/css/jquery-ui.min.css" />
     <link rel="stylesheet" href="teleprompter_assets/css/style.v122.css">
     <link rel="stylesheet" href="teleprompter_assets/css/font-awesome.min.css">
@@ -65,10 +65,17 @@
     <script src="obs_webSocket_details/obsConnect.js" ></script>
     <script src="obs_webSocket_details/startConnection.js"></script>
 
-    <!-- hotkey config -->
-    <script src="js/hotkeyConfig.js" ></script>
+    <script id="teleprompterSettings">
+      //listen for changes and call the matching function.                                                                                                                                          
+        window.addEventListener("teleprompterChangeRequest", function (event) {
+          console.log("prompter Settings event", event)
+          TelePrompter[`${event.detail.functionName}`](event.detail.value)
+        })
 
-    <script>    
+
+    </script>
+
+    <script id="loadText">    
       var elemNext = document.getElementById('NextSlideButton');
       var elemPrevious = document.getElementById('PreviousSlideButton');
       var commandResult = "";
@@ -78,6 +85,42 @@
       var poseNextControl = "off";
       var posePreviousControl = "off";
       var lastWord="change slide on this word";
+
+      //Reveal slide Changed
+      window.addEventListener("slideChangeResult", function (event) {
+        console.log("event",event)
+        let revealMessage = event.detail
+        if(revealMessage.app ==="reveal"){
+          console.log(revealMessage, typeof revealMessage)
+          console.log(revealMessage.slideNotes)
+          //console.log(JSON.parse(revealMessage.slideTitle))
+          let slideNoteJSON = `Slide ${revealMessage.slideNumber}: ${revealMessage.slideTitle}
+          ${revealMessage.slideNotes};
+          [END OF SLIDE ${revealMessage.slideNumber}]
+          Slide ${revealMessage.nextSlideNumber}: ${revealMessage.nextSlideTitle}
+          ${revealMessage.nextSlideNotes}`
+          
+          console.log(slideNoteJSON)
+          document.getElementById("teleprompter").innerHTML = JSON.parse(revealMessage.slideNotes);
+          
+          //get the last word from the current slide notes
+          lastWord = revealMessage.slideNotes.trim().split(' ').pop();
+          console.log(lastWord)
+          
+          TelePrompter.resetPageScroll();
+        }
+          
+      //LocalVocal results text source updated 
+        if (event.inputName === "LocalVocal Subtitles") {
+          // console.log("local vocal change", lastWord)
+          // console.log(event.inputSettings.text);
+          // console.log(lastWord)
+  
+          if(event.inputSettings.text.includes(lastWord)){
+            setCommandText(`shortcuts run "Keynote_nextSlide_GUM" &`)
+          }
+        }
+      });
 
       //midi input
   window.addEventListener("midi-message", function (event) {
@@ -104,41 +147,6 @@
     });
       
             
-      //Reveal slide Changed
-      window.addEventListener("slideChangeResult", function (event) {
-        console.log("event",event)
-        let revealMessage = event.detail.notes
-        if(revealMessage.app ==="reveal"){
-          console.log(revealMessage, typeof revealMessage)
-          console.log(revealMessage.slideNotes)
-          //console.log(JSON.parse(revealMessage.slideTitle))
-          let slideNoteJSON = `Slide ${revealMessage.slideNumber}: ${revealMessage.slideTitle}
-          ${revealMessage.slideNotes};
-          [END OF SLIDE ${revealMessage.slideNumber}]
-          Slide ${revealMessage.nextSlideNumber}: ${revealMessage.nextSlideTitle}
-          ${revealMessage.nextSlideNotes}`
-          
-          console.log(slideNoteJSON)
-          document.getElementById("teleprompter").innerHTML = slideNoteJSON;
-          
-          //get the last word from the current slide notes
-          lastWord = revealMessage.slideNotes.trim().split(' ').pop();
-          console.log(lastWord)
-          
-          TelePrompter.resetPageScroll();
-        }
-          
-      //LocalVocal results text source updated 
-        if (event.inputName === "LocalVocal Subtitles") {
-          // console.log("local vocal change", lastWord)
-          // console.log(event.inputSettings.text);
-          // console.log(lastWord)
-
-          if(event.inputSettings.text.includes(lastWord)){
-            setCommandText(`shortcuts run "Keynote_nextSlide_GUM" &`)
-          }
-        }
-      });
     </script>
 
     <script src="teleprompter_assets/js/plugins.v122.js"></script>
@@ -148,8 +156,8 @@
       // Initialize App
       window.onload = function() {
         TelePrompter.init();
-        document.querySelector("Header").remove()
-        document.getElementById("get-help").remove()
+        //document.querySelector("Header").remove()
+        //document.getElementById("get-help").remove()
       };
     </script>
   </body>

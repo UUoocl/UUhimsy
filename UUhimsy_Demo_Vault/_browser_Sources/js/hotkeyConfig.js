@@ -6,7 +6,7 @@
         toggleMouse_HK = 'Shift+F13',
         toggleHotkey_HK = 'Shift+F14'
         
-        //Screen Slide hotkeys
+        //Slide hotkeys
         var slideAppName, nextSlide_HK, prevSlide_HK, 
         currentSlide_HK,
         nextSlide_HK = 'F18', 

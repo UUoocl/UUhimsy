@@ -1431,7 +1431,7 @@ var TelePrompter = (function() {
       return this;
     },
     setFontSize: function(size) {
-      size = Math.min(200, Math.max(12, size));
+      size = Math.min(200, Math.max(12, Number(size)));
       $elm.fontSize.slider('value', parseInt(size));
       return this;
     },
@@ -1452,23 +1452,28 @@ var TelePrompter = (function() {
     },
     increaseSpeed: function(amount) {
       let speed = $elm.speed.slider('value')
-      $elm.speed.slider('value', speed + amount);
+      const paramAmount = Number(amount)
+      console.log(speed, amount)
+      $elm.speed.slider('value', speed + paramAmount);
       //return this;
     },
     decreaseSpeed: function(amount) {
       let speed = $elm.speed.slider('value')
-      $elm.speed.slider('value', speed - amount);
+      const paramAmount = Number(amount)
+      $elm.speed.slider('value', speed - paramAmount);
       
       //return this;
     },
     increaseFont: function(amount) {
       let font_size = $elm.fontSize.slider('value');
-      $elm.fontSize.slider('value', font_size + 1);
+      const paramAmount = Number(amount)
+      $elm.fontSize.slider('value', font_size + paramAmount);
       //return this;
     },
     decreaseFont: function(amount) {
       let font_size = $elm.fontSize.slider('value');
-      $elm.fontSize.slider('value', font_size - 1);
+      const paramAmount = Number(amount)
+      $elm.fontSize.slider('value', font_size - paramAmount);
       //return this;
     },
     playPause: function(){

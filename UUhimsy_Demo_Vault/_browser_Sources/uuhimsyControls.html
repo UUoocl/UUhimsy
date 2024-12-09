@@ -138,16 +138,25 @@
 
             async function wsConnect() {
                 await connectOBS(obs)
-                .then(async() => { await getScenes()})
-                .then(async() => {loadButtons();});
-                
                 //Initialize uuhimsy controls after connecting to websocket server
-                //getSceneList();
-                //getTeleprompterSize();
-                //getTeleprompterSpeed();
-                //getSlideControlSceneItems();
-            }
+                .then(async() => { await getScenes()})
+                .then(async() => {loadButtons();})
+                .then(async() => {
+                    changeTeleprompterScrollSpeed(0, 'rel')
+                    changeTeleprompterTextSize(0, 'rel')
+                    await obs.call("SetInputSettings", {
+                        inputName: "Slide Notes Text",
+                        inputSettings: {
+                        font: {
+                            face: "Arial"
+                        }
+                    }
+                })
+                });       
+            };
         
+        
+
         var slideControlSources = new Object();
         var collection = new Object
         
@@ -181,79 +190,116 @@
 
         async function getSlideControlSceneItems() {
             slideControlSources = await obs.call("GetSceneItemList", { sceneName: "Slide Controls" });
-        }       
+        }  
+        
      </script>
 
     <script id="createButtons">
         let buttons=[];
+        let sliderSpeedButtonID;
         let buttonPadding = 35
         
         function createScreenShareButtons(){    
             //Create Screen Share Buttons
-            buttons[i===0?0:i+=1] = createButton(`Screen Share Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue uuhimsy').mousePressed(()=>{obsGoToScene('scene||| Screen Share')})
+            buttons[i===0?0:i+=1] = createButton(`Screen Share Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue uuhimsy').mousePressed(()=>{obsGoToScene('scene||| Screen Share')})
+
             buttons[i+=1] = createButton(`Full Screen (${fullScreen_HK})`).position(0, (buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button l').mousePressed(()=>fullScreen())
+            
             buttons[i+=1] = createButton(`Follow Mouse (${followMouse_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>followMouse(mouseCoordinates))
+            
             buttons[i+=1] = createButton(`Follow Mouse and Zoom (${followMouseAndZoom_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>zoomAndFollowMouse(mouseCoordinates))
+            
             buttons[i+=1] = createButton(`Mouse Overlay Toggle (${toggleMouse_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>toggleSource('Comp SceneMouse','BrowserMouseOverlay'))
+            
             buttons[i+=1] = createButton(`Hotkey Overlay Toggle (${toggleHotkey_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>toggleSource('scene||| Screen Share','Input Hotkeys'))
         }
         
         function createRefreshButton(){    
             buttons[i===0?0:i+=1] = createButton(`clear hotkey text`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button negative l').mousePressed(()=>{hotkeyUpdate(" ")})
+            
             buttons[i+=1] = createButton(`Refresh Browsers 🔄 (${refreshOBSbrowsers_HK})`).position(0, (buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button negative l').mousePressed(()=>()=>refreshOBSbrowsers())
         }
 
         function createSlideButtons(app){    
             //Create Slide Buttons
             if(navigator.platform.includes('Mac')){
-                buttons[i===0 ? 0 : i+=1] = createButton(`PowerPoint or Keynote Slide Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{obsGoToScene('Scene ExternalSlide-OTS')})
+                buttons[i===0 ? 0 : i+=1] = createButton(`Reveal Slide Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue').mousePressed(()=>{obsGoToScene('Scene ExternalSlide-OTS')})
             }
             if(navigator.platform.includes('Win')){
-                buttons[i===0 ? 0 : i+=1] = createButton(`PowerPoint Slide Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{obsGoToScene('Scene ExternalSlide-OTS')})
+                buttons[i===0 ? 0 : i+=1] = createButton(`Reveal Slide Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue').mousePressed(()=>{obsGoToScene('Scene ExternalSlide-OTS')})
             }
             
-            buttons[i+=1] = createButton(`Next Slide (${nextSlide_HK})`).position(0, (15+buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button l').id('nextSlideButton').mousePressed(async()=>{
+            buttons[i+=1] = createButton(`Previous Slide (${previousSlide_HK})`).position(0, (buttonPadding-20)+(buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button left l').id('prevSlideButton').mousePressed(async()=>{
+               sendButtonCustomEvent("previousSlide")
+            })
+
+            buttons[i+=1] = createButton(`Next Slide (${nextSlide_HK})`).position(windowWidth/2, ((buttonPadding-20)+(buttons[i-2].y+buttons[i-2].elt.offsetHeight))).class('button left l').id('nextSlideButton').mousePressed(async()=>{
                 //enableSource("Slide Controls", "NextSlide");
                 sendButtonCustomEvent("nextSlide");
             })
-            buttons[i+=1] = createButton(`Previous Slide (${previousSlide_HK})`).position(0, (buttonPadding-10)+(buttons[i-1].y+buttons[i-1].height)).class('button l').id('prevSlideButton').mousePressed(async()=>{
-               sendButtonCustomEvent("previousSlide")
-            })
-            buttons[i+=1] = createButton(`Prompter Text Size`).position(0, (buttonPadding-10)+(buttons[i-1].y+buttons[i-1].height)).class('button l outline')
-            buttons[i+=1] = createButton(`- (${prompterFontDecrease_HK})`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
+
+            //Size Settings
+            buttons[i+=1] = createButton(`Prompter Text Size `).position(0, (buttonPadding-10)+(buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button l outline')
+            sliderSizeButtonID = i;
+            sizeText = createElement('span','_').parent(buttons[sliderSizeButtonID])
+            sizeText.id("scrollSize");
+            sliderSize = createSlider(0, 50).parent(buttons[i])
+            sliderSize.input(async() => {
+                    changeTeleprompterTextSize(sliderSize.value(),'','setFontSize',sliderSize.value())});
+            sliderSize.size(windowWidth-50);
+
+            buttons[i+=1] = createButton(`- (${prompterFontDecrease_HK})`).position(0, 5+(buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button left l').mousePressed(async()=>
             {
                 //hotkeyUpdate(prompterFontDecrease_HK)
-                changeTeleprompterTextSize(-1)
+                changeTeleprompterTextSize(-1,'rel', 'decreaseFont',2)
             })
-            buttons[i+=1] = createButton(`+ (${prompterFontIncrease_HK})`).position(windowWidth/2, buttonPadding+25+(buttons[i-2].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
+            
+            buttons[i+=1] = createButton(`+ (${prompterFontIncrease_HK})`).position(windowWidth/2, 5+(buttons[i-2].y+buttons[i-2].elt.offsetHeight)).class('button left l').mousePressed(async()=>
             {
                 //hotkeyUpdate(prompterFontIncrease_HK)
-                changeTeleprompterTextSize(1)
+                changeTeleprompterTextSize(1,'rel', 'increaseFont',2)
             })
-            buttons[i+=1] = createButton(`Prompter ScrollSpeed`).position(0,buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button outline')
-            buttons[i+=1] = createButton(`- (${prompterScrollDecrease_HK})`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
+
+            //Scroll settings
+            buttons[i+=1] = createButton(`Prompter Scroll Speed `).position(0,15+(buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button outline');
+            sliderSpeedButtonID = i;
+            speedText = createElement('span','_').parent(buttons[sliderSpeedButtonID]);
+            speedText.id('scrollSpeed')
+            sliderSpeed = createSlider(0, 50).parent(buttons[sliderSpeedButtonID]);
+            sliderSpeed.input(async() => {
+                //console.log("slider changed",sliderSpeed.value())
+                changeTeleprompterScrollSpeed(sliderSpeed.value(),'', 'setSpeed', sliderSpeed.value())});
+            sliderSpeed.size(windowWidth-50);
+            
+            buttons[i+=1] = createButton(`- (${prompterScrollDecrease_HK})`).position(0, (buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button left l').mousePressed(async()=>
             {
                 //hotkeyUpdate(prompterScrollDecrease_HK);
-                changeTeleprompterScrollSpeed(-1)
+                changeTeleprompterScrollSpeed(-1,'rel', 'decreaseSpeed', 2)
             })
-            buttons[i+=1] = createButton(`+ (${prompterScrollIncrease_HK})`).position(windowWidth/2, buttonPadding+25+(buttons[i-2].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
+            
+            buttons[i+=1] = createButton(`+ (${prompterScrollIncrease_HK})`).position(windowWidth/2, (buttons[i-2].y+buttons[i-2].elt.offsetHeight)).class('button left l').mousePressed(async()=>
             {
                 //hotkeyUpdate(prompterScrollIncrease_HK)
-                changeTeleprompterScrollSpeed(1)
+                changeTeleprompterScrollSpeed(1,'rel','increaseSpeed', 2)
             })
-            buttons[i+=1] = createButton(`Play / Pause ⏯️ (${prompterPlayPause_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>{
+            
+            buttons[i+=1] = createButton(`Play / Pause ⏯️ (${prompterPlayPause_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button l').mousePressed(()=>{
                 //hotkeyUpdate(prompterPlayPause_HK)
-                pauseTeleprompterScroll()
+                pauseTeleprompterScroll('playPause')
             })
         }
+
         async function createTagSlideButtons(){    
             //Create Tag Slide Buttons
             buttons[i===0 ? 0 : i+=1] = createButton(`Reveal Slide Tags`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue uuhimsy').mousePressed(()=>{console.log("New Buttons")})
             
             //buttons[i===0?0:i+=1] = createButton(`Screen Share Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue uuhimsy').mousePressed(()=>{obsGoToScene('scene||| Screen Share')})
             const sceneList = await obs.call("GetSceneList");
+            
             buttons[i+=1] = createButton(`Scene Tags`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button outline')
+            
             buttons[i+=1] = createButton(`Entrance`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button outline left')
+            
             buttons[i+=1] = createButton(`Exit`).position(windowWidth/2, buttonPadding+25+(buttons[i-2].y+buttons[i-1].height)).class('button outline left')
             sceneList.scenes.forEach(async(scene, index) => {
                 // find scenes starting with "Scene"
@@ -286,7 +332,9 @@
     
     async function getCameraList() {
             buttons[i+=1] = createButton(`Camera Tags`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button outline')
+            
             buttons[i+=1] = createButton(`Entrance`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button outline left')
+            
             buttons[i+=1] = createButton(`Exit`).position(windowWidth/2, buttonPadding+25+(buttons[i-2].y+buttons[i-1].height)).class('button outline left')
             let cameraSources = await obs.call("GetSceneItemList", { sceneName: "Camera" });
             cameraSources.sceneItems.forEach((source, index) => {
@@ -610,34 +658,53 @@
                     
                 case 'hotkeyText':
                     //console.log(event);
-                    if(event.inputSettings.text === ' '){
+                    switch (event.inputSettings.text) {
+                    case ' ':
                         break;
-                    }
-                    if(event.inputSettings.text === (followMouseAndZoom_HK)){ 
+                    case followMouseAndZoom_HK: 
                         zoomAndFollowMouse(mouseCoordinates)
                         break;
-                    }
-                    if(event.inputSettings.text === (followMouse_HK)){ 
+                    case followMouse_HK:
                         followMouse(mouseCoordinates)
                         break;
-                    }
-                    if(event.inputSettings.text === (fullScreen_HK)){ 
+                    case fullScreen_HK:
                         fullScreen();
                         break;
-                    }
-                    if(event.inputSettings.text === (getUVC_PTZ_HK)){ 
-                        setCommandText(`shortcuts run "PTZ Get position Loop Start GUM" -i "${workingDirectory}" &`);
-                        break;
-                    }
-                    if(event.inputSettings.text === (toggleMouse_HK)){ 
+                    case toggleMouse_HK:
                         toggleSource('Comp SceneMouse','BrowserMouseOverlay')
                         break;
-                    }
-                    if(event.inputSettings.text === (toggleHotkey_HK)){ 
+                    case toggleHotkey_HK:
                         toggleSource('scene||| Screen Share','Input Hotkeys')
                         break;
+                    
+                    case nextSlide_HK:
+                    case revealNextSlide_HK: 
+                        sendButtonCustomEvent("nextSlide")
+                        break;
+                    
+                    case revealPreviousSlide_HK:
+                    case previousSlide_HK: 
+                        sendButtonCustomEvent("previousSlide")
+                        break;
+
+                    case prompterFontDecrease_HK: 
+                        changeTeleprompterTextSize(-1,'rel', 'decreaseFont',2)
+                        break;
+                    case prompterFontIncrease_HK: 
+                        changeTeleprompterTextSize(1,'rel', 'increaseFont',2)
+                        break;
+
+                    case prompterScrollDecrease_HK: 
+                        changeTeleprompterScrollSpeed(-1,'rel', 'decreaseSpeed', 2)
+                        break;
+                    case prompterScrollIncrease_HK: 
+                        changeTeleprompterScrollSpeed(1,'rel','increaseSpeed', 2)
+                        break;
+            
+                    case prompterPlayPause_HK: 
+                        pauseTeleprompterScroll('playPause')
+                        break;
                     }
-                    break;
            
                 default:
                     break;
@@ -1004,33 +1071,46 @@ function setZoom(){
             //document.getElementById("speedValue").value = teleprompterSpeed;
         }
         
-        async function changeTeleprompterScrollSpeed(change){
-            const teleprompterSpeed = await getTeleprompterSpeed();
+        async function changeTeleprompterScrollSpeed(change, type, funcName, value){
+            sendToTeleprompterBrowser(funcName, value);
+        //Send to Slides Notes Text source 
+            const teleprompterSpeed = Math.round(await getTeleprompterSpeed());
             console.log("speed", teleprompterSpeed)
+            const newValue = type === 'rel'? teleprompterSpeed + change: change;
             await obs.call("SetSourceFilterSettings", {
                 sourceName: "Slide Notes Text",
                 filterName: "Scroll",
                 filterSettings: {
-                    speed_y: teleprompterSpeed + change
+                    speed_y: newValue
                 }
             });
-            console.log("speed", teleprompterSpeed)
+            console.log("speed", newValue)
+            document.getElementById("scrollSpeed").innerHTML = newValue
+            sliderSpeed.value(newValue)
         }
-
-        async function changeTeleprompterTextSize(change) {   
+        
+        async function changeTeleprompterTextSize(change, type, funcName, value) { 
+            sendToTeleprompterBrowser(funcName, value); 
+        //Send to Slides Notes Text source 
             const teleprompterSize = await getTeleprompterSize()
+            const newValue = type === 'rel'? teleprompterSize + change: change;
             await obs.call("SetInputSettings", {
                 inputName: "Slide Notes Text",
                 inputSettings: {
                 font: {
-                    size: teleprompterSize + change
+                    face: "Arial",
+                    size: newValue
                 }
             }
             })
+            document.getElementById("scrollSize").innerHTML = newValue
+            sliderSize.value(newValue)
         }
 
         let pausedTeleprompterSpeed
-        async function pauseTeleprompterScroll() {
+        async function pauseTeleprompterScroll(funcName) {
+            sendToTeleprompterBrowser(funcName);
+        //Send to Slides Notes Text source 
             const currentSpeed = await getTeleprompterSpeed();
             if(currentSpeed > 1 ){
                 //Pause
@@ -1052,6 +1132,21 @@ function setZoom(){
                 }
             });
             }
+        }
+
+        async function sendToTeleprompterBrowser(funcName, funcParam){
+            console.log('//Send to Teleprompter Browser')
+            obs.call("CallVendorRequest", {
+                vendorName: "obs-browser",
+                requestType: "emit_event",
+                requestData: {
+                event_name: "teleprompterChangeRequest",
+                    event_data: { 
+                        functionName: `${funcName}`,
+                        value: `${funcParam}`
+                        },
+                    },
+            });
         }
     </script>
 </body>

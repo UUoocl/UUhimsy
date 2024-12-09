@@ -180,7 +180,10 @@ function slideAttributeFunctions(slideEvent, eventType){
         requestType: "emit_event",
         requestData: {
             event_name: "slideChangeResult",
-            event_data: { notes: `${JSON.stringify(slideNotes)}`},
+            event_data: { 
+              app: "reveal",
+              slideNotes: `${JSON.stringify(slideNotes)}`
+            },
         },
     });
 
