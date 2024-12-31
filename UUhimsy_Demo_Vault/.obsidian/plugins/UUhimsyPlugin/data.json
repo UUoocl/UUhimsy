@@ -1,0 +1,13 @@
+{
+  "websocketIP_Text": "localhost",
+  "websocketPort_Text": "4455",
+  "websocketPW_Text": "SECRET",
+  "oscIP_Text": "localhost",
+  "oscInPort_Text": "4466",
+  "oscOutPort_Text": "4477",
+  "obsAppName_Text": "OBS30",
+  "obsAppPath_Text": "C:\\\\Program Files\\\\obs-studio\\\\bin\\\\64bit\\\\",
+  "obsCollection_Text": "Key_and_Mouse_Visuals_Collection",
+  "obsDebug_Text": "Y",
+  "obsDebugPort_Text": "9222"
+}

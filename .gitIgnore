@@ -1,6 +1,9 @@
-UUhimsy_Demo_Vault/.obsidian
-*.DS_Store
+UUhimsy_Demo_Vault/.obsidian/plugins/*
+!UUhimsy_Demo_Vault/.obsidian/plugins/UUhimsyPlugin/
+
 exported_Slides
 UUhimsy_Demo_Vault/_browser_Sources/dist
 .DS_Store
 .DS_Store
+UUhimsy/.DS_Store
+*.DS_Store
