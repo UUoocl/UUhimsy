@@ -4,8 +4,6 @@ tags:
 bg: transparent
 ---
 
-
-
 ![[reveal-white-text.svg|500]]
 
 ### The HTML Presentation Framework
@@ -443,6 +441,6 @@ World! <!-- element drag="40 25" drop="-12 -25" bg="#D65076" rotate="40" -->
 
 <grid  drag="80 10" drop="20 100" bg="#B565A700" rotate="0">
 
-> A ridiculous  word
+> A qoute
 
 </grid>
