@@ -1,3 +1,4 @@
+
 | Name                | Description                                                       | Possible Values                                                                                                | Default Value     |
 | ------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------- |
 | autoSlide           | Controls automatic progression to the next slide                  | number (in milliseconds)                                                                                       | 0                 |

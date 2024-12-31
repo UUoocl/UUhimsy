@@ -406,7 +406,7 @@ final slide
 
 <grid  drag="30 55" drop="12 15" bg="#B565A700" rotate="-10">
 
-![[scare 2024-11-22 18.11.38.excalidraw.svg]]
+![[Drawing 2024-11-23 00.11.20.excalidraw.svg]]
 
 </grid>
 
@@ -443,6 +443,6 @@ World! <!-- element drag="40 25" drop="-12 -25" bg="#D65076" rotate="40" -->
 
 <grid  drag="80 10" drop="20 100" bg="#B565A700" rotate="0">
 
-> A ridiculous  words that sill the qoute
+> A ridiculous  word
 
 </grid>

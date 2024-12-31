@@ -68,6 +68,7 @@
     <script src="obs_webSocket_details/startConnection.js"></script>
   
     <script>
+      var timer
       obs.on("InputSettingsChanged", async function (event) {
         //console.log(event);
         switch (event.inputName) {
@@ -75,10 +76,9 @@
             break;
           case 'hotkeyText':
             console.log(event);
-            if (event.inputSettings.text === ' ' || event.inputSettings.text === '') {
-              ribbonCountSlider.value(0)
-            } else if (event.inputSettings.text.includes('+')) {
+            if (event.inputSettings.text.includes('+')) {
               notSoWeird(event.inputSettings.text);
+              timer = 3;
             }
             break;
           default:

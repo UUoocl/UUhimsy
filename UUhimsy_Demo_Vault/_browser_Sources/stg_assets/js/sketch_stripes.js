@@ -128,7 +128,17 @@ function draw() {
   //bkgdColor = bkgdColorPicker.value();
   background('rgba(0, 255, 0, 0)');
   clear()
-  
+  if (frameCount % 60 == 0 && timer > 0) { // if the frameCount is divisible by 60, then a second has passed. it will stop at 0
+    timer --;
+    1
+  }
+  if (timer == 0 && frameCount % 2 == 0 && ribbonCountSlider.value()>0) {
+      typeXSlider.value(typeXSlider.value() *.8)
+      typeYSlider.value(typeYSlider.value() *.8)
+      ribbonCountSlider.value(ribbonCountSlider.value()-1)
+      trackingSlider.value(trackingSlider.value() *.8)
+
+  }
   fill(125);
   noStroke();
   textSize(9);
