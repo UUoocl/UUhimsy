@@ -94,11 +94,11 @@ function slideAttributeFunctions(slideEvent, eventType){
   //Enable Source in Camera Scene 
   async function customSlideAttribute_camera(cameraView){
     console.log(`camera found ${cameraView}`)
-    let cameraSources = await obs.call("GetSceneItemList", { sceneName: "Camera" });
+    let cameraSources = await obs.call("GetSceneItemList", { sceneName: "Input Camera" });
     cameraSources.sceneItems.forEach(async (source) => {
     if (source.sourceName === cameraView ) {
       await obs.call("SetSceneItemEnabled", {
-          sceneName: "Camera",
+          sceneName: "Input Camera",
           sceneItemId: source.sceneItemId,
           sceneItemEnabled: true
         });
@@ -347,7 +347,7 @@ function slideAttributeFunctions(slideEvent, eventType){
       
       //ZoomOSC 
       //OSC to Websocket https://github.com/UUoocl/OSC_to_OBS_WebSocket  
-      window.addEventListener("zoomOSC-message", function (event) {
+      window.addEventListener("osc-message", function (event) {
         console.log(event)
         let zoomMessage = JSON.parse(JSON.parse(JSON.stringify(event.detail.webSocketMessage)))
         console.log(typeof zoomMessage, zoomMessage)
