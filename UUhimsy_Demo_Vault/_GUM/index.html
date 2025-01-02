@@ -14,10 +14,9 @@
         <ul>
             <li><a href="#Intro">Media for OBS</a></li>
             <li>
-                <a href="#srvr">Connections</a>
+                <a href="#srvr">Connect</a>
                 <ul>
                     <li><a href="#srvr-obs-ws">OBS WebSocket Server</a></li>
-                    <li><a href="#srvr-webRTC">webRTC Source</a></li>
                 </ul>
             </li>
             <li>
@@ -25,11 +24,11 @@
                     <a href="#audio">Audio</a>
                     <ul>
                         <li><a href="#audio-fft-analysis">Audio Frequency</a></li>
-                        <li><a href="#audio-speechRecognition">Speech Recognition</a></li>
+                        <!-- <li><a href="#audio-speechRecognition">Speech Recognition</a></li> -->
                     </ul>
                 </li>
                 <li>
-                    <a href="#input">Input</a>
+                    <a href="#input-midi-devices">Input</a>
                     <ul>
                         <li><a href="#input-midi-devices">Midi</a></li>
                         <li><a href="#input-gamepad-controller">Gamepad</a></li>
@@ -46,6 +45,9 @@
                         <li Hidden><a href="#mp-gemma">Gemma<br>LLM Inference</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#rtc">WebRTC</a>
+                </li>
                 <!-- <li>
                     <a href="#shortcuts">Apple Shortcuts</a>
                     <ul>
@@ -54,8 +56,8 @@
                         <li><a href="#keynote-shortcuts">Keynote Notes<br></a></li>
                         <li><a href="#powerPoint-shortcuts">PowerPoint Notes<br></a></li>
                     </ul>
-                </li> -->
-                <!-- <li>
+                </li>
+                <li>
                     <a href="#obs-scenes">OBS</a>
                     <ul>
                         <li><a href="#mouse-shortcuts">Scenes and Sources<br></a></li>
@@ -113,30 +115,6 @@
             </div>
 		</section>
 		
-
-        <section>
-            <div>
-                <div id="srvr-webRTC"></div>
-                <h3>Send Audio and/or Video to a target OBS Browser source via webRTC</h3>
-                <div id="selectAudio"></div>
-                <div id="intro-container">
-                    <p id="clientInfo"></p>
-                
-                    <input class="form-small-button" type="button" id="refreshRTCbrowsers" value="refresh 
-webRTC
-OBS browsers" />
-                    <form class="form-grid">
-                    
-                    <label for="pcName">Enter the name of peerConnections</label>
-                    <input type="text" id="pcName" value="ID" size="10"/>                
-            
-                    <label for="pcNumber">Enter the number of peerConnections</label>
-                    <input type="number" id="pcNumber" value=1 maxlength="2" size="10" />
-                    <input class="form-button" type="button" id="rtcButton" value="Start webRTC" />
-                    
-            </form>
-        </section>
-
         <section>
             <div id="input-midi-devices">
                 <h3>Midi</h3>
@@ -157,10 +135,9 @@ OBS browsers" />
                     </div>
                 </div>
         </section>
-        <section>
+        <!-- <section>
             <div id="audio-SpeechRecognition">
                 <h3>
-                <!-- <input type="checkbox" id="gamepad-load"/> -->
                         WebSpeech API Speech Recognition</h3>
                 <div id="audio-speechRecognition" style="display:inline;">
                     <form>
@@ -172,7 +149,7 @@ OBS browsers" />
                         <div id="speechRecognition"></div>
                     </div>
                 </div>
-        </section>
+        </section> -->
         <section>
             <div>
                 <h3>MediaPipe Pose Detection</h3>
@@ -286,9 +263,9 @@ OBS browsers" />
             <p>PowerPoint Notes</p>
             <textarea id="powerPointNotes" style="height: 100px; width: 600px"></textarea>
         </div>
-    </section> -->
+    </section>
     
-    <!-- <section>
+    <section>
         <div>
         <h1>OBS Scenes and Sources</h1>
         <div id="obs-scenes">
@@ -301,6 +278,29 @@ OBS browsers" />
             }
             </code></pre>
     </section> -->
+
+    <section>
+        <div>
+            <div id="srvr-webRTC"></div>
+            <h3>Send Audio and/or Video to a target OBS Browser source via webRTC</h3>
+            <div id="selectAudio"></div>
+            <div id="intro-container">
+                <p id="clientInfo"></p>
+            
+                <input class="form-small-button" type="button" id="refreshRTCbrowsers" value="refresh 
+webRTC
+OBS browsers" />
+                <form class="form-grid">
+                
+                <label for="pcName">Enter the name of peerConnections</label>
+                <input type="text" id="pcName" value="ID" size="10"/>                
+        
+                <label for="pcNumber">Enter the number of peerConnections</label>
+                <input type="number" id="pcNumber" value=1 maxlength="2" size="10" />
+                <input class="form-button" type="button" id="rtcButton" value="Start webRTC" />
+                
+        </form>
+    </section>
 
     </article>
 
@@ -322,6 +322,7 @@ OBS browsers" />
         });
     </script>
 
+    <script src="../_browser_Sources/obs_webSocket_details/websocketDetails.js"></script>
     <script src='_GUM/lib/obs-ws.js'></script>
     <script src='_GUM/lib/obsConnect.js'></script>
     <script src='_GUM/lib/getLocalAV.js'></script>
@@ -334,7 +335,6 @@ OBS browsers" />
     <script src="_GUM/lib/loadScripts.js"></script>
     <script src="_GUM/lib/shortcutsScripts.js"></script>
     <script src="_GUM/lib/obsScenes.js"></script>
-    <script src="../_browser_Sources/obs_webSocket_details/websocketDetails.js"></script>
     
 </body>
 </html>
