@@ -50,15 +50,16 @@ All the required software is free to download and use.
 |OBS plugins
 |🔌 [Source Dock](https://obsproject.com/forum/resources/source-dock.1317/)
 |🔌 [Source Clone](https://obsproject.com/forum/resources/source-clone.1632/)
-|🔌 [Downstream Keyer](https://obsproject.com/forum/resources/downstream-keyer.1254/)
 |🔌 [Move Transition](https://obsproject.com/forum/resources/move.913/)
 |🔌 [Advanced Scene Switcher](https://obsproject.com/forum/resources/advanced-scene-switcher.395/)
 |🔌 [Advanced Mask](https://obsproject.com/forum/resources/advanced-masks.1856/)
 |🔌 [Composite Blur](https://obsproject.com/forum/resources/composite-blur.1780/)
 |🔌 [Stroke Glow Shadow](https://obsproject.com/forum/resources/stroke-glow-shadow.1800/)
 |🔌 [Stroke Glow Shadow](https://obsproject.com/forum/resources/stroke-glow-shadow.1800/)
+Optional Plugins
+|🔌 [Downstream Keyer](https://obsproject.com/forum/resources/downstream-keyer.1254/)
 |🔌 [mac-background removal](https://obsproject.com/forum/resources/macos-background-removal.1691/)
-|🔌 [LocalVocal](https://obsproject.com/forum/resources/localvocal-local-live-captions-translation-on-the-go.1769/)
+|🔌 [LocalVocal](https://obsproject.com/forum/resources/localvocal-local-live-captions-translation-on-the-go.1769/) 
 
 **JavaScripts Libraries used by UUhimsy**
 
