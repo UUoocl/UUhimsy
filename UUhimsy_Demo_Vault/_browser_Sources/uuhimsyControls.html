@@ -11,6 +11,7 @@
                 border-radius: 10px;
                 font-weight: 1;
                 -webkit-font-smoothing: antialiased;
+                /* margin: 20px; */
             }
             
             .button.grey {
@@ -26,7 +27,7 @@
                 font-size: inherit;
                 line-height: 1;
                 outline: 0;
-                width: 100%;
+                width: 90%;
                 border: 10;
                 border-color: aliceblue;
                 border-radius: 4px;
@@ -35,10 +36,11 @@
                 -webkit-appearance: none;
                 -webkit-tap-highlight-color: transparent;
                 padding: 8px 12px;
+                
             }
             
             .button.left{
-                width: 50%;
+                width: 45%;
             }
 
             .button.blue, .button.primary {
@@ -52,19 +54,19 @@
                 color: #fff;
                 text-decoration: none;
                 font-family: "Inter", Helvetica, sans-serif;
-                //font-weight: normal;
-                //font-size: inherit;
+                /* font-weight: normal; */
+                /* font-size: inherit; */
                 line-height: 1;
                 outline: 0;
-                //width: 100%;
+                /* width: 90%; */
                 border: 10;
                 border-color: aliceblue;
-                //border-radius: 4px;
+                /* border-radius: 4px; */
                 background: #3f4d52;
                 cursor: pointer;
                 -webkit-appearance: none;
                 -webkit-tap-highlight-color: transparent;
-                //padding: 8px 12px;
+                /* padding: 8px 12px; */
                 padding: 30px 30px;
                 font-size: 2.5em;
                 border-radius: 10px;
@@ -76,19 +78,19 @@
                 color: #fff;
                 text-decoration: none;
                 font-family: "Inter", Helvetica, sans-serif;
-                //font-weight: normal;
-                //font-size: inherit;
+                /* //font-weight: normal; */
+                /* //font-size: inherit; */
                 line-height: 1;
                 outline: 0;
-                //width: 100%;
+                /* //width: 100%; */
                 border: 10;
                 border-color: aliceblue;
-                //border-radius: 4px;
+                /* //border-radius: 4px; */
                 background: #3f4d52;
                 cursor: pointer;
                 -webkit-appearance: none;
                 -webkit-tap-highlight-color: transparent;
-                //padding: 8px 12px;
+                /* //padding: 8px 12px; */
                 padding: 10px 10px;
                 font-size: 2.5em;
                 border-radius: 10px;
@@ -197,56 +199,71 @@
     <script id="createButtons">
         let buttons=[];
         let sliderSpeedButtonID;
-        let buttonPadding = 35
-        
+        let buttonPadding = 15
+        let Apps = ["Reveal", "PowerPoint", "Keynote"];
+        let currentIndex = 0;
+        let app = localStorage.getItem("selectedApp")
+        function chooseAppButton(){
+            buttons[i===0?0:i+=1] = createButton(`Click to Change App`).position(0, (i===0 ? 0:buttonPadding+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue uuhimsy').mousePressed(()=>{currentIndex++;
+                if (currentIndex >= Apps.length) {
+                    currentIndex = 0;
+                }
+                app =Apps[currentIndex];
+                localStorage.setItem("selectedApp", app);
+                document.getElementById("slideApp").textContent = app
+            })
+            buttons[i+=1] = createButton(`${app}`).position(0, ((buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l outline').id('slideApp')
+        }
         function createScreenShareButtons(){    
             //Create Screen Share Buttons
-            buttons[i===0?0:i+=1] = createButton(`Screen Share Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue uuhimsy').mousePressed(()=>{obsGoToScene('scene||| Screen Share')})
+            buttons[i===0?0:i+=1] = createButton(`Screen Share Controls`).position(0, (i===0 ? 0:buttonPadding+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue uuhimsy').mousePressed(()=>{obsGoToScene('scene||| Screen Share')})
 
-            buttons[i+=1] = createButton(`Full Screen (${fullScreen_HK})`).position(0, (buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button l').mousePressed(()=>fullScreen())
+            buttons[i+=1] = createButton(`Full Screen (${fullScreen_HK})`).position(0, ((buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l').mousePressed(()=>fullScreen())
             
-            buttons[i+=1] = createButton(`Follow Mouse (${followMouse_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>followMouse(mouseCoordinates))
+            buttons[i+=1] = createButton(`Follow Mouse (${followMouse_HK})`).position(0, (buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button l').mousePressed(()=>followMouse(mouseCoordinates))
             
-            buttons[i+=1] = createButton(`Follow Mouse and Zoom (${followMouseAndZoom_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>zoomAndFollowMouse(mouseCoordinates))
+            buttons[i+=1] = createButton(`Follow Mouse and Zoom (${followMouseAndZoom_HK})`).position(0, (buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button l').mousePressed(()=>zoomAndFollowMouse(mouseCoordinates))
             
-            buttons[i+=1] = createButton(`Mouse Overlay Toggle (${toggleMouse_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>toggleSource('Comp SceneMouse','BrowserMouseOverlay'))
+            buttons[i+=1] = createButton(`Mouse Overlay Toggle (${toggleMouse_HK})`).position(0, (buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button l').mousePressed(()=>toggleSource('Comp SceneMouse','BrowserMouseOverlay'))
             
-            buttons[i+=1] = createButton(`Hotkey Overlay Toggle (${toggleHotkey_HK})`).position(0, buttonPadding+(buttons[i-1].y+buttons[i-1].height)).class('button l').mousePressed(()=>toggleSource('scene||| Screen Share','Input Hotkeys'))
+            buttons[i+=1] = createButton(`Hotkey Overlay Toggle (${toggleHotkey_HK})`).position(0, (buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button l').mousePressed(()=>toggleSource('scene||| Screen Share','Input Hotkeys'))
         }
         
         function createRefreshButton(){    
-            buttons[i===0?0:i+=1] = createButton(`clear hotkey text`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button negative l').mousePressed(()=>{hotkeyUpdate(" ")})
+            buttons[i===0?0:i+=1] = createButton(`clear hotkey text`).position(0, (i===0 ? 0:buttonPadding+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button negative l').mousePressed(()=>{hotkeyUpdate(" ")})
             
-            buttons[i+=1] = createButton(`Refresh Browsers 🔄 (${refreshOBSbrowsers_HK})`).position(0, (buttonPadding+(buttons[i-1].y+buttons[i-1].height))).class('button negative l').mousePressed(()=>()=>refreshOBSbrowsers())
+            buttons[i+=1] = createButton(`Refresh Browsers 🔄 (${refreshOBSbrowsers_HK})`).position(0, (buttonPadding+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button negative l').mousePressed(()=>()=>refreshOBSbrowsers())
         }
 
-        function createSlideButtons(app){    
+        function createSlideNavButtons(app){    
             //Create Slide Buttons
             if(navigator.platform.includes('Mac')){
-                buttons[i===0 ? 0 : i+=1] = createButton(`Reveal Slide Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue').mousePressed(()=>{obsGoToScene('Scene ExternalSlide-OTS')})
+                buttons[i===0 ? 0 : i+=1] = createButton(`${app} Slide Controls`).position(0, (i===0 ? 0:buttonPadding+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue').mousePressed(()=>{obsGoToScene('Scene ExternalSlide-OTS')})
             }
             if(navigator.platform.includes('Win')){
-                buttons[i===0 ? 0 : i+=1] = createButton(`Reveal Slide Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue').mousePressed(()=>{obsGoToScene('Scene ExternalSlide-OTS')})
+                buttons[i===0 ? 0 : i+=1] = createButton(`${app} Slide Controls`).position(0, (i===0 ? 0:buttonPadding+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue').mousePressed(()=>{obsGoToScene('Scene ExternalSlide-OTS')})
             }
             
-            buttons[i+=1] = createButton(`Previous Slide (${previousSlide_HK})`).position(0, (buttonPadding-20)+(buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button left l').id('prevSlideButton').mousePressed(async()=>{
+            buttons[i+=1] = createButton(`Previous Slide (${previousSlide_HK})`).position(0, (buttonPadding)+(buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button left l').id('prevSlideButton').mousePressed(async()=>{
                sendButtonCustomEvent("previousSlide")
             })
 
-            buttons[i+=1] = createButton(`Next Slide (${nextSlide_HK})`).position(windowWidth/2, ((buttonPadding-20)+(buttons[i-2].y+buttons[i-2].elt.offsetHeight))).class('button left l').id('nextSlideButton').mousePressed(async()=>{
+            buttons[i+=1] = createButton(`Next Slide (${nextSlide_HK})`).position((windowWidth*.9)/2, ((buttonPadding)+(buttons[i-2].y+buttons[i-2].elt.offsetHeight))).class('button left l').id('nextSlideButton').mousePressed(async()=>{
                 //enableSource("Slide Controls", "NextSlide");
                 sendButtonCustomEvent("nextSlide");
             })
-
+        }
+        function createTelepromterButtons(){
+            buttons[i===0 ? 0 : i+=1] = createButton(`Teleprompter Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue')
             //Size Settings
-            buttons[i+=1] = createButton(`Prompter Text Size `).position(0, (buttonPadding-10)+(buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button l outline')
+            buttons[i+=1] = createButton(`Prompter Text Size `).position(0, (buttonPadding)+(buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button l outline')
             sliderSizeButtonID = i;
             sizeText = createElement('span','_').parent(buttons[sliderSizeButtonID])
             sizeText.id("scrollSize");
             sliderSize = createSlider(0, 50).parent(buttons[i])
             sliderSize.input(async() => {
                     changeTeleprompterTextSize(sliderSize.value(),'','setFontSize',sliderSize.value())});
-            sliderSize.size(windowWidth-50);
+            sliderSize.size(windowWidth*.8);
 
             buttons[i+=1] = createButton(`- (${prompterFontDecrease_HK})`).position(0, 5+(buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button left l').mousePressed(async()=>
             {
@@ -254,14 +271,14 @@
                 changeTeleprompterTextSize(-1,'rel', 'decreaseFont',2)
             })
             
-            buttons[i+=1] = createButton(`+ (${prompterFontIncrease_HK})`).position(windowWidth/2, 5+(buttons[i-2].y+buttons[i-2].elt.offsetHeight)).class('button left l').mousePressed(async()=>
+            buttons[i+=1] = createButton(`+ (${prompterFontIncrease_HK})`).position((windowWidth*.9)/2, 5+(buttons[i-2].y+buttons[i-2].elt.offsetHeight)).class('button left l').mousePressed(async()=>
             {
                 //hotkeyUpdate(prompterFontIncrease_HK)
                 changeTeleprompterTextSize(1,'rel', 'increaseFont',2)
             })
 
             //Scroll settings
-            buttons[i+=1] = createButton(`Prompter Scroll Speed `).position(0,15+(buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button outline');
+            buttons[i+=1] = createButton(`Prompter Scroll Speed `).position(0,(buttonPadding)+(buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button l outline');
             sliderSpeedButtonID = i;
             speedText = createElement('span','_').parent(buttons[sliderSpeedButtonID]);
             speedText.id('scrollSpeed')
@@ -269,7 +286,7 @@
             sliderSpeed.input(async() => {
                 //console.log("slider changed",sliderSpeed.value())
                 changeTeleprompterScrollSpeed(sliderSpeed.value(),'', 'setSpeed', sliderSpeed.value())});
-            sliderSpeed.size(windowWidth-50);
+            sliderSpeed.size(windowWidth*.8);
             
             buttons[i+=1] = createButton(`- (${prompterScrollDecrease_HK})`).position(0, (buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button left l').mousePressed(async()=>
             {
@@ -277,7 +294,7 @@
                 changeTeleprompterScrollSpeed(-1,'rel', 'decreaseSpeed', 2)
             })
             
-            buttons[i+=1] = createButton(`+ (${prompterScrollIncrease_HK})`).position(windowWidth/2, (buttons[i-2].y+buttons[i-2].elt.offsetHeight)).class('button left l').mousePressed(async()=>
+            buttons[i+=1] = createButton(`+ (${prompterScrollIncrease_HK})`).position((windowWidth*.9)/2, (buttons[i-2].y+buttons[i-2].elt.offsetHeight)).class('button left l').mousePressed(async()=>
             {
                 //hotkeyUpdate(prompterScrollIncrease_HK)
                 changeTeleprompterScrollSpeed(1,'rel','increaseSpeed', 2)
@@ -291,55 +308,77 @@
 
         async function createTagSlideButtons(){    
             //Create Tag Slide Buttons
-            buttons[i===0 ? 0 : i+=1] = createButton(`Reveal Slide Tags`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue uuhimsy').mousePressed(()=>{console.log("New Buttons")})
-            
+            buttons[i===0 ? 0 : i+=1] = createButton(`Slide Tags`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue uuhimsy')
             //buttons[i===0?0:i+=1] = createButton(`Screen Share Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue uuhimsy').mousePressed(()=>{obsGoToScene('scene||| Screen Share')})
             const sceneList = await obs.call("GetSceneList");
             
-            buttons[i+=1] = createButton(`Scene Tags`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button outline')
+            buttons[i+=1] = createButton(`Scene Tags`).position(0, (buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button outline')
             
-            buttons[i+=1] = createButton(`Entrance`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button outline left')
+            buttons[i+=1] = createButton(`Entrance`).position(0, (buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button outline left')
             
-            buttons[i+=1] = createButton(`Exit`).position(windowWidth/2, buttonPadding+25+(buttons[i-2].y+buttons[i-1].height)).class('button outline left')
+            buttons[i+=1] = createButton(`Exit`).position((windowWidth*.9)/2, (buttons[i-2].y+buttons[i-2].elt.offsetHeight)).class('button outline left')
             sceneList.scenes.forEach(async(scene, index) => {
                 // find scenes starting with "Scene"
                 if (scene.sceneName.startsWith("scene|||")) {
                     //document.getElementById("sceneList").innerHTML =
                     //document.getElementById("sceneList").innerHTML + `<li class="ms-Button">${scene.sceneName}</li>`;
                     const sceneName = scene.sceneName.split("|||");
-                    buttons[i+=1] = createButton(sceneName[1]).position(0, buttonPadding+5+(buttons[i-1].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
-                    {
-                        await obs.call("SetInputSettings", {
-                            inputName: 'SceneTag',
-                            inputSettings: {
-                                text: `sceneEntrance|${sceneName[1].trim()}`,
-                            }
-                        });
-                    })
-                    buttons[i+=1] = createButton(sceneName[1]).position(windowWidth/2, buttonPadding+5+(buttons[i-2].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
-                    {   
+                    buttons[i+=1] = createButton(sceneName[1])
+                        .position(0, (buttons[i-1].y+buttons[i-1].elt.offsetHeight))
+                        .class('button left l')
+                        .attribute('data-left',-355)
+                        .attribute('data-top',35)
+                        .attribute('data-type','scene')
+                        .attribute('data-event','\\\\\\')
+                        .attribute('data-height',25)
+                        .attribute('data-width',340)
+                        .attribute('data-color','9CD3D9')
+                        .attribute('data-transparency',0)
+                        .attribute('data-shapeName',`obs-scene\\\\\\ ${sceneName[1]}`)
+                        .attribute('data-id',`scene\\\\\\ ${sceneName[1]}`)
+                        .attribute('data-shortcut-name',`UUhimsome ${app} Add Tag`)
+                        .attribute('data-event-name',`run-shortcut`)
+                        .attribute('id',`scene\\\\\\ ${sceneName[1]}`)
+                        .mouseReleased(sendUUhimsomeShortcut)
+
+                    buttons[i+=1] = createButton(sceneName[1])
+                        .position((windowWidth*.9)/2, (buttons[i-2].y+buttons[i-2].elt.offsetHeight))
+                        .class('button left l')
+                        .attribute('data-left',-355)
+                        .attribute('data-top',305)
+                        .attribute('data-type','scene')
+                        .attribute('data-event','///')
+                        .attribute('data-height',25)
+                        .attribute('data-width',340)
+                        .attribute('data-color','FFA99B')
+                        .attribute('data-transparency',0.01)
+                        .attribute('data-shapeName',`obs-scene/// ${sceneName[1]}`)
+                        .attribute('data-id',`scene/// ${sceneName[1]}`)
+                        .attribute('id',`scene/// ${sceneName[1]}`)
+                        .mousePressed(async()=>
+                        {   
                         await obs.call("SetInputSettings", {
                             inputName: 'SceneTag',
                             inputSettings: {
                                 text: `sceneExit|${sceneName[1].trim()}`,
                             }
                         });
-                    })
+                        })
                 }
             });
             await getCameraList();
     }
     
     async function getCameraList() {
-            buttons[i+=1] = createButton(`Camera Tags`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button outline')
+            buttons[i+=1] = createButton(`Camera Tags`).position(0, 15+(buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button outline')
             
-            buttons[i+=1] = createButton(`Entrance`).position(0, buttonPadding+25+(buttons[i-1].y+buttons[i-1].height)).class('button outline left')
+            buttons[i+=1] = createButton(`Entrance`).position(0, (buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button outline left')
             
-            buttons[i+=1] = createButton(`Exit`).position(windowWidth/2, buttonPadding+25+(buttons[i-2].y+buttons[i-1].height)).class('button outline left')
-            let cameraSources = await obs.call("GetSceneItemList", { sceneName: "Camera" });
+            buttons[i+=1] = createButton(`Exit`).position((windowWidth*.9)/2, (buttons[i-2].y+buttons[i-2].elt.offsetHeight)).class('button outline left')
+            let cameraSources = await obs.call("GetSceneItemList", { sceneName: "Input Camera" });
             cameraSources.sceneItems.forEach((source, index) => {
                 console.log(source)
-                buttons[i+=1] = createButton(source.sourceName).position(0, buttonPadding+5+(buttons[i-1].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
+                buttons[i+=1] = createButton(source.sourceName).position(0, (buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button left l').mousePressed(async()=>
                 {
                     console.log(source)
                     await obs.call("SetInputSettings", {
@@ -349,7 +388,7 @@
                             }
                         });
                 })
-                buttons[i+=1] = createButton(source.sourceName).position(windowWidth/2, buttonPadding+5+(buttons[i-2].y+buttons[i-1].height)).class('button left l').mousePressed(async()=>
+                buttons[i+=1] = createButton(source.sourceName).position((windowWidth*.9)/2, (buttons[i-2].y+buttons[i-2].elt.offsetHeight)).class('button left l').mousePressed(async()=>
                 {
                     await obs.call("SetInputSettings", {
                             inputName: 'CameraTag',
@@ -361,11 +400,25 @@
             });
         }
 
+        function sendUUhimsomeShortcut(buttonDetails){
+            let data = JSON.stringify(this.elt.dataset)
+            obs.call("BroadcastCustomEvent",{
+                eventData:{
+                    event_name: this.elt.dataset.eventName,
+                    event_data: { 
+                        "shortcut_input": data,
+                        "shortcut_name": `UUimsome ${app} Add Tag`
+                    }
+                }
+            })
+        }
+
         async function sendButtonCustomEvent(eventName, eventData) {
             let data = eventData
             obs.call("BroadcastCustomEvent", {
             eventData: {
               event_name: eventName,
+              event_data: data
             },
           });
         }
@@ -407,7 +460,7 @@
         
         
         function getUserMedia_Node(){
-            buttons[i===0?0:i+=1] = createButton(`Open Get User Media (Node js)`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
+            buttons[i===0?0:i+=1] = createButton(`Open Get User Media (Node js)`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue').mousePressed(()=>{
                 //setCommandText(`open node ${window.location.pathname.replace('Browser_Sources/uuhimsyControls.html','NodeJS_Apps/simple-server.js').replace('//','/')}`)
                 //send message to Advanced Scene Switcher
                 let workingDirectory =getWorkingDirectory();
@@ -422,7 +475,7 @@
         }
         
         function getUserMedia_Github(){
-            buttons[i===0?0:i+=1] = createButton(`Open Get User Media Github page`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
+            buttons[i===0?0:i+=1] = createButton(`Open Get User Media Github page`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue').mousePressed(()=>{
                 console.log("open Chrome to GUM Github page")
             //send message to Advanced Scene Switcher
             let workingDirectory =getWorkingDirectory();
@@ -450,7 +503,7 @@
         }
 
         function startZoomOSCtoWebSocketButton(){
-            buttons[i===0?0:i+=1] = createButton(`Start ZoomOSC to OBS WebSocket`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
+            buttons[i===0?0:i+=1] = createButton(`Start ZoomOSC to OBS WebSocket`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue').mousePressed(()=>{
                 //setCommandText(`node ${window.location.pathname.replace('Browser_Sources/uuhimsyControls.html','NodeJS_Apps/zoomOSC-to-obsWS.js').replace('//','/')}`)
             //send message to Advanced Scene Switcher
             let workingDirectory =getWorkingDirectory();
@@ -465,7 +518,7 @@
         }
 
         function startUVCtoWebSocketButton(){
-            buttons[i===0?0:i+=1] = createButton(`Start UVC-Util to OBS WebSocket`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
+            buttons[i===0?0:i+=1] = createButton(`Start UVC-Util to OBS WebSocket`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue').mousePressed(()=>{
             //send message to Advanced Scene Switcher
             let workingDirectory =getWorkingDirectory();
             obs.call("CallVendorRequest", {
@@ -479,7 +532,7 @@
         }
 
         function getPTZValues(){
-            buttons[i===0?0:i+=1] = createButton(`Get PTZ camera position (${getUVC_PTZ_HK})`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].height))).class('button l blue').mousePressed(()=>{
+            buttons[i===0?0:i+=1] = createButton(`Get PTZ camera position (${getUVC_PTZ_HK})`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue').mousePressed(()=>{
 
             if(navigator.platform.includes('Mac')){
                 hotkeyUpdate(getUVC_PTZ_HK)        
@@ -505,24 +558,7 @@
             });
             await obs.call("TriggerHotkeyByName", { hotkeyName: "RUN_CommandLine", })
         }
-            
-        function labelUpdate(value){
-            setTimeout(()=>{
-                slideAppName = document.querySelector('input[name="radioOption"]:checked').value
-                nextSlide_HK = eval(`${slideAppName}NextSlide_HK`)
-                prevSlide_HK = eval(`${slideAppName}PreviousSlide_HK`)
-                document.getElementById('nextSlideButton').innerHTML = `Next Slide (${nextSlide_HK})`
-                document.getElementById('prevSlideButton').innerHTML = `Previous Slide (${prevSlide_HK})`
-                obs.call("CallVendorRequest", {
-                    vendorName: "obs-browser",
-                    requestType: "emit_event",
-                    requestData: {
-                        event_name: "slideAppChanged",
-                        event_data: { slideAppName },
-                    },
-                });
-            }, 500);    
-        }
+
 
         async function obsGoToScene(scene){
             await obs.call("SetCurrentProgramScene", {
