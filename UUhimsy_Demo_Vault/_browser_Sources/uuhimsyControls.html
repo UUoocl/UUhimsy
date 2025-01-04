@@ -235,23 +235,45 @@
             buttons[i+=1] = createButton(`Refresh Browsers 🔄 (${refreshOBSbrowsers_HK})`).position(0, (buttonPadding+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button negative l').mousePressed(()=>()=>refreshOBSbrowsers())
         }
 
-        function createSlideNavButtons(app){    
+        function createSlideNavButtons(){    
             //Create Slide Buttons
-            if(navigator.platform.includes('Mac')){
-                buttons[i===0 ? 0 : i+=1] = createButton(`${app} Slide Controls`).position(0, (i===0 ? 0:buttonPadding+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue').mousePressed(()=>{obsGoToScene('Scene ExternalSlide-OTS')})
-            }
-            if(navigator.platform.includes('Win')){
-                buttons[i===0 ? 0 : i+=1] = createButton(`${app} Slide Controls`).position(0, (i===0 ? 0:buttonPadding+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue').mousePressed(()=>{obsGoToScene('Scene ExternalSlide-OTS')})
-            }
-            
-            buttons[i+=1] = createButton(`Previous Slide (${previousSlide_HK})`).position(0, (buttonPadding)+(buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button left l').id('prevSlideButton').mousePressed(async()=>{
-               sendButtonCustomEvent("previousSlide")
-            })
+            buttons[i===0 ? 0 : i+=1] = createButton(`${app} Slide Controls`).position(0, (i===0 ? 0:buttonPadding+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue')
+            buttons[i+=1] = createButton(`Previous Slide (${previousSlide_HK})`)
+                .position(0, (buttonPadding)+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))
+                .class('button left l')
+                .id('prevSlideButton')
+                .attribute('data-shortcut-name',`UUhimsome ${app} Slide Navigation 2 of 2`)
+                .attribute('data-event-name',`run-shortcut`)
+                .attribute('data-direction',`Previous`)
+                .mouseReleased(function(){
+                    this.elt.dataset.shortcutName = `UUhimsome ${app} Slide Navigation 2 of 2`
+                    slideNavigation(this.elt.dataset)})
 
-            buttons[i+=1] = createButton(`Next Slide (${nextSlide_HK})`).position((windowWidth*.9)/2, ((buttonPadding)+(buttons[i-2].y+buttons[i-2].elt.offsetHeight))).class('button left l').id('nextSlideButton').mousePressed(async()=>{
-                //enableSource("Slide Controls", "NextSlide");
-                sendButtonCustomEvent("nextSlide");
-            })
+            buttons[i+=1] = createButton(`Next Slide (${nextSlide_HK})`)
+                .position((windowWidth*.9)/2, ((buttonPadding)+(buttons[i-2].y+buttons[i-2].elt.offsetHeight)))
+                .class('button left l')
+                .id('nextSlideButton')
+                .attribute('data-shortcut-name',`UUhimsome ${app} Slide Navigation 1 of 2`)
+                .attribute('data-event-name',`run-shortcut`)
+                .attribute('data-direction',`Next`)
+                .mouseReleased(function(){
+                    this.elt.dataset.shortcutName = `UUhimsome ${app} Slide Navigation 1 of 2`
+                    slideNavigation(this.elt.dataset)
+                });
+            }
+        function slideNavigation(buttonDetails){
+            console.log(buttonDetails)
+            if(app === "Reveal"){
+                if(buttonDetails.direction === "Next"){sendButtonCustomEvent("nextSlide")};
+                if(buttonDetails.direction === "Previous"){sendButtonCustomEvent("previousSlide")};
+                if(buttonDetails.direction === "Current"){sendButtonCustomEvent("currentSlide")};
+            }
+            if(navigator.platform.includes('Win') && app === "PowerPoint"){
+                //script lab 
+            }
+            if(navigator.platform.includes('Mac') && app != "Reveal"){
+                sendUUhimsomeShortcut(buttonDetails);
+            }
         }
         function createTelepromterButtons(){
             buttons[i===0 ? 0 : i+=1] = createButton(`Teleprompter Controls`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue')
@@ -326,43 +348,56 @@
                     buttons[i+=1] = createButton(sceneName[1])
                         .position(0, (buttons[i-1].y+buttons[i-1].elt.offsetHeight))
                         .class('button left l')
-                        .attribute('data-left',-355)
-                        .attribute('data-top',35)
-                        .attribute('data-type','scene')
-                        .attribute('data-event','\\\\\\')
-                        .attribute('data-height',25)
-                        .attribute('data-width',340)
-                        .attribute('data-color','9CD3D9')
-                        .attribute('data-transparency',0)
-                        .attribute('data-shapeName',`obs-scene\\\\\\ ${sceneName[1]}`)
-                        .attribute('data-id',`scene\\\\\\ ${sceneName[1]}`)
+                        .attribute('data-tag-left',-355)
+                        .attribute('data-tag-top',35)
+                        .attribute('data-tag-type','scene')
+                        .attribute('data-tag-event','\\\\\\')
+                        .attribute('data-tag-height',25)
+                        .attribute('data-tag-width',340)
+                        .attribute('data-tag-color','9CD3D9')
+                        .attribute('data-tag-transparency',0)
+                        .attribute('data-tag-shapeName',`obs-scene\\\\\\ ${sceneName[1]}`)
+                        .attribute('data-tag-id',`scene\\\\\\ ${sceneName[1]}`)
                         .attribute('data-shortcut-name',`UUhimsome ${app} Add Tag`)
                         .attribute('data-event-name',`run-shortcut`)
                         .attribute('id',`scene\\\\\\ ${sceneName[1]}`)
-                        .mouseReleased(sendUUhimsomeShortcut)
+                        .mouseReleased(function(){
+                            this.elt.dataset.shortcutName = `UUhimsome ${app} Add Tag`
+                            if(app === "Keynote"){
+                                this.elt.dataset.tagHeight = 100;
+                                this.elt.dataset.tagWidth = 600;
+                                this.elt.dataset.tagLeft = 0;
+                                this.elt.dataset.tagTop = -100; 
+                            }
+                            sendUUhimsomeShortcut(this.elt.dataset)
+                        })
 
                     buttons[i+=1] = createButton(sceneName[1])
                         .position((windowWidth*.9)/2, (buttons[i-2].y+buttons[i-2].elt.offsetHeight))
                         .class('button left l')
-                        .attribute('data-left',-355)
-                        .attribute('data-top',305)
-                        .attribute('data-type','scene')
-                        .attribute('data-event','///')
-                        .attribute('data-height',25)
-                        .attribute('data-width',340)
-                        .attribute('data-color','FFA99B')
-                        .attribute('data-transparency',0.01)
-                        .attribute('data-shapeName',`obs-scene/// ${sceneName[1]}`)
-                        .attribute('data-id',`scene/// ${sceneName[1]}`)
+                        .attribute('data-tag-left',-355)
+                        .attribute('data-tag-top',305)
+                        .attribute('data-tag-type','scene')
+                        .attribute('data-tag-event','///')
+                        .attribute('data-tag-height',25)
+                        .attribute('data-tag-width',340)
+                        .attribute('data-tag-color','FFA99B')
+                        .attribute('data-tag-transparency',0.01)
+                        .attribute('data-tag-shapeName',`obs-scene/// ${sceneName[1]}`)
+                        .attribute('data-tag-id',`scene/// ${sceneName[1]}`)
                         .attribute('id',`scene/// ${sceneName[1]}`)
-                        .mousePressed(async()=>
-                        {   
-                        await obs.call("SetInputSettings", {
-                            inputName: 'SceneTag',
-                            inputSettings: {
-                                text: `sceneExit|${sceneName[1].trim()}`,
+                        .attribute('data-shortcut-name',`UUhimsome ${app} Add Tag`)
+                        .attribute('data-event-name',`run-shortcut`)
+                        .attribute('id',`scene\\\\\\ ${sceneName[1]}`)
+                        .mouseReleased(function(){
+                            this.elt.dataset.shortcutName = `UUhimsome ${app} Add Tag`
+                            if(app === "Keynote"){
+                                this.elt.dataset.tagHeight = 100;
+                                this.elt.dataset.tagWidth = 600;
+                                this.elt.dataset.tagLeft = 800;
+                                this.elt.dataset.tagTop = -100;
                             }
-                        });
+                            sendUUhimsomeShortcut(this.elt.dataset)
                         })
                 }
             });
@@ -378,36 +413,75 @@
             let cameraSources = await obs.call("GetSceneItemList", { sceneName: "Input Camera" });
             cameraSources.sceneItems.forEach((source, index) => {
                 console.log(source)
-                buttons[i+=1] = createButton(source.sourceName).position(0, (buttons[i-1].y+buttons[i-1].elt.offsetHeight)).class('button left l').mousePressed(async()=>
-                {
-                    console.log(source)
-                    await obs.call("SetInputSettings", {
-                            inputName: 'CameraTag',
-                            inputSettings: {
-                                text: `cameraEntrance|${source.sourceName.trim()}`,
-                            }
-                        });
-                })
-                buttons[i+=1] = createButton(source.sourceName).position((windowWidth*.9)/2, (buttons[i-2].y+buttons[i-2].elt.offsetHeight)).class('button left l').mousePressed(async()=>
-                {
-                    await obs.call("SetInputSettings", {
-                            inputName: 'CameraTag',
-                            inputSettings: {
-                                text: `cameraExit|${source.sourceName.trim()}`,
-                            }
-                        });
-                })
+                buttons[i+=1] = createButton(source.sourceName)
+                    .position(0, (buttons[i-1].y+buttons[i-1].elt.offsetHeight))
+                    .class('button left l')
+                    .attribute('data-tag-left',-355)
+                    .attribute('data-tag-top',65)
+                    .attribute('data-tag-type','camera')
+                    .attribute('data-tag-event','\\\\\\')
+                    .attribute('data-tag-height',25)
+                    .attribute('data-tag-width',340)
+                    .attribute('data-tag-color','9CD3D9')
+                    .attribute('data-tag-transparency',0)
+                    .attribute('data-tag-shapeName',`obs-camera\\\\\\ ${source.sourceName}`)
+                    .attribute('data-tag-id',`camera\\\\\\ ${source.sourceName}`)
+                    .attribute('id',`camera\\\\\\ ${source.sourceName}`)
+                    .attribute('data-shortcut-name',`UUhimsome ${app} Add Tag`)
+                    .attribute('data-event-name',`run-shortcut`)
+                    .attribute('id',`camera\\\\\\ ${source.sourceName}`)
+                    .mouseReleased(function(){
+                        this.elt.dataset.shortcutName = `UUhimsome ${app} Add Tag`
+                        if(app === "Keynote"){
+                            this.elt.dataset.tagHeight = 100;
+                            this.elt.dataset.tagWidth = 600;
+                            this.elt.dataset.tagLeft = 0;
+                            this.elt.dataset.tagTop = -200;
+                        }
+                        sendUUhimsomeShortcut(this.elt.dataset)})
+
+                buttons[i+=1] = createButton(source.sourceName)
+                    .position((windowWidth*.9)/2, (buttons[i-2].y+buttons[i-2].elt.offsetHeight))
+                    .class('button left l')
+                    .attribute('data-tag-left',-355)
+                    .attribute('data-tag-top',335)
+                    .attribute('data-tag-type','camera')
+                    .attribute('data-tag-event','///')
+                    .attribute('data-tag-height',25)
+                    .attribute('data-tag-width',340)
+                    .attribute('data-tag-color','FFA99B')
+                    .attribute('data-tag-transparency',0.01)
+                    .attribute('data-tag-shapeName',`obs-camera/// ${source.sourceName}`)
+                    .attribute('data-tag-id',`camera/// ${source.sourceName}`)
+                    .attribute('id',`camera/// ${source.sourceName}`)
+                    .attribute('data-shortcut-name',`UUhimsome ${app} Add Tag`)
+                    .attribute('data-event-name',`run-shortcut`)
+                    .attribute('id',`camera/// ${source.sourceName}`)
+                    .mouseReleased(function(){
+                        this.elt.dataset.shortcutName = `UUhimsome ${app} Add Tag`
+                        if( app === "Keynote"){   
+                            this.elt.dataset.tagHeight = 100;
+                            this.elt.dataset.tagWidth = 600;
+                            this.elt.dataset.tagLeft = 800;
+                            this.elt.dataset.tagTop = -200;
+                        }
+                        sendUUhimsomeShortcut(this.elt.dataset)})
+                        
+
             });
         }
 
         function sendUUhimsomeShortcut(buttonDetails){
-            let data = JSON.stringify(this.elt.dataset)
+            console.log(buttonDetails)
+            let data = JSON.stringify(buttonDetails)
+            //let data = this === undefined ? buttonsDetails : JSON.stringify(this.elt.dataset)
+            console.log(data)
             obs.call("BroadcastCustomEvent",{
                 eventData:{
-                    event_name: this.elt.dataset.eventName,
+                    event_name: buttonDetails.eventName,
                     event_data: { 
                         "shortcut_input": data,
-                        "shortcut_name": `UUimsome ${app} Add Tag`
+                        "shortcut_name": buttonDetails.shortcutName
                     }
                 }
             })
@@ -674,7 +748,6 @@
     <script id="InputRouter">
         //on obs text source settings change
         obs.on("InputSettingsChanged", async function (event) {
-            //console.log(event);
             switch (event.inputName) {
                 case 'cursor':
                     //console.log(mouseCoordinates);
@@ -741,11 +814,99 @@
                         pauseTeleprompterScroll('playPause')
                         break;
                     }
-           
+                    break;
+
+                case 'CommandResultsText':
+                console.log(event);             
+                console.log(event.inputSettings.text.length);             
+                commandResults = event.inputSettings.text.length === 0 ? "" : JSON.parse(event.inputSettings.text)
+                    if(Object.hasOwn(commandResults,"actionName")){
+                        if(commandResults.actionName === "Next_ppt"){
+                            //call next slide shortcut
+                            obs.call("BroadcastCustomEvent",{
+                                eventData:{
+                                    event_name: 'run-shortcut',
+                                    event_data: { 
+                                        "shortcut_input": JSON.stringify({"direction": "Next"}),
+                                        "shortcut_name": "UUhimsome PowerPoint Slide Navigation 2 of 2"
+                                    }
+                                }
+                            })
+                        }
+                        if(commandResults.actionName === "Next_keynote"){
+                            //call next slide shortcut
+                            obs.call("BroadcastCustomEvent",{
+                                eventData:{
+                                    event_name: 'run-shortcut',
+                                    event_data: { 
+                                        "shortcut_input": JSON.stringify({"direction": "Next"}),
+                                        "shortcut_name": "UUhimsome Keynote Slide Navigation 2 of 2"
+                                    }
+                                }
+                            })
+                        }
+                     //change scene
+                        if(Object.hasOwn(commandResults,"scene")){
+                            await obs.call("SetCurrentProgramScene", {sceneName: `scene|||${commandResults.scene}`});
+                        }
+                     //change camera
+                        if (Object.hasOwn(commandResults,"camera")){
+                        let cameraSources = await obs.call("GetSceneItemList", { sceneName: "Input Camera" });
+                        cameraSources.sceneItems.forEach(async (source) => {
+                            if (source.sourceName === commandResults.camera ) {
+                            await obs.call("SetSceneItemEnabled", {
+                                sceneName: "Input Camera",
+                                sceneItemId: source.sceneItemId,
+                                sceneItemEnabled: true
+                            });
+                            } 
+                            if (source.sourceName !== commandResults.camera){
+                            await obs.call("SetSceneItemEnabled", {
+                                sceneName: "Input Camera",
+                                sceneItemId: source.sceneItemId,
+                                sceneItemEnabled: false
+                            });
+                            }
+                        });
+                        }
+                        //update teleprompter notes
+                        if(Object.hasOwn(commandResults,"slideNotes")){
+                            let slideNotes = commandResults.slideNotes
+                            //let slideNotes = "Reveal.getSlideNotes()"
+                            console.log("New Notes function",slideNotes)
+                            console.log(typeof slideNotes)
+                            console.log(slideNotes)
+                            console.log(slideNotes.length)
+                            //send notes to text source teleprompter
+                            await obs.call("SetInputSettings", {
+                              inputName: "Slide Notes Text",
+                              inputSettings: {
+                                text: slideNotes.replace(/<[^>]*>/g, '')
+                              }
+                            });
+
+                            //send notes to browser teleprompter
+                            obs.call("CallVendorRequest", {
+                                vendorName: "obs-browser",
+                                requestType: "emit_event",
+                                requestData: {
+                                    event_name: "slideChangeResult",
+                                    event_data: { 
+                                      app: "ppt-keynote",
+                                      slideNotes: `${slideNotes}`
+                                    },
+                                },
+                            });
+                        }    
+                    
+
+                        break;
+                    }
+                    break;
                 default:
                     break;
-                    }
-                })
+            }
+        })
 
                 // //Listen for control related websocket messages
                 // //PTZ camera 
