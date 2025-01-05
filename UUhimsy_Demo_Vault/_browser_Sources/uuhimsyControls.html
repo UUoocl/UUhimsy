@@ -352,6 +352,7 @@
                         .attribute('data-tag-top',35)
                         .attribute('data-tag-type','scene')
                         .attribute('data-tag-event','\\\\\\')
+                        .attribute('data-tag-event-name',`entrance="${sceneName[1]}"`)
                         .attribute('data-tag-height',25)
                         .attribute('data-tag-width',340)
                         .attribute('data-tag-color','9CD3D9')
@@ -369,7 +370,7 @@
                                 this.elt.dataset.tagLeft = 0;
                                 this.elt.dataset.tagTop = -100; 
                             }
-                            sendUUhimsomeShortcut(this.elt.dataset)
+                            slideTagsRoute(this.elt.dataset)
                         })
 
                     buttons[i+=1] = createButton(sceneName[1])
@@ -379,6 +380,7 @@
                         .attribute('data-tag-top',305)
                         .attribute('data-tag-type','scene')
                         .attribute('data-tag-event','///')
+                        .attribute('data-tag-event-name',`exit="${sceneName[1]}"`)
                         .attribute('data-tag-height',25)
                         .attribute('data-tag-width',340)
                         .attribute('data-tag-color','FFA99B')
@@ -397,7 +399,8 @@
                                 this.elt.dataset.tagLeft = 800;
                                 this.elt.dataset.tagTop = -100;
                             }
-                            sendUUhimsomeShortcut(this.elt.dataset)
+                            slideTagsRoute(this.elt.dataset)
+                            //sendUUhimsomeShortcut(this.elt.dataset)
                         })
                 }
             });
@@ -420,6 +423,7 @@
                     .attribute('data-tag-top',65)
                     .attribute('data-tag-type','camera')
                     .attribute('data-tag-event','\\\\\\')
+                    .attribute('data-tag-event-name',`entrance="${source.sourceName}"`)
                     .attribute('data-tag-height',25)
                     .attribute('data-tag-width',340)
                     .attribute('data-tag-color','9CD3D9')
@@ -438,7 +442,8 @@
                             this.elt.dataset.tagLeft = 0;
                             this.elt.dataset.tagTop = -200;
                         }
-                        sendUUhimsomeShortcut(this.elt.dataset)})
+                        slideTagsRoute(this.elt.dataset)})
+                        //sendUUhimsomeShortcut(this.elt.dataset)})
 
                 buttons[i+=1] = createButton(source.sourceName)
                     .position((windowWidth*.9)/2, (buttons[i-2].y+buttons[i-2].elt.offsetHeight))
@@ -447,6 +452,7 @@
                     .attribute('data-tag-top',335)
                     .attribute('data-tag-type','camera')
                     .attribute('data-tag-event','///')
+                    .attribute('data-tag-event-name',`exit="${source.sourceName}"`)
                     .attribute('data-tag-height',25)
                     .attribute('data-tag-width',340)
                     .attribute('data-tag-color','FFA99B')
@@ -465,10 +471,29 @@
                             this.elt.dataset.tagLeft = 800;
                             this.elt.dataset.tagTop = -200;
                         }
-                        sendUUhimsomeShortcut(this.elt.dataset)})
-                        
-
+                        slideTagsRoute(this.elt.dataset)})
+                        //sendUUhimsomeShortcut(this.elt.dataset)})
             });
+        }
+
+        function slideTagsRoute(buttonDetails){
+            if(app === "Reveal"){
+                //Obsidian Tags
+                //<!-- slide data-camera-entrance="Close Up" --> 
+                //<!-- slide data-scene-entrance="ExternalSlide-Full" --> 
+                tagValue =JSON.stringify(`<!-- slide data-${buttonDetails.tagType}-${buttonDetails.tagEventName} -->
+`)
+                obsidianTag = {"tag": tagValue}
+                console.log(buttonDetails) 
+                sendButtonCustomEvent('add-obsidian-tag', obsidianTag)
+                
+            }
+            if(navigator.platform.includes('Win') && app === "PowerPoint"){
+                //script lab 
+            }
+            if(navigator.platform.includes('Mac') && app != "Reveal"){
+                sendUUhimsomeShortcut(buttonDetails);
+            }
         }
 
         function sendUUhimsomeShortcut(buttonDetails){
@@ -533,7 +558,18 @@
         }
         
         
-        function getUserMedia_Node(){
+        function getUserMedia_Obsidian(){
+            buttons[i===0?0:i+=1] = createButton(`Open Get User Media Page`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue').mousePressed(()=>{
+                //send custom event for Obsidian
+                obs.call("BroadcastCustomEvent",{
+                    eventData:{
+                        event_name: 'open-gum-page',
+                    }
+                });    
+            })
+        }
+
+        function getUserMedia_AdvSS(){
             buttons[i===0?0:i+=1] = createButton(`Open Get User Media (Node js)`).position(0, (i===0 ? 0:buttonPadding+15+(buttons[i-1].y+buttons[i-1].elt.offsetHeight))).class('button l blue').mousePressed(()=>{
                 //setCommandText(`open node ${window.location.pathname.replace('Browser_Sources/uuhimsyControls.html','NodeJS_Apps/simple-server.js').replace('//','/')}`)
                 //send message to Advanced Scene Switcher
