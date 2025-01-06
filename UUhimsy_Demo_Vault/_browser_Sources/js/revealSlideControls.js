@@ -51,7 +51,7 @@ Reveal.on('slidechanged', async (event) => {
 
   //Reveal Slide Transition ended https://revealjs.com/events/#slide-transition-end
 Reveal.on('slidetransitionend', async (event) => {
-  //get on exit attributes
+  //get on entrance attributes
     console.log(event)
     slideAttributeFunctions(event, "Entrance")
 })
@@ -74,15 +74,29 @@ Reveal.on('fragmentshown', (event) => {
 
 //Loop through each slide attribute and run any matches
 function slideAttributeFunctions(slideEvent, eventType){
+  console.log("SlideEvent",slideEvent,"EventType", eventType)
+  if(eventType === "Exit"){
     currentSlideAttributes = {...slideEvent.previousSlide.dataset};
     //console.log(currentSlideAttributes, typeof currentSlideAttributes)
     for (const [attribute, value] of Object.entries(currentSlideAttributes)){
-      //console.log("attribute",attribute, value)
+      console.log("attribute",attribute, value)
       const attr = attribute.replace(eventType,"")
       if(customSlideAttributeFunctions.includes(`customSlideAttribute_${attr}`)){
         window[`customSlideAttribute_${attr}`](value);
       }
     }
+  }
+  if(eventType === "Entrance"){
+    currentSlideAttributes = {...slideEvent.currentSlide.dataset};
+    console.log(currentSlideAttributes, typeof currentSlideAttributes)
+    for (const [attribute, value] of Object.entries(currentSlideAttributes)){
+      console.log("attribute",attribute, value)
+      const attr = attribute.replace(eventType,"")
+      if(customSlideAttributeFunctions.includes(`customSlideAttribute_${attr}`)){
+        window[`customSlideAttribute_${attr}`](value);
+      }
+    }
+  }
   }
 
   //Switch to Scene
@@ -105,7 +119,7 @@ function slideAttributeFunctions(slideEvent, eventType){
       } 
     if (source.sourceName !== cameraView){
       await obs.call("SetSceneItemEnabled", {
-          sceneName: "Camera",
+          sceneName: "Input Camera",
           sceneItemId: source.sceneItemId,
           sceneItemEnabled: false
         });
@@ -114,14 +128,16 @@ function slideAttributeFunctions(slideEvent, eventType){
   }
 
     //Call Apple ShortCut
-   function customSlideAttribute_shortcutExit(shortCut){
-      console.log("exit shortcut found", shortCut)
-      const shortcutName = JSON.stringify(shortCut)
-      console.log(shortcutName)
+   function customSlideAttribute_shortcuts(shortCut){
+      console.log("shortcut found", shortCut)
+      const shortcutName = shortCut
+      console.log(shortCut)
       obs.call("BroadcastCustomEvent", {
         eventData: {
           event_name: `run-shortcut`,
-          shortcut_name: shortcutName,
+          event_data: { 
+            "shortcut_name": shortCut,
+        }
         },
       });
   }
