@@ -16,4 +16,4 @@
 - [[Reveal Slides Frontmatter Options|Reveal Slides Frontmatter Options]]
 - [[Advanced Slides Templates/tpl-con-2-1-box.md|tpl-con-2-1-box]]
 - [[Projects/UUhimsy.md|UUhimsy]]
-- [[Untitled.md|Untitled]]
+- [[index|index]]
