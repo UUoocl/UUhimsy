@@ -7,7 +7,8 @@
   "oscOutPort_Text": "4477",
   "obsAppName_Text": "OBS30",
   "obsAppPath_Text": "C:\\\\Program Files\\\\obs-studio\\\\bin\\\\64bit\\\\",
-  "obsCollection_Text": "Key_and_Mouse_Visuals_Collection",
+  "obsCollection_Text": "UUhimsy_Collection",
   "obsDebug_Text": "Y",
-  "obsDebugPort_Text": "9222"
+  "obsDebugPort_Text": "9222",
+  "uvcUtil_folder": "_uvc-util"
 }

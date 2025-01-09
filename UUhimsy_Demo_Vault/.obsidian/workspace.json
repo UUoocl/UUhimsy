@@ -6,7 +6,6 @@
       {
         "id": "9396a8abdbb48d84",
         "type": "tabs",
-        "dimension": 50,
         "children": [
           {
             "id": "3b6bf24dcf757ddb",
@@ -14,29 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_GUM/Link to GUM Index Page.md",
+                "file": "Create Reveal Slides for OBS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Link to GUM Index Page"
-            }
-          }
-        ]
-      },
-      {
-        "id": "0fc9e97397e3043e",
-        "type": "tabs",
-        "dimension": 50,
-        "children": [
-          {
-            "id": "a553525804f4d9ed",
-            "type": "leaf",
-            "state": {
-              "type": "reveal-preview-view",
-              "state": {},
-              "icon": "slides",
-              "title": "Slide preview"
+              "title": "Create Reveal Slides for OBS"
             }
           }
         ]
@@ -189,9 +171,19 @@
               "icon": "lucide-info",
               "title": "File properties for Hotkeys"
             }
+          },
+          {
+            "id": "db246499a748c716",
+            "type": "leaf",
+            "state": {
+              "type": "uuhimsy-view",
+              "state": {},
+              "icon": "wand-sparkles",
+              "title": "UUhimsy Tags"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       },
       {
         "id": "ba7e79d6bbf5d5e1",
@@ -216,11 +208,11 @@
       }
     ],
     "direction": "horizontal",
-    "width": 467.5,
-    "collapsed": true
+    "width": 951.5
   },
   "left-ribbon": {
     "hiddenItems": {
+      "uuhimsy:UUhimsy tags": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -229,11 +221,83 @@
       "command-palette:Open command palette": false,
       "slides-extended:Show slide preview": false,
       "templater-obsidian:Templater": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "obsidian-kanban:Create new board": false,
+      "webpage-html-export:Export Vault to HTML": false
     }
   },
-  "active": "3b6bf24dcf757ddb",
+  "floating": {
+    "id": "30f86a929040ee0c",
+    "type": "floating",
+    "children": [
+      {
+        "id": "53d4b6243dc904ee",
+        "type": "window",
+        "children": [
+          {
+            "id": "39750a39ab62b7e5",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "f5ae94b54fd1a7b1",
+                "type": "leaf",
+                "state": {
+                  "type": "canvas",
+                  "state": {
+                    "file": "Camera Presets.canvas",
+                    "viewState": {
+                      "x": 0,
+                      "y": 0,
+                      "zoom": 0
+                    }
+                  },
+                  "icon": "lucide-layout-dashboard",
+                  "title": "Camera Presets"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 1270,
+        "y": 915,
+        "width": 900,
+        "height": 500,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
+  "active": "f5ae94b54fd1a7b1",
   "lastOpenFiles": [
+    "Slideshows/Reveal demo deck.md",
+    "Advanced Slides Templates/tpl-con-2-1-box.md",
+    "Advanced Slides Documentation/Slide Attributes.md",
+    "Advanced Slides Documentation/Reveal Slides Frontmatter Options.md",
+    "Create Reveal Slides for OBS.md",
+    "Camera Presets.canvas",
+    "Projects/UUhimsy.md",
+    "Excalidraw/Dataview in Templater.md",
+    "assets/reveal-white-text.svg",
+    "assets/Pasted Image 20241229195200_820.png",
+    "assets/Pasted Image 20241125121458_318.png",
+    "assets/Pasted image 20241123153102.png",
+    "assets/Pasted image 20241123153033.png",
+    "assets/Pasted image 20241123001054.png",
+    "assets/Dataview in Templater.svg",
+    "Advanced Slides Documentation/MD Table.md",
+    "_GUM/Link to GUM Index Page.md",
+    "_slide_Tags/Camera - No Camera.md",
+    "_slide_Tags/Camera - Wide.md",
+    "_slide_Tags/Camera - Medium.md",
+    "_slide_Tags/Camera - Close Up.md",
+    "_slide_Tags/Scene - Over the Shoulder.md",
+    "_slide_Tags/Scene - Full Screen Slide UL.md",
+    "_slide_Tags/Scene - Full Screen Slide UR.md",
+    "_slide_Tags/Scene - Full Screen Slide LR.md",
+    "_slide_Tags/Scene - Full Screen Slide LL.md",
+    "_slide_Tags/Scene - Full Screen Slide.md",
+    "_slide_Tags/Scene - Screen Share.md",
     "Welcome.md",
     "_slide_Tags/Compare PTZ Camera Position.md",
     "_scripts/websocketDetails.js",
@@ -249,35 +313,7 @@
     "Excalidraw/Drawing 2024-12-28 21.58.36.excalidraw.svg",
     "Excalidraw/Drawing 2024-12-28 21.58.36.excalidraw.png",
     "Excalidraw/Drawing 2024-12-28 21.58.36.excalidraw.md",
-    "Excalidraw/Drawing 2024-11-23 01.04.33.excalidraw.md",
     "Excalidraw/Drawing 2024-11-23 00.11.20.excalidraw.svg",
-    "Excalidraw/Drawing 2024-11-23 00.11.20.excalidraw.md",
-    "Excalidraw/Drawing 2024-11-22 17.37.39.excalidraw.svg",
-    "Excalidraw/Drawing 2024-11-22 17.37.39.excalidraw.png",
-    "Excalidraw/Drawing 2024-11-22 17.37.39.excalidraw.md",
-    "Excalidraw/Dataview in Templater.md",
-    "Projects/UUhimsy.md",
-    "Excalidraw/scare 2024-11-22 18.11.38.excalidraw.md",
-    "Excalidraw/Untitled.md",
-    "Excalidraw/UUhimsy diagram.md",
-    "Excalidraw/UUhimsy diagram.png",
-    "Excalidraw/UUhimsy diagram.svg",
-    "Excalidraw/New UUhimsy.excalidraw.md",
-    "Excalidraw/scare 2024-11-22 18.11.38.excalidraw.svg",
-    "Excalidraw/scare 2024-11-22 18.11.38.excalidraw.png",
-    "Excalidraw/Drawing 2024-12-28 21.58.18.excalidraw.md",
-    "Excalidraw/Drawing 2024-11-22 18.11.38.excalidraw.png",
-    "Slideshows/Reveal demo deck.md",
-    "_sidebar/Hotkeys.md",
-    "_templates/Compare PTZ Camera Position.md",
-    "Advanced Slides Documentation/Slide Attributes.md",
-    "Advanced Slides Documentation/Reveal Slides Frontmatter Options.md",
-    "Advanced Slides Documentation/MD Table.md",
-    "Advanced Slides Templates/tpl-con-2-1-box.md",
-    "Camera Presets.canvas",
-    "Create Reveal Slides for OBS.md",
-    "Dataview.md",
-    "Dataview Count item.md",
     "_browser_Sources/obs_webSocket_details/websocketDetails.js",
     "_browser_Sources/css/softBody.css",
     "_browser_Sources/css"
