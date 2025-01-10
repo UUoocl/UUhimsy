@@ -1,3 +1,8 @@
+---
+tags:
+  - Reveal-Section
+---
+
 # Title of the Talk Here
 
 ## PRESENTER
@@ -10,9 +15,12 @@ DEPARTMENT<br/>
 
 <tt>GITHUB</tt></p>
 
-Number of pages: {totalPages}
+Number of pages: 
+
+{Unique Placeholder}
 
 <!-- <%*
+dv = tp.app.plugins.getPlugin("dataview").api;
 query = await dv.pages().length;
-tR = tR.replace('{totalPages}',query);
+tR = tR.replace('{Unique Placeholder}',query);
 %> -->

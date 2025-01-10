@@ -1,3 +1,7 @@
+---
+tags:
+  - Reveal-Section
+---
 
 ![[reveal-white-text.svg|500]]
 
@@ -25,6 +29,7 @@ text-654654
 Number of pages:  {totalPagesIntro}
 
 <!-- <%*
+dv = tp.app.plugins.getPlugin("dataview").api;
 query = await dv.pages().length;
 console.log(query)
 query = query + 5

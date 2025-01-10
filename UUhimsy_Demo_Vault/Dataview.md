@@ -35,3 +35,13 @@ dv.table(["Name", "Time Read", "Rating"], group.rows .sort(k => k.rating, 'desc'
 ```
 
 
+```dataviewjs
+dv.list(dv.pages("#Reveal-Section").file.name)
+```
+
+
+```dataviewjs
+for(let note of dv.pages("#Reveal-Section").file){
+	dv.paragraph(`- [ ] ${note.name}`)
+}
+```
