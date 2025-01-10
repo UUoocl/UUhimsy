@@ -22,5 +22,3 @@ tR += query;
 
  >[!info] 
 	 output:  25
-
-

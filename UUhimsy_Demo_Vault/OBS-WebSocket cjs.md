@@ -1,9 +1,0 @@
-
-<% 
-tp.user.obsWebsocket()
-%>
-
-
-
-
-

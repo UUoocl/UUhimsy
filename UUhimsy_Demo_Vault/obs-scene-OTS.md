@@ -1,1 +1,0 @@
-data-scene-entrance="Reveal-Side"

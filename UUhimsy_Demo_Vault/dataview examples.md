@@ -11,10 +11,7 @@ dv.paragraph(`~~~list~~~`)
 
 
 
-`$= dv.paragraph(`LIST)`
-
-`$= await dv.execute("LIST")`
-
+`$= dv.paragraph('LIST')`
 
 ```dataviewjs
 dv.execute("LIST")

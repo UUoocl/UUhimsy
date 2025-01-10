@@ -10,4 +10,3 @@ There are 2 commands to annotate a Slide's attributes
 ```
 <!-- slide: data-attribute-key="data attribute value" -->
 ```
-

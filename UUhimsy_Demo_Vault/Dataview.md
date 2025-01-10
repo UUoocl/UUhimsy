@@ -4,6 +4,9 @@ tags:
   - example
 ---
 
+``
+
+```
 ```dataviewjs
 let page = dv.current().file.path; 
 let pages = new Set(); 
