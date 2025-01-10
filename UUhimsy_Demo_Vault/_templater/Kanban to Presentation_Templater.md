@@ -28,8 +28,6 @@ talkDate: Unknown
 <%*
 const dv = tp.app.plugins.getPlugin("dataview").api;
 const filePath = tp.config.active_file;
-console.log(tp.config.active_file)
-const converted = [];
 if (filePath) {
 	const p = dv.page(filePath.path)
 	const f = p.file;
@@ -43,31 +41,16 @@ if (filePath) {
 				const noteContent = await app.vault.read(noteTF);
 				tR += noteContent;
 
-				//converted.push(`!${i.text}`);
 			} else {
 				tR += tp.file.find_tfile(i.text)
 				//converted.push(i.text);
 			}
 		tR += "\n\n---\n\n"
-		console.log("item",i);
 		};
 
 		tp.hooks.on_all_templates_executed(async () => {
-			let file = tp.file.find_tfile(tp.file.path(true));
-			let newPresentationFile = tp.file.find_tfile(tp.file.title)
-			newPresentationContent = await app.vault.read(newPresentationFile);
-
 			app.commands.executeCommandById('templater-obsidian:replace-in-file-templater');
-
-			file = tp.file.find_tfile(tp.file.path(true));
-			newPresentationFile = tp.file.find_tfile(tp.file.title)
-			newPresentationContent = await app.vault.read(newPresentationFile);
-			tR = tR.replace("<!-- -->","")
-			
-
 		})
 	}
 }
 -%>
-
-
