@@ -48,7 +48,7 @@ if (filePath) {
 			} else {
 				tR += tp.file.find_tfile(i.text)
 			}
-		tR += "\n\n---\n\n"
+		tR += "\n\n---\n\n "
 		};
 
 		tp.hooks.on_all_templates_executed(async () => {

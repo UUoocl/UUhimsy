@@ -24,12 +24,7 @@ bg: transparent
 
  <!-- slide data-camera-exit="Wide" --> 
 NOTE: Hello 
-World!
-extra 
-text-654654
-test test test 
 
-6543221032103540
 
 ---
 

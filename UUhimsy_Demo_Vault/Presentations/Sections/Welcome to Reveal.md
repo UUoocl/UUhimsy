@@ -18,25 +18,8 @@ tags:
 
  <!-- element class="small-font" -->
  <!-- .slide:  data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" -->
- <!-- slide data-scene-entrance="Reveal-Side" --> 
-<!-- slide data-scene-exit="Reveal-OTS" --> 
 
- <!-- slide data-camera-exit="Wide" --> 
 NOTE: Hello 
-World!
-extra 
-text-654654
-Number of pages:  {totalPagesIntro}
-
-<!-- <%*
-dv = tp.app.plugins.getPlugin("dataview").api;
-query = await dv.pages().length;
-console.log(query)
-query = query + 5
-tR = tR.replace('{totalPagesIntro}',query)
-%> --> 
-
-6543221032103540
 
 ---
 
@@ -50,5 +33,3 @@ reveal.js enables you to create beautiful interactive slide decks using HTML. Th
 
 
 note: more notes
-
-<!-- slide data-scene-exit="Reveal-OTS" --> 
