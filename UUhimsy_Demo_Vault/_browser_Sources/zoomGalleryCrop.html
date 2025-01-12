@@ -28,14 +28,12 @@
     await obs.call("TriggerHotkeyByName", { hotkeyName: "RUN_CommandLine", })
   }
 
- 
     document.getElementById("startCrop").addEventListener("click", setCropFilter);
     
-    var galleryCount, cropValues, createCrops = false;
+    var galleryCount, cropValues, createCrops = false, setCrops = false;
     
       //get galleryCount
   async function removeExistingClones() {
-      createCrops = true
       //Remove existing zoom gallery clone sources
       let existingClones = await obs.call("GetSceneItemList", {
         sceneName: "Participants"
@@ -55,15 +53,16 @@
         console.log(removeRequests)
         const removeResults = await obs.callBatch(removeRequests)
         console.log(removeResults)
-       createClones()
+       //createClones()
       }
       else { createClones() }
       //createClones()
+      removeRequests = ""
     }
 
   //start setting filter clone sources
   async function setCropFilter() {
-    createCrops = true;
+    setCrops = true;
     //Set Zoom Windows to 1920x1080
     //setCommandText('shortcuts run "Zoom 1920x1080"');
     
@@ -79,8 +78,8 @@
     window.addEventListener("osc-message", async function (event) {
       console.log(event)
       //if the gallery count is received, then continue
-      if (event.detail.webSocketMessage.includes("/zoomosc/galleryCount") && createCrops) {
-        createCrops = false;
+      if (event.detail.webSocketMessage.includes("/zoomosc/galleryCount") && setCrops) {
+        setCrops = false;
         console.log("osc-message received: ", event);
         console.log(JSON.parse(event.detail.webSocketMessage))
 
@@ -148,6 +147,7 @@
   }
   //start creating clone sources
   async function createClones() {
+    createCrops = true 
     //Set Zoom Windows to 1920x1080
     //setCommandText('shortcuts run "Zoom 1920x1080"');
     
@@ -202,24 +202,77 @@
     })
   }
   
-  
   async function createSourceFilter() {
-    await obs.call("GetSceneItemList", {
-      sceneName: "Participants"
-    }).then(data => {
-      console.log("Get Scene Item data", data)
-      sceneItemList = data.sceneItems
-      console.log("Scene Item list", sceneItemList)
-      for (const [index, value] of sceneItemList.entries()) {
-        addFilter(value,index);
-      }
-    })
+    //for (const [index, value] of cropValues.entries()) {
+      //console.log("index",index, value)
+    const filterResults1 = await obs.call("CreateSourceFilter",
+            {
+              sourceName: `participant2`,
+              filterName: "crop",
+              filterKind: "crop_filter",
+              // filterSettings:
+              //   {relative: false, left: 98, top: 51, cx: 572, cy: 320}
+            })
+          await obs.call("Sleep",{sleepMillis: 1000})
+
+    // const filterResults2 = await obs.call("CreateSourceFilter",
+    //         {
+    //           sourceName: `participant2`,
+    //           filterName: "crop",
+    //           filterKind: "crop_filter",
+    //           // filterSettings:
+    //           //   {relative: false, left: 98, top: 51, cx: 572, cy: 320}
+    //         })
+    //         obs.call("Sleep",{sleepMillis: 1000})
+      //    }
+    // await obs.call("GetSceneItemList", {
+    //   sceneName: "Participants"
+    // }).then( async(data) => {
+    //   console.log("Get Scene Item data", data)
+    //   sceneItemList = data.sceneItems
+    //   let filterRequests = [];
+    //   console.log("Scene Item list", sceneItemList)
+    //   for (const [index, value] of sceneItemList.entries()) {
+    //     console.log(value)
+    //     let filterSettings = cropValues[index].split(',')
+    //     console.log(filterSettings[1], typeof filterSettings[1])
+      
+    //   //set filter values to numbers
+    //     let mapFilterSettings = filterSettings.map((x) => Number(x));
+    //     console.log(mapFilterSettings[1], typeof mapFilterSettings[1])
+    //     console.log(mapFilterSettings)
+    //     filterRequests.push({
+    //       requestType:'CreateSourceFilter',
+    //       requestData: {
+    //         sourceUuid: value.sourceUuid,
+    //         filterName: "crop",
+    //         filterKind: "crop_filter",
+    //         // filterSettings:
+    //         //   {relative: false, left: 98, top: 51, cx: 572, cy: 320}
+    //       }
+    //     })
+    //     //addFilter(index,value);
+    //     const filterResults = await obs.call("CreateSourceFilter",
+    //         {
+    //           sourceUuid: value.sourceUuid,
+    //           filterName: "crop",
+    //           filterKind: "crop_filter",
+    //           // filterSettings:
+    //           //   {relative: false, left: 98, top: 51, cx: 572, cy: 320}
+    //         })
+    //   }
+    //   filterRequests.push({ requestType: 'Sleep', requestData: { sleepMillis: 100 } })
+    //console.log(filterRequests)
+    //   //const filterResults = await obs.callBatch(filterRequests)
+    //console.log(filterResults1)
+    // })
   }
   
   async function addFilter(index,value){
-    console.log("scene item", sceneItemList[index])
-    console.log("scene item", sceneItemList[index].sourceName)
-    console.log("scene item", sceneItemList[index].sourceUuid)
+    console.log("scene item", value)
+    // console.log("scene item", sceneItemList[index])
+    // console.log("scene item", sceneItemList[index].sourceName)
+    // console.log("scene item", sceneItemList[index].sourceUuid)
     
     const filterResults = await obs.callBatch([{requestType:'CreateSourceFilter',
       requestData: {
@@ -235,35 +288,35 @@
     
   }
         
-        async function createCropFilter() {
-          //Add filters to each new source
-          let filterRequests = [];
-          for (const [index, value] of cropValues.entries()) {
-            let filterSettings = value.split(',')
-            console.log(filterSettings[1], typeof filterSettings[1])
-            
-            //set filter values to numbers
-        let mapFilterSettings = filterSettings.map((x) => Number(x));
-        console.log(mapFilterSettings[1], typeof mapFilterSettings[1])
-        console.log(mapFilterSettings)
+  async function createCropFilter() {
+    //Add filters to each new source
+    let filterRequests = [];
+    for (const [index, value] of cropValues.entries()) {
+      let filterSettings = value.split(',')
+      console.log(filterSettings[1], typeof filterSettings[1])
+      
+      //set filter values to numbers
+  let mapFilterSettings = filterSettings.map((x) => Number(x));
+  console.log(mapFilterSettings[1], typeof mapFilterSettings[1])
+  console.log(mapFilterSettings)
 
-        filterRequests.push({
-          requestType: "CreateSourceFilter",
-          requestData: {
-            sourceName: `participant${index + 1}`,
-            filterName: "crop",
-            filterKind: "crop_filter",
-            //filterSettings: {"relative": false,"left": mapFilterSettings[0],"top": mapFilterSettings[1],"cx": mapFilterSettings[2],"cy": mapFilterSettings[3]}
-          }
-        })
-      }
-      //filterRequests.push({ requestType: 'Sleep', requestData: { sleepMillis: 100 } })
-      //send batch request to create clone sources
-      console.log(filterRequests)
-      //await obs.call("CreateSourceFilter",{sourceName:"participant12",filterName: "crop1",filterKind: "crop_filter",filterSettings: {relative: false, left: 98, top: 51, cx: 572, cy: 320,}})
-      //const filterResults = await obs.callBatch(filterRequests)
-      //console.log(filterResults)
+  filterRequests.push({
+    requestType: "CreateSourceFilter",
+    requestData: {
+      sourceName: `participant${index + 1}`,
+      filterName: "crop",
+      filterKind: "crop_filter",
+      //filterSettings: {"relative": false,"left": mapFilterSettings[0],"top": mapFilterSettings[1],"cx": mapFilterSettings[2],"cy": mapFilterSettings[3]}
     }
+  })
+}
+//filterRequests.push({ requestType: 'Sleep', requestData: { sleepMillis: 100 } })
+//send batch request to create clone sources
+console.log("filterRequests",filterRequests)
+//await obs.call("CreateSourceFilter",{sourceName:"participant12",filterName: "crop1",filterKind: "crop_filter",filterSettings: {relative: false, left: 98, top: 51, cx: 572, cy: 320,}})
+//const filterResults = await obs.callBatch(filterRequests)
+//console.log(filterResults)
+}
 
 
 
