@@ -17,52 +17,9 @@
 
   <script>
 
-  //send command line.  This calls a lua script.  
-  async function setCommandText(txt) {
-    await obs.call("SetInputSettings", {
-      inputName: 'command',
-      inputSettings: {
-        text: txt,
-      }
-    });
-    await obs.call("TriggerHotkeyByName", { hotkeyName: "RUN_CommandLine", })
-  }
-
-    document.getElementById("startCrop").addEventListener("click", setCropFilter);
-    
-    var galleryCount, cropValues, createCrops = false, setCrops = false;
-    
-      //get galleryCount
-  async function removeExistingClones() {
-      //Remove existing zoom gallery clone sources
-      let existingClones = await obs.call("GetSceneItemList", {
-        sceneName: "Participants"
-      })
-      console.log(existingClones.sceneItems)
-      console.log(existingClones.sceneItems.length)
-      let removeRequests = [];
-      if (existingClones.sceneItems.length > 0) {
-        for (const clone of existingClones.sceneItems) {
-          console.log(clone)
-          // await obs.call("RemoveInput",{
-          //   inputUuid: clone.sourceUuid
-          // })
-          removeRequests.push({ requestType: 'RemoveInput', requestData: { inputUuid: clone.sourceUuid } })
-        }
-        removeRequests.push({requestType: 'Sleep', requestData: {sleepMillis: 100}})
-        console.log(removeRequests)
-        const removeResults = await obs.callBatch(removeRequests)
-        console.log(removeResults)
-       //createClones()
-      }
-      else { createClones() }
-      //createClones()
-      removeRequests = ""
-    }
-
-  //start setting filter clone sources
+  //Request the current ZoomOSC Gallery Count
   async function setCropFilter() {
-    setCrops = true;
+    //setCrops = true;
     //Set Zoom Windows to 1920x1080
     //setCommandText('shortcuts run "Zoom 1920x1080"');
     
@@ -74,294 +31,115 @@
         address: "/zoom/galCount",
       },
     });
+  }
+
+  //
+  // #region Listen for messages from ZoomOSC
+  //
+  //
 
     window.addEventListener("osc-message", async function (event) {
       console.log(event)
       //if the gallery count is received, then continue
-      if (event.detail.webSocketMessage.includes("/zoomosc/galleryCount") && setCrops) {
-        setCrops = false;
+      if (event.detail.webSocketMessage.includes("/zoomosc/galleryCount")) {
+      //setCrops = false;
         console.log("osc-message received: ", event);
         console.log(JSON.parse(event.detail.webSocketMessage))
 
         //get the current gallery count
+        cropValues = ""
         galleryCount = JSON.parse(event.detail.webSocketMessage)[1] - 1
         cropValues = participantCropValues[galleryCount];
 
         console.log(cropValues)
-      }
-      
-      let cropFilterRequests = [];
-      
-      console.log("set clones crop filter")
-      //set clone source batch requests
-      for (const [index, value] of cropValues.entries()) {
-        console.log(index, value)
+
+        let sceneItems = await obs.call("GetSceneItemList",{"sceneName" : "Participants"})
+        sceneItems = sceneItems.sceneItems
+        console.log(sceneItems)
+
+        let cropFilterRequests = [];
         
-        //divide value string to array
-        let filterSettings = value.split(',')
-        console.log(filterSettings[1], typeof filterSettings[1])
+        console.log("set clones crop filter")
+        //set clone source batch requests
+        for (const [index, value] of sceneItems.entries()) {
+          console.log(index, value)
+          if(index <= galleryCount){
+            console.log("true")
+            //divide value string to array
+            let filterSettings = cropValues[index].split(',')
+            console.log(filterSettings[1], typeof filterSettings[1])
             
-        //set filter values to numbers
-        //let mapFilterSettings = filterSettings.map((x) => Number(x));
-        
-        console.log(typeof index, typeof value)
-        
-        cropFilterRequests.push({
-          requestType: 'SetSourceFilterSettings', requestData: {
-            sourceName: `participant${index + 1}`,
-            filterName: "crop",
-            filterSettings: {  "relative": false,
+            //set filter values to numbers
+            //let mapFilterSettings = filterSettings.map((x) => Number(x));
+            
+            console.log(typeof index, typeof cropValues[index])
+            
+            cropFilterRequests.push({
+              requestType: 'SetSourceFilterSettings', requestData: {
+                sourceName: `participant${index + 1}`,
+                filterName: "crop",
+                filterSettings: {  "relative": false,
                 "left": Number(filterSettings[0]),
                 "top": Number(filterSettings[1]),
                 "cx": Number(filterSettings[2]),
                 "cy": Number(filterSettings[3])
-          }
-          }
-        });
-        cropFilterRequests.push({
-          requestType: 'SetSourceFilterSettings', requestData: {
-            sourceName: `participant${index + 1}`,
-            filterName: "Mask",
-            filterSettings: {  
-            "rectangle_corner_type": 1,
-            "shape_feather_type": 1,
-            "shape_center_x": Number(filterSettings[2])/2,
-            "position_x": Number(filterSettings[2])/2,
-            "shape_center_y": Number(filterSettings[3])/2,
-            "position_y": Number(filterSettings[3])/2,
-            "mask_gradient_position": Number(filterSettings[2])/2,
-            "shape_type": 2,
-            "circle_radius": Number(filterSettings[3])/2
-          }
-          }
-        });
+              }
+            }
+          });
+          cropFilterRequests.push({
+            requestType: 'SetSourceFilterSettings', requestData: {
+              sourceName: `participant${index + 1}`,
+              filterName: "Mask",
+              filterSettings: {  
+                "rectangle_corner_type": 1,
+                "shape_feather_type": 1,
+                "shape_center_x": Number(filterSettings[2])/2,
+                "position_x": Number(filterSettings[2])/2,
+                "shape_center_y": Number(filterSettings[3])/2,
+                "position_y": Number(filterSettings[3])/2,
+                "mask_gradient_position": Number(filterSettings[2])/2,
+                "shape_type": 1,
+                "circle_radius": Number(filterSettings[3])/2
+              }
+            }
+          });
+          cropFilterRequests.push({
+            requestType: 'SetSceneItemEnabled', requestData: {
+              sceneName: `Participants`,
+              sceneItemId: value.sceneItemId,
+              sceneItemEnabled: true
+            }
+          });
+        }
+        else{
+          console.log(`${index} is less than gallery count ${galleryCount}`)
+          cropFilterRequests.push({
+            requestType: 'SetSceneItemEnabled', requestData: {
+              sceneName: `Participants`,
+              sceneItemId: value.sceneItemId,
+              sceneItemEnabled: false
+            }
+          });
+        }
+        
       }
+
       cropFilterRequests.push({ requestType: 'Sleep', requestData: { sleepMillis: 100 } })
       //send batch request to create clone sources
       console.log(cropFilterRequests)
       const cropFilterResults = await obs.callBatch(cropFilterRequests)
       console.log(cropFilterResults)
+      cropFilterRequests=[]
+      console.log(cropFilterRequests)
       //createCropFilter()
       //createSourceFilter()
-    })
-  }
-  //start creating clone sources
-  async function createClones() {
-    createCrops = true 
-    //Set Zoom Windows to 1920x1080
-    //setCommandText('shortcuts run "Zoom 1920x1080"');
-    
-    console.log("Get Gallery Count")
-    obs.call("BroadcastCustomEvent", {
-      eventData: {
-        event_name: `OSC-out`,
-        //      command with no arguments
-        address: "/zoom/galCount",
-      },
-    });
-
-    window.addEventListener("osc-message", async function (event) {
-      console.log(event)
-      //if the gallery count is received, then continue
-      if (event.detail.webSocketMessage.includes("/zoomosc/galleryCount") && createCrops) {
-        createCrops = false;
-        console.log("osc-message received: ", event);
-        console.log(JSON.parse(event.detail.webSocketMessage))
-
-        //get the current gallery count
-        galleryCount = JSON.parse(event.detail.webSocketMessage)[1] - 1
-        cropValues = participantCropValues[galleryCount];
-
-        console.log(cropValues)
-      }
-      
-      let cloneRequests = [];
-      
-      console.log("create clones")
-      //create clone source batch requests
-      for (const [index, value] of cropValues.entries()) {
-        console.log(index, value)
-        //divide value string to array
-        console.log(typeof index, typeof value)
-        cloneRequests.push({
-          requestType: 'CreateInput', requestData: {
-            sceneName: "Participants",
-            inputName: `participant${index + 1}`,
-            inputKind: "source-clone",
-            inputSettings: { "clone": "ZoomOSC_Gallery", "audio": false }
-          }
-        })
-      }
-      cloneRequests.push({ requestType: 'Sleep', requestData: { sleepMillis: 100 } })
-      //send batch request to create clone sources
-      console.log(cloneRequests)
-      const cloneResults = await obs.callBatch(cloneRequests)
-      console.log(cloneResults)
-      //createCropFilter()
-      createSourceFilter()
-    })
-  }
-  
-  async function createSourceFilter() {
-    //for (const [index, value] of cropValues.entries()) {
-      //console.log("index",index, value)
-    const filterResults1 = await obs.call("CreateSourceFilter",
-            {
-              sourceName: `participant2`,
-              filterName: "crop",
-              filterKind: "crop_filter",
-              // filterSettings:
-              //   {relative: false, left: 98, top: 51, cx: 572, cy: 320}
-            })
-          await obs.call("Sleep",{sleepMillis: 1000})
-
-    // const filterResults2 = await obs.call("CreateSourceFilter",
-    //         {
-    //           sourceName: `participant2`,
-    //           filterName: "crop",
-    //           filterKind: "crop_filter",
-    //           // filterSettings:
-    //           //   {relative: false, left: 98, top: 51, cx: 572, cy: 320}
-    //         })
-    //         obs.call("Sleep",{sleepMillis: 1000})
-      //    }
-    // await obs.call("GetSceneItemList", {
-    //   sceneName: "Participants"
-    // }).then( async(data) => {
-    //   console.log("Get Scene Item data", data)
-    //   sceneItemList = data.sceneItems
-    //   let filterRequests = [];
-    //   console.log("Scene Item list", sceneItemList)
-    //   for (const [index, value] of sceneItemList.entries()) {
-    //     console.log(value)
-    //     let filterSettings = cropValues[index].split(',')
-    //     console.log(filterSettings[1], typeof filterSettings[1])
-      
-    //   //set filter values to numbers
-    //     let mapFilterSettings = filterSettings.map((x) => Number(x));
-    //     console.log(mapFilterSettings[1], typeof mapFilterSettings[1])
-    //     console.log(mapFilterSettings)
-    //     filterRequests.push({
-    //       requestType:'CreateSourceFilter',
-    //       requestData: {
-    //         sourceUuid: value.sourceUuid,
-    //         filterName: "crop",
-    //         filterKind: "crop_filter",
-    //         // filterSettings:
-    //         //   {relative: false, left: 98, top: 51, cx: 572, cy: 320}
-    //       }
-    //     })
-    //     //addFilter(index,value);
-    //     const filterResults = await obs.call("CreateSourceFilter",
-    //         {
-    //           sourceUuid: value.sourceUuid,
-    //           filterName: "crop",
-    //           filterKind: "crop_filter",
-    //           // filterSettings:
-    //           //   {relative: false, left: 98, top: 51, cx: 572, cy: 320}
-    //         })
-    //   }
-    //   filterRequests.push({ requestType: 'Sleep', requestData: { sleepMillis: 100 } })
-    //console.log(filterRequests)
-    //   //const filterResults = await obs.callBatch(filterRequests)
-    //console.log(filterResults1)
-    // })
-  }
-  
-  async function addFilter(index,value){
-    console.log("scene item", value)
-    // console.log("scene item", sceneItemList[index])
-    // console.log("scene item", sceneItemList[index].sourceName)
-    // console.log("scene item", sceneItemList[index].sourceUuid)
-    
-    const filterResults = await obs.callBatch([{requestType:'CreateSourceFilter',
-      requestData: {
-    sourceUuid: sceneItemList[index].sourceUuid,
-    filterName: "crop",
-    filterKind: "crop_filter",
-    filterSettings:
-    {relative: false, left: 98, top: 51, cx: 572, cy: 320}
+      //setCrops = false;
     }
-    },
-    { requestType: 'Sleep', requestData: { sleepMillis: 100 }}
-  ])
-    
-  }
-        
-  async function createCropFilter() {
-    //Add filters to each new source
-    let filterRequests = [];
-    for (const [index, value] of cropValues.entries()) {
-      let filterSettings = value.split(',')
-      console.log(filterSettings[1], typeof filterSettings[1])
-      
-      //set filter values to numbers
-  let mapFilterSettings = filterSettings.map((x) => Number(x));
-  console.log(mapFilterSettings[1], typeof mapFilterSettings[1])
-  console.log(mapFilterSettings)
-
-  filterRequests.push({
-    requestType: "CreateSourceFilter",
-    requestData: {
-      sourceName: `participant${index + 1}`,
-      filterName: "crop",
-      filterKind: "crop_filter",
-      //filterSettings: {"relative": false,"left": mapFilterSettings[0],"top": mapFilterSettings[1],"cx": mapFilterSettings[2],"cy": mapFilterSettings[3]}
-    }
-  })
-}
-//filterRequests.push({ requestType: 'Sleep', requestData: { sleepMillis: 100 } })
-//send batch request to create clone sources
-console.log("filterRequests",filterRequests)
-//await obs.call("CreateSourceFilter",{sourceName:"participant12",filterName: "crop1",filterKind: "crop_filter",filterSettings: {relative: false, left: 98, top: 51, cx: 572, cy: 320,}})
-//const filterResults = await obs.callBatch(filterRequests)
-//console.log(filterResults)
-}
+    })
+  
+  // #endregion
 
 
-
-            //console.log(newSource)
-            
-            //add crop filter
-            // await obs.call("CreateSourceFilter", {
-            //   sourceUuid: newSource.inputUuid,
-            //   filterName: "crop",
-            //   filterKind: "crop_filter",
-            //   filterSettings: {
-            //     "relative": false,
-            //     "left": Number(filterSettings[0]),
-            //     "top": Number(filterSettings[1]),
-            //     "cx": Number(filterSettings[2]),
-            //     "cy": Number(filterSettings[3])
-            //   }
-            // })
-
-            //obs.call("CreateSourceFilter",{sourceName:"participant1",filterName: "crop1",filterKind: "crop_filter",filterSettings: {"relative": false,"left": 98,"top": 51,"cx": 572,"cy": 320,}})
-            //obs.call("RemoveSourceFilter",{sourceName:"participant1",filterName: "crop1",filterKind: "crop_filter",filterSettings: {"relative": false,"left": 98,"top": 51,"cx": 572,"cy": 320,}})
-            //obs.call("GetSourceFilterList",{sourceName:"participant1"})
-            //add mask filter
-            
-            //const mapFilterSettings = filterSettings.map((x) => x /2);
-            //console.log(mapFilterSettings)
-            // await obs.call("CreateSourceFilter", {
-            //   sourceUuid: newSource.inputUuid,
-            //   filterName: "adv_mask",
-            //   filterKind: "advanced_masks_filter",
-            //   filterSettings: {
-            //     "rectangle_corner_type": 1,
-            //     "shape_center_x": Number(mapFilterSettings[2]),
-            //     "position_x": Number(mapFilterSettings[2]),
-            //     "shape_center_y": Number(mapFilterSettings[3]),
-            //     "position_y": Number(mapFilterSettings[3]),
-            //     "mask_gradient_position": Number(mapFilterSettings[2]),
-            //     "shape_feather_type": 1,
-            //     "shape_type": 2,
-            //     "circle_radius": Number(mapFilterSettings[3])
-            //   }
-            // })
-        
-
-    //listen for online, offline
   </script>
 </body>
 

@@ -45,10 +45,10 @@
                         <li Hidden><a href="#mp-gemma">Gemma<br>LLM Inference</a></li>
                     </ul>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="#rtc">WebRTC</a>
                 </li>
-                <!-- <li>
+                <li>
                     <a href="#shortcuts">Apple Shortcuts</a>
                     <ul>
                         <li><a href="#mouse-shortcuts">Mouse<br></a></li>
@@ -81,7 +81,7 @@
                             <label for="Port">Enter Port Number:</label>
                             <input type="text" id="Port" name="Port" value="4455" />
                             <label for="PW">Enter Password:</label>
-                            <input type="password" id="PW" name="PW" value="EfTC8xml3070cx3A" />
+                            <input type="password" id="PW" name="PW" value="" />
                             <input class="form-button" type="button" id="WSconnectButton" value="Connect to OBS" />
                         </form>
                         <p id="WorkingDirectory" hidden></p>
@@ -279,7 +279,7 @@
             </code></pre>
     </section> -->
 
-    <section>
+    <!-- <section>
         <div>
             <div id="srvr-webRTC"></div>
             <h3>Send Audio and/or Video to a target OBS Browser source via webRTC</h3>
@@ -300,25 +300,26 @@ OBS browsers" />
                 <input class="form-button" type="button" id="rtcButton" value="Start webRTC" />
                 
         </form>
-    </section>
+    </section> -->
 
     </article>
 
     <script>
         window.addEventListener("load", (event) => {
             console.log("page is fully loaded");
-            const params = new URLSearchParams(window.location.search); //parse params
-            const pw = params.get("pw"); //get password param
-            const wd = params.get("wd"); //get working directory param
-            //assign pw value to input when loading
-            if(pw){
-                document.getElementById("PW").value = pw; 
-                document.getElementById("WSconnectButton").click(); 
+            connectOBS()
+            // const params = new URLSearchParams(window.location.search); //parse params
+            // const pw = params.get("pw"); //get password param
+            // const wd = params.get("wd"); //get working directory param
+            // //assign pw value to input when loading
+            // if(pw){
+            //     document.getElementById("PW").value = pw; 
+            //     document.getElementById("WSconnectButton").click(); 
 
-            }
-            if(wd){
-                document.getElementById("WorkingDirectory").innerHTML = wd; 
-            }
+            // }
+            // if(wd){
+            //     document.getElementById("WorkingDirectory").innerHTML = wd; 
+            // }
         });
     </script>
 
@@ -331,10 +332,10 @@ OBS browsers" />
     <script src="_GUM/lib/webmidi-Module.js"></script>
     <script src="_GUM/lib/gamepadtest.js"></script>
     <script src="_GUM/lib/audioInput-renderer.js"></script>
-    <script src="_GUM/lib/SpeechRecognition.js"></script>
+    <!-- <script src="_GUM/lib/SpeechRecognition.js"></script> -->
     <script src="_GUM/lib/loadScripts.js"></script>
-    <script src="_GUM/lib/shortcutsScripts.js"></script>
-    <script src="_GUM/lib/obsScenes.js"></script>
+    <!-- <script src="_GUM/lib/shortcutsScripts.js"></script> -->
+    <!-- <script src="_GUM/lib/obsScenes.js"></script> -->
     
 </body>
 </html>

@@ -61,7 +61,7 @@ async function connectOBS() {
     console.error("Socket error:", err);
   });
   console.log(`ws://${websocketIP}:${websocketPort}`);
-  getScenes();
+  //getScenes();
 
   return obs;
 }
@@ -69,7 +69,7 @@ async function connectOBS() {
 async function refreshOBSbrowsers(){
       
   let SceneItems = await obs.call("GetSceneItemList", {
-    sceneName: "rtc_target",
+    sceneName: "Input webRTC",
   });
   
   SceneItems = SceneItems.sceneItems;
