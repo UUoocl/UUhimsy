@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <!-- <script src="p5.sound.min.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="./css/BouncingWaveStyle.css">
+    <meta charset="utf-8" />
+
+  </head>
+  <body>
+    <main>
+    </main>
+    <script src="obs_webSocket_details/websocketDetails.js"></script>
+    <script src="obs_webSocket_details/obs-ws.js"></script>
+    <script src="obs_webSocket_details/obsConnect.js"></script>
+    <!-- <script src="obs_webSocket_details/startConnection.js"></script> -->
+    <script>
+      let t;
+      const obs = new OBSWebSocket();
+      wsConnect();
+      async function wsConnect() {
+        await connectOBS(obs)
+        .then(async() => { await getWotD();
+          let sceneItems = await obs.call("GetSceneItemList",{"sceneName" : "Input Voice to Text"})
+          sceneItems = sceneItems.sceneItems
+        })
+        };
+
+      async function getWotD() {
+        const WotD = await obs.call("GetInputSettings", {
+          inputName: 'Word of the Day'
+        })
+        console.log('WotD', WotD)
+        t = WotD.inputSettings.text;
+      } 
+
+      obs.on("InputSettingsChanged", async function(event) {
+      //if LocalVocal Subtitle changed
+      if (event.inputName === "LocalVocal Subtitles") {
+        //if the text contains the Word of the Day
+        if(event.inputSettings.text.toLowerCase().includes("affluent")){
+          await obs.call("SetSceneItemEnabled", {
+                sceneName: "Input Voice to Text",
+                sceneItemId: 2,
+                sceneItemEnabled: true
+            }).then(setTimeout(async () => {
+              obs.call("SetSceneItemEnabled", {
+                sceneName: "Input Voice to Text",
+                sceneItemId: 2,
+                sceneItemEnabled: false})}, 5000)
+              );
+        }
+      }
+    });
+      // loadScript("p5.js");
+      // loadScript("sketch.js");
+      // loadScript("text.js");
+      // loadScript("wave.js");
+      // loadScript("easing.js");
+      
+      // function loadScript(script, module) {
+      //   const scriptElem = document.createElement("script");
+      //   scriptElem.src = `${script}`;
+      //   //scriptElem.async = script.async;
+      //   if (module) {
+      //     scriptElem.type = 'module';
+      //   }
+      //   scriptElem.onload = () => {
+      //     console.log(`${script} Script loaded successfuly`);
+      //   };
+      //   scriptElem.onerror = () => {
+      //     console.log(`${script} Error occurred while loading script`);
+      //   };
+      //   document.body.appendChild(scriptElem);
+      // }
+      
+      </script>
+      <script src="lib/p5.js" id="P5_library"></script>
+      <script src="lib/BouncingWaveSketch.js" type="text/javascript"></script>
+      <script src="lib/BouncingWaveText.js" type="text/javascript"></script>
+      <script src="lib/BouncingWaveClass.js" type="text/javascript"></script>
+      <script src="lib/easing.js" type="text/javascript"></script>
+  </body>
+</html>

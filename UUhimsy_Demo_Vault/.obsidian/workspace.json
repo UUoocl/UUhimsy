@@ -11,14 +11,19 @@
             "id": "e4eaff8a8b9338dd",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "kanban",
               "state": {
-                "file": "Presentations/Sections/Auto-Animate.md",
-                "mode": "source",
-                "source": false
+                "file": "Presentations/Kanbans/Untitled 2.md",
+                "kanbanViewState": {
+                  "kanban-plugin": "board",
+                  "list-collapse": [
+                    false,
+                    false
+                  ]
+                }
               },
-              "icon": "lucide-file",
-              "title": "Auto-Animate"
+              "icon": "lucide-trello",
+              "title": "Untitled 2"
             }
           }
         ]
@@ -208,7 +213,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 412.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -227,22 +232,34 @@
   },
   "active": "e4eaff8a8b9338dd",
   "lastOpenFiles": [
+    "_browser_Sources/BouncingWaveTypography.html",
+    "_browser_Sources/css/BouncingWaveStyle.css",
+    "_browser_Sources/lib/easing.js",
+    "_browser_Sources/lib/BouncingWaveText.js",
+    "_browser_Sources/lib/BouncingWaveSketch.js",
+    "_browser_Sources/lib/BouncingWaveClass.js",
+    "_sceneCollections/UUhimsy_Collection.json.tmp",
+    "Presentations/Kanbans/Untitled.md",
+    "assets/reveal-white-text.svg",
+    "assets/Pasted Image 20241229195200_820.png",
+    "assets/Pasted Image 20241125121458_318.png",
+    "assets/Pasted image 20241123153102.png",
+    "assets/Pasted image 20241123153033.png",
+    "assets/Pasted image 20241123001054.png",
+    "assets/Dataview in Templater.svg",
+    "Presentations/Sections/Auto-Animate.md",
+    "UUhimsy.wiki/Using F13-F24 Hotkeys",
     "_sceneCollections/UUhimsy_Collection.json.bak",
     "_sceneCollections/blank.json",
     "Untitled 3.md",
     "Presentations/Decks",
     "Presentations/Kanbans/Untitled 2.md",
     "Untitled 1.md",
-    "Presentations/Kanbans/Untitled.md",
     "UUhimsy.wiki/Untitled.md",
-    "Presentations/Kanbans",
-    "UUhimsy.wiki/Get User Media",
-    "UUhimsy.wiki/OBS - Browser Source ",
     "Presentations/Sections/Dataview Slides.md",
     "Presentations/Sections/Grid, drag and drop.md",
     "Presentations/Sections/Vertical Slides.md",
     "Presentations/Sections/Welcome to Reveal.md",
-    "Presentations/Sections/Auto-Animate.md",
     "Slideshows/Reveal demo deck.md",
     "UUhimsy.wiki/Reveal JS.md",
     "UUhimsy.wiki/_Sidebar.md",
@@ -261,18 +278,6 @@
     "Excalidraw/Drawing 2024-12-29 19.47.28.excalidraw.md",
     "Excalidraw/Drawing 2024-12-28 21.58.36.excalidraw.svg",
     "Excalidraw/Drawing 2024-12-28 21.58.36.excalidraw.png",
-    "Excalidraw/Drawing 2024-11-23 00.11.20.excalidraw.svg",
-    "Excalidraw/Drawing 2024-11-22 17.37.39.excalidraw.svg",
-    "Excalidraw/Drawing 2024-11-22 17.37.39.excalidraw.png",
-    "Excalidraw/UUhimsy diagram.svg",
-    "Excalidraw/UUhimsy diagram.png",
-    "Camera Presets.canvas",
-    "_templater/Create Kanban board for Slides",
-    "assets/reveal-white-text.svg",
-    "assets/Pasted Image 20241229195200_820.png",
-    "_scripts/websocketDetails.js",
-    "_scripts/uvc-util",
-    "_scripts/obsWebsocket.js",
-    "_scripts/getCameraZoom.js"
+    "Camera Presets.canvas"
   ]
 }
