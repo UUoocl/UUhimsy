@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html class="sl-root decks export offline loaded">
+
+<head>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>UUhimsy QuizShow Host</title>
+    <link rel="stylesheet" type="text/css" href="dist/theme/offline-v2.css">
+</head>
+
+<body class="reveal-viewport theme-font-montserrat theme-color-cobalt-orange">
+    <div id="hostNotes" class="speaker-controls-notes white">
+        <section id="Choose-file">
+            <h2 class="r-fit-text">To start choose a game file</h2>
+            <input type="file" onchange="getFileContent()"/><br /> 
+        </section>  
+    </div>
+
+    <script src="obs_webSocket_details/websocketDetails.js"></script>
+    <script src="obs_webSocket_details/obs-ws.js"></script>
+    <script src="obs_webSocket_details/obsConnect.js"></script>
+<script>
+    let gameState;
+
+    const obs = new OBSWebSocket();
+    wsConnect();
+    
+    async function wsConnect() 
+      {  
+        await connectOBS(obs);
+      }
+
+    function getFileContent(){
+        const [file] = document.querySelector("input[type=file]").files;
+        const reader = new FileReader();
+    
+        var fileLoadElem = document.getElementById("Choose-file");
+        fileLoadElem.remove();
+
+        if (file) {
+            reader.readAsText(file);
+        }
+        
+        reader.addEventListener("load",() => {
+            var fileString = reader.result.trim();
+        
+            //console.log(fileString);
+            fileString = fileString.split("|");
+            //console.log(fileString);
+
+            let quizBoardContent = JSON.stringify(fileString)
+        
+            obs.call("CallVendorRequest", {
+                vendorName: "obs-browser",
+                requestType: "emit_event",
+                requestData: {
+                    event_name: "loadQuizBoard",
+                    event_data: { 
+                        app: "uuhimsyQuiz",
+                        data: `${quizBoardContent}`
+                    },
+                },
+            });
+
+            },
+        false
+        );
+    }
+
+    window.addEventListener( 'quizHostUpdate', function( event ) {
+        console.log("message Event received",event)
+        var data = JSON.parse( event.detail.slideNotes );
+       // console.log(data)
+        document.getElementById("hostNotes").innerHTML = data;
+    })
+
+    function updateClue(t,n){
+        var clue = t.getAttribute("data-question-value");
+        clue = clue.replace("notes-","");
+        console.log(clue)
+        let slideNotes = JSON.stringify(clue)
+        obs.call("CallVendorRequest", {
+            vendorName: "obs-browser",
+            requestType: "emit_event",
+            requestData: {
+                event_name: "quizBoardUpdate",
+                event_data: { 
+                app: "uuhimsyQuiz",
+                slideNotes: `${slideNotes}`
+                },
+            },
+        });
+    }
+
+    function sendNextSlide(){
+        let slideNotes = JSON.stringify("nextSlide")
+        obs.call("CallVendorRequest", {
+            vendorName: "obs-browser",
+            requestType: "emit_event",
+            requestData: {
+                event_name: "revealNextSlide",
+                event_data: { 
+                app: "uuhimsyQuiz",
+                slideNotes: `${slideNotes}`
+                },
+            },
+        });
+    }
+  let triggerCheck = 0
+    obs.on("InputSettingsChanged", async function (event) {
+        switch (event.inputName) {
+            case 'hotkeyText':
+                if (event.inputSettings.text === 'Tab' && triggerCheck === 0) {
+                    triggerCheck = 1; 
+                    console.log(event);
+                    // Get the currently focused element
+                    const focusedElement = document.activeElement;
+
+                    // Find the next element to focus
+                    let nextElement = focusedElement.nextElementSibling;
+
+                    // If there's no next sibling, loop back to the first element
+                    if (!nextElement) {
+                    nextElement = document.querySelector('body > *:first-child'); 
+                    }
+
+                    // Focus the next element
+                    nextElement.focus();
+                }
+            //document.getElementById("obsws-keyboard").innerHTML = event.inputSettings.text
+            break;
+        default:
+            break;
+        }
+    })
+  </script>
+    </body>
+</html>

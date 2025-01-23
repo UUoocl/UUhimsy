@@ -11,19 +11,17 @@
             "id": "e4eaff8a8b9338dd",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "canvas",
               "state": {
-                "file": "Presentations/Kanbans/Untitled 2.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false,
-                    false
-                  ]
+                "file": "CanvasTest.canvas",
+                "viewState": {
+                  "x": -100,
+                  "y": 60.863708496093835,
+                  "zoom": 0
                 }
               },
-              "icon": "lucide-trello",
-              "title": "Untitled 2"
+              "icon": "lucide-layout-dashboard",
+              "title": "CanvasTest"
             }
           }
         ]
@@ -232,13 +230,20 @@
   },
   "active": "e4eaff8a8b9338dd",
   "lastOpenFiles": [
-    "_browser_Sources/BouncingWaveTypography.html",
-    "_browser_Sources/css/BouncingWaveStyle.css",
-    "_browser_Sources/lib/easing.js",
-    "_browser_Sources/lib/BouncingWaveText.js",
-    "_browser_Sources/lib/BouncingWaveSketch.js",
-    "_browser_Sources/lib/BouncingWaveClass.js",
-    "_sceneCollections/UUhimsy_Collection.json.tmp",
+    "_sceneCollections/UUhimsy_Collection.json",
+    "_sceneCollections/UUhimsy_Collection_bu.json",
+    "_sceneCollections/UUhimsy_Collection_3_2.json.bak",
+    "_sceneCollections/UUhimsy_Collection_3_2.json",
+    "_sceneCollections/UUhimsy_Collection_3.json",
+    "_browser_Sources/zoomGalleryCrop25.html",
+    "_browser_Sources/zoomGalleryCrop copy.html",
+    "_browser_Sources/lib/zoomCropValuesEqualSize.js",
+    "_browser_Sources/lib/zoomCropValues copy.js",
+    "_browser_Sources/uuhimsy_Quiz_Host.html",
+    "_browser_Sources/uuhimsy_Quiz_Board copy.html",
+    "dataview examples.md",
+    "CanvasTest.canvas",
+    "Presentations/Kanbans/Untitled 2.md",
     "Presentations/Kanbans/Untitled.md",
     "assets/reveal-white-text.svg",
     "assets/Pasted Image 20241229195200_820.png",
@@ -248,12 +253,7 @@
     "assets/Pasted image 20241123001054.png",
     "assets/Dataview in Templater.svg",
     "Presentations/Sections/Auto-Animate.md",
-    "UUhimsy.wiki/Using F13-F24 Hotkeys",
-    "_sceneCollections/UUhimsy_Collection.json.bak",
-    "_sceneCollections/blank.json",
     "Untitled 3.md",
-    "Presentations/Decks",
-    "Presentations/Kanbans/Untitled 2.md",
     "Untitled 1.md",
     "UUhimsy.wiki/Untitled.md",
     "Presentations/Sections/Dataview Slides.md",
@@ -275,7 +275,6 @@
     "Presentations/Decks/Reveal Demo.md",
     "Presentations/Kanbans/Kanban to Presentation.md",
     "Excalidraw/Drawing 2024-12-29 19.47.28.excalidraw.svg",
-    "Excalidraw/Drawing 2024-12-29 19.47.28.excalidraw.md",
     "Excalidraw/Drawing 2024-12-28 21.58.36.excalidraw.svg",
     "Excalidraw/Drawing 2024-12-28 21.58.36.excalidraw.png",
     "Camera Presets.canvas"

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html class="sl-root decks export offline loaded">
+
+<head>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>UUhimsy QuizShow</title>
+    <link rel="stylesheet" type="text/css" href="dist/theme/offline-v2.css">
+</head>
+
+<body class="reveal-viewport theme-font-montserrat theme-color-cobalt-orange">
+    <div class="reveal">
+        <div class="slides" id="slides">
+            <section id="gameboard" data-transition="none"> 
+                <!-- Game Board Category Headers --> 
+                 <div id="gameTable" style="display: block;"> 
+                    <div class="sl-block" style="height: auto; width: 150px; left: 16px; top: 24px;" data-name="text-0ae16a" id="Board-Header-Columns"> 
+                        <div class="sl-block-content" style="z-index: 40; background-color: rgb(0, 0, 255); height: 140px;"> 
+                            <p><span id="category1" style="font-size:0.7em"></span></p> </div> 
+                        </div> 
+                        <div class="sl-block" style="height: auto; width: 150px; left: 172px; top: 24px;" data-name="text-6cb724">
+                            <div class="sl-block-content" style="z-index: 41; background-color: rgb(0, 0, 255); height: 140px;">
+                                <p><span id="category2" style="font-size:0.7em"></span></p>
+                            </div>
+                        </div>
+                        <div class="sl-block" style="height: auto; width: 150px; left: 328px; top: 24px;" data-name="text-392303">
+                            <div class="sl-block-content" style="z-index: 42; background-color: rgb(0, 0, 255); height: 140px;">
+                                <p><span id="category3" style="font-size:0.7em"></span></p>
+                            </div>
+                        </div>
+                        <div class="sl-block" style="height: auto; width: 150px; left: 484px; top: 24px;" data-name="text-3f4c88">
+                            <div class="sl-block-content" style="z-index: 43; background-color: rgb(0, 0, 255); height: 140px;">
+                                <p><span id="category4" style="font-size:0.7em"></span></p>
+                            </div>
+                        </div>
+                        <div class="sl-block" style="height: auto; width: 150px; left: 640px; top: 24px;" data-name="text-58ca24">
+                            <div class="sl-block-content" style="z-index: 44; background-color: rgb(0, 0, 255); height: 140px;">
+                                <p><span id="category5" style="font-size:0.7em"></span></p>
+                            </div>
+                        </div>
+                        <div class="sl-block" style="height: auto; width: 150px; left: 796px; top: 24px;" data-name="text-67bf37">
+                            <div class="sl-block-content" style="z-index: 45; background-color: rgb(0, 0, 255); height: 140px;">
+                                <p><span id="category6" style="font-size:0.7em"></span></p>
+                            </div>
+                        </div>
+                        <div id="clues">
+                            <div class="sl-block" style="width: 150px; left: 16px; top: 173px; height: auto; " tabindex="0"
+                                onclick="updateClue(this,0)" onkeydown="if(event.keyCode == 49){updateClue(this,1)}" data-question-value="c1r1">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 10; ">
+                                    <h1>100</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 172px; top: 173px; height: auto; " tabindex="0"
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c2r1">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 11; ">
+                                    <h1>100</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 328px; top: 173px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c3r1">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 12; ">
+                                    <h1>100</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 484px; top: 173px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c4r1">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 13; ">
+                                    <h1>100</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 640px; top: 173px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c5r1">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 14; ">
+                                    <h1>100</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 796px; top: 173px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c6r1">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 15; ">
+                                    <h1>100</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 16px; top: 276px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c1r2">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 16; ">
+                                    <h1>200</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 172px; top: 276px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c2r2">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 17; ">
+                                    <h1>200</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 328px; top: 276px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c3r2">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 18; ">
+                                    <h1>200</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 484px; top: 276px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c4r2">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 19; ">
+                                    <h1>200</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 640px; top: 276px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c5r2">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 20; ">
+                                    <h1>200</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 796px; top: 276px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c6r2">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 21; ">
+                                    <h1>200</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 16px; top: 379px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c1r3">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 22; ">
+                                    <h1>300</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 172px; top: 379px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c2r3">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 23; ">
+                                    <h1>300</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 328px; top: 379px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c3r3">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 24; ">
+                                    <h1>300</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 484px; top: 379px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c4r3">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 25; ">
+                                    <h1>300</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 640px; top: 379px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c5r3">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 26; ">
+                                    <h1>300</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 796px; top: 379px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c6r3">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 27; ">
+                                    <h1>300</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 16px; top: 482px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c1r4">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 28; ">
+                                    <h1>400</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 172px; top: 482px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c2r4">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 29; ">
+                                    <h1>400</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 328px; top: 482px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c3r4">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 30; ">
+                                    <h1>400</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 484px; top: 482px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c4r4">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 31; ">
+                                    <h1>400</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 640px; top: 482px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c5r4">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 32; ">
+                                    <h1>400</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 796px; top: 482px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c6r4">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 33; ">
+                                    <h1>400</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 16px; top: 585px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c1r5">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 34; ">
+                                    <h1>500</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 172px; top: 585px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c2r5">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 35; ">
+                                    <h1>500</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 328px; top: 585px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c3r5">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 36; ">
+                                    <h1>500</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 484px; top: 585px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c4r5">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 37; ">
+                                    <h1>500</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 640px; top: 585px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c5r5">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 38; ">
+                                    <h1>500</h1>
+                                </div>
+                            </div>
+                            <div class="sl-block " style="width: 150px; left: 796px; top: 585px; height: auto; " tabindex="0 "
+                                onclick="updateClue(this,0) " onkeydown="if(event.keyCode == 49){updateClue(this,1)} " data-question-value="c6r5">
+                                <div class="sl-block-content " style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0); z-index: 39; ">
+                                    <h1>500</h1>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <aside class="notes " id="board-notes">
+                            <table width="100%">
+                                <tr>
+                                    <th colspan="5" id="notesCat1">Name</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" id="notesCat1Description">description</td>
+                                </tr>
+                                <tr>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c1r1" class="button-10">100</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c1r2" class="button-10">200</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c1r3" class="button-10">300</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c1r4" class="button-10">400</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c1r5" class="button-10">500</p></td>    
+                                </tr>
+                                
+                                <tr>
+                                    <th colspan="5" id="notesCat2">Name</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" style="text-align: center;" id="notesCat2Description">description</td>
+                                </tr>
+                                <tr>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c2r1" class="button-10">100</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c2r2" class="button-10">200</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c2r3" class="button-10">300</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c2r4" class="button-10">400</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c2r5" class="button-10">500</p></td>    
+                                </tr>
+                                <tr></tr>
+                                <tr>
+                                    <th colspan="5" id="notesCat3">Name</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" style="text-align: center;" id="notesCat3Description">description</td>
+                                </tr>
+                                <tr>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c3r1" class="button-10">100</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c3r2" class="button-10">200</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c3r3" class="button-10">300</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c3r4" class="button-10">400</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c3r5" class="button-10">500</p></td>    
+                                </tr>
+                                <tr></tr>
+                                <tr>
+                                    <th colspan="5" id="notesCat4">Name</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" style="text-align: center;" id="notesCat4Description">description</td>
+                                </tr>
+                                <tr>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c4r1" class="button-10">100</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c4r2" class="button-10">200</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c4r3" class="button-10">300</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c4r4" class="button-10">400</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c4r5" class="button-10">500</p></td>    
+                                </tr>
+                                <tr></tr>
+                                <tr>
+                                    <th colspan="5" id="notesCat5">Name</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" style="text-align: center;" id="notesCat5Description">description</td>
+                                </tr>
+                                <tr>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c5r1" class="button-10">100</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c5r2" class="button-10">200</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c5r3" class="button-10">300</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c5r4" class="button-10">400</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c5r5" class="button-10">500</p></td>    
+                                </tr>
+                                <tr></tr>
+                                <tr>
+                                    <th colspan="5" id="notesCat6">Name</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" style="text-align: center;" id="notesCat6Description">description</td>
+                                </tr>
+                                <tr>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c6r1" class="button-10">100</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c6r2" class="button-10">200</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c6r3" class="button-10">300</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c6r4" class="button-10">400</p></td>
+                                    <td><p onclick= "window.opener.updateClue(this,0)" data-question-value="notes-c6r5" class="button-10">500</p></td>    
+                                </tr>
+                                <tr height="10"></tr>
+                            <tr></tr>
+                                <tr>
+                                    <th colspan="5" ><p onclick= "window.opener.Reveal.slide(2,0)"  class="button-10">SCORES</p></th>
+                                </tr></table>
+    
+                            <b onclick="window.opener.keySim()">>(1):</b> Go to Clue <b>[](tab):</b>
+                            highlight clue <p onclick="callRevealApi()">Go to 2nd slide</p>
+                        </aside>
+                        </section> 
+                        <!-- Response Process slides --> 
+                         <!-- get the slide question and answer from clue that was selected -->
+                        <section id="responseSection"> 
+                            <section data-transition="none" data-background-transition="none" id="clue-selected"> </section>
+                            <section data-transition="none" data-background-transition="none" id="question-template"> </section>
+                            <section data-transition="none" data-background-transition="none" data-get-guess>
+                                <div class="sl-block" data-block-type="shape" data-name="shape-6277a1"
+                                    style="width: 960px; height: 700px; left: 0px; top: 0px;">
+                                    <div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(8, 19, 132)"
+                                        data-shape-stretch="true" style="z-index: 10;" data-shape-stroke-color="#000000"
+                                        data-shape-stroke-width="50px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%"
+                                            height="100%" preserveaspectratio="none" viewbox="0 0 960 700">
+                                            <defs>
+                                                <clippath id="shape-mask-11-1682372184408">
+                                                    <rect width="960" height="700" rx="0" ry="0" fill="rgb(8, 19, 132)" stroke="#000000"
+                                                        stroke-width="100"></rect>
+                                                </clippath>
+                                            </defs>
+                                            <rect width="960" height="700" rx="0" ry="0" class="shape-element" fill="rgb(8, 19, 132)"
+                                                stroke="#000000" stroke-width="100" clip-path="url(#shape-mask-11-1682372184408)"></rect>
+                                        </svg></div>
+                                </div>
+                                <div class="sl-block" style="height: auto; width: 907px; left: 26.5px; top: 51px;">
+                                    <!-- add the slide question tag here, and set the value in the quiz js -->
+                                    <div class="sl-block-content" style="z-index: 11; color: rgb(255, 255, 255); text-align: center;">
+                                        <p><span style="font-size:1.6em" id="get-player"> </span></p>
+                                    </div>
+                                </div><!-- change this text block to display the players name -->
+                                <div class="sl-block" style="height: auto; width: 863px; left: 48.5px; top: 0px;">
+                                    <div class="sl-block-content" style="z-index: 12;">
+                                        <h3 id="ShowPlayerName1">Take a Guess!</h3>
+                                    </div>
+                                </div><!-- add a answer / notes section -->
+                                <aside class="notes" id="temp-notes2">template notes 📝</aside>
+                            </section>
+                            <section data-transition="none" data-background-transition="none">
+                                <div class="sl-block" style="height: auto; width: 907px; left: 26.5px; top: 51px;">
+                                    <div class="sl-block-content" style="z-index: 11; color: rgb(255, 255, 255); text-align: center;">
+                                        <p><span style="font-size:1.6em" id="response-correct"> </span> <img id="YesReact" style="height: 500px"
+                                                data-src="outcome/Thumb-up.gif" alt="image"></p>
+                                    </div>
+                                </div>
+                                <div class="sl-block" style="height: auto; width: 863px; left: 48.5px; top: 0px;">
+                                    <div class="sl-block-content" style="z-index: 12;">
+                                        <h3 id="ShowPlayerName2">Player</h3>
+                                    </div>
+                                </div>
+                                <div class="sl-block" data-block-type="shape" style="width: 960px; height: 700px; left: 0px; top: 1px;"
+                                    data-name="shape-fd3b8b">
+                                    <div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(8, 19, 132)"
+                                        data-shape-stretch="true" style="z-index: 10;" data-shape-stroke-color="#00ff00"
+                                        data-shape-stroke-width="50px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%"
+                                            height="100%" preserveaspectratio="none" viewbox="0 0 960 700">
+                                            <defs>
+                                                <clippath id="shape-mask-12-1682372292764">
+                                                    <rect width="960" height="700" rx="0" ry="0" fill="rgb(8, 19, 132)" stroke="#00ff00"
+                                                        stroke-width="100"></rect>
+                                                </clippath>
+                                            </defs>
+                                            <rect width="960" height="700" rx="0" ry="0" class="shape-element" fill="rgb(8, 19, 132)"
+                                                stroke="#00ff00" stroke-width="100" clip-path="url(#shape-mask-12-1682372292764)"></rect>
+                                        </svg></div>
+                                </div>
+                                <aside class="notes" id="temp-notes3">template notes 📝</aside>
+                            </section>
+                            <section data-transition="none" data-background-transition="none">
+                                <div class="sl-block" style="height: auto; width: 907px; left: 26.5px; top: 51px;">
+                                    <div class="sl-block-content" style="z-index: 11; color: rgb(255, 255, 255); text-align: center;">
+                                        <p><span style="font-size:1.6em" id="response-wrong"> </span> <img id="NoReact" style="height: 500px"
+                                                data-src="outcome/Thumb-down.gif" alt="image"></p>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="sl-block" style="height: auto; width: 863px; left: 48.5px; top: 0px;">
+                                    <div class="sl-block-content" style="z-index: 12;">
+                                        <h3 id="ShowPlayerName3">Player</h3>
+                                    </div>
+                                </div>
+                                <div class="sl-block" data-block-type="shape" style="width: 960px; height: 700px; left: 0px; top: 0px;"
+                                    data-name="shape-ef45b4">
+                                    <div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(8, 19, 132)"
+                                        data-shape-stretch="true" style="z-index: 10;" data-shape-stroke-color="#ff0000"
+                                        data-shape-stroke-width="50px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%"
+                                            height="100%" preserveaspectratio="none" viewbox="0 0 960 700">
+                                            <defs>
+                                                <clippath id="shape-mask-5-1682357356444">
+                                                    <rect width="960" height="700" rx="0" ry="0" fill="rgb(8, 19, 132)" stroke="#ff0000"
+                                                        stroke-width="100"></rect>
+                                                </clippath>
+                                            </defs>
+                                            <rect width="960" height="700" rx="0" ry="0" class="shape-element" fill="rgb(8, 19, 132)"
+                                                stroke="#ff0000" stroke-width="100" clip-path="url(#shape-mask-5-1682357356444)"></rect>
+                                        </svg></div>
+                                </div>
+                                <aside class="notes" id="temp-notes4">template notes 📝</aside>
+                            </section>
+                            </section>
+                            <section>
+    
+                        </section>
+                        <section id="Scoreboard"> 
+                            <div class="sl-block" data-block-type="table" data-name="table-717980"
+                                style="height: auto; min-width: 120px; width: 800px; left: 80px; top: 46.5px;">
+                                <div class="sl-block-content" style="z-index: 10;" data-table-cols="2" data-table-rows="13">
+                                    <table id="score-table">
+                                        <tbody>
+                                            <tr>
+                                                <th>Players</th>
+                                                <th>Score</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Player 1</td>
+                                                <td id="Player 1-score">0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Player 2</td>
+                                                <td id="Player 2-score"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Player 3</td>
+                                                <td id="Player 3-score"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Player 4</td>
+                                                <td id="Player 4-score"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Player 5</td>
+                                                <td id="Player 5-score"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Player 6</td>
+                                                <td id="Player 6-score"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Player 7</td>
+                                                <td id="Player 7-score"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Player 8</td>
+                                                <td id="Player 8-score"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Player 9</td>
+                                                <td id="Player 9-score"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Player 10</td>
+                                                <td id="Player 10-score"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Player 11</td>
+                                                <td id="Player 11-score"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Player 12</td>
+                                                <td id="Player 12-score"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 5.5px;">
+                                <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;"
+                                    data-ms-editor="true">
+                                    <p>Scores</p>
+                                </div>
+                            </div><a style="display=none; height: auto; min-width: 120px; width: 800px; left: 80px; top: 1200px;"" id="
+                                clueIndex"></a>
+                            <aside class="notes">
+                                <p onclick="window.opener.Reveal.slide(0,0)" class="button-10">Game Board</p>
+                                <div id="score-notes"></div>
+                            </aside>
+                        </section>
+        </div>
+    </div>
+    
+    <script src="obs_webSocket_details/websocketDetails.js"></script>
+    <script src="obs_webSocket_details/obs-ws.js"></script>
+    <script src="obs_webSocket_details/obsConnect.js"></script>
+  <script>
+    const obs = new OBSWebSocket();
+    wsConnect();
+    
+    async function wsConnect() 
+      {  
+        await connectOBS(obs);
+      }
+
+  </script>
+    <script>var SLConfig = { "deck": { "background_transition": "none", "transition": "none", "theme_id": null, "theme_font": "montserrat", "theme_color": "cobalt-orange", "auto_slide_interval": 0, "comments_enabled": false, "forking_enabled": false, "rolling_links": false, "center": false, "shuffle": false, "should_loop": false, "share_notes": false, "slide_number": false, "slide_count": 42, "rtl": false, "version": 2, "collaborative": null, "deck_user_editor_limit": 1, "data_updated_at": 1682359534479, "font_typekit": null, "font_google": null, "time_limit": null, "navigation_mode": "default", "upsizing_enabled": true } };// Use local fontsSLConfig.fonts_url = 'lib/fonts/';</script>
+    <script src="dist/reveal.js"></script>
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <script src="plugin/zoom/zoom.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/search/search.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+    <script src="lib/quizcontrol.js"></script>
+	<script>
+
+		// Also available as an ES module, see:
+		// https://revealjs.com/initialization/
+		Reveal.initialize({
+			controls: false,
+			progress: false,
+			center: true,
+			hash: true,
+            theme_font: "montserrat", 
+            theme_color: "cobalt-orange",
+			//view: false,
+			//view: 'scroll',
+			//scrollSnap: 'mandatory',
+			//scrollSnap: 'proximity',
+			//scrollSnap: false,
+			//scrollProgress: 'auto',
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+		});
+
+	</script>
+    
+    <!-- Initialize the presentation -->
+    <!-- <script>Reveal.initialize({ width: 960, height: 700, margin: 0.05, hash: true, controls: false, progress: false, mouseWheel: false, showNotes: false, slideNumber: false, fragmentInURL: true, autoSlide: 0, autoSlideStoppable: true, autoAnimateMatcher: SL.deck.AutoAnimate.matcher, center: false, shuffle: false, loop: true, rtl: false, navigationMode: "default", transition: "none", backgroundTransition: "none", highlight: { escapeHTML: false, }, plugins: [RevealZoom, RevealNotes, RevealMarkdown, RevealHighlight, quizControl] });</script> -->
+</body>
+</html>

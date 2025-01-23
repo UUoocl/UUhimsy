@@ -104,6 +104,17 @@
             }
           });
           cropFilterRequests.push({
+            requestType: 'SetSceneItemTransform', requestData: {
+              sceneName: `Participants`,
+              sceneItemId: value.sceneItemId,
+              sceneItemTransform:{
+                scaleX: 1,
+                scaleY: 1
+              }
+            }
+          });
+
+          cropFilterRequests.push({
             requestType: 'SetSceneItemEnabled', requestData: {
               sceneName: `Participants`,
               sceneItemId: value.sceneItemId,
