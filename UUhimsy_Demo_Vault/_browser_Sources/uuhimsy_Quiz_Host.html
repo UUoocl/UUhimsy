@@ -23,7 +23,6 @@
     <script src="obs_webSocket_details/obsConnect.js"></script>
 <script>
     let gameState;
-
     const obs = new OBSWebSocket();
     wsConnect();
     
@@ -51,90 +50,198 @@
             //console.log(fileString);
 
             let quizBoardContent = JSON.stringify(fileString)
-        
-            obs.call("CallVendorRequest", {
-                vendorName: "obs-browser",
-                requestType: "emit_event",
-                requestData: {
+            
+            console.log("send quiz data")
+            obs.call("BroadcastCustomEvent",{
+                eventData:{
                     event_name: "loadQuizBoard",
-                    event_data: { 
-                        app: "uuhimsyQuiz",
-                        data: `${quizBoardContent}`
-                    },
-                },
-            });
-
+                    app: "uuhimsyQuiz",
+                    data: `${quizBoardContent}`
+                }
+            })
+            // obs.call("CallVendorRequest", {
+            //     vendorName: "obs-browser",
+            //     requestType: "emit_event",
+            //     requestData: {
+            //         event_name: "loadQuizBoard",
+            //         event_data: { 
+            //             app: "uuhimsyQuiz",
+            //             data: `${quizBoardContent}`
+            //         },
+            //     },
+            // });
             },
         false
         );
     }
 
-    window.addEventListener( 'quizHostUpdate', function( event ) {
-        console.log("message Event received",event)
-        var data = JSON.parse( event.detail.slideNotes );
-       // console.log(data)
+    //Call Custom Event functions
+    obs.on("CustomEvent", async function (event) {
+        if (typeof window[event.event_name] === 'function') {
+            console.log("CustomEvent Received",event)
+            window[event.event_name](event);
+        }
+    });
+
+    function quizHostUpdate(event){
+        console.log(event)
+        var data = JSON.parse( event.event_data.slideNotes );
+        console.log(data)
         document.getElementById("hostNotes").innerHTML = data;
-    })
+    }
+  
+//   window.addEventListener( 'quizHostUpdate', function( event ) {
+//         console.log("message Event received",event)
+//         var data = JSON.parse( event.detail.slideNotes );
+//        // console.log(data)
+//         document.getElementById("hostNotes").innerHTML = data;
+//     })
 
     function updateClue(t,n){
         var clue = t.getAttribute("data-question-value");
         clue = clue.replace("notes-","");
         console.log(clue)
         let slideNotes = JSON.stringify(clue)
-        obs.call("CallVendorRequest", {
-            vendorName: "obs-browser",
-            requestType: "emit_event",
-            requestData: {
+
+        obs.call("BroadcastCustomEvent",{
+            eventData: {
                 event_name: "quizBoardUpdate",
-                event_data: { 
-                app: "uuhimsyQuiz",
-                slideNotes: `${slideNotes}`
-                },
-            },
-        });
-    }
-
-    function sendNextSlide(){
-        let slideNotes = JSON.stringify("nextSlide")
-        obs.call("CallVendorRequest", {
-            vendorName: "obs-browser",
-            requestType: "emit_event",
-            requestData: {
-                event_name: "revealNextSlide",
-                event_data: { 
-                app: "uuhimsyQuiz",
-                slideNotes: `${slideNotes}`
-                },
-            },
-        });
-    }
-  let triggerCheck = 0
-    obs.on("InputSettingsChanged", async function (event) {
-        switch (event.inputName) {
-            case 'hotkeyText':
-                if (event.inputSettings.text === 'Tab' && triggerCheck === 0) {
-                    triggerCheck = 1; 
-                    console.log(event);
-                    // Get the currently focused element
-                    const focusedElement = document.activeElement;
-
-                    // Find the next element to focus
-                    let nextElement = focusedElement.nextElementSibling;
-
-                    // If there's no next sibling, loop back to the first element
-                    if (!nextElement) {
-                    nextElement = document.querySelector('body > *:first-child'); 
-                    }
-
-                    // Focus the next element
-                    nextElement.focus();
+                detail:{
+                    app: "uuhimsyQuiz", 
+                    slideNotes: `${slideNotes}`
                 }
-            //document.getElementById("obsws-keyboard").innerHTML = event.inputSettings.text
-            break;
-        default:
-            break;
-        }
-    })
+            }
+        });
+        // obs.call("CallVendorRequest", {
+        //     vendorName: "obs-browser",
+        //     requestType: "emit_event",
+        //     requestData: {
+        //         event_name: "quizBoardUpdate",
+        //         event_data: { 
+        //         app: "uuhimsyQuiz",
+        //         slideNotes: `${slideNotes}`
+        //         },
+        //     },
+        // });
+    }
+
+    //readClue options
+    function readClueOptions(option){
+        console.log("read clue", option)
+        obs.call("BroadcastCustomEvent", {
+            eventData: {
+                event_name: "readClue",
+                keyCode: option,
+                app: "uuhimsyQuiz"
+            }
+        });
+    }
+
+    function sendSelectedPlayer(selectedPlayer){
+        console.log("host selected player", selectedPlayer)
+        obs.call("BroadcastCustomEvent", {
+            eventData: {
+                event_name: "getPlayer",
+                playerName: selectedPlayer,
+                app: "uuhimsyQuiz"
+            }
+        });
+    }
+
+    function sendScoreBoardUpdate(){
+        console.log("get score board")
+        obs.call("BroadcastCustomEvent", {
+            eventData: {
+                event_name: "scoreBoardUpdate",
+                app: "uuhimsyQuiz"
+            }
+        });
+    }
+
+    function sendJudgesResponse(judgesResponse){
+        console.log("Judges Response", judgesResponse)
+        obs.call("BroadcastCustomEvent", {
+            eventData: {
+                event_name: "getJudgeResponse",
+                judgesResponse: judgesResponse,
+                app: "uuhimsyQuiz"
+            }
+        });
+    }
+
+    function sendNextGuess(nextGuess){
+        console.log("next slide get player or game board?", nextGuess)
+        obs.call("BroadcastCustomEvent", {
+            eventData: {
+                event_name: "nextGuess",
+                nextGuess: nextGuess,
+                app: "uuhimsyQuiz"
+            }
+        });
+    }
+    //sendPlayMedia()
+    //sendReadAloud()
+    
+    function goToSlide(H,V){
+        console.log("go to slide")
+        let slideNotes = JSON.stringify("nextSlide")
+        obs.call("BroadcastCustomEvent", {
+            eventData: {
+                event_name: "revealGoToSlide",
+                app: "uuhimsyQuiz",
+                h:H, v:V
+            }
+        });
+    }
+    function sendNextSlide(){
+        console.log("go to next")
+        let slideNotes = JSON.stringify("nextSlide")
+        obs.call("BroadcastCustomEvent", {
+            eventData: {
+                event_name: "revealNextSlide",
+                app: "uuhimsyQuiz",
+            }
+        });
+        // obs.call("CallVendorRequest", {
+        //     vendorName: "obs-browser",
+        //     requestType: "emit_event",
+        //     requestData: {
+        //         event_name: "revealNextSlide",
+        //         event_data: { 
+        //         app: "uuhimsyQuiz",
+        //         slideNotes: `${slideNotes}`
+        //         },
+        //     },
+        // });
+    }
+
+  let triggerCheck = 0
+    // obs.on("InputSettingsChanged", async function (event) {
+    //     switch (event.inputName) {
+    //         case 'hotkeyText':
+    //             if (event.inputSettings.text === 'Tab' && triggerCheck === 0) {
+    //                 triggerCheck = 1; 
+    //                 console.log(event);
+    //                 // Get the currently focused element
+    //                 const focusedElement = document.activeElement;
+
+    //                 // Find the next element to focus
+    //                 let nextElement = focusedElement.nextElementSibling;
+
+    //                 // If there's no next sibling, loop back to the first element
+    //                 if (!nextElement) {
+    //                 nextElement = document.querySelector('body > *:first-child'); 
+    //                 }
+
+    //                 // Focus the next element
+    //                 nextElement.focus();
+    //             }
+    //         //document.getElementById("obsws-keyboard").innerHTML = event.inputSettings.text
+    //         break;
+    //     default:
+    //         break;
+    //     }
+    // })
   </script>
     </body>
 </html>
