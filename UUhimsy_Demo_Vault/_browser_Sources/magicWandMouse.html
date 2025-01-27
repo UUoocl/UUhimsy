@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+  </head>
+  <body>
+    <main>
+    </main>
+    <script src="obs_webSocket_details/websocketDetails.js"></script>
+    <script src="obs_webSocket_details/obs-ws.js"></script>
+    <script src="obs_webSocket_details/obsConnect.js"></script>
+    <script>
+      let mousePosX = 0, mousePosY = 0;
+
+      const obs = new OBSWebSocket();
+      wsConnect();
+      
+      async function wsConnect() 
+      {  
+        await connectOBS(obs);
+      }
+
+      obs.on("InputSettingsChanged", async function (event) {
+         switch (event.inputName) {
+          case 'cursor':
+            mousePosition = event.inputSettings.text.split(" ");
+            mousePosX = Number(mousePosition[0])
+            mousePosY = Number(mousePosition[1])
+            console.log(mousePosX,mousePosY)
+            break;
+          case 'mouseButtonText':
+            mousePressed(event.inputSettings.text);
+            break;
+          default:
+            break;
+        }
+      })
+      </script>
+    <script src="lib/p5.js"></script>
+    <script src="lib/magicWandMouse_Sketch.js"></script>
+    <script src="lib/magicWandMouse_Class.js"></script>
+  </body>
+</html>
