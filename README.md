@@ -1,5 +1,5 @@
 # UUhimsy
-This repository features examples that demonstrate how to create whimsical interactions with Obsidian and OBS.  The featured experiments combine Obsidian, OBS, Zoom, Javascript and automation tools to create presentations and games to entertain and engage your audience.  
+This repository features examples to create whimsical interactions with Obsidian and OBS.  The featured experiments combine Obsidian, OBS, Zoom, Javascript and automation tools to create presentations and games to entertain and engage your audience.  
 
 This repo includes an Obsidian Vault and Plugin and an OBS Scene Collection for you to try.  
 
