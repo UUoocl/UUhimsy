@@ -13,6 +13,17 @@ Reveal.on( 'ready', event => {
       window[event.event_name](event);
     }
   });
+
+  obs.on("InputSettingsChanged", function (event) {
+    if(event.inputName ==='hotkeyText' && 
+      gameState === "getPlayer" &&
+      usbPlayers.has(event.inputSettings.text)){
+        gameState = "0";
+        console.log(event);
+        const playerName = { playerName: usbPlayers.get(event.inputSettings.text)}
+        getPlayer(playerName)
+      }
+})
 });
 
   Reveal.on('slidechanged', event => {
@@ -53,7 +64,17 @@ Reveal.on( 'ready', event => {
   let getUserInput, gameState = 0;
   let playerScores = new Map();
   let elem, mediaElem;
-
+  let usbPlayers = new Map([
+    ['F13','Player 1'],
+    ['F14','Player 2'],
+    ['F15','Player 3'],
+    ['F16','Player 4'],
+    ['F17','Player 5'],
+    ['F18','Player 6'],
+    ['F19','Player 7'],
+    ['F20','Player 8'],
+  ]);
+  
   function readClue(event) {
     console.log("function read clue called")
     elem = document.getElementById("question-template");
@@ -446,9 +467,9 @@ async function nextGuess(event) {
   window.addEventListener("osc-message", function (event) {
     console.log("osc-message received: ", event);
     if(event.detail.webSocketMessage.includes("/emojiChanged") && gameState === "getPlayer"){
-      let wsMessage = { playerName: JSON.parse(event.detail.webSocketMessage)[2]}
-      getPlayer(wsMessage)
+      gameState = "0";
+      const playerName = { playerName: JSON.parse(event.detail.webSocketMessage)[2]}
+      getPlayer(playerName)
       //console.log( JSON.stringify(event.detail.webSocketMessage))
     }
   });
-  
