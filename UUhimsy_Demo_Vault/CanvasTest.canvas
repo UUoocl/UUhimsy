@@ -1,0 +1,13 @@
+{
+	"nodes":[
+		{"id":"42ce1ef6645c25ed","type":"file","file":"Presentations/Sections/Fragments.md","x":465,"y":231,"width":400,"height":400},
+		{"id":"6e70b69a5f9a5e26","type":"file","file":"Presentations/Sections/Presenter.md","x":280,"y":-425,"width":400,"height":450,"color":"#b34d4d"},
+		{"id":"02e2c2de1ae6f86b","type":"text","text":"Card 1","x":-680,"y":-320,"width":250,"height":60,"color":"6"},
+		{"id":"b48e29a5415d114c","type":"file","file":"Presentations/Sections/Presenter.md","x":-300,"y":-25,"width":400,"height":465,"color":"3"}
+	],
+	"edges":[
+		{"id":"08f7020152b5b312","fromNode":"b48e29a5415d114c","fromSide":"right","toNode":"6e70b69a5f9a5e26","toSide":"bottom"},
+		{"id":"9f11d00f0ad5a727","fromNode":"02e2c2de1ae6f86b","fromSide":"bottom","toNode":"b48e29a5415d114c","toSide":"left"},
+		{"id":"8516431e293cd853","fromNode":"b48e29a5415d114c","fromSide":"right","toNode":"42ce1ef6645c25ed","toSide":"left"}
+	]
+}
